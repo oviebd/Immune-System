@@ -6,23 +6,28 @@ public class MoveCircular : MonoBehaviour
 {
 	float rotationSpeed = 10.0f;
 	bool isButtonPressed = false;
+
+	public GameObject _bulletObj;
+	public GameObject _parentObj;
     void Start()
     {
 	
 	}
 
- 
     void Update()
     {
-		float rotation = 0 ;
-
-		if (Input.GetKey(KeyCode.A) || isButtonPressed) 
+		if (Input.GetKey(KeyCode.S))
 		{
-			rotation = 1;
-			rotation *= Time.deltaTime * rotationSpeed;
-			transform.up = RotateFunction(transform.up, rotation, true);
+		    GameObject bulletObj =	InstantiatorHelper.InstantiateObject(_bulletObj, _parentObj);
+			//StartCoroutine(madeParentNull(bulletObj));
 		}
 
+	}
+
+	IEnumerator madeParentNull(GameObject bullet)
+	{
+		yield return new WaitForSeconds(0.5f);
+		bullet.transform.parent = null;
 	}
 
 	public void ButtonPressedDown()
@@ -34,17 +39,5 @@ public class MoveCircular : MonoBehaviour
 		isButtonPressed = false;
 	}
 
-	Vector3 RotateFunction(Vector3 initialPosition, float angle, bool isClockwise)
-	{
-		if (isClockwise)
-		{
-			angle = 2 * Mathf.PI - angle;
-		}
-		float xVal = initialPosition.x * Mathf.Cos(angle) - initialPosition.y * Mathf.Sin(angle);
-		float yVal = initialPosition.x * Mathf.Sin(angle) + initialPosition.y * Mathf.Cos(angle);
 
-		Vector3 resultedVector = new Vector3(xVal, yVal, initialPosition.z);
-		//Debug.Log(resultedVector);
-		return resultedVector;
-	}
 }
