@@ -4,31 +4,43 @@ using UnityEngine;
 
 public class MoveCircular : MonoBehaviour
 {
-
-	float rotateZ ;
-    // Start is called before the first frame update
+	float rotationSpeed = 10.0f;
+	bool isButtonPressed = false;
     void Start()
     {
-		rotateZ = transform.rotation.z;
-
+	
 	}
 
-
-	public void RotateClockWise()
-	{
-
-	}
-
-	public void RotateAntiClockWIse()
-	{
-
-	}
-
-    // Update is called once per frame
+ 
     void Update()
     {
-		rotateZ = Mathf.Abs ( transform.rotation.z) + 10 * Time.deltaTime;
-		Debug.Log(rotateZ);
-		transform.Rotate(transform.rotation.x, transform.rotation.y, rotateZ);
+		float rotation = 0 ;
+
+		if (Input.GetKey(KeyCode.A) || isButtonPressed) 
+		{
+			rotation = 1;
+			rotation *= Time.deltaTime * rotationSpeed;
+			transform.up = RotateFunction(transform.up, rotation, true);
+		}
+
+	}
+
+	public void ButtonPressedDown()
+	{
+		isButtonPressed = true;
+	}
+
+	Vector3 RotateFunction(Vector3 initialPosition, float angle, bool isClockwise)
+	{
+		if (isClockwise)
+		{
+			angle = 2 * Mathf.PI - angle;
+		}
+		float xVal = initialPosition.x * Mathf.Cos(angle) - initialPosition.y * Mathf.Sin(angle);
+		float yVal = initialPosition.x * Mathf.Sin(angle) + initialPosition.y * Mathf.Cos(angle);
+
+		Vector3 resultedVector = new Vector3(xVal, yVal, initialPosition.z);
+		//Debug.Log(resultedVector);
+		return resultedVector;
 	}
 }
