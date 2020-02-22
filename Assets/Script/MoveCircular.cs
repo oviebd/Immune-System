@@ -29,6 +29,10 @@ public class MoveCircular : MonoBehaviour
 	{
 		isButtonPressed = true;
 	}
+	public void ButtonPressedUp()
+	{
+		isButtonPressed = false;
+	}
 
 	Vector3 RotateFunction(Vector3 initialPosition, float angle, bool isClockwise)
 	{
