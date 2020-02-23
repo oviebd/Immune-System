@@ -9,6 +9,9 @@ public class InputManager : MonoBehaviour
 	public delegate void RotationInputButtonPressed( bool isPressed);
 	public static event RotationInputButtonPressed onRotationInputButtonPressed;
 
+	public delegate void ShootInputButtonPressed();
+	public static event ShootInputButtonPressed onShootButtonPressed;
+
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.A))
@@ -16,6 +19,9 @@ public class InputManager : MonoBehaviour
 
 		if (Input.GetKeyUp(KeyCode.A))
 			RotationButtonPressedUp();
+
+		if (Input.GetKey(KeyCode.S))
+			ShootButtonPressed();
 
 		onRotationInputButtonPressed(_isRotationInputButtonPressed);
 	}
@@ -27,5 +33,10 @@ public class InputManager : MonoBehaviour
 	public void RotationButtonPressedUp()
 	{
 		_isRotationInputButtonPressed = false;
+	}
+
+	public void ShootButtonPressed()
+	{
+		onShootButtonPressed();
 	}
 }
