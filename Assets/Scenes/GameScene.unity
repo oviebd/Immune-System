@@ -562,8 +562,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1199572294}
   - component: {fileID: 1199572295}
+  - component: {fileID: 1199572296}
   m_Layer: 0
-  m_Name: Type 1
+  m_Name: Ship Type 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,6 +598,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 10
+--- !u!114 &1199572296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199572293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d518b0396ac3543b7ecae03842bace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunList:
+  - {fileID: 1363783307}
 --- !u!1 &1250032727
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +623,7 @@ GameObject:
   - component: {fileID: 1250032729}
   - component: {fileID: 1250032728}
   m_Layer: 0
-  m_Name: circle
+  m_Name: 'Graphics '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,8 +704,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1363783305}
   - component: {fileID: 1363783306}
+  - component: {fileID: 1363783307}
   m_Layer: 0
-  m_Name: gun  1
+  m_Name: gun_Type 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -761,6 +777,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1363783307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363783304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletObj: {fileID: 6692334961369828460, guid: 613c727b3c3922049b3b7998ecf39cf0,
+    type: 3}
+  _parentObj: {fileID: 453896368}
 --- !u!1 &1475062055
 GameObject:
   m_ObjectHideFlags: 0
