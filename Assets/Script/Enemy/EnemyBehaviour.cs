@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject playerObj;
+    float speed = 2.0f;
 
     void Start()
     {
@@ -13,7 +14,8 @@ public class EnemyBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        //look();
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, playerObj.transform.position, step);
     }
 
     void look()
