@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
+	public Rigidbody2D rb;
 
 	private void Start()
 	{
 		Destroy(this.gameObject , 5);
+		//Invoke("MadeCanMove",1.0f);
+		rb.velocity = transform.right * 10.0f;
 	}
-	void Update()
-    {
-		float posY = transform.localPosition.y + (1* Time.deltaTime);
-		transform.localPosition = new Vector3(transform.localPosition.x, posY, transform.localPosition.z);
-    }
+	
 }

@@ -6,9 +6,7 @@ public class InstantiatorHelper : MonoBehaviour {
 
 	public  static GameObject InstantiateObject(GameObject obj, GameObject parentObj)
 	{
-		Vector3 parentPos = parentObj.transform.position;
-		GameObject newObj = Instantiate(obj, parentObj.transform,false);
-	  // newObj.transform.parent = parentObj.transform;
+		GameObject newObj = Instantiate(obj, parentObj.transform.position, parentObj.transform.rotation);
 		return newObj;
 	}
 }
