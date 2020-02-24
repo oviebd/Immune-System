@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public class EnemyBehaviour : MonoBehaviour,IColliderEnter
 {
     public GameObject playerObj;
     float speed = 1.0f;
@@ -31,8 +31,12 @@ public class EnemyBehaviour : MonoBehaviour
     {
         Vector3 dir = playerObj.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        Debug.Log(angle);
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+	public void onCollide(GameObject collidedObject)
+	{
+		Destroy(collidedObject);
+		Destroy(this.gameObject);
+	}
 }

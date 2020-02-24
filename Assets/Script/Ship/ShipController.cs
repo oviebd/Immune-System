@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipController : MonoBehaviour
+public class ShipController : MonoBehaviour,IColliderEnter
 {
 	private bool _canRotate = false;
 	[SerializeField] private float _rotationSpeed = 10;
@@ -31,5 +31,10 @@ public class ShipController : MonoBehaviour
 	void SetRotation(bool canMove)
 	{
 		_canRotate = canMove;
+	}
+
+	public void onCollide(GameObject collidedObj)
+	{
+		Destroy(collidedObj);
 	}
 }
