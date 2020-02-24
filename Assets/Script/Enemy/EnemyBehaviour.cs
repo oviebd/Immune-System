@@ -5,9 +5,18 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject playerObj;
-    float speed = 2.0f;
+    float speed = 1.0f;
 
-    void Start()
+	private void Awake()
+	{
+		ShipController controller = FindObjectOfType<ShipController>();
+		if (controller != null)
+		{
+			playerObj = controller.gameObject;
+		}
+	}
+
+	void Start()
     {
         // transform.LookAt(playerObj.transform);
         look();
