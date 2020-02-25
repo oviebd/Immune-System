@@ -24,8 +24,9 @@ public class EnemyBehaviour : MonoBehaviour,IColliderEnter
     private void Update()
     {
         float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, playerObj.transform.position, step);
-    }
+		look();
+	  transform.position = Vector3.MoveTowards(transform.position, playerObj.transform.position, step);
+	}
 
     void look()
     {
