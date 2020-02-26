@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObj: {fileID: 0}
+  graphicsObj: {fileID: 5610750885282326573}
 --- !u!61 &1902589863592477802
 BoxCollider2D:
   m_ObjectHideFlags: 0

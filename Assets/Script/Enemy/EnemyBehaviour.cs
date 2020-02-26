@@ -5,12 +5,11 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour,IColliderEnter
 {
     public GameObject playerObj;
-
-    public delegate void TargetFound(Transform targetTransform);
-	public static event TargetFound onTargetFound;
+    [SerializeField] private GameObject graphicsObj;
 
     private void Start()
     {
+        graphicsObj.SetActive (false);
         SearchForPlayer();
     }
 
@@ -21,6 +20,8 @@ public class EnemyBehaviour : MonoBehaviour,IColliderEnter
 
         if (controller != null) 
         {
+            graphicsObj.SetActive(true);
+
             Transform targetTransform = controller.gameObject.transform;
             IMove[] moves = gameObject.GetComponents<IMove>();
 
