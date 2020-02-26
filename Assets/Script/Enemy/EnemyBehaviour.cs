@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour,IColliderEnter
+public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject playerObj;
     [SerializeField] private GameObject graphicsObj;
@@ -32,9 +32,5 @@ public class EnemyBehaviour : MonoBehaviour,IColliderEnter
         }
     }
 
-    public void onCollide(GameObject collidedObject)
-	{
-		Destroy(collidedObject);
-		Destroy(this.gameObject);
-	}
+    
 }

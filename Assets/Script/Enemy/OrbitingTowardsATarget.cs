@@ -26,7 +26,7 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 	{
 		if (_isStopAndStoot)
         {
-			Shoot();
+			MovementStop();
 			return;
 		}
 			
@@ -57,13 +57,17 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 		StartCoroutine(timeCounter());
 	}
 
-    void Shoot()
+    void MovementStop()
     {
-		GunController gunController = this.gameObject.GetComponent<GunController>();
+		IENemyBehaviour behaviour = this.gameObject.GetComponent<IENemyBehaviour>();
+
+		if (behaviour != null)
+			behaviour.OnMovementStop();
+		/*GunController gunController = this.gameObject.GetComponent<GunController>();
         if(gunController != null)
         {
 			gunController.Shoot();
 
-		}
-    }
+		}*/
+	}
 }

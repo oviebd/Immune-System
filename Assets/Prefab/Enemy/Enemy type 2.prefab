@@ -158,9 +158,9 @@ GameObject:
   - component: {fileID: 3022287168575978612}
   - component: {fileID: -2047395126525660461}
   - component: {fileID: -4085848716448736657}
-  - component: {fileID: 748119348}
   - component: {fileID: -8178394547398697300}
   - component: {fileID: 1877703051718978272}
+  - component: {fileID: 6689067606414967003}
   m_Layer: 11
   m_Name: Enemy type 2
   m_TagString: affectedByPlanetGravity
@@ -288,20 +288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   isAllTimeUpdate: 1
---- !u!114 &748119348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610750885945116250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a6a97f80f3944c7eb31689faee167c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerObj: {fileID: 0}
-  graphicsObj: {fileID: 0}
 --- !u!114 &-8178394547398697300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,3 +318,15 @@ MonoBehaviour:
   _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
     type: 3}
   _parentObj: {fileID: 1632807721770688045}
+--- !u!114 &6689067606414967003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a731a55f6874531868f9cdfeeb9334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
