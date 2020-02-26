@@ -476,7 +476,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 748119347}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a6a97f80f3944c7eb31689faee167c6, type: 3}
   m_Name: 
@@ -1761,7 +1761,7 @@ PrefabInstance:
     - target: {fileID: 5559688107112373697, guid: e9e46a285fac64747acc4c937047a63d,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5610750885945116249, guid: e9e46a285fac64747acc4c937047a63d,
         type: 3}
@@ -1827,6 +1827,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: affectedByPlanetGravity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5610750885945116250, guid: e9e46a285fac64747acc4c937047a63d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e46a285fac64747acc4c937047a63d, type: 3}
