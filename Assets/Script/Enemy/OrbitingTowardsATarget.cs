@@ -25,7 +25,11 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 	private void Update()
 	{
 		if (_isStopAndStoot)
+        {
+			Shoot();
 			return;
+		}
+			
 		else
 			RotateAround();
 	}
@@ -52,4 +56,14 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 
 		StartCoroutine(timeCounter());
 	}
+
+    void Shoot()
+    {
+		GunController gunController = this.gameObject.GetComponent<GunController>();
+        if(gunController != null)
+        {
+			gunController.Shoot();
+
+		}
+    }
 }

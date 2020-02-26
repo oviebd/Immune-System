@@ -5,12 +5,27 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
 	[SerializeField] private List<GunBase> gunList;
+	[SerializeField] private bool isItEnemyGun = false;
+
     void Start()
     {
-		InputManager.onShootButtonPressed += onGunButtonPressed;
-    }
+        if(isItEnemyGun == false)
+			InputManager.onShootButtonPressed += onGunButtonPressed;
 
-	void onGunButtonPressed()
+	}
+    private void OnDestroy()
+    {
+		if (isItEnemyGun == false)
+			InputManager.onShootButtonPressed -= onGunButtonPressed;
+	}
+
+    public void Shoot()
+    {
+		if (isItEnemyGun == true)
+			onGunButtonPressed();
+	}
+
+    void onGunButtonPressed()
 	{
 		for(int i=0; i<gunList.Count; i++)
 		{
@@ -18,4 +33,6 @@ public class GunController : MonoBehaviour
 			gun.InstantiateBullet();
 		}
 	}
+
+
 }
