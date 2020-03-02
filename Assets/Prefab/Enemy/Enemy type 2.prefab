@@ -330,3 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a731a55f6874531868f9cdfeeb9334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerObj: {fileID: 0}
+  graphicsObj: {fileID: 2479212942419892027}
+  _enemyType: 1

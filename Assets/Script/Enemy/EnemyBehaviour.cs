@@ -6,15 +6,16 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject playerObj;
     [SerializeField] private GameObject graphicsObj;
-
-    private void Start()
+	
+	private void Start()
     {
         graphicsObj.SetActive (false);
         SearchForPlayer();
     }
 
+	
 
-    void SearchForPlayer()
+	void SearchForPlayer()
     {
         ShipController controller = FindObjectOfType<ShipController>();
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour_Type2 : MonoBehaviour, IENemyBehaviour
+public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 {
     GunController gunController = null;
 

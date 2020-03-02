@@ -6,8 +6,8 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 {
     [SerializeField] GameObject _playerObj;
     [SerializeField] private GameObject graphicsObj;
-
-    private void Start()
+	[SerializeField] private GameEnum.EnemyType _enemyType;
+	private void Start()
     {
         SearchForPlayer();
     }
@@ -29,9 +29,12 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
         }
     }
 
+	public GameEnum.EnemyType GetEnemyType()
+	{
+		return _enemyType;
+	}
 
-
-    public void onCollide(GameObject collidedObject)
+	public void onCollide(GameObject collidedObject)
     {
         Destroy(collidedObject);
         Destroy(this.gameObject);
