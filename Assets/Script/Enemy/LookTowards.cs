@@ -7,7 +7,7 @@ public class LookTowards : MonoBehaviour,IMove
     [SerializeField] private Transform target;
     [SerializeField] private bool isAllTimeUpdate = false;
 
-    public void Setup(Transform target)
+    public void Setup(Transform target,float distance)
     {
         this.target = target;
 

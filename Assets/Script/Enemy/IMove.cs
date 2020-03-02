@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IMove 
 {
-    void Setup(Transform targetTransform);
+    void Setup(Transform targetTransform,float distance);
 }

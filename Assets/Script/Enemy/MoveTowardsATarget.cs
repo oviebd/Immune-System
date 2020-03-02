@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MoveTowardsATarget : MonoBehaviour,IMove
 {
-    [SerializeField] private Transform target;
-    [SerializeField] private float movingSpeed = 1.0f;
-
+    [SerializeField] private Transform _target;
+    [SerializeField] private float _movingSpeed = 1.0f;
+	[SerializeField] private float _stoppingDistance = 0.0f;
  
-    public void Setup(Transform target)
+    public void Setup(Transform target,float distance)
     {
-        this.target = target;
+        this._target = target;
+		this._stoppingDistance = distance;
     }
 
     void Update()
@@ -20,11 +21,15 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
 
     private void MoveTowards()
     {
-        if(target!= null)
+        if(_target!= null)
         {
-            float step = movingSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+			if (MathHandler.IsExceedMinimumDistance(_target, transform, _stoppingDistance))
+			{
+				float step = _movingSpeed * Time.deltaTime;
+				transform.position = Vector3.MoveTowards(transform.position, _target.position, step);
+			}
         }
-       
     }
+
+	
 }

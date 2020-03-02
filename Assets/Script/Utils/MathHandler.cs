@@ -16,4 +16,27 @@ public class MathHandler
 		Vector3 resultedVector = new Vector3(xVal, yVal, initialPosition.z);
 		return resultedVector;
 	}
+
+	public static float GetAngle(Transform target, Transform otherObj)
+	{
+		Vector2 playerRight = target.right;
+		Vector2 towardsOther = otherObj.position - target.position;
+
+		//float angle = Vector2.Angle(playerRight, towardsOther);
+
+		Vector3 dir = target.position - otherObj.position ;
+		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+		Debug.Log("Angle is :  " + angle);
+		return angle;
+	}
+
+	public static bool IsExceedMinimumDistance(Transform obj1,Transform obj2 , float targetedDistance)
+	{
+		float dist = Vector3.Distance(obj1.position, obj2.position);
+		//Debug.Log("Distance to other: " + dist);
+		if (dist > targetedDistance)
+			return true;
+		else return false;
+	}
 }

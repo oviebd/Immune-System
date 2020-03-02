@@ -18,7 +18,7 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 
         for (int i = 0; i < moves.Length; i++)
         {
-            moves[i].Setup(targetTransform);
+            moves[i].Setup(targetTransform,3.0f);
         }
     }
 

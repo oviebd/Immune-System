@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class OrbitingTowardsATarget : MonoBehaviour,IMove
 {
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform _target;
 	[SerializeField] private float angularSpeed = 1.0f;
-	[SerializeField] private float radious = 4.0f;
+	[SerializeField] private float _radious = 4.0f;
 
 	private float _posX, _posY, _angle = 0.0f;
 	private bool _isStopAndStoot = false;
@@ -17,10 +17,12 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 		StartCoroutine(timeCounter());
 	}
 
-	public void Setup(Transform target)
+	public void Setup(Transform target,float distance)
     {
-        this.target = target;
-    }
+        this._target = target;
+		this._radious = distance;
+		_angle = MathHandler.GetAngle(_target, transform);
+	}
 
 	private void Update()
 	{
@@ -36,17 +38,22 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 
 	void RotateAround()
 	{
-		if (target == null)
+		if (_target == null)
 			return;
+	
+		if (MathHandler.IsExceedMinimumDistance(_target, transform, _radious) == false)
+		{
+			_posX = _target.position.x + Mathf.Cos(_angle) * _radious;
+			_posY = _target.position.y + Mathf.Sin(_angle) * _radious;
 
-		_posX = target.position.x + Mathf.Cos(_angle) * radious;
-		_posY = target.position.y + Mathf.Sin(_angle) * radious;
+			transform.position = new Vector2(_posX, _posY);
+			_angle = _angle + Time.deltaTime * angularSpeed;
+			Debug.Log("Calc angle ; " + _angle);
+			if (_angle >= 360)
+				_angle = 0;
+		}
 
-		transform.position = new Vector2(_posX, _posY);
-		_angle = _angle + Time.deltaTime * angularSpeed;
-
-		if (_angle >= 360)
-			_angle = 0;
+		
 	}
 
 	IEnumerator timeCounter()
@@ -63,11 +70,5 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 
 		if (behaviour != null)
 			behaviour.OnMovementStop();
-		/*GunController gunController = this.gameObject.GetComponent<GunController>();
-        if(gunController != null)
-        {
-			gunController.Shoot();
-
-		}*/
 	}
 }

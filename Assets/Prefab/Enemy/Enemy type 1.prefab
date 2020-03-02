@@ -206,8 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629f8c8eacd1e4ace990a693e21f07a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  movingSpeed: 1
+  _target: {fileID: 0}
+  _movingSpeed: 1
+  _stoppingDistance: 0
 --- !u!114 &7922354520863022930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +223,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerObj: {fileID: 0}
   graphicsObj: {fileID: 5610750885282326573}
+  _enemyType: 0
