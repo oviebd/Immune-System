@@ -2,42 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour,IColliderEnter
+public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject playerObj;
-    float speed = 1.0f;
+    [SerializeField] private GameObject graphicsObj;
 
-	private void Awake()
-	{
-		ShipController controller = FindObjectOfType<ShipController>();
-		if (controller != null)
-		{
-			playerObj = controller.gameObject;
-		}
-	}
-
-	void Start()
+    private void Start()
     {
-        // transform.LookAt(playerObj.transform);
-        look();
-    }
-    private void Update()
-    {
-        float step = speed * Time.deltaTime;
-		look();
-	  transform.position = Vector3.MoveTowards(transform.position, playerObj.transform.position, step);
-	}
-
-    void look()
-    {
-        Vector3 dir = playerObj.transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        graphicsObj.SetActive (false);
+        SearchForPlayer();
     }
 
-	public void onCollide(GameObject collidedObject)
-	{
-		Destroy(collidedObject);
-		Destroy(this.gameObject);
-	}
+
+    void SearchForPlayer()
+    {
+        ShipController controller = FindObjectOfType<ShipController>();
+
+        if (controller != null) 
+        {
+            graphicsObj.SetActive(true);
+
+            Transform targetTransform = controller.gameObject.transform;
+            IMove[] moves = gameObject.GetComponents<IMove>();
+
+            for( int i =0; i<moves.Length;i++)
+            {
+                moves[i].Setup(targetTransform);
+            }
+        }
+    }
+
+    
 }
