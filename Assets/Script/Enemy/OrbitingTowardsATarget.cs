@@ -5,12 +5,18 @@ using UnityEngine;
 public class OrbitingTowardsATarget : MonoBehaviour,IMove
 {
     [SerializeField] private Transform _target;
-	[SerializeField] private float angularSpeed = 1.0f;
+	[SerializeField] private float angularSpeed = 0.5f;
 	[SerializeField] private float _radious = 4.0f;
 
 	private float _posX, _posY, _angle = 0.0f;
+    
 	private bool _isStopAndStoot = false;
 	private float _stopTime = 2.0f;
+
+	private bool isFirstTime = true;
+
+	public bool CanMove = true;
+
 
 	private void Start()
 	{
@@ -21,39 +27,60 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
     {
         this._target = target;
 		this._radious = distance;
-		_angle = MathHandler.GetAngle(_target, transform);
+		//Rotating();
+	}
+    public void SetMoveAble(float an)
+    {
+		CanMove = true;
+		_angle = an;
+
 	}
 
 	private void Update()
 	{
-		if (_isStopAndStoot)
+        if(CanMove)
+			RotateAround();
+
+		/*if (_isStopAndStoot)
         {
 			MovementStop();
 			return;
 		}
 			
 		else
-			RotateAround();
+			RotateAround();*/
 	}
 
 	void RotateAround()
 	{
 		if (_target == null)
 			return;
-	
-		if (MathHandler.IsExceedMinimumDistance(_target, transform, _radious) == false)
+		Rotating();
+		/*if (MathHandler.IsExceedMinimumDistance(_target, transform, _radious) == false)
 		{
-			_posX = _target.position.x + Mathf.Cos(_angle) * _radious;
-			_posY = _target.position.y + Mathf.Sin(_angle) * _radious;
+			
+		}*/
+	}
 
-			transform.position = new Vector2(_posX, _posY);
-			_angle = _angle + Time.deltaTime * angularSpeed;
-			Debug.Log("Calc angle ; " + _angle);
-			if (_angle >= 360)
-				_angle = 0;
-		}
+    void Rotating()
+    {
+		/*if (isFirstTime == true)
+		{
+			_angle = MathHandler.GetAngle(_target, transform); // In Degree
+			Debug.Log("Orbit Angle degree : " + _angle);
+			_angle = _angle * Mathf.Deg2Rad; //Convert into Radians Because Sin Cos take radiant value
+			Debug.Log("Orbit Angle rad : " + _angle);
+			isFirstTime = false;
+		}*/
 
-		
+		_posX = Mathf.Cos(_angle) * _radious;
+		_posY = Mathf.Sin(_angle) * _radious;
+
+		transform.position = new Vector2(_posX, _posY);
+		_angle = _angle + Time.deltaTime * angularSpeed;
+
+		if (_angle > 360)
+			_angle = 0;
 	}
 
 	IEnumerator timeCounter()

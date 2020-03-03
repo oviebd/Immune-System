@@ -20,23 +20,39 @@ public class MathHandler
 	public static float GetAngle(Transform target, Transform otherObj)
 	{
 		Vector2 playerRight = target.right;
-		Vector2 towardsOther = otherObj.position - target.position;
+		float towardsOther = (otherObj.position.y - playerRight.y) / (otherObj.position.x - playerRight.x);
+		float angle = Mathf.Atan(towardsOther) * Mathf.Rad2Deg;
+		angle = Mathf.Abs(angle);
 
-		//float angle = Vector2.Angle(playerRight, towardsOther);
+		int quard = GetQuardLocation(otherObj.position) -1;
+		if (quard == 3)
+			angle = 360 - angle;
+        else
+			angle = (quard * 90) + angle;
 
-		Vector3 dir = target.position - otherObj.position ;
-		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-		Debug.Log("Angle is :  " + angle);
 		return angle;
 	}
 
-	public static bool IsExceedMinimumDistance(Transform obj1,Transform obj2 , float targetedDistance)
+	public static bool IsExceedMinimumDistance(Vector2 obj1,Vector2 obj2 , float targetedDistance)
 	{
-		float dist = Vector3.Distance(obj1.position, obj2.position);
-		//Debug.Log("Distance to other: " + dist);
+		float dist = Vector3.Distance(obj1, obj2);
 		if (dist > targetedDistance)
 			return true;
 		else return false;
+	}
+
+    private static int GetQuardLocation(Vector3 point)
+    {
+		int quardNumber = 1;
+		if (point.x > 0 && point.y > 0)
+			quardNumber = 1;
+        else if (point.x > 0 && point.y < 0 )
+			quardNumber = 4;
+		else if (point.x < 0 && point.y > 0)
+			quardNumber = 2;
+		else if (point.x < 0 && point.y < 0)
+			quardNumber = 3;
+
+		return quardNumber;
 	}
 }

@@ -7,8 +7,8 @@ public class EnemyController : MonoBehaviour
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
 	void Start()
     {
-		//InvokeRepeating("SpawnEnemy", 1.0f, 2.0f);
-		SpawnEnemy();
+		InvokeRepeating("SpawnEnemy", 1.0f, 2.0f);
+		//SpawnEnemy();
 	}
 
     // Update is called once per frame
@@ -40,9 +40,9 @@ public class EnemyController : MonoBehaviour
 		int randomRange = Random.Range(0, 100);
 		GameEnum.EnemyType type = GameEnum.EnemyType.Type_1;
 
-		if (randomRange < 75)
+		if (randomRange < 50)
 			type = GameEnum.EnemyType.Type_1;
-		else if (randomRange >= 75 && randomRange <= 100)
+		else if (randomRange >= 50 && randomRange <= 100)
 			type = GameEnum.EnemyType.Type_2;
 
 		type = GameEnum.EnemyType.Type_2;

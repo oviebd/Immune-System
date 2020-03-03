@@ -133,7 +133,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5325149ff86424c7d94188fd1997f198, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.2302627, g: 1, b: 0.051886797, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -257,8 +257,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629f8c8eacd1e4ace990a693e21f07a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnGoingCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2047395126525660461}
+        m_MethodName: SetMoveAble
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _target: {fileID: 0}
-  _movingSpeed: 1
+  _movingSpeed: 4
   _stoppingDistance: 0
 --- !u!114 &-2047395126525660461
 MonoBehaviour:
@@ -273,8 +287,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  angularSpeed: 1
+  angularSpeed: 0.5
   _radious: 4
+  CanMove: 0
 --- !u!114 &-4085848716448736657
 MonoBehaviour:
   m_ObjectHideFlags: 0

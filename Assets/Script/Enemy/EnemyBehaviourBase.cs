@@ -9,6 +9,7 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 	[SerializeField] private GameEnum.EnemyType _enemyType;
 	private void Start()
     {
+        Destroy(this.gameObject,5.0f);
         SearchForPlayer();
     }
 
