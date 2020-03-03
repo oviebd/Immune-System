@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class OrbitingTowardsATarget : MonoBehaviour,IMove
 {
-    [SerializeField] private Transform _target;
+    [SerializeField] private Vector3 _target;
 	[SerializeField] private float angularSpeed = 0.5f;
 	[SerializeField] private float _radious = 4.0f;
+	float counter = 0f;
 
 	private float _posX, _posY, _angle = 0.0f;
     
@@ -23,32 +24,45 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 		StartCoroutine(timeCounter());
 	}
 
-	public void Setup(Transform target,float distance)
+	public void Setup(Vector3 target,float distance)
     {
         this._target = target;
 		this._radious = distance;
 		//Rotating();
 	}
-    public void SetMoveAble(float an)
-    {
-		CanMove = true;
-		_angle = an;
 
+	public void Run()
+	{
+
+	}
+
+	public void SetTargetTransform(Transform targetTransform)
+	{
+	}
+
+	public void SetAngle(float angle)
+	{
+		this._angle = angle;
+	}
+	public void SetMoveAble()
+    {
+	       CanMove = true;
 	}
 
 	private void Update()
 	{
-        if(CanMove)
-			RotateAround();
-
-		/*if (_isStopAndStoot)
-        {
-			MovementStop();
-			return;
+		if (CanMove == true)
+		{
+			if (_isStopAndStoot)
+			{
+				MovementStop();
+				counter = 0;
+			}
+			else
+			{
+				RotateAround();
+			}
 		}
-			
-		else
-			RotateAround();*/
 	}
 
 	void RotateAround()
@@ -56,29 +70,18 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 		if (_target == null)
 			return;
 		Rotating();
-		/*if (MathHandler.IsExceedMinimumDistance(_target, transform, _radious) == false)
-		{
-			
-		}*/
 	}
 
     void Rotating()
     {
-		/*if (isFirstTime == true)
-		{
-			_angle = MathHandler.GetAngle(_target, transform); // In Degree
-			Debug.Log("Orbit Angle degree : " + _angle);
-			_angle = _angle * Mathf.Deg2Rad; //Convert into Radians Because Sin Cos take radiant value
-			Debug.Log("Orbit Angle rad : " + _angle);
-			isFirstTime = false;
-		}*/
-
+		Debug.Log("Rotating ... ");
 		_posX = Mathf.Cos(_angle) * _radious;
 		_posY = Mathf.Sin(_angle) * _radious;
 
 		transform.position = new Vector2(_posX, _posY);
-		_angle = _angle + Time.deltaTime * angularSpeed;
-
+		counter = counter + .0001f;
+		//_angle = _angle + counter * angularSpeed;
+		_angle = _angle + counter * angularSpeed;
 		if (_angle > 360)
 			_angle = 0;
 	}
@@ -98,4 +101,6 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 		if (behaviour != null)
 			behaviour.OnMovementStop();
 	}
+
+	
 }

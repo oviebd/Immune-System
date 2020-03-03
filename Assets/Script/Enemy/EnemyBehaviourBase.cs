@@ -7,9 +7,11 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
     [SerializeField] GameObject _playerObj;
     [SerializeField] private GameObject graphicsObj;
 	[SerializeField] private GameEnum.EnemyType _enemyType;
+	protected Vector3 targetPos;
+
 	private void Start()
     {
-        Destroy(this.gameObject,5.0f);
+       // Destroy(this.gameObject,5.0f);
         SearchForPlayer();
     }
 

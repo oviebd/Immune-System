@@ -17,9 +17,9 @@ public class MathHandler
 		return resultedVector;
 	}
 
-	public static float GetAngle(Transform target, Transform otherObj)
+	public static float GetAngle(Vector3 target, Transform otherObj)
 	{
-		Vector2 playerRight = target.right;
+		Vector2 playerRight = Vector2.right;
 		float towardsOther = (otherObj.position.y - playerRight.y) / (otherObj.position.x - playerRight.x);
 		float angle = Mathf.Atan(towardsOther) * Mathf.Rad2Deg;
 		angle = Mathf.Abs(angle);

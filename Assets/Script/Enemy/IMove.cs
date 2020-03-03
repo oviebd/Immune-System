@@ -4,5 +4,8 @@ using UnityEngine;
 
 public interface IMove 
 {
-    void Setup(Transform targetTransform,float distance);
+    void Setup( Vector3 targetPos , float distance);
+	void Run();
+	void SetTargetTransform(Transform targetTransform);
+	void SetAngle(float angle);
 }

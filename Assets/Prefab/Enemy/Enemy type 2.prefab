@@ -271,7 +271,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _target: {fileID: 0}
   _movingSpeed: 4
   _stoppingDistance: 0
 --- !u!114 &-2047395126525660461
@@ -286,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0105d1494ae54a1db2fe4ba18ea3b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _target: {x: 0, y: 0, z: 0}
   angularSpeed: 0.5
   _radious: 4
   CanMove: 0
@@ -302,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bda611baefc4c6e960fcce8334cccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  _targetTransform: {fileID: 0}
   isAllTimeUpdate: 1
 --- !u!114 &-8178394547398697300
 MonoBehaviour:

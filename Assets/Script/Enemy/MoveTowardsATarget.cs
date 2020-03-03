@@ -7,42 +7,58 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
 {
     public UnityEvent OnGoingCompleted;
 
-    [SerializeField] private Transform _target;
-    [SerializeField] private float _movingSpeed = 1.0f;
+	[SerializeField] private float _movingSpeed = 1.0f;
 	[SerializeField] private float _stoppingDistance = 0.0f;
-    Vector3 targetPos ;
-    bool isReachedDestination = false;
-    float _angle;
-    public void Setup(Transform target,float distance)
-    {
-        this._target = target;
-       // targetPos = target.transform.position;
-		this._stoppingDistance = distance;
-        ReSetTarget();
-    }
+    private Vector3 _targetPos ;
 
-    void Update()
+	bool isReachedDestination = false;
+	private bool _canMove = false;
+    float _angle;
+
+
+	public void Setup(Vector3 target,float distance)
+    {
+		_targetPos = target;
+		this._stoppingDistance = distance;
+     //   ReSetTarget();
+    }
+	public void Run()
+	{
+		if(_targetPos != null)
+			_canMove = true;
+	}
+
+	public void SetTargetTransform(Transform targetTransform)
+	{
+	}
+	public void SetAngle(float angle)
+	{
+	}
+	void Update()
     {
         MoveTowards();
     }
 
     private void MoveTowards()
     {
-        if(targetPos != null)
+        if(_canMove == true)
         {
-            if (MathHandler.IsExceedMinimumDistance(targetPos, transform.position, 0))
+            if (MathHandler.IsExceedMinimumDistance(_targetPos, transform.position, 0))
 			{
 				float step = _movingSpeed * Time.deltaTime;
-				transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
+				transform.position = Vector3.MoveTowards(transform.position, _targetPos, step);
             }
             else
             {
                 if (isReachedDestination == false)
                 {
                     isReachedDestination = true;
-                    Invoke("SetMovement", .5f);
-                    // if (OnGoingCompleted != null)
+                  //  Invoke("SetMovement", .5f);
+					if (OnGoingCompleted != null)
+						SetMovement();
 
+					this.enabled = false;
+					
                 }
                
             }
@@ -51,24 +67,8 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
 
     void SetMovement()
     {
-        //OnGoingCompleted.Invoke(0.5f);
-        FindObjectOfType<OrbitingTowardsATarget>().SetMoveAble(_angle);
+        OnGoingCompleted.Invoke();
+       // FindObjectOfType<OrbitingTowardsATarget>().SetMoveAble(_angle);
     }
-
-    void ReSetTarget()
-    {
-         _angle = MathHandler.GetAngle(_target, transform); // In Degree
-        Debug.Log(" Angle degree : " + _angle);
-        _angle = _angle * Mathf.Deg2Rad;
-        Debug.Log(" Angle rad : " + _angle);
-        float _posX = Mathf.Cos(_angle) * _stoppingDistance;
-        float _posY = Mathf.Sin(_angle) * _stoppingDistance;
-
-        targetPos = new Vector2(_posX, _posY);
-        Debug.Log(targetPos);
-        // _target.transform.position = new Vector2(_posX, _posY);
-
-    }
-
 	
 }

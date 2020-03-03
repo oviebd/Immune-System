@@ -5,8 +5,12 @@ using UnityEngine;
 public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 {
     GunController gunController = null;
+	
+	bool isReachedDestination = false;
+	float _angle;
+	float stoppingDistance = 3.0f;
 
-    public void OnMovementStop()
+	public void OnMovementStop()
     {
         Shoot();
     }
@@ -15,10 +19,16 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
     {
         Transform targetTransform = targetObj.transform;
         IMove[] moves = gameObject.GetComponents<IMove>();
+		SetInitialTarget(targetTransform);
 
-        for (int i = 0; i < moves.Length; i++)
+		for (int i = 0; i < moves.Length; i++)
         {
-            moves[i].Setup(targetTransform,3.0f);
+			IMove move = moves[i];
+
+			move.Setup(targetPos, 3.0f);
+			move.SetTargetTransform(targetTransform);
+			move.SetAngle(_angle);
+			move.Run();
         }
     }
 
@@ -33,4 +43,14 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 
         }
     }
+
+	void SetInitialTarget(Transform target)
+	{
+		_angle = MathHandler.GetAngle(target.position, transform); // In Degree
+		_angle = _angle * Mathf.Deg2Rad;
+		float _posX = Mathf.Cos(_angle) * stoppingDistance;
+		float _posY = Mathf.Sin(_angle) * stoppingDistance;
+
+		targetPos = new Vector2(_posX, _posY);
+	}
 }

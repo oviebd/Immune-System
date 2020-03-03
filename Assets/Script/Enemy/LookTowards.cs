@@ -4,30 +4,42 @@ using UnityEngine;
 
 public class LookTowards : MonoBehaviour,IMove
 {
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform _targetTransform;
     [SerializeField] private bool isAllTimeUpdate = false;
-
-    public void Setup(Transform target,float distance)
+	private bool canMove = false;
+	public void Setup(Vector3 target,float distance)
     {
-        this.target = target;
-
-        Look();
     }
 
-    private void Update()
+	public void Run()
+	{
+		canMove = true;
+		Look();
+	}
+
+	public void SetTargetTransform(Transform targetTransform)
+	{
+		this._targetTransform = targetTransform;
+	}
+	public void SetAngle(float angle)
+	{
+	}
+	private void Update()
     {
-        if (isAllTimeUpdate)
+        if (isAllTimeUpdate && canMove == true)
             Look();
     }
 
     private void Look()
     {
-        if(target != null)
+        if(_targetTransform != null)
         {
-            Vector3 dir = target.position - transform.position;
+            Vector3 dir = _targetTransform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
         
     }
+
+	
 }
