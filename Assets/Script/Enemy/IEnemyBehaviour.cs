@@ -6,4 +6,5 @@ public interface IENemyBehaviour
 {
     void OnMovementStop();
     void OnTargetFound(GameObject targetObj);
+    void OnDestroyObject();
 }

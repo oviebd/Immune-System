@@ -53,4 +53,9 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 
 		targetPos = new Vector2(_posX, _posY);
 	}
+
+    public void OnDestroyObject()
+    {
+       
+    }
 }

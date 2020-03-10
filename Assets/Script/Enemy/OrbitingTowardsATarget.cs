@@ -101,5 +101,8 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 			behaviour.OnMovementStop();
 	}
 
-	
+    public void StopMovement()
+    {
+		CanMove = false;
+    }
 }

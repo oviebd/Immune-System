@@ -8,4 +8,5 @@ public interface IMove
 	void Run();
 	void SetTargetTransform(Transform targetTransform);
 	void SetAngle(float angle);
+	void StopMovement();
 }

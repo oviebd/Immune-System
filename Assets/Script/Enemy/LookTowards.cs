@@ -6,14 +6,14 @@ public class LookTowards : MonoBehaviour,IMove
 {
     [SerializeField] private Transform _targetTransform;
     [SerializeField] private bool isAllTimeUpdate = false;
-	private bool canMove = false;
+	private bool _canMove = false;
 	public void Setup(Vector3 target,float distance)
     {
     }
 
 	public void Run()
 	{
-		canMove = true;
+		_canMove = true;
 		Look();
 	}
 
@@ -26,7 +26,7 @@ public class LookTowards : MonoBehaviour,IMove
 	}
 	private void Update()
     {
-        if (isAllTimeUpdate && canMove == true)
+        if (isAllTimeUpdate && _canMove == true)
             Look();
     }
 
@@ -41,5 +41,8 @@ public class LookTowards : MonoBehaviour,IMove
         
     }
 
-	
+    public void StopMovement()
+    {
+        _canMove = false;
+    }
 }

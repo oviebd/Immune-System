@@ -41,12 +41,13 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
 
     private void MoveTowards()
     {
-        if(_canMove == true)
+        if (_canMove == true)
         {
             if (MathHandler.IsExceedMinimumDistance(_targetPos, transform.position, 0))
 			{
+               
 				float step = _movingSpeed * Time.deltaTime;
-				transform.position = Vector3.MoveTowards(transform.position, _targetPos, step);
+                transform.position = Vector3.MoveTowards(transform.position, _targetPos, step);
             }
             else
             {
@@ -70,5 +71,9 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
         OnGoingCompleted.Invoke();
        // FindObjectOfType<OrbitingTowardsATarget>().SetMoveAble(_angle);
     }
-	
+
+    public void StopMovement()
+    {
+        _canMove = false;
+    }
 }
