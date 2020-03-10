@@ -19,18 +19,20 @@ public class MathHandler
 
 	public static float GetAngle(Vector3 target, Transform otherObj)
 	{
-		Vector2 playerRight = Vector2.right;
+		Vector2 playerRight = Vector2.zero;
 		float towardsOther = (otherObj.position.y - playerRight.y) / (otherObj.position.x - playerRight.x);
 		float angle = Mathf.Atan(towardsOther) * Mathf.Rad2Deg;
-		angle = Mathf.Abs(angle);
-
+        angle = Mathf.Abs(angle);
 		int quard = GetQuardLocation(otherObj.position) -1;
-		if (quard == 3)
+
+        if (quard == 3)
 			angle = 360 - angle;
-        else
+		else if (quard == 1)
+			angle = 180 - angle;
+		else
 			angle = (quard * 90) + angle;
 
-		return angle;
+        return angle;
 	}
 
 	public static bool IsExceedMinimumDistance(Vector2 obj1,Vector2 obj2 , float targetedDistance)

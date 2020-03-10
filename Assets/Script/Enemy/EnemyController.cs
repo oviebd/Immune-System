@@ -7,8 +7,8 @@ public class EnemyController : MonoBehaviour
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
 	void Start()
     {
-		//InvokeRepeating("SpawnEnemy", 1.0f, 2.0f);
-		SpawnEnemy();
+		InvokeRepeating("SpawnEnemy", 1.0f, 2.0f);
+		//SpawnEnemy();
 	}
 
     // Update is called once per frame

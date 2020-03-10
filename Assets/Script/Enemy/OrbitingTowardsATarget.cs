@@ -74,7 +74,6 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 
     void Rotating()
     {
-		Debug.Log("Rotating ... ");
 		_posX = Mathf.Cos(_angle) * _radious;
 		_posY = Mathf.Sin(_angle) * _radious;
 
