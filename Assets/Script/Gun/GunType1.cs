@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunType1 : GunBase
+public class GunType1 : GunBase,IGun
 {
+
+    public void Shoot()
+    {
+        InstantiateBullet();
+    }
 
 }

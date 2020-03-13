@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-	[SerializeField] private List<GunBase> gunList;
+	[SerializeField] private List<GameObject> _guns;
 	[SerializeField] private bool isItEnemyGun = false;
 
-    void Start()
-    {
-        if(isItEnemyGun == false)
-			InputManager.onShootButtonPressed += onGunButtonPressed;
+    private List<IGun> _iGunList = new List<IGun>();
 
+	void Start()
+    {
+		GetCoreGunComponent();
+
+		if (isItEnemyGun == false)
+			InputManager.onShootButtonPressed += onGunButtonPressed;
 	}
+
     private void OnDestroy()
     {
 		if (isItEnemyGun == false)
@@ -25,12 +29,32 @@ public class GunController : MonoBehaviour
 			onGunButtonPressed();
 	}
 
+
+    void GetCoreGunComponent()
+    {
+        if(_guns != null && _guns.Count > 0)
+        {
+			_iGunList.Clear();
+
+            for (int i = 0; i < _guns.Count; i++)
+			{
+				 GameObject gun = _guns[i];
+                if(gun.GetComponent<IGun>() != null)
+                {
+					IGun iGun = gun.gameObject.GetComponent<IGun>();
+					_iGunList.Add(iGun);
+				}
+			}
+		}
+    }
+
+
     void onGunButtonPressed()
 	{
-		for(int i=0; i<gunList.Count; i++)
+		for(int i=0; i< _iGunList.Count; i++)
 		{
-			IGun gun = gunList[i];
-			gun.InstantiateBullet();
+			IGun gun = _iGunList[i];
+			gun.Shoot();
 		}
 	}
 

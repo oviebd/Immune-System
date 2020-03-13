@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IGun
 {
-	void InstantiateBullet();
+    void Shoot();
+	//void InstantiateBullet();
 }
