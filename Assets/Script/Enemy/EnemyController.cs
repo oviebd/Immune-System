@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
 	void Start()
     {
-		InvokeRepeating("SpawnEnemy", 1.0f, 2.0f);
+		InvokeRepeating("SpawnEnemy", 1.0f, 1.0f);
 		//SpawnEnemy();
 	}
 
@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
 		if (enemyPrefab != null)
 		{
 			GameObject obj = InstantiatorHelper.InstantiateObject(enemyPrefab, this.gameObject);
-			obj.transform.position = PositionHandler.instance.getRandomPosition();
+			obj.transform.position = PositionHandler.instance.InstantiateEnemyInRandomPosition();
 		}
 		
 	}
