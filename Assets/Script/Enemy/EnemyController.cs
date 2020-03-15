@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 		else if (randomRange >= 50 && randomRange <= 100)
 			type = GameEnum.EnemyType.Type_2;
 
-		type = GameEnum.EnemyType.Type_1;
+	//	type = GameEnum.EnemyType.Type_1;
 		//Debug.Log("Random Range :   " + randomRange + "   Type ;  " + type);
 		return type;
 	}
