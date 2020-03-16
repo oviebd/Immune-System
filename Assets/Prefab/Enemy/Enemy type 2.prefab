@@ -159,10 +159,10 @@ GameObject:
   - component: {fileID: -2047395126525660461}
   - component: {fileID: -4085848716448736657}
   - component: {fileID: -8178394547398697300}
-  - component: {fileID: 1877703051718978272}
   - component: {fileID: 6689067606414967003}
   - component: {fileID: 1814198716522109597}
   - component: {fileID: 6937732678670898815}
+  - component: {fileID: 4146907734785586882}
   m_Layer: 11
   m_Name: Enemy type 2
   m_TagString: affectedByPlanetGravity
@@ -317,26 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d518b0396ac3543b7ecae03842bace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _guns: []
+  _guns:
+  - {fileID: 5610750885945116250}
   isItEnemyGun: 1
---- !u!114 &1877703051718978272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610750885945116250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4d91bcdef96a448b8d5bd1d5fb6ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
-    type: 3}
-  _parentObj: {fileID: 1632807721770688045}
-  _maxBullet: 0
-  _coolDownTime: 0
-  _damage: 0
 --- !u!114 &6689067606414967003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,3 +448,21 @@ MonoBehaviour:
   _explosionEffect: {fileID: 2135097083175477261, guid: 80b1844d7d5c94d86991c74eb688e978,
     type: 3}
   _explosionClip: {fileID: 0}
+--- !u!114 &4146907734785586882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
+    type: 3}
+  _parentObj: {fileID: 1632807721770688045}
+  _maxBullet: 500
+  _coolDownTime: 0.1
+  _damage: 1

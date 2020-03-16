@@ -12,6 +12,7 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 
 	public void OnMovementStop()
     {
+
         Shoot();
     }
 
@@ -39,8 +40,7 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 
         if (gunController != null)
         {
-            gunController.Shoot();
-
+			gunController.Shoot();
         }
     }
 
