@@ -8,7 +8,6 @@ public class GunController : MonoBehaviour
 	[SerializeField] private bool isItEnemyGun = false;
 
     private List<IGun> _iGunList = new List<IGun>();
-
 	void Start()
     {
 		GetCoreGunComponent();

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: glowMat Lit
+  m_Name: Outliner Lit
   m_Shader: {fileID: -6465566751694194690, guid: fbd71e3bc9b30fa4fbff7e6fd3b11032,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA

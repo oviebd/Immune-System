@@ -10,6 +10,11 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 	float _angle;
 	float stoppingDistance = 3.0f;
 
+	private void Awake()
+	{
+		SetEnemyBehaviour(this);
+	}
+
 	public void OnMovementStop()
     {
 
