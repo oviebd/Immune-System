@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {x: 0, y: 0, z: 0}
-  angularSpeed: 0.5
+  angularSpeed: 2
   _radious: 4
   CanMove: 0
 --- !u!114 &-4085848716448736657
