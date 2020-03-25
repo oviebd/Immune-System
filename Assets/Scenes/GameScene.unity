@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -292,7 +292,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 56769f14a9ed1c54a9d05c47e460dd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -806,7 +806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1258132280
 Transform:
   m_ObjectHideFlags: 0
@@ -1916,7 +1916,7 @@ PrefabInstance:
     - target: {fileID: 3286080595985630112, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: _guns.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3286080595985630112, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
@@ -2061,7 +2061,7 @@ PrefabInstance:
     - target: {fileID: 3286080596565875731, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3286080596565875734, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
@@ -2092,13 +2092,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b359449e9ee82fd498717ca383533a10,
+      objectReference: {fileID: 21300000, guid: c57ba38961e22f54798d5d38633c562c,
         type: 3}
     - target: {fileID: 3286080596771981448, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 474847689afd1eb46a25cf6ddd0216d7, type: 2}
+      objectReference: {fileID: 2100000, guid: 7881f0388ff0cf8448212b2d3adc284d, type: 2}
+    - target: {fileID: 3286080596771981451, guid: 7bf693d188fc83f4cae6eed868cde245,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286080596771981451, guid: 7bf693d188fc83f4cae6eed868cde245,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf693d188fc83f4cae6eed868cde245, type: 3}
 --- !u!1001 &5610750887320058791

@@ -38,9 +38,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EnableExternalAlpha: 0
-    - strength: 0.78
+    - strength: 0.8
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - glowColor: {r: 0, g: 5.004391, b: 5.992157, a: 1}
+    - glowColor: {r: 5.0586452, g: 5.0586452, b: 5.0586452, a: 1}
