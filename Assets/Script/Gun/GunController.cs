@@ -78,7 +78,9 @@ public class GunController : MonoBehaviour
 
 	public void RemoveGun()
 	{
-		if ((_activeGunNum ) <= _iGunList.Count)
+		if (_activeGunNum == 1)  // Oonly 1 gun is enabled . So It can not be removed .
+			return; 
+		if ((_activeGunNum ) <= _iGunList.Count )
 		{
 			_iGunList[_activeGunNum -1 ].SetShootingCapabilities(false);
 			_activeGunNum = _activeGunNum - 1;
