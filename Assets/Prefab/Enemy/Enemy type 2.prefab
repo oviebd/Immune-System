@@ -328,6 +328,7 @@ MonoBehaviour:
   _maxBullet: 500
   _coolDownTime: 1
   _damage: 1
+  _canShoot: 1
 --- !u!114 &6689067606414967003
 MonoBehaviour:
   m_ObjectHideFlags: 0

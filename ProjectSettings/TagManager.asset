@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - affectedByPlanetGravity
+  - FxTemporaire
+  - Red
+  - Green
+  - Blue
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

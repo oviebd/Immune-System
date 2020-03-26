@@ -12,11 +12,11 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 	protected Vector3 targetPos;
     private IENemyBehaviour _enemyBehaviour;
 
-    
+    public delegate void OnEnemyDestroyedByPlayer(EnemyBehaviourBase behaviour);
+    public static event OnEnemyDestroyedByPlayer enemyDestroyedByPlayer;
 
     private void Start()
     {
-       // Destroy(this.gameObject,5.0f);
         SearchForPlayer();
     }
 
@@ -48,6 +48,11 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
 	public void onCollide(GameObject collidedObject)
     {
+        if(collidedObject.tag == GameEnum.GameTags.PlayerBullet.ToString())
+        {
+            enemyDestroyedByPlayer(this);
+        }
+
         Destroy(collidedObject);
         DestroyObj();
     }

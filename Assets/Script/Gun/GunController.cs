@@ -7,8 +7,10 @@ public class GunController : MonoBehaviour
 	[SerializeField] private List<GameObject> _guns;
 	[SerializeField] private bool isItEnemyGun = false;
 
+	private int _activeGunNum = 0;
     private List<IGun> _iGunList = new List<IGun>();
-	void Start()
+
+    void Start()
     {
 		GetCoreGunComponent();
 
@@ -42,11 +44,19 @@ public class GunController : MonoBehaviour
                 {
 					IGun iGun = gun.gameObject.GetComponent<IGun>();
 					_iGunList.Add(iGun);
+
+                    if(i == 0)
+                    {
+						_iGunList[i].SetShootingCapabilities(true);
+						_activeGunNum = 1;
+					}
+                    else
+						_iGunList[i].SetShootingCapabilities(false);
+					
 				}
 			}
 		}
     }
-
 
     void onGunButtonPressed()
 	{
@@ -57,5 +67,22 @@ public class GunController : MonoBehaviour
 		}
 	}
 
+    public void AddGun()
+    {
+        if( (_activeGunNum + 1) <= _iGunList.Count )
+        {
+			_iGunList[_activeGunNum].SetShootingCapabilities(true);
+			_activeGunNum = _activeGunNum + 1;
+		}
+    }
+
+	public void RemoveGun()
+	{
+		if ((_activeGunNum ) <= _iGunList.Count)
+		{
+			_iGunList[_activeGunNum -1 ].SetShootingCapabilities(false);
+			_activeGunNum = _activeGunNum - 1;
+		}
+	}
 
 }
