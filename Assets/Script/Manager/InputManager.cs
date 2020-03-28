@@ -14,16 +14,16 @@ public class InputManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.A))
+		if (Input.GetKeyDown(KeyCode.X))
 			RotationButtonPressedDown();
 
-		if (Input.GetKeyUp(KeyCode.A))
+		if (Input.GetKeyUp(KeyCode.X))
 			RotationButtonPressedUp();
 
-		if (Input.GetKey(KeyCode.S))
+		if (Input.GetKey(KeyCode.Z))
 			ShootButtonPressed();
 
-		onRotationInputButtonPressed(_isRotationInputButtonPressed);
+		//onRotationInputButtonPressed(_isRotationInputButtonPressed);
 	}
 
 	public void RotationButtonPressedDown()
