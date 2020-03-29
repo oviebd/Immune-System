@@ -276,6 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5474b27970ba59949b504eaf532aeea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rightJoystickForPlayerRotation: {fileID: 2929252284238439746}
+  _leftJoystickForPlayerReposition: {fileID: 1445760298}
+  _mainCamera: {fileID: 1940285213}
 --- !u!114 &312410588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,8 +405,6 @@ MonoBehaviour:
   _cam: {fileID: 1940285213}
   _rb: {fileID: 385645850}
   _moveSpeed: 3
-  _rotationJoystick: {fileID: 2929252284238439746}
-  _positionJoystick: {fileID: 1445760298}
 --- !u!50 &385645850 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3286080595985630114, guid: 7bf693d188fc83f4cae6eed868cde245,
@@ -1389,7 +1390,7 @@ GameObject:
   - component: {fileID: 1445760299}
   - component: {fileID: 1445760298}
   m_Layer: 5
-  m_Name: 'Move JoyStick Fixed '
+  m_Name: LeftJoyStick_move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2267,7 +2268,7 @@ GameObject:
   - component: {fileID: 2929252284238439746}
   - component: {fileID: 322666232}
   m_Layer: 5
-  m_Name: Rotation Joystick Fixed
+  m_Name: RightJoystick_rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

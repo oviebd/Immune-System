@@ -14,14 +14,14 @@ public class GunController : MonoBehaviour
     {
 		GetCoreGunComponent();
 
-		if (_isAutomaticFire == false)
-			InputManager.onShootButtonPressed += onGunButtonPressed;
+		//if (_isAutomaticFire == false)
+			//InputManager.onShootButtonPressed += onGunButtonPressed;
 	}
 
     private void OnDestroy()
     {
-		if (_isAutomaticFire == false)
-			InputManager.onShootButtonPressed -= onGunButtonPressed;
+		//if (_isAutomaticFire == false)
+			//InputManager.onShootButtonPressed -= onGunButtonPressed;
 	}
 
     public void Shoot()

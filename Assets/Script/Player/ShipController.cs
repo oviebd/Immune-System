@@ -9,12 +9,12 @@ public class ShipController : MonoBehaviour,IColliderEnter
 
     void Start()
     {
-		InputManager.onRotationInputButtonPressed += SetRotation;
+		//InputManager.onRotationInputButtonPressed += SetRotation;
     }
 
 	private void OnDestroy()
 	{
-		InputManager.onRotationInputButtonPressed -= SetRotation;
+		//InputManager.onRotationInputButtonPressed -= SetRotation;
 	}
 
 	void Update()

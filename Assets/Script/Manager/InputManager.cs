@@ -4,39 +4,43 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-	private bool _isRotationInputButtonPressed = false;
+	[SerializeField] private FixedJoystick _rightJoystickForPlayerRotation;
+	[SerializeField] private FixedJoystick _leftJoystickForPlayerReposition;
+	[SerializeField] private Camera _mainCamera;
 
-	public delegate void RotationInputButtonPressed( bool isPressed);
-	public static event RotationInputButtonPressed onRotationInputButtonPressed;
+	public static InputManager instance;
 
-	public delegate void ShootInputButtonPressed();
-	public static event ShootInputButtonPressed onShootButtonPressed;
+    private void Awake()
+    {
+		if (instance == null)
+			instance = this;
+    }
 
-	private void Update()
+    public Vector2 GetPlayerRotationVector2()
+    {
+		Vector2 rotationMovement = Vector2.zero;
+        if(Utils.IsItMobilePlatform())
+        {
+            rotationMovement = new Vector2(_rightJoystickForPlayerRotation.Horizontal, _rightJoystickForPlayerRotation.Vertical);
+        }
+        else
+        {
+            rotationMovement = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+		}
+		return rotationMovement;
+    }
+
+	public Vector2 GetPlayerMovementVector2()
 	{
-		if (Input.GetKeyDown(KeyCode.X))
-			RotationButtonPressedDown();
-
-		if (Input.GetKeyUp(KeyCode.X))
-			RotationButtonPressedUp();
-
-		if (Input.GetKey(KeyCode.Z))
-			ShootButtonPressed();
-
-		//onRotationInputButtonPressed(_isRotationInputButtonPressed);
-	}
-
-	public void RotationButtonPressedDown()
-	{
-		_isRotationInputButtonPressed = true;
-	}
-	public void RotationButtonPressedUp()
-	{
-		_isRotationInputButtonPressed = false;
-	}
-
-	public void ShootButtonPressed()
-	{
-		onShootButtonPressed();
+		Vector2 movement = Vector2.zero;
+		if (Utils.IsItMobilePlatform())
+		{
+			movement = new Vector2(_leftJoystickForPlayerReposition.Horizontal, _leftJoystickForPlayerReposition.Vertical);
+		}
+		else
+		{
+			movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		}
+		return movement;
 	}
 }
