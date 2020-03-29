@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void FixedUpdate()
     {
-        _rb.MovePosition(_rb.position + _positionMovement * _moveSpeed * Time.fixedDeltaTime);
+		MovePlayer();
 
 		if(_canRotate == true || Utils.IsItMobilePlatform() == false)
 		{
@@ -52,10 +52,22 @@ public class PlayerMovement : MonoBehaviour
 			angle = flipRot ? -angle : angle;
 			_rb.MoveRotation(angle);
 		}
-		/*Vector2 lookDir = mousePos - _rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        _rb.rotation = angle;*/
     }
+
+    void MovePlayer()
+    {
+		float threshHold = 0.3f;
+		Vector2 newPos = _rb.position + _positionMovement * _moveSpeed * Time.fixedDeltaTime;
+
+		if (newPos.y < (BoundaryController.instance.GetTopWallPosition().y - threshHold) &&
+			 newPos.y > (BoundaryController.instance.GetBottomWallPosition().y + threshHold) &&
+
+			 newPos.x < (BoundaryController.instance.GetRightWallPosition().x - threshHold) &&
+			 newPos.x > (BoundaryController.instance.GetLeftWallPosition().x + + threshHold) ) 
+        {
+			_rb.MovePosition(newPos);
+		}
+	}
 
 	void onBeginDrag()
 	{
