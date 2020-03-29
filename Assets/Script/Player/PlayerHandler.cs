@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerHandler : MonoBehaviour
 {
-
     private GunController _gunController;
 
     private void Awake()
@@ -36,4 +35,13 @@ public class PlayerHandler : MonoBehaviour
                 break;
         }
     }
+
+	private void Update()
+	{
+		Shoot();
+	}
+	public void Shoot()
+	{
+		_gunController.Shoot();
+	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
 	[SerializeField] private List<GameObject> _guns;
-	[SerializeField] private bool isItEnemyGun = false;
+	[SerializeField] private bool _isAutomaticFire = false;
 
 	private int _activeGunNum = 0;
     private List<IGun> _iGunList = new List<IGun>();
@@ -14,19 +14,19 @@ public class GunController : MonoBehaviour
     {
 		GetCoreGunComponent();
 
-		if (isItEnemyGun == false)
+		if (_isAutomaticFire == false)
 			InputManager.onShootButtonPressed += onGunButtonPressed;
 	}
 
     private void OnDestroy()
     {
-		if (isItEnemyGun == false)
+		if (_isAutomaticFire == false)
 			InputManager.onShootButtonPressed -= onGunButtonPressed;
 	}
 
     public void Shoot()
     {
-		if (isItEnemyGun == true)
+		if (_isAutomaticFire == true)
 			onGunButtonPressed();
 	}
 
@@ -58,7 +58,7 @@ public class GunController : MonoBehaviour
 		}
     }
 
-    void onGunButtonPressed()
+   void onGunButtonPressed()
 	{
 		for(int i=0; i< _iGunList.Count; i++)
 		{

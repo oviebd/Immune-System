@@ -309,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _guns:
   - {fileID: 5610750885945116250}
-  isItEnemyGun: 1
+  _isAutomaticFire: 1
 --- !u!114 &4146907734785586882
 MonoBehaviour:
   m_ObjectHideFlags: 0
