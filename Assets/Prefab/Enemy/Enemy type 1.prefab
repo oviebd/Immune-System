@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: -985500008013590981}
   - component: {fileID: 7922354520863022930}
   - component: {fileID: 6668242348066414954}
+  - component: {fileID: 5933327071364946865}
   m_Layer: 11
   m_Name: Enemy type 1
   m_TagString: Untagged
@@ -293,7 +294,7 @@ MonoBehaviour:
   OnGoingCompleted:
     m_PersistentCalls:
       m_Calls: []
-  _movingSpeed: 1
+  _movingSpeed: 5
   _stoppingDistance: 0
 --- !u!114 &7922354520863022930
 MonoBehaviour:
@@ -328,6 +329,21 @@ MonoBehaviour:
     type: 3}
   _explosionClip: {fileID: 8300000, guid: c3f87972b0a9d044696be345aba423ed, type: 3}
   _sprite: {fileID: 21300000, guid: b25d3fa1b9948d94c959eec6fa8b55cf, type: 3}
+--- !u!114 &5933327071364946865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a410017ebd5f64299ad6f51de28e109f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radious: 1
+  _repealMagnitudeForce: 7
+  _isInteractableWithPlayer: 0
 --- !u!1001 &3892530606841904263
 PrefabInstance:
   m_ObjectHideFlags: 0

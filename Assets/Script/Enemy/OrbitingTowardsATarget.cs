@@ -24,9 +24,9 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 		StartCoroutine(timeCounter());
 	}
 
-	public void Setup(Vector3 target,float distance)
+	public void Setup(GameObject target,float distance)
     {
-        this._target = target;
+        this._target = target.transform.position;
 		this._radious = distance;
 		//Rotating();
 	}
@@ -36,7 +36,7 @@ public class OrbitingTowardsATarget : MonoBehaviour,IMove
 
 	}
 
-	public void SetTargetTransform(Transform targetTransform)
+	public void SetTargetObject(GameObject targetObject)
 	{
 	}
 

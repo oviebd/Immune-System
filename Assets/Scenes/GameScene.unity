@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b36e1c129d3b4ecd9a97cfdde632fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeForNextUpdate: 10
-  _enemyNumber: 5
+  _timeForNextUpdate: 4
+  _enemyNumber: 10
 --- !u!1 &312410585
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 385645850}
-  _moveSpeed: 3
+  _moveSpeed: 5
 --- !u!50 &385645850 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3286080595985630114, guid: 7bf693d188fc83f4cae6eed868cde245,
@@ -464,8 +464,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBehaviours:
-  - {fileID: 7922354520863022930, guid: 2852127e840064a4d89c45ee003fa092, type: 3}
   - {fileID: 6689067606414967003, guid: e9e46a285fac64747acc4c937047a63d, type: 3}
+  - {fileID: 7922354520863022930, guid: 2852127e840064a4d89c45ee003fa092, type: 3}
 --- !u!1 &548200313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,6 +2366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship Type 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286080595985630127, guid: 7bf693d188fc83f4cae6eed868cde245,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3286080596429613450, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}

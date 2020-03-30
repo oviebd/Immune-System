@@ -9,26 +9,23 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
 
 	[SerializeField] private float _movingSpeed = 1.0f;
 	[SerializeField] private float _stoppingDistance = 0.0f;
-    private Vector3 _targetPos ;
+    private GameObject _target ;
 
 	bool isReachedDestination = false;
 	private bool _canMove = false;
-    float _angle;
 
-
-	public void Setup(Vector3 target,float distance)
+	public void Setup(GameObject targetObj,float distance)
     {
-		_targetPos = target;
-		this._stoppingDistance = distance;
-     //   ReSetTarget();
+        _target = targetObj;
+		//this._stoppingDistance = distance;
     }
 	public void Run()
 	{
-		if(_targetPos != null)
+		if(_target != null)
 			_canMove = true;
 	}
 
-	public void SetTargetTransform(Transform targetTransform)
+	public void SetTargetObject(GameObject targetObject)
 	{
 	}
 	public void SetAngle(float angle)
@@ -43,25 +40,20 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
     {
         if (_canMove == true)
         {
-            if (MathHandler.IsExceedMinimumDistance(_targetPos, transform.position, 0))
+            if (MathHandler.IsExceedMinimumDistance(_target.transform.position, transform.position, _stoppingDistance))
 			{
-               
 				float step = _movingSpeed * Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, _targetPos, step);
+                transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, step);
             }
             else
             {
                 if (isReachedDestination == false)
                 {
                     isReachedDestination = true;
-                  //  Invoke("SetMovement", .5f);
 					if (OnGoingCompleted != null)
 						SetMovement();
-
-					this.enabled = false;
-					
+					//this.enabled = false;
                 }
-               
             }
         }
     }

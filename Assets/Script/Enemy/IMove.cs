@@ -4,9 +4,9 @@ using UnityEngine;
 
 public interface IMove 
 {
-    void Setup( Vector3 targetPos , float distance);
+    void Setup( GameObject targetObj , float distance);
 	void Run();
-	void SetTargetTransform(Transform targetTransform);
+	void SetTargetObject(GameObject targetObject);
 	void SetAngle(float angle);
 	void StopMovement();
 }

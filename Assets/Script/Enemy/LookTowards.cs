@@ -7,7 +7,8 @@ public class LookTowards : MonoBehaviour,IMove
     [SerializeField] private Transform _targetTransform;
     [SerializeField] private bool isAllTimeUpdate = false;
 	private bool _canMove = false;
-	public void Setup(Vector3 target,float distance)
+
+    public void Setup(GameObject target,float distance)
     {
     }
 
@@ -17,9 +18,9 @@ public class LookTowards : MonoBehaviour,IMove
 		Look();
 	}
 
-	public void SetTargetTransform(Transform targetTransform)
+	public void SetTargetObject(GameObject targetObject)
 	{
-		this._targetTransform = targetTransform;
+		this._targetTransform = targetObject.transform;
 	}
 	public void SetAngle(float angle)
 	{

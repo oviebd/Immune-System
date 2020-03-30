@@ -15,7 +15,7 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 		SetEnemyBehaviour(this);
 	}
 
-	public void OnMovementStop()
+    private void Update()
     {
         Shoot();
     }
@@ -30,8 +30,8 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
         {
 			IMove move = moves[i];
 
-			move.Setup(targetPos, 3.0f);
-			move.SetTargetTransform(targetTransform);
+			move.Setup(targetObj, 3.0f);
+			move.SetTargetObject(targetObj);
 			move.SetAngle(_angle);
 			move.Run();
         }
@@ -61,5 +61,9 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
     public void OnDestroyObject()
     {
        
+    }
+
+    public void OnMovementStop()
+    {
     }
 }
