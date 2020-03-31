@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _guns:
   - {fileID: 5610750885945116250}
-  _isAutomaticFire: 1
+  _isAutomaticFire: 0
 --- !u!114 &4146907734785586882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +454,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a410017ebd5f64299ad6f51de28e109f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 2
-  _repealMagnitudeForce: 7
+  _radious: 1
+  _repealMagnitudeForce: 5
   _isInteractableWithPlayer: 1

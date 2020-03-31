@@ -11,4 +11,6 @@ public class LevelData
 	public float enemySpawnDelayReduceFactorPerWave = .5f;
 	public int initialNumberOfEnemyInAWave = 30;
 	public float multiplierOfEnemyNumberPerWave = 1.5f;
+
+
 }
