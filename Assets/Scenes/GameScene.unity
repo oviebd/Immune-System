@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b36e1c129d3b4ecd9a97cfdde632fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeForNextUpdate: 4
-  _enemyNumber: 10
+  _timeForNextUpdate: 10
+  _enemyNumber: 2
 --- !u!1 &312410585
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &357279768
 Transform:
   m_ObjectHideFlags: 0
@@ -930,9 +930,10 @@ MonoBehaviour:
   _bulletObj: {fileID: 7939316424949948455, guid: 613c727b3c3922049b3b7998ecf39cf0,
     type: 3}
   _parentObj: {fileID: 119865715}
-  _maxBullet: 1000
-  _coolDownTime: 0.05
+  _maxBullet: 10
+  _coolDownTime: 0.5
   _damage: 1
+  _infiniteFirePower: 1
   _canShoot: 0
 --- !u!212 &1258132282
 SpriteRenderer:
@@ -2460,7 +2461,7 @@ PrefabInstance:
     - target: {fileID: 3286080595985630112, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: _isAutomaticFire
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3286080595985630113, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
@@ -2585,22 +2586,27 @@ PrefabInstance:
     - target: {fileID: 3286080596429613493, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: _coolDownTime
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3286080596429613493, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: _maxBullet
-      value: 1000
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286080596429613493, guid: 7bf693d188fc83f4cae6eed868cde245,
+        type: 3}
+      propertyPath: _canShoot
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3286080596565875728, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: _coolDownTime
-      value: 0.05
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3286080596565875728, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: _maxBullet
-      value: 1000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3286080596565875729, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
@@ -2651,12 +2657,12 @@ PrefabInstance:
     - target: {fileID: 3286080596771981451, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3286080596771981451, guid: 7bf693d188fc83f4cae6eed868cde245,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bf693d188fc83f4cae6eed868cde245, type: 3}

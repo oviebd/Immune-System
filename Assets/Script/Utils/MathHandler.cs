@@ -39,8 +39,8 @@ public class MathHandler
 	{
 		float dist = Vector3.Distance(obj1, obj2);
 		if (dist > targetedDistance)
-			return true;
-		else return false;
+			return false;
+		else return true;
 	}
 
     private static int GetQuardLocation(Vector3 point)

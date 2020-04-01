@@ -9,6 +9,7 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 	bool isReachedDestination = false;
 	float _angle;
 	float stoppingDistance = 3.0f;
+    [SerializeField] private float _minimumDistanceFromPlayerForShooting = 1.0f;
 
 	private void Awake()
 	{
@@ -17,7 +18,13 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 
     private void Update()
     {
-        Shoot();
+        if (_playerObj == null)
+            return;
+
+        if (MathHandler.IsExceedMinimumDistance(_playerObj.transform.position, transform.position, _minimumDistanceFromPlayerForShooting))
+        {
+            Shoot();
+        }
     }
 
     public void OnTargetFound(GameObject targetObj)

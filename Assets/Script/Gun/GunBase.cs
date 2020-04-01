@@ -11,7 +11,9 @@ public class GunBase : MonoBehaviour
 	[SerializeField] private int   _maxBullet;
 	[SerializeField] private float _coolDownTime;
 	[SerializeField] private int   _damage;
+	[SerializeField] private bool _infiniteFirePower = true;
 	private float _lastShootTime ;
+
 
     private void Start()
     {
@@ -31,8 +33,10 @@ public class GunBase : MonoBehaviour
 
     bool CanShoot()
     {
-        if (_maxBullet <= 0)
+		if (_infiniteFirePower == false && _maxBullet <= 0)
 			return false;
+        //if (_maxBullet <= 0)
+			//return false;
 		if (IsCoolDownTimePassed() == true)
 			return true;
 

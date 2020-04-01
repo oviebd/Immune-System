@@ -293,7 +293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _guns:
   - {fileID: 5610750885945116250}
-  _isAutomaticFire: 0
+  _isAutomaticFire: 1
 --- !u!114 &4146907734785586882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,11 +325,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a731a55f6874531868f9cdfeeb9334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerObj: {fileID: 0}
   graphicsObj: {fileID: 2479212942419892027}
   _collider: {fileID: 6917993263561059463}
   _explosion: {fileID: 6937732678670898815}
   _enemyType: 1
+  _minimumDistanceFromPlayerForShooting: 7
 --- !u!82 &1814198716522109597
 AudioSource:
   m_ObjectHideFlags: 0

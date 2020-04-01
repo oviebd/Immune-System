@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
 	private float lastSpawnEnemyTime;
 	private int currentLevel = 1;
 
-	private int currentEnemyWave = 0;
+	private int currentEnemyWave = 1;
 	private int enemyNumberInCurrentWave = 0;
 	private int maxEnemyNumberInCurrentWave = 0;
 	private float enemySpawnDelayForCurrentWave = 1.0f;
@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
             {
 				SpawnRandomEnemy();
             }
-			string res = " L : " + currentLevel + " wave : " + currentEnemyWave + " enemy Number : " + enemyNumberInCurrentWave + " / " + maxEnemyNumberInCurrentWave;
+			string res = " L : " + currentLevel + " wave : " + ( currentEnemyWave )+ " enemy Number : " + enemyNumberInCurrentWave + " / " + maxEnemyNumberInCurrentWave;
 			debugText.text = res;
 		}
 	}
@@ -56,14 +56,18 @@ public class EnemyController : MonoBehaviour
     void ResetCurrentLevelEnemyData()
     {
 		enemyNumberInCurrentWave = 0;
-		if (currentEnemyWave == 0)
+		if (currentEnemyWave == 1)
+        {
 			maxEnemyNumberInCurrentWave = data.initialNumberOfEnemyInAWave;
+			enemySpawnDelayForCurrentWave = data.initialEnemySpawnDelay;
+		}
         else
+        {
 			maxEnemyNumberInCurrentWave += (int)(data.initialNumberOfEnemyInAWave * data.multiplierOfEnemyNumberPerWave);
+			enemySpawnDelayForCurrentWave = data.initialEnemySpawnDelay - (data.enemySpawnDelayReduceFactorPerWave * (currentEnemyWave - 1));
+		}
 
-        enemySpawnDelayForCurrentWave = data.initialEnemySpawnDelay - (data.enemySpawnDelayReduceFactorPerWave * currentEnemyWave);
-
-        if (enemySpawnDelayForCurrentWave <= 0)
+		if (enemySpawnDelayForCurrentWave <= 0)
 			enemySpawnDelayForCurrentWave = .5f;
 
 		canSpawnEnemy = true;
@@ -82,7 +86,8 @@ public class EnemyController : MonoBehaviour
 
 	void UpdateEnemyWaveData()
 	{
-        if(currentEnemyWave <= (data.numberOfWave))
+		currentEnemyWave = currentEnemyWave + 1;
+		if (currentEnemyWave <= data.numberOfWave) 
         {
             //Spawn Next wave enemy
 			ResetCurrentLevelEnemyData();
@@ -92,7 +97,7 @@ public class EnemyController : MonoBehaviour
 			//Enemy creation in this Level completed
 			canSpawnEnemy = false;
 		}
-		currentEnemyWave = currentEnemyWave + 1;
+		
 	}
 
 

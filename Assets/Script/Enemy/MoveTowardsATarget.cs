@@ -40,7 +40,7 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
     {
         if (_canMove == true)
         {
-            if (MathHandler.IsExceedMinimumDistance(_target.transform.position, transform.position, _stoppingDistance))
+            if (MathHandler.IsExceedMinimumDistance(_target.transform.position, transform.position, _stoppingDistance) == false)
 			{
 				float step = _movingSpeed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, step);
