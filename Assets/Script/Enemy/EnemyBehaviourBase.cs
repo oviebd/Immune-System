@@ -27,7 +27,7 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
     void SearchForPlayer()
     {
-        ShipController controller = FindObjectOfType<ShipController>();
+        PlayerController controller = FindObjectOfType<PlayerController>();
 
         if (controller != null)
         {

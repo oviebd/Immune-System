@@ -6,7 +6,8 @@ public class LevelDataHandler : MonoBehaviour
 {
     public static LevelDataHandler instance;
    // [SerializeField] private int _currentLevel = 1;
-    [SerializeField] private List<LevelDataScriptable> _levelList ;
+    [SerializeField] private List<EnemyLevelDataScriptable> _levelDataListEnemy ;
+    [SerializeField] private List<PlayerLevelDataScriptable> _levelDataListPlayer;
 
     private void Awake()
     {
@@ -14,10 +15,20 @@ public class LevelDataHandler : MonoBehaviour
             instance = this;
     }
 
-    public LevelData GetLevelData(int levelNumber)
+    private void Start()
     {
-        LevelDataScriptable levelDataScriptable = GetLevelScriptable(levelNumber);
-        LevelData data = new LevelData();
+        PlayerLevelData data = GetPlayerLevelData(0);
+        if (data != null)
+        {
+            Debug.Log("Instantiate Player : " + data.playerPrefab.name);
+            InstantiatorHelper.InstantiateObject(data.playerPrefab, this.transform.gameObject);
+        }
+    }
+
+    public EnemyLevelData GetEnemyLevelData(int levelNumber)
+    {
+        EnemyLevelDataScriptable levelDataScriptable = GetLevelScriptable(levelNumber);
+        EnemyLevelData data = new EnemyLevelData();
 
         if (levelDataScriptable != null)
         {
@@ -35,23 +46,45 @@ public class LevelDataHandler : MonoBehaviour
         return null;
     }
 
-    private LevelDataScriptable GetLevelScriptable(int levelNumber)
+    public PlayerLevelData GetPlayerLevelData(int levelNumber)
     {
-        //return _levelList[0];
-        if (_levelList != null && levelNumber < _levelList.Count)
-            return _levelList[levelNumber];
+        PlayerLevelDataScriptable playerLevelDataScriptable = GetPlayerLevelScriptable(levelNumber);
+        PlayerLevelData data = new PlayerLevelData();
+
+        if (playerLevelDataScriptable != null)
+        {
+            data.levelNumber = playerLevelDataScriptable.levelNumber;
+            data.playerGunPrefab = playerLevelDataScriptable.playerGunPrefab;
+            data.playerPrefab = playerLevelDataScriptable.playerPrefab;
+            return data;
+        }
+        return null;
+    }
+
+    private EnemyLevelDataScriptable GetLevelScriptable(int levelNumber)
+    {
+        if (_levelDataListEnemy != null && levelNumber < _levelDataListEnemy.Count)
+            return _levelDataListEnemy[levelNumber];
         else
             return null;
     }
 
-   /* public int GetCurrentLevelNumber()
+    private PlayerLevelDataScriptable GetPlayerLevelScriptable(int levelNumber)
     {
-        return _currentLevel;
+        if (_levelDataListPlayer != null && levelNumber < _levelDataListPlayer.Count)
+            return _levelDataListPlayer[levelNumber];
+        else
+            return null;
     }
-    public void SetCurrentLevelNumber(int levelNumber)
-    {
-        _currentLevel = levelNumber;
-    }*/
+
+    /* public int GetCurrentLevelNumber()
+     {
+         return _currentLevel;
+     }
+     public void SetCurrentLevelNumber(int levelNumber)
+     {
+         _currentLevel = levelNumber;
+     }*/
 
 
 }

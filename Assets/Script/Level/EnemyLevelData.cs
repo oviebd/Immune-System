@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelData 
+public class EnemyLevelData 
 {
 	public int levelNumber = 1;
 	public int numberOfWave = 4;

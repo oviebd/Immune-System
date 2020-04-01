@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad66485cc21946148572aaff233e088, type: 3}
-  m_Name: Level_1_Data
+  m_Script: {fileID: 11500000, guid: c0b483bb0653d41fb92130d7085b8d36, type: 3}
+  m_Name: Level_1_PlayerData
   m_EditorClassIdentifier: 
   levelNumber: 1
-  numberOfWave: 4
-  initialEnemyNumber: 4
-  initialEnemySpawnDelay: 2
-  enemySpawnDelayReduceFactorPerWave: 0.5
-  initialNumberOfEnemyInAWave: 30
-  multiplierOfEnemyNumberPerWave: 1.5
+  playerPrefab: {fileID: 6163249137255934406, guid: 3c9c6abc37a5445a8be3307c47edfa3f,
+    type: 3}
+  playerGunPrefab: {fileID: 2221921908776760814, guid: cb9e7036c8fa34c83aafecb923b13d44,
+    type: 3}

@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
 	private int maxEnemyNumberInCurrentWave = 0;
 	private float enemySpawnDelayForCurrentWave = 1.0f;
 
-	private LevelData data;
+	private EnemyLevelData data;
 
 	public Text debugText;
 
@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
 	void LoadLevelEnemyData(int level)
     {
 		data = null;
-	    data = LevelDataHandler.instance.GetLevelData(level - 1);
+	    data = LevelDataHandler.instance.GetEnemyLevelData(level - 1);
         if (data == null)
 			return;
 		ResetCurrentLevelEnemyData();

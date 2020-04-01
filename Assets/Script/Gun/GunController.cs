@@ -6,14 +6,16 @@ public class GunController : MonoBehaviour
 {
 	[SerializeField] private List<GameObject> _guns;
 	[SerializeField] private bool _isAutomaticFire = false;
+	[SerializeField] private bool _isEnemyGun = false;
 
 	private int _activeGunNum = 0;
     private List<IGun> _iGunList = new List<IGun>();
 
     void Start()
     {
-		GetCoreGunComponent();
 
+		if (_isEnemyGun)
+			SetGuns();
 		//if (_isAutomaticFire == false)
 			//InputManager.onShootButtonPressed += onGunButtonPressed;
 	}
@@ -30,34 +32,42 @@ public class GunController : MonoBehaviour
 			onGunButtonPressed();
 	}
 
-
-    void GetCoreGunComponent()
+    private void SetGuns()
     {
-        if(_guns != null && _guns.Count > 0)
+		for (int i = 0; i < _guns.Count; i++)
         {
-			_iGunList.Clear();
-
-            for (int i = 0; i < _guns.Count; i++)
-			{
-				 GameObject gun = _guns[i];
-                if(gun.GetComponent<IGun>() != null)
-                {
-					IGun iGun = gun.gameObject.GetComponent<IGun>();
-					_iGunList.Add(iGun);
-
-                    if(i == 0)
-                    {
-						_iGunList[i].SetShootingCapabilities(true);
-						_activeGunNum = 1;
-					}
-                    else
-						_iGunList[i].SetShootingCapabilities(false);
-					
-				}
-			}
+			AppendGunObjectInCoreGunList(_guns[i], i);
 		}
-    }
 
+	}
+
+    public void InstantiateGun(GameObject gunPrefab)
+    {
+        for(int i = 0; i < _guns.Count; i++)
+        {
+			GameObject newObj = Instantiate(gunPrefab, _guns[i].transform.position, gunPrefab.transform.rotation);
+			newObj.transform.parent = _guns[i].transform;
+			AppendGunObjectInCoreGunList(newObj, i);
+		}
+	}
+
+    void AppendGunObjectInCoreGunList(GameObject gun, int i)
+    {
+		if (gun.GetComponent<IGun>() != null)
+		{
+			IGun iGun = gun.gameObject.GetComponent<IGun>();
+			_iGunList.Add(iGun);
+
+			if (i == 0)
+			{
+				_iGunList[i].SetShootingCapabilities(true);
+				_activeGunNum = 1;
+			}
+			else
+				_iGunList[i].SetShootingCapabilities(false);
+		}
+	}
+    
    void onGunButtonPressed()
 	{
 		for(int i=0; i< _iGunList.Count; i++)

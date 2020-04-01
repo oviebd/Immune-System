@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu]
-public class LevelDataScriptable : ScriptableObject
+public class EnemyLevelDataScriptable : ScriptableObject
 {
 	public int levelNumber = 1;
 	public int numberOfWave = 4;

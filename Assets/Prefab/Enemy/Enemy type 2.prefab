@@ -294,6 +294,7 @@ MonoBehaviour:
   _guns:
   - {fileID: 5610750885945116250}
   _isAutomaticFire: 1
+  _isEnemyGun: 1
 --- !u!114 &4146907734785586882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +313,7 @@ MonoBehaviour:
   _maxBullet: 500
   _coolDownTime: 1
   _damage: 1
+  _infiniteFirePower: 1
   _canShoot: 1
 --- !u!114 &6689067606414967003
 MonoBehaviour:
@@ -455,5 +457,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radious: 1
-  _repealMagnitudeForce: 5
+  _repealMagnitudeForce: 3
   _isInteractableWithPlayer: 1
