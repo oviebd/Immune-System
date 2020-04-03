@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyController : MonoBehaviour
+public class EnemySpawnController : MonoBehaviour
 {
+	public static EnemySpawnController instance;
+
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
 
 	private bool canSpawnEnemy = false;
 	private float lastSpawnEnemyTime;
-	private int currentLevel = 1;
+	//private int currentLevel = 1;
 
 	private int currentEnemyWave = 1;
 	private int enemyNumberInCurrentWave = 0;
@@ -20,10 +22,16 @@ public class EnemyController : MonoBehaviour
 
 	public Text debugText;
 
+    private void Awake()
+    {
+		if (instance == null)
+			instance = this;
+	}
+
 	void Start()
     {
 		//InvokeRepeating("SpawnEnemy", 1.0f, 1.0f);
-		LoadLevelEnemyData(currentLevel);
+		//LoadLevelEnemyData(currentLevel);
 		//SpawnEnemy();
 		//SpawnEnemy();
 	}
@@ -36,14 +44,14 @@ public class EnemyController : MonoBehaviour
             {
 				SpawnRandomEnemy();
             }
-			string res = " L : " + currentLevel + " wave : " + ( currentEnemyWave )+ " enemy Number : " + enemyNumberInCurrentWave + " / " + maxEnemyNumberInCurrentWave;
+			string res = " L : " +data.levelNumber + " wave : " + ( currentEnemyWave )+ " enemy Number : " + enemyNumberInCurrentWave + " / " + maxEnemyNumberInCurrentWave;
 			debugText.text = res;
 		}
 	}
-	void LoadLevelEnemyData(int level)
+	public void LoadLevelEnemyData(int level)
     {
 		data = null;
-	    data = LevelDataHandler.instance.GetEnemyLevelData(level - 1);
+	    data = LevelDataHandler.instance.GetEnemyLevelData(level);
         if (data == null)
 			return;
 		ResetCurrentLevelEnemyData();

@@ -4,30 +4,63 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour,IColliderEnter
 {
-
 	private PlayerLevelData _playerLevelData;
 	[SerializeField] private GunController _gunControllere;
 
-    void Start()
+    private void Awake()
     {
-		//InputManager.onRotationInputButtonPressed += SetRotation;
-		onLoadLevel();
+        PlayerUpdateController.onPlayerSystemUpdate += OnPlayerUpdateSystemSTatus;
+    }
+    private void OnDestroy()
+    {
+        PlayerUpdateController.onPlayerSystemUpdate -= OnPlayerUpdateSystemSTatus;
     }
 
-	private void OnDestroy()
-	{
-		//InputManager.onRotationInputButtonPressed -= SetRotation;
-	}
-
-	void onLoadLevel()
+    void OnPlayerUpdateSystemSTatus(GameEnum.UpgradeType upgradeType)
     {
-		_playerLevelData = LevelDataHandler.instance.GetPlayerLevelData(0);
-		if (_playerLevelData != null)
-			_gunControllere.InstantiateGun(_playerLevelData.playerGunPrefab);
+        if (getGunController() == null)
+            return;
+
+        switch (upgradeType)
+        {
+            case GameEnum.UpgradeType.AddGun:
+                getGunController().AddGun();
+                break;
+            case GameEnum.UpgradeType.RemoveGun:
+                getGunController().RemoveGun();
+                break;
+        }
     }
 
-	public void onCollide(GameObject collidedObj)
-	{
-		Destroy(collidedObj);
-	}
+    private void Update()
+    {
+        Shoot();
+    }
+    public void Shoot()
+    {
+        getGunController().Shoot();
+    }
+
+    public void SetPlayerLevelData(PlayerLevelData data)
+    {
+		this._playerLevelData = data;
+    }
+    public void InstantiateGun(GameObject gunPrefab)
+    {
+        if (getGunController() != null && gunPrefab != null)
+            _gunControllere.InstantiateGun(gunPrefab);
+    }
+
+    private GunController getGunController()
+    {
+        if (_gunControllere == null)
+            _gunControllere = this.gameObject.GetComponent<GunController>();
+
+        return _gunControllere;
+    }
+
+    public void onCollide(GameObject collidedObj)
+    {
+        Destroy(collidedObj);
+    }
 }

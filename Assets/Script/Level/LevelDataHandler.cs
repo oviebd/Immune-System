@@ -15,16 +15,6 @@ public class LevelDataHandler : MonoBehaviour
             instance = this;
     }
 
-    private void Start()
-    {
-        PlayerLevelData data = GetPlayerLevelData(0);
-        if (data != null)
-        {
-            Debug.Log("Instantiate Player : " + data.playerPrefab.name);
-            InstantiatorHelper.InstantiateObject(data.playerPrefab, this.transform.gameObject);
-        }
-    }
-
     public EnemyLevelData GetEnemyLevelData(int levelNumber)
     {
         EnemyLevelDataScriptable levelDataScriptable = GetLevelScriptable(levelNumber);

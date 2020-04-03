@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 312410586}
   - component: {fileID: 312410587}
   - component: {fileID: 312410588}
+  - component: {fileID: 312410589}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -260,6 +261,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsText: {fileID: 2086947193}
+--- !u!114 &312410589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312410585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87743d159bb614f4f906843904ff2425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &322666232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,12 +406,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 438529324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e297f243b92c53e46af08ecececaf4ae, type: 3}
+  m_Script: {fileID: 11500000, guid: fbed45f57daec47f587e8551bf8cfb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBehaviours:
-  - {fileID: 6689067606414967003, guid: e9e46a285fac64747acc4c937047a63d, type: 3}
   - {fileID: 7922354520863022930, guid: 2852127e840064a4d89c45ee003fa092, type: 3}
+  - {fileID: 6689067606414967003, guid: e9e46a285fac64747acc4c937047a63d, type: 3}
   debugText: {fileID: 83001688385354879}
 --- !u!1 &548200313
 GameObject:
@@ -1663,6 +1676,7 @@ Transform:
   - {fileID: 438529325}
   - {fileID: 281293546}
   - {fileID: 2004269567}
+  - {fileID: 1979234637}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1799,6 +1813,49 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 93dcba31f6b8cac4f80f1cc2df6004d5, type: 2}
+--- !u!1 &1979234636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1979234637}
+  - component: {fileID: 1979234638}
+  m_Layer: 0
+  m_Name: Playaer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1979234637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979234636}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1809210724}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979234638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979234636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fd2198c0d1e4566ac534238c1a2bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1993636915
 GameObject:
   m_ObjectHideFlags: 0
