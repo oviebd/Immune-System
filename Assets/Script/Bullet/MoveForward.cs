@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveForward : MonoBehaviour
 {
-	public Rigidbody2D rb;
+    private Rigidbody2D _rb;
+	[SerializeField] private float _speed = 10.0f;
 
 	private void Start()
 	{
-		Destroy(this.gameObject , 5);
-		//Invoke("MadeCanMove",1.0f);
-		rb.velocity = transform.right * 10.0f;
+		_rb = GetComponent<Rigidbody2D>();
+
+        if(_rb!=null)
+			_rb.velocity = transform.right * _speed;
 	}
 	
 }

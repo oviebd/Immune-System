@@ -124,6 +124,9 @@ GameObject:
   - component: {fileID: 7939316424949948456}
   - component: {fileID: -2529909617840408764}
   - component: {fileID: 192229312370745944}
+  - component: {fileID: -7402195599930224050}
+  - component: {fileID: -6990008681647311723}
+  - component: {fileID: 5436845095919380609}
   m_Layer: 12
   m_Name: Enemy Bullet T 1
   m_TagString: Untagged
@@ -158,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f534688249facc04d9df7d43be777395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: -2529909617840408764}
+  _speed: 10
 --- !u!50 &-2529909617840408764
 Rigidbody2D:
   serializedVersion: 4
@@ -196,3 +199,46 @@ CircleCollider2D:
   m_Offset: {x: -0.0023013316, y: 0}
   serializedVersion: 2
   m_Radius: 0.060431715
+--- !u!114 &-7402195599930224050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939316424949948455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34688e27f444e42378b7d84a6896f470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+--- !u!114 &-6990008681647311723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939316424949948455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebf5d01c960d744a8c3b185771f3e00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &5436845095919380609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939316424949948455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd1e5441a41e4e6cb7a12beba3ae772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 1
+  _collider2D: {fileID: 192229312370745944}
+  _graphicsObj: {fileID: 4157572914984398335}

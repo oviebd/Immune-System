@@ -11,6 +11,7 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
     [SerializeField] private GameEnum.EnemyType _enemyType;
 	protected Vector3 targetPos;
     private IENemyBehaviour _enemyBehaviour;
+    private IHealth _health;
 
     public delegate void OnEnemyDestroyedByPlayer(EnemyBehaviourBase behaviour);
     public static event OnEnemyDestroyedByPlayer enemyDestroyedByPlayer;
@@ -18,6 +19,7 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
     private void Start()
     {
         SearchForPlayer();
+        GetHealth();
     }
 
     public void SetEnemyBehaviour(IENemyBehaviour behaviour)
@@ -48,28 +50,33 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
 	public void onCollide(GameObject collidedObject)
     {
-        if(collidedObject.tag == GameEnum.GameTags.PlayerBullet.ToString())
+       
+        if (GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
         {
-            enemyDestroyedByPlayer(this);
+            DamageAble damageAble = collidedObject.GetComponent<DamageAble>();
+            GetHealth().ReduceHealth(damageAble.GetDamage());
+            if (GetHealth().IsDie())
+                Die();
+             
         }
+    }
 
-        Destroy(collidedObject);
+    void Die()
+    {
         DestroyObj();
+        enemyDestroyedByPlayer(this);
     }
 
     void DestroyObj()
     {
         _collider.enabled = false;
-
+        graphicsObj.SetActive(false);
+        Destroy(this.gameObject, 2.0f);
         IMove[] moves = gameObject.GetComponents<IMove>();
         for (int i = 0; i < moves.Length; i++)
         {
             moves[i].StopMovement();
         }
-
-        Destroy(this.gameObject,2.0f);
-        graphicsObj.SetActive(false);
-
         if( _enemyBehaviour!= null)
         {
             if (_explosion != null)
@@ -77,6 +84,13 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
             _enemyBehaviour.OnDestroyObject();
         }
+    }
+
+    IHealth GetHealth()
+    {
+        if (_health == null)
+            _health = this.GetComponent<Health>();
+        return _health;
     }
 
 }

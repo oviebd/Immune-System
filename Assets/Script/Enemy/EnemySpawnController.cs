@@ -32,7 +32,7 @@ public class EnemySpawnController : MonoBehaviour
     {
 		//InvokeRepeating("SpawnEnemy", 1.0f, 1.0f);
 		//LoadLevelEnemyData(currentLevel);
-		//SpawnEnemy();
+		//SpawnSpecificTypeEnemy(GameEnum.EnemyType.Type_1);
 		//SpawnEnemy();
 	}
 

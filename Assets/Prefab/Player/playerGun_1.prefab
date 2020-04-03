@@ -99,7 +99,7 @@ MonoBehaviour:
     type: 3}
   _parentObj: {fileID: 2221921908882748691}
   _maxBullet: 10
-  _coolDownTime: 0.5
+  _coolDownTime: 0.3
   _damage: 1
   _infiniteFirePower: 1
   _canShoot: 0

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour,IColliderEnter
+public class PlayerController : MonoBehaviour ,IColliderEnter
 {
 	private PlayerLevelData _playerLevelData;
-	[SerializeField] private GunController _gunControllere;
+    private GunController _gunControllere;
+    private IHealth _playerHealth;
 
     private void Awake()
     {
@@ -59,8 +60,27 @@ public class PlayerController : MonoBehaviour,IColliderEnter
         return _gunControllere;
     }
 
+    private IHealth GetPlayerHealth()
+    {
+        if (_playerHealth == null)
+            _playerHealth = this.GetComponent<IHealth>();
+        return _playerHealth;
+    }
+
     public void onCollide(GameObject collidedObj)
     {
-        Destroy(collidedObj);
+        if (collidedObj.GetComponent<DamageAble>())
+        {
+            DamageAble damage = collidedObj.GetComponent<DamageAble>();
+            GetPlayerHealth().ReduceHealth(damage.GetDamage());
+            if (GetPlayerHealth().IsDie())
+                PlayerDie();
+            Debug.Log("Player Health : " + GetPlayerHealth().GetHealthAmount());
+        }
+    }
+
+    void PlayerDie()
+    {
+        Debug.Log("Platyer Die");
     }
 }
