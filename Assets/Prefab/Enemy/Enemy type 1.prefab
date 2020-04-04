@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2791597634713003444}
   - component: {fileID: 3477316700716617671}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5610750885282326572}
   - component: {fileID: 5610750885282326571}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,8 @@ GameObject:
   - component: {fileID: 6668242348066414954}
   - component: {fileID: -4829381016448767664}
   - component: {fileID: -3125047643156149395}
-  m_Layer: 11
+  - component: {fileID: -8367566173641107243}
+  m_Layer: 10
   m_Name: Enemy type 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,3 +355,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
+--- !u!114 &-8367566173641107243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce2c5a47257a149a19f5212718efa694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _point: 2

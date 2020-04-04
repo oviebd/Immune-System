@@ -20,6 +20,7 @@ public class BulletController : MonoBehaviour, IColliderEnter
 
     void HideAll()
     {
+       
         if (_collider2D != null)
             _collider2D.enabled = false;
         if (_graphicsObj != null)

@@ -20,11 +20,11 @@ TagManager:
   - UI
   - 
   - 
-  - player ship
-  - player gun
-  - player bullet
-  - enemy ship
-  - enemy bullet
+  - player
+  - playerBullet
+  - enemy
+  - enemyBullet
+  - 
   - 
   - 
   - 

@@ -50,14 +50,12 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
 	public void onCollide(GameObject collidedObject)
     {
-       
         if (GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
         {
             DamageAble damageAble = collidedObject.GetComponent<DamageAble>();
             GetHealth().ReduceHealth(damageAble.GetDamage());
             if (GetHealth().IsDie())
                 Die();
-             
         }
     }
 
@@ -84,6 +82,14 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
             _enemyBehaviour.OnDestroyObject();
         }
+        ScoreManager.instance.AddScore(GetRewardPoint());
+    }
+
+    public int GetRewardPoint()
+    {
+        if (gameObject.GetComponent<IReward>() != null)
+           return gameObject.GetComponent<IReward>().getRewardPoint();
+        return 0;
     }
 
     IHealth GetHealth()

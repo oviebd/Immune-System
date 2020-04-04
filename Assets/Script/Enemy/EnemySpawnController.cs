@@ -11,7 +11,6 @@ public class EnemySpawnController : MonoBehaviour
 
 	private bool canSpawnEnemy = false;
 	private float lastSpawnEnemyTime;
-	//private int currentLevel = 1;
 
 	private int currentEnemyWave = 1;
 	private int enemyNumberInCurrentWave = 0;

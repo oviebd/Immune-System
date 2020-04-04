@@ -6,14 +6,18 @@ public class GameEnvironmentController : MonoBehaviour
 {
     public static GameEnvironmentController instance;
 
+    private int currentLevel = 1;
+    
+
     private void Awake()
     {
         if (instance == null)
             instance = this;
+        ScoreManager.onPlayerWin += OnlevelCompleted;
     }
     void Start()
     {
-        OnLevelUpdate(1);
+        OnLevelUpdate(currentLevel);
     }
 
    void OnLevelUpdate(int levelNumber)
@@ -22,6 +26,12 @@ public class GameEnvironmentController : MonoBehaviour
 
         EnemySpawnController.instance.LoadLevelEnemyData(levelNumber);
         PlayerSpawnerController.instance.LoadLevelPlayerData(levelNumber);
+    }
+
+    void OnlevelCompleted()
+    {
+        currentLevel = currentLevel + 1;
+        Debug.Log("Level Completed....updated Level  " + currentLevel);
     }
 
 }

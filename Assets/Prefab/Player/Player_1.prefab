@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5101693745667808281}
   - component: {fileID: 5101693745667808279}
   - component: {fileID: 5101693745667808278}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: gun_Type 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 3072
 --- !u!114 &5101693746049995255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 5101693746654068694}
   - component: {fileID: 5101693746654068692}
   - component: {fileID: 5101693746654068695}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: gun_Type 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5127879048787011541}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: bullet point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5127879050873135230}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: bullet point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
