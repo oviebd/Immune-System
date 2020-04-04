@@ -6,11 +6,9 @@ TagManager:
   tags:
   - affectedByPlanetGravity
   - FxTemporaire
-  - Red
-  - Green
-  - Blue
   - PlayerBullet
   - Enemy
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

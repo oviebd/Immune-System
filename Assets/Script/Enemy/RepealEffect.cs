@@ -26,7 +26,6 @@ public class RepealEffect : MonoBehaviour
         for(int i= 0;i< hitColliders.Length; i++)
         {
             GameObject collidedObj = hitColliders[i].gameObject;
-
             if (collidedObj != this.gameObject && CanAddForce(collidedObj))
             {
                 ForceObj(hitColliders[i].gameObject);
