@@ -25,7 +25,7 @@ public class GunBase : MonoBehaviour
 		if (CanShoot())
         {
 			_lastShootTime = Time.time;
-			GameObject bulletObj = InstantiatorHelper.InstantiateObject(_bulletObj, _parentObj);
+			GameObject bulletObj = InstantiatorHelper.instance.InstantiateObject(_bulletObj, _parentObj);
 			ReduceBulletAmount();
 		}
 		

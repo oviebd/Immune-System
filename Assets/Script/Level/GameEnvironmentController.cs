@@ -6,20 +6,40 @@ public class GameEnvironmentController : MonoBehaviour
 {
     public static GameEnvironmentController instance;
 
+	[SerializeField] private GameObject _parentObjForInstantiatObjs;
     private int currentLevel = 1;
-    
 
     private void Awake()
     {
         if (instance == null)
             instance = this;
     }
-    public void LoadLebvelEnvironment(int levelNumber)
+    public void LoadLevelEnvironment(int levelNumber)
     {
-        EnemySpawnController.instance.LoadLevelEnemyData(levelNumber);
+		DestroyAllIntantiatedObjs();
+		ShowAllInstantiatedObjs();
+		EnemySpawnController.instance.LoadLevelEnemyData(levelNumber);
         PlayerSpawnerController.instance.LoadLevelPlayerData(levelNumber);
     }
 
+	public void HideAllInstantiatedObjs()
+	{
+		_parentObjForInstantiatObjs.SetActive(false);
+	}
+	public void ShowAllInstantiatedObjs()
+	{
+		_parentObjForInstantiatObjs.SetActive(true);
+	}
+	private void DestroyAllIntantiatedObjs()
+	{
+		if (_parentObjForInstantiatObjs == null)
+			return;
+		int children = _parentObjForInstantiatObjs.transform.childCount;
+		for (int i = 0; i < children; ++i)
+		{
+			Destroy(_parentObjForInstantiatObjs.transform.GetChild(i).gameObject);
+		}
+	}
 
 
 }

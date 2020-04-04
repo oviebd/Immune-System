@@ -17,7 +17,7 @@ public class PlayerSpawnerController : MonoBehaviour
         data = LevelDataHandler.instance.GetPlayerLevelData(levelNumber);
         if (data != null)
         {
-            GameObject playerObj = InstantiatorHelper.InstantiateObject(data.playerPrefab, this.transform.gameObject);
+            GameObject playerObj = InstantiatorHelper.instance.InstantiateObject(data.playerPrefab, this.transform.gameObject);
             PlayerController playerController = playerObj.GetComponent<PlayerController>();
 
             if (playerController != null){

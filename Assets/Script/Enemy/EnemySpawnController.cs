@@ -124,7 +124,7 @@ public class EnemySpawnController : MonoBehaviour
 	{
 		if (enemyPrefab != null)
 		{
-			GameObject obj = InstantiatorHelper.InstantiateObject(enemyPrefab, this.gameObject);
+			GameObject obj = InstantiatorHelper.instance.InstantiateObject(enemyPrefab, this.gameObject);
 			obj.transform.position = PositionHandler.instance.InstantiateEnemyInRandomPosition();
 			UpdateEnemyNumber();
 		}

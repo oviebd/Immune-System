@@ -34,7 +34,7 @@ public class Explosion : MonoBehaviour
     {
         if (_explosionEffect != null)
         {
-            GameObject effectParticle = InstantiatorHelper.InstantiateObject(_explosionEffect, this.gameObject);
+            GameObject effectParticle = InstantiatorHelper.instance.InstantiateObject(_explosionEffect, this.gameObject);
 			ParticleSystem  _explosionParticle = effectParticle.GetComponent<ParticleSystem>();
 			if(_explosionParticle != null)
 			{

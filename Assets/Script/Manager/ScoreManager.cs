@@ -28,6 +28,8 @@ public class ScoreManager : MonoBehaviour
     public void SetWInningPoint(int winningPoint)
     {
         _winningScore = winningPoint;
+		
+		updateUI();
     }
     public void AddScore(int incrementedScore)
     {
@@ -36,7 +38,8 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "S:" + _currentScore;
         if (IsPlayerWin())
             onPlayerWin();
-    }
+		updateUI();
+	}
 
     bool IsPlayerWin()
     {
@@ -45,5 +48,9 @@ public class ScoreManager : MonoBehaviour
         else
             return false;
     }
+	private void updateUI()
+	{
+		UiManager.instance.UpdateNextLevelIndicatorSlider(_winningScore*1.0f, _currentScore*1.0f);
+	}
     
 }

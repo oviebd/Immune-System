@@ -51,8 +51,10 @@ public class PlayerUpdateController : MonoBehaviour
 
     void UpdatePlayerUpgradeStatus(UpgrateStatus status)
     {
-        ResetUpdate();
+		if (onPlayerSystemUpdate == null)
+			return;
 
+		ResetUpdate();
         if(status == UpgrateStatus.upgrade)
             onPlayerSystemUpdate(GameEnum.UpgradeType.AddGun);
         else if (status == UpgrateStatus.degrade)

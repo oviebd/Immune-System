@@ -475,6 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _totalHealth: 1
+  _isItPlayerHealth: 0
 --- !u!114 &8628442413996616063
 MonoBehaviour:
   m_ObjectHideFlags: 0

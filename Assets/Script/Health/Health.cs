@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour, IHealth 
 {
     [SerializeField] private int _totalHealth = 100;
+	[SerializeField] private bool _isItPlayerHealth = false; // Only Player Health Will Update UI
     private int _currentHealth;
 
     private void Awake()
@@ -32,7 +33,6 @@ public class Health : MonoBehaviour, IHealth
 
     public void ReduceHealth(int amount)
     {
-       
         SetHealthAmount(_currentHealth - amount);
     }
 
@@ -40,11 +40,16 @@ public class Health : MonoBehaviour, IHealth
     {
         _currentHealth = amount;
 
-        if (_currentHealth < 0)
+		if (_currentHealth < 0)
             _currentHealth = 0;
         if (_currentHealth > _totalHealth)
             _currentHealth = _totalHealth;
-    }
+
+		if(_isItPlayerHealth)
+			UiManager.instance.UpdateHealthSlider(_totalHealth * 1.0f, _currentHealth * 1.0f);
+
+	}
 
    
 }
+

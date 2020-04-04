@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
-    [SerializeField] private int _currentLevel = 2;
+    [SerializeField] private int _currentLevel = 1;
 
     private void Awake()
     {
@@ -16,12 +16,12 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        LoadALevel(_currentLevel);
+       // LoadALevel(_currentLevel);
     }
 
     public void LoadALevel(int levelNumber)
     {
-        GameEnvironmentController.instance.LoadLebvelEnvironment(levelNumber);
+        GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
         ScoreManager.instance.SetWInningPoint(LevelDataHandler.instance.GetWinningPointOfALevel(levelNumber));
     }
 
@@ -29,7 +29,6 @@ public class LevelManager : MonoBehaviour
     void OnlevelCompleted()
     {
        // _currentLevel = _currentLevel + 1;
-        Debug.Log("Level Completed....Prev Level  " + _currentLevel);
     }
 
     public int GetCurrentLevelNumber()
@@ -40,5 +39,4 @@ public class LevelManager : MonoBehaviour
     {
         _currentLevel = levelNumber;
     }
-
 }
