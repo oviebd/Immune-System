@@ -46,7 +46,7 @@ public class Health : MonoBehaviour, IHealth
             _currentHealth = _totalHealth;
 
 		if(_isItPlayerHealth)
-			UiManager.instance.UpdateHealthSlider(_totalHealth * 1.0f, _currentHealth * 1.0f);
+			GameUiVisibilityHandler.instance.UpdateHealthSlider(_totalHealth * 1.0f, _currentHealth * 1.0f);
 
 	}
 

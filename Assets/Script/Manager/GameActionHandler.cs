@@ -41,8 +41,7 @@ public class GameActionHandler : MonoBehaviour
 	}
 	public void ActionGoMainMenuLevelGame()
 	{
-		//ActionStartGame();
-		//Time.timeScale = 1;
+		GameManager.instance.SetGameState(GameEnum.GameState.Idle);
 	}
 	public void ActionRetryGame()
 	{

@@ -11,6 +11,9 @@ public class GameUiVisibilityHandler : MonoBehaviour
 	[SerializeField] private GameMainMenu _mainGameUi;
 	[SerializeField] private GameOverMenu _gameOverUi;
 
+	[SerializeField] private SliderUtility _healthSlider;
+	[SerializeField] private SliderUtility _nextLevelIndicatorSlider;
+
 	private void Awake()
 	{
 		if (instance == null)
@@ -48,6 +51,24 @@ public class GameUiVisibilityHandler : MonoBehaviour
 	public void HideAButton(Button button)
 	{
 		button.gameObject.SetActive(false);
+	}
+
+	public void UpdateHealthSlider(float maxValue, float currentValue)
+	{
+		Debug.Log("svshavsasv");
+		_healthSlider.SetMaxLimit(maxValue);
+		_healthSlider.SetSliderValue(currentValue);
+	}
+
+	public void UpdateNextLevelIndicatorSlider(float maxValue, float currentValue)
+	{
+		_nextLevelIndicatorSlider.SetMaxLimit(maxValue);
+		_nextLevelIndicatorSlider.SetSliderValue(currentValue);
+	}
+	public void ResetSliderData()
+	{
+		_nextLevelIndicatorSlider.ResetData();
+		_healthSlider.ResetData();
 	}
 
 }

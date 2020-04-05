@@ -5,8 +5,6 @@ using UnityEngine;
 public class UiManager : MonoBehaviour
 {
 	public static UiManager instance;
-	[SerializeField] private SliderUtility _healthSlider;
-	[SerializeField] private SliderUtility _nextLevelIndicatorSlider;
 
 	private GameEnum.UiState _currentUiState;
 	public delegate void UIStateChange(GameEnum.UiState UIState);
@@ -53,18 +51,4 @@ public class UiManager : MonoBehaviour
 				break;
 		}
 	}
-
-	public void UpdateHealthSlider(float maxValue, float currentValue)
-	{
-		_healthSlider.SetMaxLimit(maxValue);
-		_healthSlider.SetSliderValue(currentValue);
-	}
-
-	public void UpdateNextLevelIndicatorSlider(float maxValue, float currentValue)
-	{
-		_nextLevelIndicatorSlider.SetMaxLimit(maxValue);
-		_nextLevelIndicatorSlider.SetSliderValue(currentValue);
-	}
-
-
 }

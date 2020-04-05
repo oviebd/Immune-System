@@ -8,6 +8,7 @@ public class SliderUtility : MonoBehaviour
     private Slider _slider;
 	private float _maxLimit = 100;
 	private float _minLimit = 0;
+	[SerializeField] private bool _isSLiderMoveForward = true;
 
 	public void SetMaxLimit(float limit)
 	{
@@ -30,5 +31,17 @@ public class SliderUtility : MonoBehaviour
 		if (_slider == null)
 			_slider = this.gameObject.GetComponent<Slider>();
 		return _slider;
+	}
+	public void ResetData()
+	{
+		if (GetSlider() != null)
+		{
+			if(_isSLiderMoveForward)
+				_slider.value = _minLimit;
+			else
+				_slider.value = _maxLimit;
+		}
+			
+
 	}
 }

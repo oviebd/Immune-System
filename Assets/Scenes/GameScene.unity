@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effbc7dc236cc874fa11a9f68aa6c16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSLiderMoveForward: 0
 --- !u!1 &236627927
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: effbc7dc236cc874fa11a9f68aa6c16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSLiderMoveForward: 1
 --- !u!1 &351510295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,8 +1483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ad46e91de4e5f4a9e85ff12489b97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthSlider: {fileID: 185504305}
-  _nextLevelIndicatorSlider: {fileID: 331691854}
 --- !u!114 &644999428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,6 +1498,8 @@ MonoBehaviour:
   _onGameUi: {fileID: 1073380499}
   _mainGameUi: {fileID: 442157276}
   _gameOverUi: {fileID: 763370870}
+  _healthSlider: {fileID: 185504305}
+  _nextLevelIndicatorSlider: {fileID: 331691854}
 --- !u!1 &763370866
 GameObject:
   m_ObjectHideFlags: 0
@@ -5298,7 +5300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca46f947a6e2e43d0ba25bd9d2490037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentLevel: 2
+  _currentLevel: 1
 --- !u!114 &2004269570
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,7 +23,8 @@ public class LevelManager : MonoBehaviour
     {
         GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
         ScoreManager.instance.SetWInningPoint(LevelDataHandler.instance.GetWinningPointOfALevel(levelNumber));
-    }
+		GameUiVisibilityHandler.instance.ResetSliderData();
+	}
 
 
     void OnlevelCompleted()

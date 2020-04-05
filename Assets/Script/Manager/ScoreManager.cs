@@ -50,7 +50,7 @@ public class ScoreManager : MonoBehaviour
     }
 	private void updateUI()
 	{
-		UiManager.instance.UpdateNextLevelIndicatorSlider(_winningScore*1.0f, _currentScore*1.0f);
+		GameUiVisibilityHandler.instance.UpdateNextLevelIndicatorSlider(_winningScore*1.0f, _currentScore*1.0f);
 	}
     
 }

@@ -75,13 +75,11 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
             GetPlayerHealth().ReduceHealth(damage.GetDamage());
             if (GetPlayerHealth().IsDie())
                 PlayerDie();
-            //Debug.Log("Player Health : " + GetPlayerHealth().GetHealthAmount());
         }
     }
 
     void PlayerDie()
     {
 		GameActionHandler.instance.ActionGameOver(false);
-       // Debug.Log("Platyer Die");
     }
 }
