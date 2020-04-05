@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
 
     void PlayerDie()
     {
+		GameActionHandler.instance.ActionGameOver(false);
        // Debug.Log("Platyer Die");
     }
 }

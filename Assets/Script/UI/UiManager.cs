@@ -46,9 +46,10 @@ public class UiManager : MonoBehaviour
 				UiManager.instance.SetUIState(GameEnum.UiState.PauseGameState);
 				GameUiVisibilityHandler.instance.SetMainGameUI();
 				break;
-			case GameEnum.GameState.GameOver:
+			case GameEnum.GameState.PlayerWin:
+			case GameEnum.GameState.PlayerLose:
 				SetUIState(GameEnum.UiState.GameOverState);
-				GameUiVisibilityHandler.instance.SetMainGameUI();
+				GameUiVisibilityHandler.instance.SetGameOverUI();
 				break;
 		}
 	}

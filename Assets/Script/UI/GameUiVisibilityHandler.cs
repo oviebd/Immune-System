@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameUiVisibilityHandler : MonoBehaviour
 {
 	public static GameUiVisibilityHandler instance;
 
-	[SerializeField] private OnGameUiPanel _onGameUiPanel;
-	[SerializeField] private GameMainMenu _mainGamePanel;
+	[SerializeField] private OnGameUiPanel _onGameUi;
+	[SerializeField] private GameMainMenu _mainGameUi;
+	[SerializeField] private GameOverMenu _gameOverUi;
 
 	private void Awake()
 	{
@@ -18,19 +20,34 @@ public class GameUiVisibilityHandler : MonoBehaviour
 	public void SetMainGameUI()
 	{
 		HideAllPanel();
-		_mainGamePanel.gameObject.SetActive(true);
-		_mainGamePanel.SetGameMainMenu();
+		_mainGameUi.ShowPanelObj();
+		_mainGameUi.SetGameMainMenu();
 	}
 	public void SetOnGameUI()
 	{
 		HideAllPanel();
-		_onGameUiPanel.ShowPanelObj();
+		_onGameUi.ShowPanelObj();
+	}
+	public void SetGameOverUI()
+	{
+		HideAllPanel();
+		_gameOverUi.ShowPanelObj();
+		_gameOverUi.SetUpGameOverPanel();
 	}
 
 	void HideAllPanel()
 	{
-		_onGameUiPanel.HidePanelObj ();
-		_mainGamePanel.gameObject.SetActive(false);
+		_onGameUi.HidePanelObj ();
+		_mainGameUi.HidePanelObj();
+		_gameOverUi.HidePanelObj();
 	}
-	
+	public void ShowAButton(Button button)
+	{
+		button.gameObject.SetActive(true);
+	}
+	public void HideAButton(Button button)
+	{
+		button.gameObject.SetActive(false);
+	}
+
 }

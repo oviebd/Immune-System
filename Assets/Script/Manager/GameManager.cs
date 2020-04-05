@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 	{
 		return _currentGameState;
 	}
-
+	
 	private void Awake()
 	{
 		if (instance == null)

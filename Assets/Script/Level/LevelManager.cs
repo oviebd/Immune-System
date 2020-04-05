@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
 
     void OnlevelCompleted()
     {
+		GameActionHandler.instance.ActionGameOver(true);
        // _currentLevel = _currentLevel + 1;
     }
 

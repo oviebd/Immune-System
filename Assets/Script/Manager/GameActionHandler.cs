@@ -34,8 +34,27 @@ public class GameActionHandler : MonoBehaviour
 		GameEnvironmentController.instance.ShowAllInstantiatedObjs();
 		Time.timeScale = 1;
 	}
+	public void ActionNextLevelGame()
+	{
+		ActionStartGame();
+		Time.timeScale = 1;
+	}
+	public void ActionGoMainMenuLevelGame()
+	{
+		//ActionStartGame();
+		//Time.timeScale = 1;
+	}
 	public void ActionRetryGame()
 	{
 		ActionStartGame();
+	}
+	public void ActionGameOver(bool isWin)
+	{
+		GameEnvironmentController.instance.HideAllInstantiatedObjs();
+		GameManager.instance.SetGameState(GameEnum.GameState.PlayerLose);
+		if (isWin)
+			GameManager.instance.SetGameState(GameEnum.GameState.PlayerWin);
+		else
+			GameManager.instance.SetGameState(GameEnum.GameState.PlayerLose);
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameMainMenu : MonoBehaviour
+public class GameMainMenu : PanelBase
 {
 	public static GameMainMenu instance;
 
@@ -66,7 +66,7 @@ public class GameMainMenu : MonoBehaviour
 		button.gameObject.SetActive(false);
 	}
 
-
+	#region Button Events
 	public void StartGameButtonOnClicked()
 	{
 		GameActionHandler.instance.ActionStartGame();
@@ -79,4 +79,5 @@ public class GameMainMenu : MonoBehaviour
 	{
 		GameActionHandler.instance.ActionRetryGame();
 	}
+	#endregion Button Events
 }
