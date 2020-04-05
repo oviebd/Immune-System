@@ -59,14 +59,24 @@ public class PlayerMovement : MonoBehaviour
 		float threshHold = 0.3f;
 		Vector2 newPos = _rb.position + _positionMovement * _moveSpeed * Time.fixedDeltaTime;
 
-		if (newPos.y < (BoundaryController.instance.GetTopWallPosition().y - threshHold) &&
+		if (newPos.y > (BoundaryController.instance.GetTopWallPosition().y - threshHold))
+			newPos.y = BoundaryController.instance.GetTopWallPosition().y - threshHold;
+		if (newPos.y < (BoundaryController.instance.GetBottomWallPosition().y + threshHold))
+			newPos.y = BoundaryController.instance.GetBottomWallPosition().y + threshHold;
+		if (newPos.x > (BoundaryController.instance.GetRightWallPosition().x - threshHold))
+			newPos.x = BoundaryController.instance.GetRightWallPosition().x - threshHold;
+		if (newPos.x < (BoundaryController.instance.GetLeftWallPosition().x + threshHold))
+			newPos.x = BoundaryController.instance.GetLeftWallPosition().x + threshHold;
+
+		_rb.MovePosition(newPos);
+		/*if (newPos.y < (BoundaryController.instance.GetTopWallPosition().y - threshHold) &&
 			 newPos.y > (BoundaryController.instance.GetBottomWallPosition().y + threshHold) &&
 
 			 newPos.x < (BoundaryController.instance.GetRightWallPosition().x - threshHold) &&
-			 newPos.x > (BoundaryController.instance.GetLeftWallPosition().x + + threshHold) ) 
+			 newPos.x > (BoundaryController.instance.GetLeftWallPosition().x +  threshHold) ) 
         {
 			_rb.MovePosition(newPos);
-		}
+		}*/
 	}
 
 	void onBeginDrag()
