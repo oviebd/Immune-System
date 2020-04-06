@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour ,IColliderEnter
 {
+    [SerializeField] private GameEnum.PlayerShipType _playerType = GameEnum.PlayerShipType.PlayerType_1;
 	private PlayerLevelData _playerLevelData;
     private GunController _gunControllere;
     private IHealth _playerHealth;
@@ -82,4 +83,14 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     {
 		GameActionHandler.instance.ActionGameOver(false);
     }
+
+    public GameEnum.PlayerShipType GetPlayerType()
+    {
+        return _playerType;
+    }
+    public void SetPlayerType(GameEnum.PlayerShipType playerType)
+    {
+        _playerType = playerType;
+    }
+
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
@@ -24,7 +22,10 @@ public class LevelManager : MonoBehaviour
         GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
         ScoreManager.instance.SetWInningPoint(LevelDataHandler.instance.GetWinningPointOfALevel(levelNumber));
 		GameUiVisibilityHandler.instance.ResetSliderData();
-	}
+
+        //PlayerAchivedDataHandler.instance.AddPlayerShipTypeInAchievedList(GameEnum.PlayerShipType.PlayerType_1);
+       //PlayerAchivedDataHandler.instance.GetAchievedPlayerShipList();
+    }
 
 
     void OnlevelCompleted()
@@ -40,5 +41,19 @@ public class LevelManager : MonoBehaviour
     public void SetCurrentLevelNumber(int levelNumber)
     {
         _currentLevel = levelNumber;
+    }
+
+    public bool IsPlayerCapableForGoNextLevel(int nextLevelNumber)
+    {
+        bool canPass = false;
+        LevelRequiredDataModel levelRequiredData = LevelDataCreator.
+                            GetLevelRequiredDataModel(nextLevelNumber);
+
+        if (PlayerAchivedDataHandler.instance.IsGunTypeExistInAchievedGunList(levelRequiredData.gunType) == true &&
+            PlayerAchivedDataHandler.instance.IsShipTypeExistInAchievedShipList(levelRequiredData.shipType) == true)
+        {
+            canPass = true;
+        }
+        return canPass;
     }
 }

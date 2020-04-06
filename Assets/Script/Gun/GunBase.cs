@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GunBase : MonoBehaviour
 {
-
+	[SerializeField] private GameEnum.GunType _gunType = GameEnum.GunType.GunType_1;
 	[SerializeField]private GameObject _bulletObj;
 	[SerializeField]private GameObject _parentObj;
 
@@ -56,5 +56,13 @@ public class GunBase : MonoBehaviour
 		_maxBullet = _maxBullet - 1;
 		if (_maxBullet < 0)
 			_maxBullet = 0;
+	}
+	public GameEnum.GunType GetGun()
+	{
+		return _gunType;
+	}
+	public void SetGunType(GameEnum.GunType gunType)
+	{
+		_gunType = gunType;
 	}
 }
