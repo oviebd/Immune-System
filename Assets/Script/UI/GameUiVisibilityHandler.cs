@@ -55,7 +55,6 @@ public class GameUiVisibilityHandler : MonoBehaviour
 
 	public void UpdateHealthSlider(float maxValue, float currentValue)
 	{
-		Debug.Log("svshavsasv");
 		_healthSlider.SetMaxLimit(maxValue);
 		_healthSlider.SetSliderValue(currentValue);
 	}

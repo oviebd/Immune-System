@@ -38,6 +38,7 @@ public class SliderUtility : MonoBehaviour
 		{
 			if(_isSLiderMoveForward)
 				_slider.value = _minLimit;
+
 			else
 				_slider.value = _maxLimit;
 		}

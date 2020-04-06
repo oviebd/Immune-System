@@ -5286,7 +5286,7 @@ MonoBehaviour:
   _levelDataListPlayer:
   - {fileID: 11400000, guid: ceebefece8bba420bae730efee37f5ca, type: 2}
   - {fileID: 11400000, guid: ceebefece8bba420bae730efee37f5ca, type: 2}
-  _winningPointPerLevel: 3200000050000000
+  _winningPointPerLevel: 1400000050000000
   _maxLevelnumber: 2
 --- !u!114 &2004269569
 MonoBehaviour:

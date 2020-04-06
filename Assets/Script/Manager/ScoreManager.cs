@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour
     public void SetWInningPoint(int winningPoint)
     {
         _winningScore = winningPoint;
-		
+        _currentScore = 0;
 		updateUI();
     }
     public void AddScore(int incrementedScore)
