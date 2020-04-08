@@ -10,6 +10,7 @@ public class GameUiVisibilityHandler : MonoBehaviour
 	[SerializeField] private OnGameUiPanel _onGameUi;
 	[SerializeField] private GameMainMenu _mainGameUi;
 	[SerializeField] private GameOverMenu _gameOverUi;
+	[SerializeField] private StorePanel _storeUi;
 
 	[SerializeField] private SliderUtility _healthSlider;
 	[SerializeField] private SliderUtility _nextLevelIndicatorSlider;
@@ -38,11 +39,19 @@ public class GameUiVisibilityHandler : MonoBehaviour
 		_gameOverUi.SetUpGameOverPanel();
 	}
 
+	public void SetStorerUI()
+	{
+		HideAllPanel();
+		_storeUi.ShowPanelObj();
+		_storeUi.Setup();
+	}
+
 	void HideAllPanel()
 	{
 		_onGameUi.HidePanelObj ();
 		_mainGameUi.HidePanelObj();
 		_gameOverUi.HidePanelObj();
+		_storeUi.HidePanelObj();
 	}
 	public void ShowAButton(Button button)
 	{

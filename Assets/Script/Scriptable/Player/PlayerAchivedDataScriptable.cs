@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PlayerAchivedDataScriptable : ScriptableObject
 {
-    public List<GameEnum.PlayerType> playersList;
+    public List<GameEnum.PlayerShipType> achievedPlayerShipList;
     public List<GameEnum.GunType> gunsList;
 }
