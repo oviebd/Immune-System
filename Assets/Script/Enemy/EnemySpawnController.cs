@@ -27,13 +27,6 @@ public class EnemySpawnController : MonoBehaviour
 			instance = this;
 	}
 
-	void Start()
-    {
-		//InvokeRepeating("SpawnEnemy", 1.0f, 1.0f);
-		//LoadLevelEnemyData(currentLevel);
-		//SpawnSpecificTypeEnemy(GameEnum.EnemyType.Type_1);
-		//SpawnEnemy();
-	}
 
     private void Update()
     {
@@ -43,7 +36,7 @@ public class EnemySpawnController : MonoBehaviour
             {
 				SpawnRandomEnemy();
             }
-			string res = " L : " +data.levelNumber + " wave : " + ( currentEnemyWave )+ " enemy Number : " + enemyNumberInCurrentWave + " / " + maxEnemyNumberInCurrentWave;
+			string res = " L : " +LevelManager.instance.GetCurrentLevelNumber() + " wave : " + ( currentEnemyWave )+ " enemy Number : " + enemyNumberInCurrentWave + " / " + maxEnemyNumberInCurrentWave;
 			debugText.text = res;
 		}
 	}

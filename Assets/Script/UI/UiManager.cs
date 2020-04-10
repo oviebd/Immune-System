@@ -9,6 +9,7 @@ public class UiManager : MonoBehaviour
 	private GameEnum.UiState _currentUiState;
 	public delegate void UIStateChange(GameEnum.UiState UIState);
 	public static event UIStateChange onUiStateChanged;
+
 	private void Awake()
 	{
 		if (instance == null)
@@ -48,6 +49,12 @@ public class UiManager : MonoBehaviour
 			case GameEnum.GameState.PlayerLose:
 				SetUIState(GameEnum.UiState.GameOverState);
 				GameUiVisibilityHandler.instance.SetGameOverUI();
+				break;
+			case GameEnum.GameState.StoreUiState:
+				GameUiVisibilityHandler.instance.SetStorerUI();
+				break;
+			case GameEnum.GameState.LevelChoose:
+				GameUiVisibilityHandler.instance.SetChooseLevelUI();
 				break;
 		}
 	}

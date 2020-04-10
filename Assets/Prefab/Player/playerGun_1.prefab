@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gunType: 0
   _bulletObj: {fileID: 7939316424949948455, guid: 613c727b3c3922049b3b7998ecf39cf0,
     type: 3}
   _parentObj: {fileID: 2221921908882748691}
@@ -102,7 +103,7 @@ MonoBehaviour:
   _coolDownTime: 0.3
   _damage: 1
   _infiniteFirePower: 1
-  _canShoot: 0
+  _canShoot: 1
 --- !u!1 &2221921908882748691
 GameObject:
   m_ObjectHideFlags: 0

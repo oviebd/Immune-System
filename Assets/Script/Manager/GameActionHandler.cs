@@ -16,11 +16,19 @@ public class GameActionHandler : MonoBehaviour
 		GameManager.instance.SetGameState(GameEnum.GameState.Idle);
 		UiManager.instance.SetUIState(GameEnum.UiState.StartGameState);
 	}
-	public void ActionStartGame()
+	public void ActionSelectLevel()
+	{
+		GameManager.instance.SetGameState(GameEnum.GameState.LevelChoose);
+	}
+	public void ActionShowStore()
+	{
+		GameManager.instance.SetGameState(GameEnum.GameState.StoreUiState);
+	}
+	public void ActionPlayGame(int levelNumber)
 	{
 		Time.timeScale = 1;
 		GameManager.instance.SetGameState(GameEnum.GameState.Running);
-		LevelManager.instance.LoadALevel(LevelManager.instance.GetCurrentLevelNumber());
+		LevelManager.instance.LoadALevel(levelNumber);
 	}
 	public void ActionPauseGame()
 	{
@@ -36,17 +44,17 @@ public class GameActionHandler : MonoBehaviour
 	}
 	public void ActionNextLevelGame()
 	{
-		ActionStartGame();
-		Time.timeScale = 1;
+		ActionPlayGame(LevelManager.instance.GetCurrentLevelNumber()+1);
 	}
-	public void ActionGoMainMenuLevelGame()
+	public void ActionGoMainMenu()
 	{
 		GameManager.instance.SetGameState(GameEnum.GameState.Idle);
 	}
 	public void ActionRetryGame()
 	{
-		ActionStartGame();
+		ActionPlayGame(LevelManager.instance.GetCurrentLevelNumber());
 	}
+
 	public void ActionGameOver(bool isWin)
 	{
 		GameEnvironmentController.instance.HideAllInstantiatedObjs();
@@ -56,4 +64,10 @@ public class GameActionHandler : MonoBehaviour
 		else
 			GameManager.instance.SetGameState(GameEnum.GameState.PlayerLose);
 	}
+
+
+    public void BackButtonPressed()
+    {
+
+    }
 }

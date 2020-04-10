@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ad66485cc21946148572aaff233e088, type: 3}
-  m_Name: Level_2_EnemyData
+  m_Name: enemyData_L 5
   m_EditorClassIdentifier: 
   levelNumber: 2
   numberOfWave: 4
@@ -19,3 +19,4 @@ MonoBehaviour:
   enemySpawnDelayReduceFactorPerWave: 0.5
   initialNumberOfEnemyInAWave: 20
   multiplierOfEnemyNumberPerWave: 1.5
+  _enemyTypes: 0000000001000000

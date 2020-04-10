@@ -9,7 +9,7 @@ public class GameEnum
 	public enum GunType { GunType_1, GunType_2 }
 	public enum UpgradeType { AddGun, RemoveGun }
     public enum GameTags { PlayerBullet, EnemyBullet, Player,Enemy}
-	public enum GameState { Idle, Running, PauseGame, PlayerLose,PlayerWin }
-	public enum UiState { StartGameState, PauseGameState, GameRunningState,GameOverState  }
-	
+	public enum GameState { Idle, Running, PauseGame, PlayerLose,PlayerWin, LevelChoose, StoreUiState }
+	public enum UiState { StartGameState, PauseGameState, GameRunningState,GameOverState }
+
 }

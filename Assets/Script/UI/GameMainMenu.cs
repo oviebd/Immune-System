@@ -10,6 +10,8 @@ public class GameMainMenu : PanelBase
 	[SerializeField] private Button _startNewGameButton;
 	[SerializeField] private Button _resumeGameButton;
 	[SerializeField] private Button _retryGameButton;
+	[SerializeField] private Button _chooseLevelGameButton;
+	[SerializeField] private Button _goMainMenuButton;
 
 	private void Awake()
 	{
@@ -28,32 +30,29 @@ public class GameMainMenu : PanelBase
 			case GameEnum.UiState.PauseGameState:
 				SetPauseGameUI();
 				break;
-			case GameEnum.UiState.GameOverState:
-				SetGameOverUI();
-				break;
 		}
 	}
 	void SetStartNewGameUI()
 	{
 		HideAll();
 		ShowAButton(_startNewGameButton);
+		ShowAButton(_chooseLevelGameButton);
 	}
 	void SetPauseGameUI()
 	{
 		HideAll();
 		ShowAButton(_resumeGameButton);
 		ShowAButton(_retryGameButton);
+		ShowAButton(_goMainMenuButton);
 	}
-	void SetGameOverUI()
-	{
-		HideAll();
-		ShowAButton(_startNewGameButton);
-	}
+	
 	void HideAll()
 	{
 		HideAButton(_startNewGameButton);
 		HideAButton(_resumeGameButton);
 		HideAButton(_retryGameButton);
+		HideAButton(_chooseLevelGameButton);
+		HideAButton(_goMainMenuButton);
 	}
 
 
@@ -69,7 +68,7 @@ public class GameMainMenu : PanelBase
 	#region Button Events
 	public void StartGameButtonOnClicked()
 	{
-		GameActionHandler.instance.ActionStartGame();
+		GameActionHandler.instance.ActionPlayGame(LevelManager.instance.GetCurrentLevelNumber());
 	}
 	public void ResumeGameButtonOnClicked()
 	{
@@ -78,6 +77,15 @@ public class GameMainMenu : PanelBase
 	public void RetryGameButtonOnClicked()
 	{
 		GameActionHandler.instance.ActionRetryGame();
+	}
+	public void ChooseLevelButtonOnClicked()
+	{
+		GameActionHandler.instance.ActionSelectLevel();
+	}
+	public void GoMainMenuButtonOnClicked()
+	{
+		UiManager.instance.SetUIState(GameEnum.UiState.StartGameState);
+		GameActionHandler.instance.ActionGoMainMenu();
 	}
 	#endregion Button Events
 }

@@ -12,5 +12,5 @@ public class EnemyLevelData
 	public int initialNumberOfEnemyInAWave = 30;
 	public float multiplierOfEnemyNumberPerWave = 1.5f;
 
-
+	public List<GameEnum.EnemyType> _enemyTypes;
 }

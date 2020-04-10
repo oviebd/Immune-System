@@ -19,8 +19,25 @@ public class PlayerAchivedDataHandler : MonoBehaviour
         AddPlayerGunTypeInAchivedList(gunType);
     }
 
-    #region Ship
+    public int GetMaxCompletedLevelNumber()
+    {
+        if (_playerAChivedData == null)
+            return 1;
+        else
+           return _playerAChivedData.maxLevelCompletedByPlayer;
+    }
+    public void SetMaxCompletedLevelNumber(int levelNumber)
+    {
+        if (_playerAChivedData == null)
+            return;
+        else
+        {
+            if(levelNumber >= GetMaxCompletedLevelNumber())
+                _playerAChivedData.maxLevelCompletedByPlayer = levelNumber;
+        }   
+    }
 
+    #region Ship
     private void AddPlayerShipTypeInAchievedList(GameEnum.PlayerShipType playerShipType)
     {
         if (_playerAChivedData == null)

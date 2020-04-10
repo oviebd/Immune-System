@@ -3,7 +3,7 @@
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
-    [SerializeField] private int _currentLevel = 1;
+    [SerializeField] private LevelDataScriptable _levelDataScriptable;
 
     private void Awake()
     {
@@ -12,35 +12,33 @@ public class LevelManager : MonoBehaviour
         ScoreManager.onPlayerWin += OnlevelCompleted;
     }
 
-    void Start()
-    {
-       // LoadALevel(_currentLevel);
-    }
-
     public void LoadALevel(int levelNumber)
     {
+        SetCurrentLevelNumber(levelNumber);
         GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
         ScoreManager.instance.SetWInningPoint(LevelDataHandler.instance.GetWinningPointOfALevel(levelNumber));
-		GameUiVisibilityHandler.instance.ResetSliderData();
-
-        //PlayerAchivedDataHandler.instance.AddPlayerShipTypeInAchievedList(GameEnum.PlayerShipType.PlayerType_1);
-       //PlayerAchivedDataHandler.instance.GetAchievedPlayerShipList();
+        GameUiVisibilityHandler.instance.ResetSliderData();
     }
-
 
     void OnlevelCompleted()
     {
 		GameActionHandler.instance.ActionGameOver(true);
-       // _currentLevel = _currentLevel + 1;
+        PlayerAchivedDataHandler.instance.SetMaxCompletedLevelNumber(GetCurrentLevelNumber()+1);
     }
 
     public int GetCurrentLevelNumber()
     {
-        return _currentLevel;
+        if (_levelDataScriptable == null)
+            return 1;
+        else
+            return _levelDataScriptable.currentLevel;
     }
-    public void SetCurrentLevelNumber(int levelNumber)
+
+    private void SetCurrentLevelNumber(int levelNumber)
     {
-        _currentLevel = levelNumber;
+        if (_levelDataScriptable == null)
+            return;
+        _levelDataScriptable.currentLevel = levelNumber;
     }
 
     public bool IsPlayerCapableForGoNextLevel(int nextLevelNumber)
@@ -49,8 +47,8 @@ public class LevelManager : MonoBehaviour
         LevelRequiredDataModel levelRequiredData = LevelDataCreator.
                             GetLevelRequiredDataModel(nextLevelNumber);
 
-        if (PlayerAchivedDataHandler.instance.IsGunTypeExistInAchievedGunList(levelRequiredData.gunType) == true &&
-            PlayerAchivedDataHandler.instance.IsShipTypeExistInAchievedShipList(levelRequiredData.shipType) == true)
+        if (PlayerAchivedDataHandler.instance.IsGunTypeExistInAchievedGunList(levelRequiredData.gunType) == true)
+           // && PlayerAchivedDataHandler.instance.IsShipTypeExistInAchievedShipList(levelRequiredData.shipType) == true)
         {
             canPass = true;
         }

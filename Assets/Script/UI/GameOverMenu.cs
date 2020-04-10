@@ -46,11 +46,15 @@ public class GameOverMenu : PanelBase
 	}
 	public void MainMenuButtonOnClicked()
 	{
-		GameActionHandler.instance.ActionGoMainMenuLevelGame();
+		GameActionHandler.instance.ActionGoMainMenu();
 	}
 	public void RetryGameButtonOnClicked()
 	{
 		GameActionHandler.instance.ActionRetryGame();
+	}
+	public void ChooseLevelButtonOnClicked()
+	{
+		GameActionHandler.instance.ActionSelectLevel();
 	}
 
 	#endregion Button Events
