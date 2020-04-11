@@ -74,5 +74,6 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 
     public void OnMovementStop()
     {
+        SetInactiveMode();
     }
 }

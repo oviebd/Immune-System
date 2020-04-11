@@ -12,24 +12,26 @@ public class EnemyManager : MonoBehaviour
 			instance = this;
 	}
 
-	private IENemyBehaviour[] GetAllenemy()
+	/*private List<IENemyBehaviour> GetAllenemy()
 	{
-		IENemyBehaviour[] enemyList;
-		//enemyList = FindObjectsOfType<MonoBehaviour>().OfType<IENemyBehaviour>();
+		List<IENemyBehaviour> enemyList = new List<IENemyBehaviour>();
+		//IENemyBehaviour[] enemyList;
+		enemyList = FindObjectsOfType<MonoBehaviour>().OfType<IENemyBehaviour>() as List<IENemyBehaviour>;
 		return enemyList;
 	}
 
 	public void MadeAllEnemyInActive()
 	{
-		//EnemyBehaviourBase[] enemyList = GetAllenemy();
+		List<IENemyBehaviour> enemyList = GetAllenemy();
+		Debug.Log("enem list count " + enemyList.Count);
 		if(enemyList != null)
 		{
-			for(int i = 0; i < enemyList.Length; i++)
+			for(int i = 0; i < enemyList.Count; i++)
 			{
-				enemyList[i].SetInactiveMode();
+				enemyList[i].OnMovementStop();
 			}
 		}
-	}
+	}*/
 
 
 }

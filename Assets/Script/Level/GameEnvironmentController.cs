@@ -32,7 +32,7 @@ public class GameEnvironmentController : MonoBehaviour
 	}
 	public void SetEnvironmentForPlayerDieMode()
 	{
-		EnemyManager.instance.MadeAllEnemyInActive();
+		//EnemyManager.instance.MadeAllEnemyInActive();
 	}
 	private void DestroyAllIntantiatedObjs()
 	{

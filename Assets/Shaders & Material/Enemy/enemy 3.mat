@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bullet enemy 2
-  m_Shader: {fileID: -6465566751694194690, guid: fbd71e3bc9b30fa4fbff7e6fd3b11032,
+  m_Name: enemy 3
+  m_Shader: {fileID: -6465566751694194690, guid: 5d4aae8682bf55c48bb8c45f25c9eff1,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e7846292bb5cb4267bc73e6d0786c033, type: 3}
+        m_Texture: {fileID: 2800000, guid: b359449e9ee82fd498717ca383533a10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -38,9 +38,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EnableExternalAlpha: 0
-    - thickness: 0.621
+    - strength: 1
+    - thickness: 0.64
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - outlineColor: {r: 0.259412, g: 7.8564734, b: 7.7640686, a: 0}
+    - glowColor: {r: 10.401031, g: 3.5814865, b: 3.5814865, a: 1}
+    - outlineColor: {r: 0, g: 8.497818, b: 8.297869, a: 0}

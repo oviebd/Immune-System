@@ -89,6 +89,9 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     }
     void PlayerDie()
     {
+        //Todo 
+       //  Inactive all Enemy and other objs 
+      //  GameEnvironmentController.instance.SetEnvironmentForPlayerDieMode();
         if (_playerGraphics != null)
             _playerGraphics.SetActive(false);
         if (_collider != null)

@@ -58,6 +58,9 @@ public class GunController : MonoBehaviour
 			IGun iGun = gun.gameObject.GetComponent<IGun>();
 			_iGunList.Add(iGun);
 
+			if (_isEnemyGun == true)
+				return;
+			// Execute for only Player Gun
 			if (i == 0)
 			{
 				_iGunList[i].SetShootingCapabilities(true);
