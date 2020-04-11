@@ -67,14 +67,9 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
     void DestroyObj()
     {
-        _collider.enabled = false;
-        graphicsObj.SetActive(false);
+        SetInactiveMode();
         Destroy(this.gameObject, 2.0f);
-        IMove[] moves = gameObject.GetComponents<IMove>();
-        for (int i = 0; i < moves.Length; i++)
-        {
-            moves[i].StopMovement();
-        }
+
         if( _enemyBehaviour!= null)
         {
             if (_explosion != null)
@@ -83,6 +78,13 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
             _enemyBehaviour.OnDestroyObject();
         }
         ScoreManager.instance.AddScore(GetRewardPoint());
+    }
+
+    public void SetInactiveMode()
+    {
+        _collider.enabled = false;
+        graphicsObj.SetActive(false);
+        Utils.StopMovementOf_A_IMove_Gameobject(this.gameObject);
     }
 
     public int GetRewardPoint()

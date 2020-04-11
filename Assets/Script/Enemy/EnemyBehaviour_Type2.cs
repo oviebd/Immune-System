@@ -30,9 +30,11 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
     public void OnTargetFound(GameObject targetObj)
     {
         Transform targetTransform = targetObj.transform;
-        IMove[] moves = gameObject.GetComponents<IMove>();
 		SetInitialTarget(targetTransform);
 
+        IMove[] moves = Utils.GetAllIMoveComponentsFromAGameObject(this.gameObject);
+        if (moves == null)
+            return;
 		for (int i = 0; i < moves.Length; i++)
         {
 			IMove move = moves[i];

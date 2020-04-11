@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour ,IColliderEnter
 {
     [SerializeField] private GameEnum.PlayerShipType _playerType = GameEnum.PlayerShipType.PlayerType_1;
-	private PlayerLevelData _playerLevelData;
+    [SerializeField] private GameObject _playerGraphics;
+    private PlayerLevelData _playerLevelData;
     private GunController _gunControllere;
     private IHealth _playerHealth;
+    private Collider2D _collider;
+    private Explosion _explosion;
+   
 
     private void Awake()
     {
@@ -16,6 +20,11 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     private void OnDestroy()
     {
         PlayerUpdateController.onPlayerSystemUpdate -= OnPlayerUpdateSystemSTatus;
+    }
+    private void Start()
+    {
+        _collider = this.gameObject.GetComponent<Collider2D>();
+        _explosion = this.gameObject.GetComponent<Explosion>();
     }
 
     void OnPlayerUpdateSystemSTatus(GameEnum.UpgradeType upgradeType)
@@ -78,12 +87,24 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
                 PlayerDie();
         }
     }
-
     void PlayerDie()
     {
-		GameActionHandler.instance.ActionGameOver(false);
+        if (_playerGraphics != null)
+            _playerGraphics.SetActive(false);
+        if (_collider != null)
+            _collider.enabled = false;
+     
+        _explosion.Explode();
+       if ( _explosion != null)
+            _explosion.Explode();
+
+        Invoke("ActionAfterDie", 2.0f);
     }
 
+    void ActionAfterDie()
+    {
+        GameActionHandler.instance.ActionGameOver(false);
+    }
     public GameEnum.PlayerShipType GetPlayerType()
     {
         return _playerType;

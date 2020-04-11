@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
-
 
 [RequireComponent(typeof(AudioSource))]
 public class Explosion : MonoBehaviour
@@ -9,7 +7,7 @@ public class Explosion : MonoBehaviour
     private AudioSource _audioSource;
     [SerializeField] private GameObject _explosionEffect;
     [SerializeField] private AudioClip _explosionClip;
-	[SerializeField] private Sprite _sprite;
+	[SerializeField] private SpriteRenderer _sourceImgForExplosionEffectImage;
 
 	private void Start()
     {
@@ -36,11 +34,12 @@ public class Explosion : MonoBehaviour
         {
             GameObject effectParticle = InstantiatorHelper.instance.InstantiateObject(_explosionEffect, this.gameObject);
 			ParticleSystem  _explosionParticle = effectParticle.GetComponent<ParticleSystem>();
-			if(_explosionParticle != null)
+			if(_explosionParticle != null && _sourceImgForExplosionEffectImage.sprite != null)
 			{
-				_explosionParticle.textureSheetAnimation.SetSprite(0, _sprite);
+                _explosionParticle.GetComponent<ParticleSystemRenderer>().material = _sourceImgForExplosionEffectImage.sharedMaterial;
+                _explosionParticle.textureSheetAnimation.SetSprite(0, _sourceImgForExplosionEffectImage.sprite);
 			}
-            Destroy(effectParticle, 1.0f);
+           // Destroy(effectParticle, 1.0f);
         }
     }
 

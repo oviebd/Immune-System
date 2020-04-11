@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gunType: 0
   _bulletObj: {fileID: 7939316424949948455, guid: 613c727b3c3922049b3b7998ecf39cf0,
     type: 3}
   _parentObj: {fileID: 5127879050873135231}
@@ -120,6 +121,8 @@ GameObject:
   - component: {fileID: 5101693746049995255}
   - component: {fileID: 2237697749735478489}
   - component: {fileID: -298775007050859447}
+  - component: {fileID: 309099747}
+  - component: {fileID: 309099746}
   m_Layer: 8
   m_Name: Player_1
   m_TagString: Player
@@ -154,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142d0fd90d8796440989341df1cf2c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerType: 0
+  _playerGraphics: {fileID: 5101693746101885528}
 --- !u!114 &5101693746049995251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcf25e0d7aef48d188af9f0ca7b5066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHealth: 100
+  _totalHealth: 5
   _isItPlayerHealth: 1
 --- !u!114 &-298775007050859447
 MonoBehaviour:
@@ -265,6 +270,118 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
+--- !u!82 &309099747
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101693746049995254}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &309099746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101693746049995254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f663578771ac54e2ea82affd46da2d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionEffect: {fileID: 8872148088385112755, guid: 40ed8c6093a4e31408627020202aea16,
+    type: 3}
+  _explosionClip: {fileID: 0}
+  _sourceImgForExplosionEffectImage: {fileID: 5101693746101885529}
 --- !u!1 &5101693746101885528
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +456,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c57ba38961e22f54798d5d38633c562c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6448024, g: 0.8490566, b: 0.8225796, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -444,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gunType: 0
   _bulletObj: {fileID: 7939316424949948455, guid: 613c727b3c3922049b3b7998ecf39cf0,
     type: 3}
   _parentObj: {fileID: 5127879048787011538}

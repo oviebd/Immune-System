@@ -132,7 +132,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b475e583ce832043b2fdd66c1955393, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7f1e247455413b548839f4f64806e231, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gunType: 0
   _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
     type: 3}
   _parentObj: {fileID: 1632807721770688045}
@@ -446,7 +447,7 @@ MonoBehaviour:
   _explosionEffect: {fileID: 8872148088385112755, guid: 40ed8c6093a4e31408627020202aea16,
     type: 3}
   _explosionClip: {fileID: 8300000, guid: c3f87972b0a9d044696be345aba423ed, type: 3}
-  _sprite: {fileID: 21300000, guid: b359449e9ee82fd498717ca383533a10, type: 3}
+  _sourceImgForExplosionEffectImage: {fileID: 5610750885282326571}
 --- !u!114 &1154239398097349701
 MonoBehaviour:
   m_ObjectHideFlags: 0

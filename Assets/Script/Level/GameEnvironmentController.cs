@@ -30,6 +30,10 @@ public class GameEnvironmentController : MonoBehaviour
 	{
 		_parentObjForInstantiatObjs.SetActive(true);
 	}
+	public void SetEnvironmentForPlayerDieMode()
+	{
+		EnemyManager.instance.MadeAllEnemyInActive();
+	}
 	private void DestroyAllIntantiatedObjs()
 	{
 		if (_parentObjForInstantiatObjs == null)
@@ -40,6 +44,4 @@ public class GameEnvironmentController : MonoBehaviour
 			Destroy(_parentObjForInstantiatObjs.transform.GetChild(i).gameObject);
 		}
 	}
-
-
 }

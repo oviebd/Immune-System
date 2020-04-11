@@ -43,4 +43,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - glowColor: {r: 5.0586452, g: 5.0586452, b: 5.0586452, a: 1}
+    - glowColor: {r: 7.426653, g: 7.426653, b: 7.426653, a: 1}
