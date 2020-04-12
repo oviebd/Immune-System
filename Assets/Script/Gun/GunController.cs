@@ -45,7 +45,7 @@ public class GunController : MonoBehaviour
     {
         for(int i = 0; i < _guns.Count; i++)
         {
-			GameObject newObj = Instantiate(gunPrefab, _guns[i].transform.position, gunPrefab.transform.rotation);
+			GameObject newObj = Instantiate(gunPrefab, _guns[i].transform);
 			newObj.transform.parent = _guns[i].transform;
 			AppendGunObjectInCoreGunList(newObj, i);
 		}
@@ -61,13 +61,13 @@ public class GunController : MonoBehaviour
 			if (_isEnemyGun == true)
 				return;
 			// Execute for only Player Gun
-			if (i == 0)
-			{
-				_iGunList[i].SetShootingCapabilities(true);
-				_activeGunNum = 1;
-			}
-			else
-				_iGunList[i].SetShootingCapabilities(false);
+			/*	if (i == 0)
+				{
+					_iGunList[i].SetShootingCapabilities(true);
+					_activeGunNum = 1;
+				}
+				else
+					_iGunList[i].SetShootingCapabilities(false);*/
 		}
 	}
     
@@ -82,22 +82,22 @@ public class GunController : MonoBehaviour
 
     public void AddGun()
     {
-        if( (_activeGunNum + 1) <= _iGunList.Count )
+       /* if( (_activeGunNum + 1) <= _iGunList.Count )
         {
 			_iGunList[_activeGunNum].SetShootingCapabilities(true);
 			_activeGunNum = _activeGunNum + 1;
-		}
+		}*/
     }
 
 	public void RemoveGun()
 	{
-		if (_activeGunNum == 1)  // Oonly 1 gun is enabled . So It can not be removed .
+		/*if (_activeGunNum == 1)  // Oonly 1 gun is enabled . So It can not be removed .
 			return; 
 		if ((_activeGunNum ) <= _iGunList.Count )
 		{
 			_iGunList[_activeGunNum -1 ].SetShootingCapabilities(false);
 			_activeGunNum = _activeGunNum - 1;
-		}
+		}*/
 	}
 
 }
