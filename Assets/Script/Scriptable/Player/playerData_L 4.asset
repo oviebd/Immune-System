@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: playerData_L 4
   m_EditorClassIdentifier: 
   levelNumber: 1
-  playerPrefab: {fileID: 5101693746049995254, guid: 3c9c6abc37a5445a8be3307c47edfa3f,
+  playerPrefab: {fileID: 5101693746049995254, guid: 2d06458646be04550a7ad804d9db97da,
     type: 3}
   playerGunPrefab: {fileID: 2221921908776760814, guid: cb9e7036c8fa34c83aafecb923b13d44,
     type: 3}

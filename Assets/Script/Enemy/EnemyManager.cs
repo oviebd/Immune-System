@@ -8,7 +8,6 @@ public class EnemyManager : MonoBehaviour
 	public static EnemyManager instance;
 	[SerializeField] private List<EnemyLevelDataScriptable> _levelDataListEnemy;
 
-	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
 	private void Awake()
 	{
 		if (instance == null)

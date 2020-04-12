@@ -52,17 +52,19 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
     {
         if (GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
         {
-            DamageAble damageAble = collidedObject.GetComponent<DamageAble>();
+			DamageAble damageAble = collidedObject.GetComponent<DamageAble>();
             GetHealth().ReduceHealth(damageAble.GetDamage());
             if (GetHealth().IsDie())
-                Die();
+				Die(collidedObject);
         }
     }
 
-    void Die()
+    void Die(GameObject collidedObject)
     {
-        DestroyObj();
-        enemyDestroyedByPlayer(this);
+		if (collidedObject.tag != GameEnum.GameTags.Player.ToString()) //If enemy collided with player then player score will not Increased
+			ScoreManager.instance.AddScore(GetRewardPoint());
+		DestroyObj();
+		enemyDestroyedByPlayer(this);
     }
 
     void DestroyObj()
@@ -77,7 +79,6 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
             _enemyBehaviour.OnDestroyObject();
         }
-        ScoreManager.instance.AddScore(GetRewardPoint());
     }
 
     public void SetInactiveMode()

@@ -19,4 +19,5 @@ MonoBehaviour:
   enemySpawnDelayReduceFactorPerWave: 0.5
   initialNumberOfEnemyInAWave: 20
   multiplierOfEnemyNumberPerWave: 1.5
-  _enemyTypes: 0000000001000000
+  enemyTypes: 040000000200000003000000
+  enemyPercentageList: 280000001400000014000000

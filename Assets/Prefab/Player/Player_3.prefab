@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerType: 0
-  _playerGraphics: {fileID: 0}
+  _playerGraphics: {fileID: 5101693746101885528}
 --- !u!114 &5101693746049995251
 MonoBehaviour:
   m_ObjectHideFlags: 0
