@@ -6,5 +6,6 @@ public interface IGun
 {
     void Shoot();
     void SetShootingCapabilities(bool canShoot);
-	//void InstantiateBullet();
+	bool IsItPrimaryGun();
+    void SetIsItPrimaryGun(bool isItPrimaryGun);
 }

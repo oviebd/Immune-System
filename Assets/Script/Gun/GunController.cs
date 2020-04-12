@@ -8,24 +8,17 @@ public class GunController : MonoBehaviour
 	[SerializeField] private bool _isAutomaticFire = false;
 	[SerializeField] private bool _isEnemyGun = false;
 
-	private int _activeGunNum = 0;
+   [SerializeField] private int _minActiveGunNum = 1;
+	private int _lastGunIndex = 0; 
     private List<IGun> _iGunList = new List<IGun>();
 
     void Start()
     {
-
 		if (_isEnemyGun)
-			SetGuns();
+			SetGuns();	
 		//if (_isAutomaticFire == false)
 			//InputManager.onShootButtonPressed += onGunButtonPressed;
 	}
-
-    private void OnDestroy()
-    {
-		//if (_isAutomaticFire == false)
-			//InputManager.onShootButtonPressed -= onGunButtonPressed;
-	}
-
     public void Shoot()
     {
 		if (_isAutomaticFire == true)
@@ -38,7 +31,6 @@ public class GunController : MonoBehaviour
         {
 			AppendGunObjectInCoreGunList(_guns[i], i);
 		}
-
 	}
 
     public void InstantiateGun(GameObject gunPrefab)
@@ -60,14 +52,17 @@ public class GunController : MonoBehaviour
 
 			if (_isEnemyGun == true)
 				return;
-			// Execute for only Player Gun
-			/*	if (i == 0)
-				{
-					_iGunList[i].SetShootingCapabilities(true);
-					_activeGunNum = 1;
-				}
-				else
-					_iGunList[i].SetShootingCapabilities(false);*/
+
+			//Execute for only Player Gun
+			if ( i < _minActiveGunNum)
+			{
+				_iGunList[i].SetIsItPrimaryGun(true);
+				_lastGunIndex = i;
+			}
+			else
+				_iGunList[i].SetIsItPrimaryGun(false);
+
+			_iGunList[i].SetShootingCapabilities(_iGunList[i].IsItPrimaryGun());
 		}
 	}
     
@@ -82,22 +77,20 @@ public class GunController : MonoBehaviour
 
     public void AddGun()
     {
-       /* if( (_activeGunNum + 1) <= _iGunList.Count )
+		if ( (_lastGunIndex  + 1 ) < _iGunList.Count )
         {
-			_iGunList[_activeGunNum].SetShootingCapabilities(true);
-			_activeGunNum = _activeGunNum + 1;
-		}*/
+			_iGunList[_lastGunIndex + 1 ].SetShootingCapabilities(true);
+			_lastGunIndex = _lastGunIndex + 1;
+		}
     }
 
 	public void RemoveGun()
 	{
-		/*if (_activeGunNum == 1)  // Oonly 1 gun is enabled . So It can not be removed .
-			return; 
-		if ((_activeGunNum ) <= _iGunList.Count )
+		if( (_lastGunIndex ) > 0 &&  _iGunList[_lastGunIndex  ].IsItPrimaryGun() == false)
 		{
-			_iGunList[_activeGunNum -1 ].SetShootingCapabilities(false);
-			_activeGunNum = _activeGunNum - 1;
-		}*/
+			_iGunList[_lastGunIndex].SetShootingCapabilities(false);
+			_lastGunIndex = _lastGunIndex - 1;
+		}
 	}
 
 }

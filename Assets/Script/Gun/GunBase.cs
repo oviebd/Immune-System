@@ -7,15 +7,16 @@ public class GunBase : MonoBehaviour
 	[SerializeField] private GameEnum.GunType _gunType = GameEnum.GunType.GunType_1;
 	[SerializeField]private GameObject _bulletObj;
 	[SerializeField]private GameObject _parentObj;
-
+	
 	[SerializeField] private int   _maxBullet;
 	[SerializeField] private float _coolDownTime;
 	[SerializeField] private int   _damage;
 	[SerializeField] private bool _infiniteFirePower = true;
 	private float _lastShootTime ;
 
+	private bool _isItPrimaryGun = false;
 
-    private void Start()
+	private void Start()
     {
 		_lastShootTime = Time.time;
 	}
@@ -64,5 +65,14 @@ public class GunBase : MonoBehaviour
 	public void SetGunType(GameEnum.GunType gunType)
 	{
 		_gunType = gunType;
+	}
+
+	public bool IsItPrimaryGun()
+	{
+		return _isItPrimaryGun;
+	}
+	public void SetIsItPrimaryGun(bool isItPrimaryGun)
+	{
+	      _isItPrimaryGun = isItPrimaryGun;
 	}
 }
