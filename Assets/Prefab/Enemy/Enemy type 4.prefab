@@ -373,6 +373,7 @@ MonoBehaviour:
   - {fileID: 181426091}
   _isAutomaticFire: 1
   _isEnemyGun: 1
+  _minActiveGunNum: 1
 --- !u!114 &6689067606414967003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +389,7 @@ MonoBehaviour:
   graphicsObj: {fileID: 2479212942419892027}
   _collider: {fileID: 6917993263561059463}
   _explosion: {fileID: 6937732678670898815}
-  _enemyType: 1
+  _enemyType: 3
   _minimumDistanceFromPlayerForShooting: 7
 --- !u!82 &1814198716522109597
 AudioSource:

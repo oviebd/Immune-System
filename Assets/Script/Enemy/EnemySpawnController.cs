@@ -43,7 +43,7 @@ public class EnemySpawnController : MonoBehaviour
 	public void LoadLevelEnemyData(int level)
     {
 		data = null;
-	    data = LevelDataHandler.instance.GetEnemyLevelData(level);
+	    data = EnemyManager.instance.GetEnemyLevelData(level);
         if (data == null)
 			return;
 		ResetCurrentLevelEnemyData();
@@ -101,7 +101,6 @@ public class EnemySpawnController : MonoBehaviour
 	}
 
 
-
 	#region EnemySpawn
 	void SpawnRandomEnemy()
 	{
@@ -137,16 +136,14 @@ public class EnemySpawnController : MonoBehaviour
 	private GameEnum.EnemyType GetRandomEnemyType()
 	{
 		int randomRange = Random.Range(0, 100);
-		GameEnum.EnemyType type = GameEnum.EnemyType.Type_1;
-
-		if (randomRange < 50)
-			type = GameEnum.EnemyType.Type_1;
-		else if (randomRange >= 50 && randomRange <= 100)
-			type = GameEnum.EnemyType.Type_2;
-
-		//type = GameEnum.EnemyType.Type_2;
-		//Debug.Log("Random Range :   " + randomRange + "   Type ;  " + type);
-		return type;
+		int prevVal = 0;
+		foreach (KeyValuePair<GameEnum.EnemyType, int> keyValue in data.enemyTypeAndPercentageDictionary)
+		{
+			if (randomRange >= prevVal && randomRange <= keyValue.Value)
+				return keyValue.Key;
+			prevVal = keyValue.Value;
+		}
+		return GameEnum.EnemyType.Type_1;
 	}
 	#endregion EnemySpawn
 

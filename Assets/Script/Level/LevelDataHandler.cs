@@ -29,27 +29,7 @@ public class LevelDataHandler : MonoBehaviour
     {
         return _maxLevelnumber;
     }
-    public EnemyLevelData GetEnemyLevelData(int levelNumber)
-    {
-        EnemyLevelDataScriptable levelDataScriptable = GetLevelScriptable(levelNumber);
-        EnemyLevelData data = new EnemyLevelData();
-
-        if (levelDataScriptable != null)
-        {
-            data.levelNumber = levelDataScriptable.levelNumber;
-            data.numberOfWave = levelDataScriptable.numberOfWave;
-            data.initialEnemyNumber = levelDataScriptable.initialEnemyNumber;
-            data.initialEnemySpawnDelay = levelDataScriptable.initialEnemySpawnDelay;
-            data.enemySpawnDelayReduceFactorPerWave = levelDataScriptable.enemySpawnDelayReduceFactorPerWave;
-            data.initialNumberOfEnemyInAWave = levelDataScriptable.initialNumberOfEnemyInAWave;
-            data.multiplierOfEnemyNumberPerWave = levelDataScriptable.multiplierOfEnemyNumberPerWave;
-
-            return data;
-        }
-
-        return null;
-    }
-
+   
     public PlayerLevelData GetPlayerLevelData(int levelNumber)
     {
         PlayerLevelDataScriptable playerLevelDataScriptable = GetPlayerLevelScriptable(levelNumber);
@@ -65,14 +45,7 @@ public class LevelDataHandler : MonoBehaviour
         return null;
     }
 
-    private EnemyLevelDataScriptable GetLevelScriptable(int levelNumber)
-    {
-        levelNumber = levelNumber - 1;
-        if (_levelDataListEnemy != null && levelNumber < _levelDataListEnemy.Count)
-            return _levelDataListEnemy[levelNumber];
-        else
-            return null;
-    }
+   
 
     private PlayerLevelDataScriptable GetPlayerLevelScriptable(int levelNumber)
     {

@@ -1565,7 +1565,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBehaviours:
   - {fileID: 7922354520863022930, guid: 2852127e840064a4d89c45ee003fa092, type: 3}
+  - {fileID: 6689067606414967003, guid: e9e46a285fac64747acc4c937047a63d, type: 3}
+  - {fileID: 6689067606414967003, guid: 1cb991dee6291a3448209e17205fe5d0, type: 3}
   - {fileID: 6689067606414967003, guid: c85a27232e99a5f42a8a5b8d25fd4056, type: 3}
+  - {fileID: 7922354520863022930, guid: e4bface17df75d74699908fce1061b69, type: 3}
   debugText: {fileID: 4833425329599326785}
 --- !u!114 &438529327
 MonoBehaviour:
@@ -1579,6 +1582,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 611caaf095bff6946b5fb5ce1735ab11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelDataListEnemy:
+  - {fileID: 11400000, guid: 276232ad5c5c241a3b99fa9d0dceb457, type: 2}
+  - {fileID: 11400000, guid: fa4a800a4a0ee457c897094ee64aaabd, type: 2}
+  - {fileID: 11400000, guid: 27c91a82c92b54a92b507309239556ad, type: 2}
+  - {fileID: 11400000, guid: ed49e409a1bf14949b3d1c45232a252a, type: 2}
+  - {fileID: 11400000, guid: eb57d93f4f9cd40d8a5f2b73b2d8577a, type: 2}
+  enemyBehaviours: []
 --- !u!1 &442157272
 GameObject:
   m_ObjectHideFlags: 0
