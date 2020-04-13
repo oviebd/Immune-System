@@ -54,4 +54,46 @@ public class PositionHandler : MonoBehaviour
 		return pos;
 	}
 
+	public Vector3 InstantiateCollectableInARandomPosition()
+	{
+		float xPos = 0, yPos = 0;
+		float threshHold =  1;
+
+		float randomYPos = Random.Range(BoundaryController.instance.GetTopWallPosition().y - threshHold, BoundaryController.instance.GetBottomWallPosition().y + threshHold);
+		float randomXPos = Random.Range(BoundaryController.instance.GetRightWallPosition().x - threshHold, BoundaryController.instance.GetLeftWallPosition().x + threshHold);
+
+		Vector3 pos = new Vector3(randomXPos, randomYPos, 0);
+		
+		return pos;
+		
+		/*int range = Random.Range(0, 4);
+		switch (range)
+		{
+			case 0:
+				// Right Pos 
+				xPos = BoundaryController.instance.GetRightWallPosition().x + threshHold;
+				yPos = randomYPos;
+				break;
+			case 1:
+				//Left Pos
+				xPos = BoundaryController.instance.GetLeftWallPosition().x - threshHold;
+				yPos = randomYPos;
+				break;
+			case 2:
+				//Top Pos
+				xPos = randomXPos;
+				yPos = BoundaryController.instance.GetTopWallPosition().y + threshHold;
+				break;
+			case 3:
+				//Top Pos
+				xPos = randomXPos;
+				yPos = BoundaryController.instance.GetBottomWallPosition().y - threshHold;
+				break;
+		}
+
+		Vector3 pos = new Vector3(xPos, yPos, 0);
+		Debug.Log("Random Pos : " + pos);
+		return pos;*/
+	}
+
 }

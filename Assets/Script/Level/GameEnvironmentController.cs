@@ -20,6 +20,7 @@ public class GameEnvironmentController : MonoBehaviour
 		ShowAllInstantiatedObjs();
 		EnemySpawnController.instance.LoadLevelEnemyData(levelNumber);
         PlayerSpawnerController.instance.LoadLevelPlayerData(levelNumber);
+		CollectableSpawnControler.instance.LoadCollectableForALevel(levelNumber);
     }
 
 	public void HideAllInstantiatedObjs()

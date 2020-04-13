@@ -9,6 +9,7 @@ TagManager:
   - PlayerBullet
   - Enemy
   - EnemyBullet
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - playerBullet
   - enemy
   - enemyBullet
-  - 
+  - collectable
   - 
   - 
   - 

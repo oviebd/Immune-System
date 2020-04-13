@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
         return _gunControllere;
     }
 
-    private IHealth GetPlayerHealth()
+    public IHealth GetPlayerHealth()
     {
         if (_playerHealth == null)
             _playerHealth = this.GetComponent<IHealth>();

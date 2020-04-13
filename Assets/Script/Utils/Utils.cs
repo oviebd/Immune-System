@@ -30,6 +30,5 @@ public static class Utils
                 moves[i].StopMovement();
             }
         }
-
     }
 }
