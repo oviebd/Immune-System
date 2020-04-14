@@ -44,5 +44,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - glowColor: {r: 8.47419, g: 5.501568, b: 5.590303, a: 1}
+    - glowColor: {r: 10.259789, g: 1.9842044, b: 3.581249, a: 1}
     - outlineColor: {r: 8.315858, g: 8.509951, b: 2.5289004, a: 1}

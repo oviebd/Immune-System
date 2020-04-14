@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunType: 0
-  _bulletObj: {fileID: 7939316424949948455, guid: 6a67a1de7c1eceb4299e4869ff58c285,
+  _bulletObj: {fileID: 7939316424949948455, guid: 42498c7b13c83dd419194d4513ef5be9,
     type: 3}
   _parentObj: {fileID: 2221921908882748691}
   _maxBullet: 10
