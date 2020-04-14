@@ -186,7 +186,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f60ca0aa3ad63db4c94cb31bba0947ce, type: 2}
+  - {fileID: 2100000, guid: c32c233018e2e2b4b8229ea9832ca8f8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,9 +296,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.042755738, y: -0.001794219}
+  m_Offset: {x: -0.021586895, y: 0.015140891}
   serializedVersion: 2
-  m_Radius: 0.16718686
+  m_Radius: 0.1629529
 --- !u!114 &3022287168575978612
 MonoBehaviour:
   m_ObjectHideFlags: 0

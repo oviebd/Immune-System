@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142d0fd90d8796440989341df1cf2c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerType: 0
+  _playerType: 2
   _playerGraphics: {fileID: 5101693746101885528}
 --- !u!114 &5101693746049995251
 MonoBehaviour:
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 5101693746101885528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children:
   - {fileID: 6537660394345361454}
   - {fileID: 1378884473478186319}
@@ -313,7 +313,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7881f0388ff0cf8448212b2d3adc284d, type: 2}
+  - {fileID: 2100000, guid: c31c5199d6813fe4f9057a229edfee4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

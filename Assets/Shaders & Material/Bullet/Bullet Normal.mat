@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: enemy 1
+  m_Name: Bullet Normal
   m_Shader: {fileID: -6465566751694194690, guid: 5d4aae8682bf55c48bb8c45f25c9eff1,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b25d3fa1b9948d94c959eec6fa8b55cf, type: 3}
+        m_Texture: {fileID: 2800000, guid: b359449e9ee82fd498717ca383533a10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -38,9 +38,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EnableExternalAlpha: 0
-    - strength: 0.8
+    - strength: 1
+    - thickness: 0.64
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - glowColor: {r: 3.3449876, g: 6.7536893, b: 3.9641795, a: 1}
+    - glowColor: {r: 8.47419, g: 1.6859645, b: 1.1979221, a: 1}
+    - outlineColor: {r: 0.69054604, g: 6.3650317, b: 6.2108335, a: 0}

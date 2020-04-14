@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: P_bullet_T_1
+  m_Name: E T 2 Triangle
   m_Shader: {fileID: -6465566751694194690, guid: fbd71e3bc9b30fa4fbff7e6fd3b11032,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a35b151eea1c2de43a63764c264c1d01, type: 3}
+        m_Texture: {fileID: 2800000, guid: b359449e9ee82fd498717ca383533a10, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -39,10 +39,10 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - strength: 1
-    - thickness: 0.815
+    - thickness: 0.9
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - glowColor: {r: 16, g: 16, b: 16, a: 1}
-    - outlineColor: {r: 56.99689, g: 29.54289, b: 36.107975, a: 1}
+    - glowColor: {r: 1.8561478, g: 1.462154, b: 1.5632802, a: 1}
+    - outlineColor: {r: 6.2558155, g: 11.313708, b: 3.6825013, a: 1}

@@ -45,11 +45,9 @@ public class Schild : MonoBehaviour,IColliderEnter
         if(_health != null && _spriteRenderer != null)
         {
             float alpha = _health.GetCurrentHealthAmount() * 1.0f / _health.GetMaxHealthAmount() * 1.0f;
-           
             Color col = _spriteRenderer.color;
             col.a = alpha;
             Color newCol = col;
-            Debug.Log(newCol);
             _spriteRenderer.color = newCol;
         }
     }

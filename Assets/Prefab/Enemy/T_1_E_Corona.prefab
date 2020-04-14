@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0f1340237df25483daeda054e434cfd0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f83b29342163942f281ab25c3ffed058, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 5610750885282326573}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 2791597634713003444}
   m_Father: {fileID: 5610750885945116249}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: -8367566173641107243}
   - component: {fileID: 6104249074773563780}
   m_Layer: 10
-  m_Name: Enemy type 1
+  m_Name: T_1_E_Corona
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
