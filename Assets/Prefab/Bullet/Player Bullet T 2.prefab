@@ -125,8 +125,8 @@ GameObject:
   - component: {fileID: -2529909617840408764}
   - component: {fileID: 4856445801451126968}
   - component: {fileID: -7899778070866666632}
-  - component: {fileID: -7868128386828406511}
   - component: {fileID: 1751954078}
+  - component: {fileID: 3434822943165390556}
   m_Layer: 9
   m_Name: Player Bullet T 2
   m_TagString: PlayerBullet
@@ -211,21 +211,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 3072
---- !u!114 &-7868128386828406511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7939316424949948455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd1e5441a41e4e6cb7a12beba3ae772, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _lifeTime: 2
-  _collider2D: {fileID: 1751954078}
-  _graphicsObj: {fileID: 7939316424500671289}
 --- !u!58 &1751954078
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -242,3 +227,18 @@ CircleCollider2D:
   m_Offset: {x: 0.00978902, y: 0}
   serializedVersion: 2
   m_Radius: 0.04550585
+--- !u!114 &3434822943165390556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7939316424949948455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef3f474a6e104748977fef155f3906a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 2
+  _collider2D: {fileID: 1751954078}
+  _graphicsObj: {fileID: 5647779421266988972}

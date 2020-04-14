@@ -3,7 +3,7 @@ public interface IHealth
 {
     void AddHealth(int amount);
     void ReduceHealth(int amount);
-    int  GetHealthAmount();
+    int  GetCurrentHealthAmount();
     void SetHealthAmount(int amount);
     bool IsDie();
 }

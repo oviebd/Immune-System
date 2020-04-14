@@ -16,10 +16,13 @@ public class Collectable_Schild : CollectableBase,ICollectable
 
         if (playerController != null)
         {
-            GameObject schild = Instantiate(_schildObj, _schildObj.transform);
-            schild.transform.parent = playerController.gameObject.transform;
+            GameObject schild = Instantiate(_schildObj, playerController.transform.position, Quaternion.identity);
+            schild.transform.parent = playerController.transform;
 
-            Destroy(schild,5.0f);
+           // GameObject schild = Instantiate(_schildObj, _schildObj.transform);
+            //schild.transform.parent = playerController.gameObject.transform;
+
+           // Destroy(schild,10.0f);
         }
     }
 }

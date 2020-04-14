@@ -26,7 +26,7 @@ public class Health : MonoBehaviour, IHealth
             return false;
     }
 
-    public int GetHealthAmount()
+    public int GetCurrentHealthAmount()
     {
         return _currentHealth;
     }
@@ -34,6 +34,10 @@ public class Health : MonoBehaviour, IHealth
     public void ReduceHealth(int amount)
     {
         SetHealthAmount(_currentHealth - amount);
+    }
+    public int GetMaxHealthAmount()
+    {
+        return _totalHealth;
     }
 
     public void SetHealthAmount(int amount)

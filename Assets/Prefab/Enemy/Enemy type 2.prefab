@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 8960
 --- !u!114 &1847774073144383685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +298,7 @@ MonoBehaviour:
   - {fileID: 5610750885945116250}
   _isAutomaticFire: 1
   _isEnemyGun: 1
+  _minActiveGunNum: 1
 --- !u!114 &4146907734785586882
 MonoBehaviour:
   m_ObjectHideFlags: 0

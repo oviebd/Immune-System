@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour, IColliderEnter
+public class BulletBase : MonoBehaviour, IColliderEnter
 {
     [SerializeField] private float _lifeTime = 2.0f;
     [SerializeField] private Collider2D _collider2D;
