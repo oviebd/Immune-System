@@ -92,5 +92,9 @@ public class GunController : MonoBehaviour
 			_lastGunIndex = _lastGunIndex - 1;
 		}
 	}
+    public List<IGun> GetIGunList()
+    {
+		return _iGunList;
+    }
 
 }

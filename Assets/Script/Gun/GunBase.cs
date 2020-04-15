@@ -16,9 +16,14 @@ public class GunBase : MonoBehaviour
 
 	private bool _isItPrimaryGun = false;
 
+	private GameObject _primarylBullet;
+	private float _primaryCoolDownTime;
+
 	private void Start()
     {
 		_lastShootTime = Time.time;
+		_primarylBullet = _bulletObj;
+		_primaryCoolDownTime = _coolDownTime;
 	}
 
     public void InstantiateBullet()
@@ -75,4 +80,25 @@ public class GunBase : MonoBehaviour
 	{
 	      _isItPrimaryGun = isItPrimaryGun;
 	}
+
+    public void UpdateBulletTemporarily(GameObject bulletGameObj,float duration)
+    {
+		_bulletObj = bulletGameObj;
+		Invoke("SetNormalBullet", duration);
+    }
+    private void SetNormalBullet()
+    {
+		_bulletObj = _primarylBullet;
+	}
+
+    public void UpdateWeaponBulletFrequencyTemporarily( float duration)
+	{
+		_coolDownTime = ( _coolDownTime - (_coolDownTime/2) );
+		Invoke("SetNormalCoolDowntime", duration);
+	}
+    private void SetNormalCoolDowntime()
+    {
+		_coolDownTime = _primaryCoolDownTime;
+	}
+
 }

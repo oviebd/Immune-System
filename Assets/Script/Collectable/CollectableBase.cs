@@ -48,4 +48,20 @@ public class CollectableBase : MonoBehaviour,IColliderEnter
 
         return null;
     }
+
+    protected List<IGun> GetPlayerGunList()
+    {
+        List<IGun> gunList = new List<IGun>();
+        PlayerController playerController = GetPlayerControler();
+        if (playerController != null)
+        {
+            if (playerController.getGunController() != null)
+            {
+                gunList = playerController.getGunController().GetIGunList();
+                
+            }
+        }
+
+        return gunList;
+    }
 }

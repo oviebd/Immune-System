@@ -15,5 +15,5 @@ MonoBehaviour:
   levelNumber: 1
   noOfCollectableForCurrentLevel: 3
   minumumTimeDelayPerCollectable: 5
-  collectableType: 00000000
+  collectableType: 03000000
   collectablePercentageList: 64000000

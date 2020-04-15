@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
             _gunControllere.InstantiateGun(gunPrefab);
     }
 
-    private GunController getGunController()
+    public GunController getGunController()
     {
         if (_gunControllere == null)
             _gunControllere = this.gameObject.GetComponent<GunController>();
@@ -116,5 +116,5 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     {
         _playerType = playerType;
     }
-
+  
 }

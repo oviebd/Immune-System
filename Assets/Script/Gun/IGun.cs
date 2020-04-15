@@ -8,4 +8,6 @@ public interface IGun
     void SetShootingCapabilities(bool canShoot);
 	bool IsItPrimaryGun();
     void SetIsItPrimaryGun(bool isItPrimaryGun);
+    void UpdateWeaponBulletFrequencyTemporarily(float duration);
+    void UpdateBulletTemporarily(GameObject bulletGameObj, float duration);
 }
