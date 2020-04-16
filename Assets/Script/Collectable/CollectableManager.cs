@@ -7,14 +7,11 @@ public class CollectableManager : MonoBehaviour
     public static CollectableManager instance; 
     [SerializeField] private List<CollectableLevelDataScriptable> _collectableLevelDataList;
 
-
-    private void Awake()
+	private void Awake()
     {
         if (instance == null)
             instance = this;
     }
-
-
 
     public CollectableDataModel GetCollectableLevelData(int levelNumber)
 	{
@@ -51,6 +48,8 @@ public class CollectableManager : MonoBehaviour
 		else
 			return null;
 	}
+
+	
 
 
 }

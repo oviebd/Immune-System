@@ -6,6 +6,7 @@ public interface IDialog
 {
     void SetTitle(string title);
     void SetMessage(string message);
+    void SetDialogDelegate(DialogBase.Delegate dialogDelegate);
 }
     
 

@@ -219,6 +219,8 @@ MonoBehaviour:
   _type: 0
   _graphicsObj: {fileID: 7007155162312137117}
   _collider: {fileID: 7007155161971235251}
+  _canvasObj: {fileID: 737483508309158260, guid: d1de544d4fc42401c8f2f0672b59d925,
+    type: 3}
   _schildObj: {fileID: 3560366945466919786, guid: c713d0581c9a84aa9ba906fa08c7b7f2,
     type: 3}
 --- !u!1 &7007155162266534005

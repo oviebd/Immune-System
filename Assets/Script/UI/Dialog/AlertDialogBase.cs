@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InformationNotificationDialog : DialogBase, IDialog
+public class AlertDialogBase : DialogBase,IDialog
 {
-
     public void SetMessage(string message)
     {
         SetDialogMessage(message);
@@ -15,8 +14,8 @@ public class InformationNotificationDialog : DialogBase, IDialog
         SetDialogTitle(title);
     }
 
-    public void OkButtonPressed()
+    public void SetDialogDelegate(Delegate dialogDelegate)
     {
-
+        //throw new System.NotImplementedException();
     }
 }

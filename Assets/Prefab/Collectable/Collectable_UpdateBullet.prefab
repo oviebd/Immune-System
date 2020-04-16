@@ -219,6 +219,8 @@ MonoBehaviour:
   _type: 3
   _graphicsObj: {fileID: 7007155162312137117}
   _collider: {fileID: 7007155161971235251}
+  _canvasObj: {fileID: 737483508309158260, guid: d1de544d4fc42401c8f2f0672b59d925,
+    type: 3}
   _bulletPrefab: {fileID: 7939316424949948455, guid: 62347e66c3ab047e2beb0b1eefdf80ae,
     type: 3}
   _duration: 10

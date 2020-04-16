@@ -6,8 +6,9 @@ public class CollectableSpawnControler : MonoBehaviour
 {
     public static CollectableSpawnControler instance;
     [SerializeField] private List<CollectableBase> _collectableList;
+	[SerializeField] private CollectableWorldCanvasDialog _worldCanvasDialog;
 
-    private CollectableDataModel data;
+	private CollectableDataModel data;
 	private bool canSpawn = false;
 	private float _lastSpawnTime;
 	private int _spawnedCollectableNumberInCurrentLevel = 0;
@@ -55,13 +56,18 @@ public class CollectableSpawnControler : MonoBehaviour
 		}
 	}
 
-
-    #region CollectableSpawn
-
-    void SpawnRandomCollectable()
+	public void SpawnCanvasObj(GameObject parent)
 	{
-		GameObject enemyPrefab = GetSpecificCollectablePrefabBasedOnType(GetRandomCollectableType());
-		SpawnCollectable(enemyPrefab);
+		GameObject newObj = Instantiate(_worldCanvasDialog.gameObject, parent.transform);
+		newObj.transform.parent = parent.transform;
+	}
+
+	#region CollectableSpawn
+
+	void SpawnRandomCollectable()
+	{
+		GameObject collectablePrefab = GetSpecificCollectablePrefabBasedOnType(GetRandomCollectableType());
+		SpawnCollectable(collectablePrefab);
 	}
 	
 	void SpawnCollectable(GameObject collectablePrefab)
@@ -70,6 +76,7 @@ public class CollectableSpawnControler : MonoBehaviour
 		{
 			GameObject obj = InstantiatorHelper.instance.InstantiateObject(collectablePrefab, this.gameObject);
 			obj.transform.position = PositionHandler.instance.InstantiateCollectableInARandomPosition();
+			SpawnCanvasObj(obj);
 		}
 	}
 

@@ -69,6 +69,8 @@ MonoBehaviour:
   _type: 1
   _graphicsObj: {fileID: 6154317113858398096}
   _collider: {fileID: 6154317113518249918}
+  _canvasObj: {fileID: 737483508309158260, guid: d1de544d4fc42401c8f2f0672b59d925,
+    type: 3}
 --- !u!50 &-2924113997292694033
 Rigidbody2D:
   serializedVersion: 4

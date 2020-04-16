@@ -11,7 +11,7 @@ public class CollectableBase : MonoBehaviour,IColliderEnter
     protected ICollectable _iCollectable;
     private Explosion _explosion;
 
-    
+
     protected void SetCollectable(ICollectable collectable)
     {
         this._iCollectable = collectable;
