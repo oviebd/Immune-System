@@ -822,6 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 236627928}
   - component: {fileID: 236627929}
+  - component: {fileID: 236627930}
   m_Layer: 0
   m_Name: Utils
   m_TagString: Untagged
@@ -856,6 +857,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryParentObj: {fileID: 804921289}
+--- !u!114 &236627930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236627927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a9f12cc73204c06ad36ad9d8fa6c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &281293545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7367,8 +7380,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b070a301a9cc248dc8c6352f8e35de6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _txtTitle: {fileID: 0}
-  _txtMessage: {fileID: 0}
 --- !u!1 &1673613657
 GameObject:
   m_ObjectHideFlags: 0
@@ -8687,6 +8698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAChivedData: {fileID: 11400000, guid: 120bf27c844df4c9e87c9a5fc71ab648, type: 2}
+  collectableList: 
 --- !u!1 &1992330968
 GameObject:
   m_ObjectHideFlags: 0

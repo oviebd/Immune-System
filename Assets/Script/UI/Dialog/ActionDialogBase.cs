@@ -18,5 +18,6 @@ public class ActionDialogBase : DialogBase,IDialog
     {
         if (getDelegate() != null)
             getDelegate().OnDialogPositiveButtonPressed();
+        HidePanelObj();
     }
 }

@@ -13,32 +13,32 @@ public class GameActionHandler : MonoBehaviour
 
 	public void GameInitialAction()
 	{
-		GameManager.instance.SetGameState(GameEnum.GameState.Idle);
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.Idle);
 		UiManager.instance.SetUIState(GameEnum.UiState.StartGameState);
 	}
 	public void ActionSelectLevel()
 	{
-		GameManager.instance.SetGameState(GameEnum.GameState.LevelChoose);
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.LevelChoose);
 	}
 	public void ActionShowStore()
 	{
-		GameManager.instance.SetGameState(GameEnum.GameState.StoreUiState);
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.StoreUiState);
 	}
 	public void ActionPlayGame(int levelNumber)
 	{
 		Time.timeScale = 1;
-		GameManager.instance.SetGameState(GameEnum.GameState.Running);
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.Running);
 		LevelManager.instance.LoadALevel(levelNumber);
 	}
 	public void ActionPauseGame()
 	{
-		GameManager.instance.SetGameState(GameEnum.GameState.PauseGame);
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.PauseGame);
 		GameEnvironmentController.instance.HideAllInstantiatedObjs();
 		Time.timeScale = 0;
 	}
 	public void ActionResumeGame()
 	{
-		GameManager.instance.SetGameState(GameEnum.GameState.Running);
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.Running);
 		GameEnvironmentController.instance.ShowAllInstantiatedObjs();
 		Time.timeScale = 1;
 	}
@@ -48,7 +48,7 @@ public class GameActionHandler : MonoBehaviour
 	}
 	public void ActionGoMainMenu()
 	{
-		GameManager.instance.SetGameState(GameEnum.GameState.Idle);
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.Idle);
 	}
 	public void ActionRetryGame()
 	{
@@ -58,16 +58,16 @@ public class GameActionHandler : MonoBehaviour
 	public void ActionGameOver(bool isWin)
 	{
 		GameEnvironmentController.instance.HideAllInstantiatedObjs();
-		GameManager.instance.SetGameState(GameEnum.GameState.PlayerLose);
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.PlayerLose);
 		if (isWin)
-			GameManager.instance.SetGameState(GameEnum.GameState.PlayerWin);
+			GameStateTracker.instance.PushGameState(GameEnum.GameState.PlayerWin);
 		else
-			GameManager.instance.SetGameState(GameEnum.GameState.PlayerLose);
+			GameStateTracker.instance.PushGameState(GameEnum.GameState.PlayerLose);
 	}
 
 
     public void BackButtonPressed()
     {
-
-    }
+		GameStateTracker.instance.PopGameState();
+	}
 }
