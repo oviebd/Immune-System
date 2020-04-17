@@ -9,12 +9,10 @@ public class StoreItem : MonoBehaviour
     [SerializeField] private Image _imgItem;
     [SerializeField] private Button _btnBuy;
 
-   // private StoreItemModel itemClass;
-
-
+     private StoreItemModel itemData;
     public void Setup(StoreItemModel item)
     {
-        //itemClass = item;
+        this.itemData = item;
         SetupUi(item);
     }
 
@@ -27,6 +25,14 @@ public class StoreItem : MonoBehaviour
         _imgItem.sprite = item.itemImage;
     }
 
+    public void OnBuyButtonClicked()
+    {
+         StorePanel.instance.BuyButtonClicked(itemData);
+    }
+    public void OnInfoButtonClicked()
+    {
+        StorePanel.instance.ShowItemInfo(itemData);
+    }
    /* void SetImageGraphicsFromResourceFolder(Image imageContainer, string imageName)
     {
         if(imageContainer != null && imageName != null)

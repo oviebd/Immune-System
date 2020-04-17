@@ -48,7 +48,7 @@ public class StoreListItemHandler : MonoBehaviour
         {
             StoreItemModel item = new StoreItemModel();
             item.itemName = scriptableList[i].name;
-            item.itemName = scriptableList[i].itemName;
+            item.itemType = scriptableList[i].itemType;
             item.itemImage = scriptableList[i].itemImage;
             item.isPurchased = scriptableList[i].isPurchased;
             item.price = scriptableList[i].price;

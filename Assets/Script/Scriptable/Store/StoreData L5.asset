@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: StoreData L5
   m_EditorClassIdentifier: 
   itemName: Gun 4
-  itemType: 1
-  itemImage: {fileID: 21300000, guid: 5325149ff86424c7d94188fd1997f198, type: 3}
+  itemType: 4
+  itemImage: {fileID: 21300000, guid: d7570c8444b0f4d91ba7ca3facbf7284, type: 3}
   isPurchased: 0
   price: 20
   playerId: 0

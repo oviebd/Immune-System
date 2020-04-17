@@ -12,6 +12,7 @@ public class GameMainMenu : PanelBase
 	[SerializeField] private Button _retryGameButton;
 	[SerializeField] private Button _chooseLevelGameButton;
 	[SerializeField] private Button _goMainMenuButton;
+	[SerializeField] private Button _goStoreButton;
 
 	private void Awake()
 	{
@@ -37,6 +38,7 @@ public class GameMainMenu : PanelBase
 		HideAll();
 		ShowAButton(_startNewGameButton);
 		ShowAButton(_chooseLevelGameButton);
+		ShowAButton(_goStoreButton);
 	}
 	void SetPauseGameUI()
 	{
@@ -53,6 +55,7 @@ public class GameMainMenu : PanelBase
 		HideAButton(_retryGameButton);
 		HideAButton(_chooseLevelGameButton);
 		HideAButton(_goMainMenuButton);
+		HideAButton(_goStoreButton);
 	}
 
 
@@ -86,6 +89,10 @@ public class GameMainMenu : PanelBase
 	{
 		UiManager.instance.SetUIState(GameEnum.UiState.StartGameState);
 		GameActionHandler.instance.ActionGoMainMenu();
+	}
+	public void GoStoreButtonOnClicked()
+	{
+		GameActionHandler.instance.ActionShowStore();
 	}
 	#endregion Button Events
 }
