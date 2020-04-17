@@ -10,7 +10,7 @@ public class CollectableBase : MonoBehaviour,IColliderEnter
 
     protected ICollectable _iCollectable;
     private Explosion _explosion;
-
+    private CollectableWorldCanvasDialog _collectableDialogCanvas;
 
     protected void SetCollectable(ICollectable collectable)
     {
@@ -20,7 +20,8 @@ public class CollectableBase : MonoBehaviour,IColliderEnter
     public void onCollide(GameObject colidedObj)
     {
         DestroyObj();
-        if(_iCollectable != null)
+        DestroyTopicDialogCanvasObj();
+        if (_iCollectable != null)
             _iCollectable.ExecuteCollectableEffect();
 
         if (this.gameObject.GetComponent<Explosion>() != null)
@@ -64,4 +65,22 @@ public class CollectableBase : MonoBehaviour,IColliderEnter
 
         return gunList;
     }
+
+    private void DestroyTopicDialogCanvasObj()
+    {
+        if(GetCollectableCanvasDialog() != null)
+        {
+            Destroy(GetCollectableCanvasDialog().gameObject);
+            PlayerAchivedDataHandler.instance.SetCollectableInAchievedData(GetCollectableType());
+        }
+    }
+
+    private CollectableWorldCanvasDialog GetCollectableCanvasDialog()
+    {
+        if(_collectableDialogCanvas == null)
+            _collectableDialogCanvas = gameObject.GetComponentInChildren<CollectableWorldCanvasDialog>();
+        return _collectableDialogCanvas;
+    }
+
+
 }

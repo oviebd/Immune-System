@@ -7,6 +7,7 @@ public class CollectableSpawnControler : MonoBehaviour
     public static CollectableSpawnControler instance;
     [SerializeField] private List<CollectableBase> _collectableList;
 	[SerializeField] private CollectableWorldCanvasDialog _worldCanvasDialog;
+	private GameObject _collectableTopicDialogObject;
 
 	private CollectableDataModel data;
 	private bool canSpawn = false;
@@ -56,37 +57,39 @@ public class CollectableSpawnControler : MonoBehaviour
 		}
 	}
 
-	public void SpawnCanvasObj(GameObject parent)
-	{
-		GameObject newObj = Instantiate(_worldCanvasDialog.gameObject, parent.transform);
-		newObj.transform.parent = parent.transform;
-	}
-
 	#region CollectableSpawn
 
-	void SpawnRandomCollectable()
+	private void SpawnRandomCollectable()
 	{
-		GameObject collectablePrefab = GetSpecificCollectablePrefabBasedOnType(GetRandomCollectableType());
-		SpawnCollectable(collectablePrefab);
+		CollectableBase collectableBasePrefab = GetSpecificCollectablePrefabBasedOnType(GetRandomCollectableType());
+		SpawnCollectable(collectableBasePrefab);
 	}
 	
-	void SpawnCollectable(GameObject collectablePrefab)
+	private void SpawnCollectable(CollectableBase collectableBasePrefab)
 	{
-		if (collectablePrefab != null)
+		if (collectableBasePrefab != null)
 		{
-			GameObject obj = InstantiatorHelper.instance.InstantiateObject(collectablePrefab, this.gameObject);
+			GameObject obj = InstantiatorHelper.instance.InstantiateObject(collectableBasePrefab.gameObject, this.gameObject);
 			obj.transform.position = PositionHandler.instance.InstantiateCollectableInARandomPosition();
-			SpawnCanvasObj(obj);
+
+			if (PlayerAchivedDataHandler.instance.IsThisCollectableAlreadyConsumedByPlayer(collectableBasePrefab.GetCollectableType()) == false)
+				SpawnCollectableTopicDialog(obj, collectableBasePrefab.GetCollectableType());
 		}
 	}
 
-    GameObject GetSpecificCollectablePrefabBasedOnType(GameEnum.CollectableType type)
+	public void SpawnCollectableTopicDialog(GameObject parent, GameEnum.CollectableType type)
+	{
+		_collectableTopicDialogObject = Instantiate(_worldCanvasDialog.gameObject, parent.transform);
+		_collectableTopicDialogObject.transform.parent = parent.transform;
+        _collectableTopicDialogObject.GetComponent<CollectableWorldCanvasDialog>().SetCollectableMessageBasedOnCollectableType(type);
+	}
+	private CollectableBase GetSpecificCollectablePrefabBasedOnType(GameEnum.CollectableType type)
 	{
 		for (int i = 0; i < _collectableList.Count; i++)
 		{
 			if (type == _collectableList[i].GetCollectableType())
 			{
-				return _collectableList[i].gameObject;
+				return _collectableList[i];
 			}
 		}
 		return null;

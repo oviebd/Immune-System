@@ -6,6 +6,7 @@ public class PlayerAchivedDataHandler : MonoBehaviour
 {
     public static PlayerAchivedDataHandler instance;
     [SerializeField] private PlayerAchivedDataScriptable _playerAChivedData;
+    public List<GameEnum.CollectableType> collectableList;
 
     private void Awake()
     {
@@ -35,6 +36,28 @@ public class PlayerAchivedDataHandler : MonoBehaviour
             if(levelNumber >= GetMaxCompletedLevelNumber())
                 _playerAChivedData.maxLevelCompletedByPlayer = levelNumber;
         }   
+    }
+
+    public void SetCollectableInAchievedData(GameEnum.CollectableType type)
+    {
+        if (_playerAChivedData == null && _playerAChivedData.collectableList == null)
+            return;
+
+        if (_playerAChivedData.collectableList.Contains(type) == false)
+            _playerAChivedData.collectableList.Add(type);
+    }
+
+    public bool IsThisCollectableAlreadyConsumedByPlayer(GameEnum.CollectableType type)
+    {
+        bool isConsumed = false;
+
+        if (_playerAChivedData == null && _playerAChivedData.collectableList != null)
+            isConsumed = false;
+
+        if (_playerAChivedData.collectableList.Contains(type) == true)
+            isConsumed = true;
+
+        return isConsumed;
     }
 
     #region Ship
