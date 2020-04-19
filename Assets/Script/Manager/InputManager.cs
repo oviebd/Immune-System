@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-	[SerializeField] private FixedJoystick _rightJoystickForPlayerRotation;
-	[SerializeField] private FixedJoystick _leftJoystickForPlayerReposition;
+	[SerializeField] private FloatingJoystick _rightJoystickForPlayerRotation;
+	[SerializeField] private FloatingJoystick _leftJoystickForPlayerReposition;
 	[SerializeField] private Camera _mainCamera;
 
 	public static InputManager instance;
@@ -19,14 +19,10 @@ public class InputManager : MonoBehaviour
     public Vector2 GetPlayerRotationVector2()
     {
 		Vector2 rotationMovement = Vector2.zero;
-        if(Utils.IsItMobilePlatform())
-        {
+		if (Utils.IsItMobilePlatform())
             rotationMovement = new Vector2(_rightJoystickForPlayerRotation.Horizontal, _rightJoystickForPlayerRotation.Vertical);
-        }
         else
-        {
             rotationMovement = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-		}
 		return rotationMovement;
     }
 
@@ -34,13 +30,9 @@ public class InputManager : MonoBehaviour
 	{
 		Vector2 movement = Vector2.zero;
 		if (Utils.IsItMobilePlatform())
-		{
-			movement = new Vector2(_leftJoystickForPlayerReposition.Horizontal, _leftJoystickForPlayerReposition.Vertical);
-		}
-		else
-		{
-			movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		}
+				movement = new Vector2(_leftJoystickForPlayerReposition.Horizontal, _leftJoystickForPlayerReposition.Vertical);
+			else
+				movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 		return movement;
 	}
 }

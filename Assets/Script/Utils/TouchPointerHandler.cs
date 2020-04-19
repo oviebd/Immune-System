@@ -29,17 +29,4 @@ public class TouchPointerHandler : MonoBehaviour, IBeginDragHandler, IDragHandle
 		if (onDragCompleted != null)
 			onDragCompleted();
 	}
-
-	void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-	
 }
