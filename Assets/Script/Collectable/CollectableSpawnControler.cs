@@ -28,9 +28,11 @@ public class CollectableSpawnControler : MonoBehaviour
     public void LoadCollectableForALevel(int levelNum)
     {
         data = null;
-        data = CollectableManager.instance.GetCollectableLevelData(levelNum);
+		_spawnedCollectableNumberInCurrentLevel = 0;
+		data = CollectableManager.instance.GetCollectableLevelData(levelNum);
         if (data == null)
             return;
+		
 		canSpawn = true;
 		_lastSpawnTime = Time.time;
 	}

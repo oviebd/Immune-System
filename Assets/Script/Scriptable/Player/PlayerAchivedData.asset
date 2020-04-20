@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievedPlayerShipList: 
   gunsList: 
-  collectableList: 0200000003000000
+  collectableList: 
   maxLevelCompletedByPlayer: 1

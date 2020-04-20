@@ -29,7 +29,7 @@ public class CollectableWorldCanvasDialog : PanelBase
                 message = "Collect It for Update Weapon";
                 break;
             case GameEnum.CollectableType.Update_Bullet_Frequency:
-                message = "Collect It for Increase Bullet Frequence";
+                message = "Collect It for Increase Bullet Frequency";
                 break;
         }
         return message;
