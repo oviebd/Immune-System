@@ -12,5 +12,5 @@ public class GameEnum
     public enum GameTags { PlayerBullet, EnemyBullet, Player,Enemy}
 	public enum GameState { Idle, Running, PauseGame, PlayerLose,PlayerWin, LevelChoose, StoreUiState }
 	public enum UiState { StartGameState, PauseGameState, GameRunningState,GameOverState }
-	public enum DialogType { AlertDialog,ActionDialog,InfoDialog }
+	public enum DialogType { AlertDialog,ActionDialog,InfoDialog,ImageDialog }
 }
