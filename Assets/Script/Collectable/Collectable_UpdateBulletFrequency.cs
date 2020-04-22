@@ -13,15 +13,9 @@ public class Collectable_UpdateBulletFrequency : CollectableBase,ICollectable
 
     public void ExecuteCollectableEffect()
     {
-        List<IGun> gunList = GetPlayerGunList();
-        if (gunList != null)
+        if (GetPlayerControler().getGunController() !=null )
         {
-            for (int i = 0; i < gunList.Count; i++)
-            {
-                gunList[i].UpdateWeaponBulletFrequencyTemporarily(_duration);
-            }
+            GetPlayerControler().getGunController().UpdateWeaponBulletFrequencyTemporarily(_duration);
         }
     }
-
-    
 }

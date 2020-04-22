@@ -16,5 +16,4 @@ public class GunType1 : GunBase,IGun
         if(_canShoot)
             InstantiateBullet();
     }
-
 }

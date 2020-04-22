@@ -50,7 +50,6 @@ MonoBehaviour:
   _maxBullet: 500
   _coolDownTime: 0.8
   _damage: 1
-  _infiniteFirePower: 1
   _canShoot: 1
 --- !u!1 &1632807721770688045
 GameObject:
@@ -102,7 +101,6 @@ MonoBehaviour:
   _maxBullet: 500
   _coolDownTime: 0.8
   _damage: 1
-  _infiniteFirePower: 1
   _canShoot: 1
 --- !u!1 &2479212942419892027
 GameObject:
@@ -374,6 +372,9 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _isEnemyGun: 1
   _minActiveGunNum: 1
+  _maxBullet: 0
+  _infiniteFirePower: 1
+  _coolDownTime: 1
 --- !u!114 &6689067606414967003
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -134,6 +134,9 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _isEnemyGun: 0
   _minActiveGunNum: 2
+  _maxBullet: 0
+  _infiniteFirePower: 1
+  _coolDownTime: 0.3
 --- !u!58 &5101693746049995250
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -147,9 +150,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000039368868, y: -0.048422456}
+  m_Offset: {x: -0.000039368868, y: 0.09406036}
   serializedVersion: 2
-  m_Radius: 0.32326314
+  m_Radius: 0.3707576
 --- !u!50 &5101693746049995252
 Rigidbody2D:
   serializedVersion: 4

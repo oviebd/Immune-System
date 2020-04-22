@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5101693746875476392}
   - component: {fileID: 8235833068661842949}
   - component: {fileID: 5101693746049995251}
-  - component: {fileID: 5101693746049995250}
   - component: {fileID: 5101693746049995252}
   - component: {fileID: 5101693746049995253}
   - component: {fileID: 5101693746049995255}
@@ -19,6 +18,7 @@ GameObject:
   - component: {fileID: -298775007050859447}
   - component: {fileID: 309099747}
   - component: {fileID: 309099746}
+  - component: {fileID: 142995550046657100}
   m_Layer: 8
   m_Name: Player_1
   m_TagString: Player
@@ -74,22 +74,9 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _isEnemyGun: 0
   _minActiveGunNum: 1
---- !u!58 &5101693746049995250
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5101693746049995254}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.007812858, y: -0.022902846}
-  serializedVersion: 2
-  m_Radius: 0.26240855
+  _maxBullet: 0
+  _infiniteFirePower: 1
+  _coolDownTime: 0.2
 --- !u!50 &5101693746049995252
 Rigidbody2D:
   serializedVersion: 4
@@ -279,6 +266,32 @@ MonoBehaviour:
     type: 3}
   _explosionClip: {fileID: 0}
   _sourceImgForExplosionEffectImage: {fileID: 5101693746101885529}
+--- !u!61 &142995550046657100
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101693746049995254}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012511492, y: 0.025022626}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6246555, y: 0.64967847}
+  m_EdgeRadius: 0
 --- !u!1 &5101693746101885528
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5135136413751205283}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.28, y: -0.36, z: 0}
+  m_LocalPosition: {x: 1.28, y: 0.7, z: 0}
   m_LocalScale: {x: 0.3, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 5101693746550000429}
@@ -417,7 +430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6508261659398238648}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.26, y: -0.36, z: 0}
+  m_LocalPosition: {x: -1.26, y: 0.7, z: 0}
   m_LocalScale: {x: 0.3, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 5101693746550000429}

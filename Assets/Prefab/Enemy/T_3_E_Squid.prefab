@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: -1772376080061931411}
   - component: {fileID: 1279434866}
   m_Layer: 10
-  m_Name: E_Squid_T_3
+  m_Name: T_3_E_Squid
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,6 +283,9 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _isEnemyGun: 1
   _minActiveGunNum: 1
+  _maxBullet: 0
+  _infiniteFirePower: 1
+  _coolDownTime: 1
 --- !u!114 &4146907734785586882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +305,6 @@ MonoBehaviour:
   _maxBullet: 500
   _coolDownTime: 1
   _damage: 1
-  _infiniteFirePower: 1
   _canShoot: 1
 --- !u!114 &6689067606414967003
 MonoBehaviour:

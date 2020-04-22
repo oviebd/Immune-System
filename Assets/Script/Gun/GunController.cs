@@ -8,18 +8,34 @@ public class GunController : MonoBehaviour
 	[SerializeField] private bool _isAutomaticFire = false;
 	[SerializeField] private bool _isEnemyGun = false;
 
-   [SerializeField] private int _minActiveGunNum = 1;
+    [SerializeField] private int _minActiveGunNum = 1;
 	private int _lastGunIndex = 0; 
     private List<IGun> _iGunList = new List<IGun>();
 
-    void Start()
+	[SerializeField] private int _maxBullet;
+	[SerializeField] private bool _infiniteFirePower = true;
+	[SerializeField] private float _coolDownTime = .3f;
+
+    private float _lastShootTime;
+	private float _primaryCoolDownTime;
+
+	void Start()
     {
+		_lastShootTime = Time.time;
+		_primaryCoolDownTime = _coolDownTime;
+
 		if (_isEnemyGun)
 			SetGuns();	
 		//if (_isAutomaticFire == false)
 			//InputManager.onShootButtonPressed += onGunButtonPressed;
 	}
-    public void Shoot()
+
+	private void Update()
+	{
+		Shoot();
+	}
+
+	public void Shoot()
     {
 		if (_isAutomaticFire == true)
 			onGunButtonPressed();
@@ -68,11 +84,16 @@ public class GunController : MonoBehaviour
     
    void onGunButtonPressed()
 	{
-		for(int i=0; i< _iGunList.Count; i++)
-		{
-			IGun gun = _iGunList[i];
-			gun.Shoot();
+        if (CanShoot() == true)
+        {
+			for (int i = 0; i < _iGunList.Count; i++)
+			{
+				IGun gun = _iGunList[i];
+				gun.Shoot();
+			}
+			_lastShootTime = Time.time;
 		}
+		
 	}
 
     public void AddGun()
@@ -97,4 +118,33 @@ public class GunController : MonoBehaviour
 		return _iGunList;
     }
 
+
+	private bool CanShoot()
+	{
+		if (_infiniteFirePower == false && _maxBullet <= 0)
+			return false;
+		//if (_maxBullet <= 0)
+		//return false;
+		if (IsCoolDownTimePassed() == true)
+			return true;
+
+		return false;
+	}
+	private bool IsCoolDownTimePassed()
+	{
+		if (Time.time - _lastShootTime >= _coolDownTime)
+			return true;
+		else
+			return false;
+	}
+
+	public void UpdateWeaponBulletFrequencyTemporarily(float duration)
+	{
+		_coolDownTime = (_coolDownTime - (_coolDownTime / 2));
+		Invoke("SetNormalCoolDowntime", duration);
+	}
+	private void SetNormalCoolDowntime()
+	{
+		_coolDownTime = _primaryCoolDownTime;
+	}
 }

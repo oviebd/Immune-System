@@ -43,10 +43,6 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
         }
     }
 
-    private void Update()
-    {
-        Shoot();
-    }
     public void Shoot()
     {
         getGunController().Shoot();
