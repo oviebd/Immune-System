@@ -47,9 +47,6 @@ MonoBehaviour:
   _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
     type: 3}
   _parentObj: {fileID: 181426091}
-  _maxBullet: 500
-  _coolDownTime: 0.8
-  _damage: 1
   _canShoot: 1
 --- !u!1 &1632807721770688045
 GameObject:
@@ -98,9 +95,6 @@ MonoBehaviour:
   _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
     type: 3}
   _parentObj: {fileID: 1632807721770688045}
-  _maxBullet: 500
-  _coolDownTime: 0.8
-  _damage: 1
   _canShoot: 1
 --- !u!1 &2479212942419892027
 GameObject:
@@ -294,9 +288,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021586895, y: 0.015140891}
+  m_Offset: {x: -0.018301249, y: 0.018426716}
   serializedVersion: 2
-  m_Radius: 0.1629529
+  m_Radius: 0.22866839
 --- !u!114 &3022287168575978612
 MonoBehaviour:
   m_ObjectHideFlags: 0

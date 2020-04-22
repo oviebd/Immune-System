@@ -222,9 +222,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.042755738, y: 0.0065550804}
+  m_Offset: {x: -0.026128054, y: 0.0065550804}
   serializedVersion: 2
-  m_Radius: 0.15883756
+  m_Radius: 0.17546535
 --- !u!114 &1459151737758039301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,9 +318,6 @@ MonoBehaviour:
   _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
     type: 3}
   _parentObj: {fileID: 3127262945016225628}
-  _maxBullet: 500
-  _coolDownTime: 1
-  _damage: 1
   _canShoot: 1
 --- !u!114 &6997176965726257578
 MonoBehaviour:
