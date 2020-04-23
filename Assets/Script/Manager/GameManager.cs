@@ -29,9 +29,5 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
 		GameActionHandler.instance.GameInitialAction();
-
 	}
-	
-
-
 }

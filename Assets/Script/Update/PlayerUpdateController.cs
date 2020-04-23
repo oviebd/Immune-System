@@ -7,6 +7,7 @@ public class PlayerUpdateController : MonoBehaviour
 
     [SerializeField] private float _timeForNextUpdate = 5.0f; 
     [SerializeField] private int _enemyNumber = 5; // number of enemy need to destroy in a given time 
+    [SerializeField] private float updateFactor = 5;
 
     private float _lastUpdateTime;
     private float _enemyCountInCurrentUpdateSession;
@@ -14,10 +15,21 @@ public class PlayerUpdateController : MonoBehaviour
     public delegate void PlayerSystemUpdate(GameEnum.UpgradeType upgradeType);
     public static event PlayerSystemUpdate onPlayerSystemUpdate;
 
+    private int currentUpdateNumber = 0;
+
+    #region CallBacks Initializations
     private void Awake()
     {
         EnemyBehaviourBase.enemyDestroyedByPlayer += onEnemyDestroyed;
+        GameManager.onGameStateChange += OnGameStateChange;
     }
+    private void OnDestroy()
+    {
+        EnemyBehaviourBase.enemyDestroyedByPlayer -= onEnemyDestroyed;
+        GameManager.onGameStateChange -= OnGameStateChange;
+    }
+    #endregion CallBacks Initializations
+
 
     private void Start()
     {
@@ -44,9 +56,8 @@ public class PlayerUpdateController : MonoBehaviour
         }
 
         if(_enemyCountInCurrentUpdateSession >= _enemyNumber )
-        {
             UpdatePlayerUpgradeStatus(UpgrateStatus.upgrade);
-        }
+        
     }
 
     void UpdatePlayerUpgradeStatus(UpgrateStatus status)
@@ -55,16 +66,23 @@ public class PlayerUpdateController : MonoBehaviour
 			return;
 
 		ResetUpdate();
-        if(status == UpgrateStatus.upgrade)
-            onPlayerSystemUpdate(GameEnum.UpgradeType.AddGun);
-        else if (status == UpgrateStatus.degrade)
-            onPlayerSystemUpdate(GameEnum.UpgradeType.RemoveGun);
-    }
 
-    private void ResetUpdate()
-    {
-        _lastUpdateTime = Time.time;
-        _enemyCountInCurrentUpdateSession = 0;
+        if(status == UpgrateStatus.upgrade)
+        {
+            currentUpdateNumber = currentUpdateNumber + 1;
+            onPlayerSystemUpdate(GameEnum.UpgradeType.AddGun);
+            UpdateUpdateData();
+        }
+            
+        else if (status == UpgrateStatus.degrade)
+        {
+            currentUpdateNumber = currentUpdateNumber - 1;
+            if (currentUpdateNumber <= 0)
+                currentUpdateNumber = 0;
+
+            onPlayerSystemUpdate(GameEnum.UpgradeType.RemoveGun);
+            UpdateUpdateData();
+        }  
     }
 
     private bool IsTimePassed()
@@ -77,9 +95,28 @@ public class PlayerUpdateController : MonoBehaviour
             return true;
     }
 
-    private void OnDestroy()
+
+    private void ResetUpdate()
     {
-        EnemyBehaviourBase.enemyDestroyedByPlayer -= onEnemyDestroyed;
+        _lastUpdateTime = Time.time;
+        _enemyCountInCurrentUpdateSession = 0;
+    }
+
+    private void UpdateUpdateData()
+    {
+        _enemyNumber = _enemyNumber + (int)(currentUpdateNumber * updateFactor);
+        Debug.Log("Current update Num = " + currentUpdateNumber + " enemy :  " + _enemyNumber);
+    }
+
+    private void OnGameStateChange(GameEnum.GameState gameState)
+    {
+        Debug.Log("Current GameState  = " + gameState);
+        if (gameState == GameEnum.GameState.Idle || gameState == GameEnum.GameState.PlayerWin || gameState == GameEnum.GameState.PlayerLose)
+        {
+            ResetUpdate();
+            currentUpdateNumber = 0;
+            UpdateUpdateData();
+        }
     }
 
 }
