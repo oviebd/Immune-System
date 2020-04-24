@@ -26,7 +26,6 @@ public class InputManager : MonoBehaviour
             rotationMovement = new Vector2(_rightJoystickForPlayerRotation.Horizontal, _rightJoystickForPlayerRotation.Vertical);
         else
             rotationMovement = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-		rotationMovement = new Vector2(_rightJoystickForPlayerRotation.Horizontal, _rightJoystickForPlayerRotation.Vertical);
 		return rotationMovement;
     }
 
@@ -37,7 +36,6 @@ public class InputManager : MonoBehaviour
 				movement = new Vector2(_leftJoystickForPlayerReposition.Horizontal, _leftJoystickForPlayerReposition.Vertical);
 			else
 				movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		movement = new Vector2(_leftJoystickForPlayerReposition.Horizontal, _leftJoystickForPlayerReposition.Vertical);
 		return movement;
 	}
 }
