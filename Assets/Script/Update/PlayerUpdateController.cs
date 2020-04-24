@@ -105,12 +105,11 @@ public class PlayerUpdateController : MonoBehaviour
     private void UpdateUpdateData()
     {
         _enemyNumber = _enemyNumber + (int)(currentUpdateNumber * updateFactor);
-        Debug.Log("Current update Num = " + currentUpdateNumber + " enemy :  " + _enemyNumber);
+        //Debug.Log("Current update Num = " + currentUpdateNumber + " enemy :  " + _enemyNumber);
     }
 
     private void OnGameStateChange(GameEnum.GameState gameState)
     {
-        Debug.Log("Current GameState  = " + gameState);
         if (gameState == GameEnum.GameState.Idle || gameState == GameEnum.GameState.PlayerWin || gameState == GameEnum.GameState.PlayerLose)
         {
             ResetUpdate();

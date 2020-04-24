@@ -10,48 +10,34 @@ public class InputManager : MonoBehaviour
 
 	public static InputManager instance;
 
-	private Vector2 rotationMovement;
-	private Vector2 movement;
+	//private Vector2 rotationMovement;
+	//private Vector2 movement;
 
 	private void Awake()
     {
 		if (instance == null)
 			instance = this;
-
-		GameManager.onGameStateChange += OnGameStateChange;
     }
-
-    private void OnDestroy()
-    {
-		GameManager.onGameStateChange -= OnGameStateChange;
-	}
 
     public Vector2 GetPlayerRotationVector2()
     {
+		Vector2 rotationMovement = Vector2.zero;
 		if (Utils.IsItMobilePlatform())
             rotationMovement = new Vector2(_rightJoystickForPlayerRotation.Horizontal, _rightJoystickForPlayerRotation.Vertical);
         else
             rotationMovement = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+		rotationMovement = new Vector2(_rightJoystickForPlayerRotation.Horizontal, _rightJoystickForPlayerRotation.Vertical);
 		return rotationMovement;
     }
 
 	public Vector2 GetPlayerMovementVector2()
 	{
+		Vector2 movement = Vector2.zero;
 		if (Utils.IsItMobilePlatform())
 				movement = new Vector2(_leftJoystickForPlayerReposition.Horizontal, _leftJoystickForPlayerReposition.Vertical);
 			else
 				movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		movement = new Vector2(_leftJoystickForPlayerReposition.Horizontal, _leftJoystickForPlayerReposition.Vertical);
 		return movement;
-	}
-
-    private void ResetInputData()
-    {
-		rotationMovement = Vector2.zero;
-		movement = Vector2.zero;
-	}
-
-    private void OnGameStateChange(GameEnum.GameState gameState)
-    {
-		ResetInputData();
 	}
 }

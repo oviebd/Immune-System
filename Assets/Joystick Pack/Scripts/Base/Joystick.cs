@@ -9,7 +9,16 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     public float Vertical { get { return (snapY) ? SnapFloat(input.y, AxisOptions.Vertical) : input.y; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
 
-    public float HandleRange
+	private void Awake()
+	{
+		GameManager.onGameStateChange += OnGameStateChange;
+	}
+	private void OnDestroy()
+	{
+		GameManager.onGameStateChange -= OnGameStateChange;
+	}
+
+	public float HandleRange
     {
         get { return handleRange; }
         set { handleRange = Mathf.Abs(value); }
@@ -145,6 +154,12 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         }
         return Vector2.zero;
     }
+
+	private void OnGameStateChange(GameEnum.GameState gameState)
+	{
+		input = Vector2.zero;
+		handle.anchoredPosition = Vector2.zero;
+	}
 }
 
 public enum AxisOptions { Both, Horizontal, Vertical }
