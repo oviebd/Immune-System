@@ -10,9 +10,6 @@ public class InputManager : MonoBehaviour
 
 	public static InputManager instance;
 
-	//private Vector2 rotationMovement;
-	//private Vector2 movement;
-
 	private void Awake()
     {
 		if (instance == null)
