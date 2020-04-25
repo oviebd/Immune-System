@@ -15,16 +15,15 @@ public class UpdateIndicatorUI : PanelBase
 
 	public void SetUpdateUI( PlayerUpdateModel dataModel )
 	{
-		int remainingEnemyNum = dataModel.requiredEnemyNumber - dataModel.currentEnemyNumber;
-		Debug.Log("Current Update num : " + dataModel.currentUpdateWave);
-		dataModel.isItMaxUpdateWave = false;
+		int remainingEnemyNum = dataModel.remainingEnemyEnemyNumber; //- dataModel.currentEnemyNumber;
+		//Debug.Log("Current Update num : " + dataModel.currentUpdateWave);
 		string statusText = "";
-		if (dataModel.currentUpdateWave <= 0)
+		if (dataModel.currentUpdateWave <= 1)
 			statusText = "Destroy " + remainingEnemyNum + " Enemy";
-		else if (dataModel.currentUpdateWave > 0 && dataModel.isItMaxUpdateWave == false)
+		else if (dataModel.currentUpdateWave > 1 && dataModel.isItMaxUpdateWave == false)
 			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second for get more firepower Otherwise You Lose Firepower";
 		else
-			statusText = "Destroy " + remainingEnemyNum + " Enemy  Or You Lose your firePower";
+			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second Otherwise You Lose Firepower";
 
 		_updateStatus.text = statusText;
 	}

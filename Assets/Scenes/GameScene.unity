@@ -823,9 +823,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b36e1c129d3b4ecd9a97cfdde632fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeForNextUpdate: 5
-  _enemyNumber: 2
-  updateFactor: 2
+  _requiredTime: 2
+  _requiredEnemy: 2
+  _updateFactor: 1
 --- !u!1 &312410585
 GameObject:
   m_ObjectHideFlags: 0

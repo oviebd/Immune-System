@@ -1,23 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*At First UpdateWave ( waveNumber = 1) there is no time Limit for destroying a number of enemy
+ *After completing first wave (waveNumber = 2) . Player needs to destroy a number of enemies within a time
+ *    If he succided then player updated and increase waveNumber otherwise player deGrade and decrease waveNumber
+ *If Player obtains the maximum update waveNumber then player can not be updated anymore but player need to continue his
+ * existing performance for keeping his update status otherwise he lose his update and get degraded. 
+ */
 public class PlayerUpdateController : MonoBehaviour
 {
     private enum UpgrateStatus { upgrade,degrade}
 
-    [SerializeField] private float _timeForNextUpdate = 5.0f; 
-    [SerializeField] private int _enemyNumber = 5; // number of enemy need to destroy in a given time 
-    [SerializeField] private float updateFactor = 5;
+    [SerializeField] private float _requiredTime = 5.0f; 
+    [SerializeField] private int _requiredEnemy = 5; //Base number of enemy need to destroy in a given time.
+    [SerializeField] private float _updateFactor = 5;  // Used for set Difficulty .Responsible for calculated enemy number based on waveNumber
 
     private float _lastUpdateTime;
-    private int _enemyCountInCurrentUpdateSession;
+    private float _requiredTimeForCurrentWave = 5.0f;
+    private int   _requiredEnemyForCurrentWave = 0;
+    private int   _currentWaveNumber = 1;
+    private PlayerUpdateModel _updateDataModel;
+    private int _maxWaveNum = 3;
 
     public delegate void PlayerSystemUpdate(GameEnum.UpgradeType upgradeType);
     public static event PlayerSystemUpdate onPlayerSystemUpdate;
 
-    private int currentUpdateNumber = 0;
-
-	private PlayerUpdateModel updateDataModel;
+	
     #region CallBacks Initializations
     private void Awake()
     {
@@ -34,63 +42,42 @@ public class PlayerUpdateController : MonoBehaviour
 
     private void Start()
     {
-		updateDataModel = new PlayerUpdateModel();
+		_updateDataModel = new PlayerUpdateModel();
         ResetUpdate();
     }
 
     private void Update()
     {
-        if (IsTimePassed() == true)
-            UpdatePlayerUpgradeStatus(UpgrateStatus.degrade);
-
 		ResetUpdateDataModel();
-		UpdateIndicatorUI.instance.SetUpdateUI(updateDataModel);
+		UpdateIndicatorUI.instance.SetUpdateUI(_updateDataModel);
+        Check();
 	}
 
     void onEnemyDestroyed(EnemyBehaviourBase enemyBehaviour)
     {
-        _enemyCountInCurrentUpdateSession = _enemyCountInCurrentUpdateSession + 1;
-		updateDataModel.currentEnemyNumber = _enemyCountInCurrentUpdateSession;
-		// Upgrade Time has passed and player can not destroy expected number of enemy. So Degrade his status
-		if (IsTimePassed() == true) 
+        _requiredEnemyForCurrentWave = _requiredEnemyForCurrentWave - 1;
+	}
+
+    #region UpdateChecker
+    private void Check()
+    {
+        if(_currentWaveNumber <= 1)
         {
-            UpdatePlayerUpgradeStatus(UpgrateStatus.degrade);
+           if(_requiredEnemyForCurrentWave <= 0)
+                ActionUpdate();
             return;
         }
 
-        if(_enemyCountInCurrentUpdateSession >= _enemyNumber )
-            UpdatePlayerUpgradeStatus(UpgrateStatus.upgrade);
-
-		//float enemyCalc = (_enemyCountInCurrentUpdateSession * 1.0f / _enemyNumber * 1.0f);
-		//Debug.Log(enemyCalc);
-	
-	}
-
-    void UpdatePlayerUpgradeStatus(UpgrateStatus status)
-    {
-		if (onPlayerSystemUpdate == null)
-			return;
-
-		ResetUpdate();
-
-        if(status == UpgrateStatus.upgrade)
-        {
-            currentUpdateNumber = currentUpdateNumber + 1;
-            onPlayerSystemUpdate(GameEnum.UpgradeType.AddGun);
-        }
-            
-        else if (status == UpgrateStatus.degrade)
-        {
-            currentUpdateNumber = currentUpdateNumber - 1;
-            if (currentUpdateNumber <= 0)
-                currentUpdateNumber = 0;
-            onPlayerSystemUpdate(GameEnum.UpgradeType.RemoveGun);
-        }  
+        if (_requiredEnemyForCurrentWave <= 0 && IsTimePassed() == false)
+            ActionUpdate();
+          
+        else if (IsTimePassed() == true)
+            ActionDegrade();
     }
 
     private bool IsTimePassed()
     {
-        if (GetElapsedTime() <= _timeForNextUpdate)
+        if (GetElapsedTime() <= _requiredTimeForCurrentWave)
             return false;
         else
             return true;
@@ -100,39 +87,76 @@ public class PlayerUpdateController : MonoBehaviour
 	{
 		return Time.time - _lastUpdateTime;
 	}
+    #endregion UpdateChecker
 
-    private void ResetUpdate()
-    {
-        _lastUpdateTime = Time.time;
-        _enemyCountInCurrentUpdateSession = 0;
-		UpdateUpdateData();
-	}
-	private void ResetUpdateDataModel()
-	{
-		float remainingTime = _timeForNextUpdate - GetElapsedTime() ;
-
-		updateDataModel.currentEnemyNumber = _enemyCountInCurrentUpdateSession;
-		updateDataModel.requiredEnemyNumber = _enemyNumber;
-		updateDataModel.remainingTimeInSec = remainingTime;
-		updateDataModel.currentUpdateWave = currentUpdateNumber;
-	}
-
-    private void UpdateUpdateData()
-    {
-		if (currentUpdateNumber <= 0)
-			_enemyNumber = 0;
-		_enemyNumber = _enemyNumber + (int)(currentUpdateNumber * updateFactor);
-        //Debug.Log("Current update Num = " + currentUpdateNumber + " enemy :  " + _enemyNumber);
-    }
+    #region DataReset
 
     private void OnGameStateChange(GameEnum.GameState gameState)
     {
         if (gameState == GameEnum.GameState.Idle || gameState == GameEnum.GameState.PlayerWin || gameState == GameEnum.GameState.PlayerLose)
         {
+            _currentWaveNumber = 1;
+            _requiredTimeForCurrentWave = _requiredTime;
             ResetUpdate();
-            currentUpdateNumber = 0;
-            UpdateUpdateData();
         }
     }
+
+    private void ResetUpdate()
+    {
+        int savedTime = (int)(_requiredTimeForCurrentWave - GetElapsedTime());
+        if (savedTime > 0)
+            _requiredTimeForCurrentWave = _requiredTimeForCurrentWave + savedTime;
+
+        _lastUpdateTime = Time.time;
+        _requiredEnemyForCurrentWave = _requiredEnemy + (int)((_currentWaveNumber-1)* _updateFactor);
+        ResetUpdateDataModel();
+    }
+	private void ResetUpdateDataModel()
+	{
+		float remainingTime = _requiredTimeForCurrentWave - GetElapsedTime() ;
+		_updateDataModel.remainingEnemyEnemyNumber = _requiredEnemyForCurrentWave;
+		_updateDataModel.remainingTimeInSec = remainingTime;
+		_updateDataModel.currentUpdateWave = _currentWaveNumber;
+
+        if (_currentWaveNumber >= _maxWaveNum)
+            _updateDataModel.isItMaxUpdateWave = true;
+        else
+            _updateDataModel.isItMaxUpdateWave = false;
+
+        Debug.Log(_updateDataModel.isItMaxUpdateWave);
+    }
+
+    #endregion DataReset
+
+    #region UpdateAction
+    private void ActionUpdate()
+    {
+        if (onPlayerSystemUpdate == null)
+            return;
+
+        _currentWaveNumber = _currentWaveNumber + 1;
+
+        if (_currentWaveNumber > _maxWaveNum)
+            _currentWaveNumber = _maxWaveNum;
+
+        onPlayerSystemUpdate(GameEnum.UpgradeType.AddGun);
+
+        ResetUpdate();
+    }
+    private void ActionDegrade()
+    {
+        if (onPlayerSystemUpdate == null)
+            return;
+
+        _currentWaveNumber = _currentWaveNumber - 1;
+        if (_currentWaveNumber <= 1)
+            _currentWaveNumber = 1;
+
+        onPlayerSystemUpdate(GameEnum.UpgradeType.RemoveGun);
+
+        ResetUpdate();
+    }
+
+    #endregion UpdateAction
 
 }
