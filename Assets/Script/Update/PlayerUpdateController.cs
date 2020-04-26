@@ -106,9 +106,12 @@ public class PlayerUpdateController : MonoBehaviour
     private void ResetUpdate()
     {
         int savedTime = (int)(_requiredTimeForCurrentWave - GetElapsedTime());
-        if (savedTime > 0)
+        if (savedTime > 0 && _currentWaveNumber > 2 && _currentWaveNumber <= _maxWaveNum)
+        {
             _requiredTimeForCurrentWave = _requiredTimeForCurrentWave + savedTime;
-
+            UpdateIndicatorUI.instance.ShowSavedTimeMesage(savedTime);
+        }
+          
         _lastUpdateTime = Time.time;
         _requiredEnemyForCurrentWave = _requiredEnemy + (int)((_currentWaveNumber-1)* _updateFactor);
         ResetUpdateDataModel();

@@ -16,6 +16,7 @@ public class UpdateIndicatorUI : PanelBase
 	public void SetUpdateUI( PlayerUpdateModel dataModel )
 	{
 		int remainingEnemyNum = dataModel.remainingEnemyEnemyNumber; //- dataModel.currentEnemyNumber;
+	
 		//Debug.Log("Current Update num : " + dataModel.currentUpdateWave);
 		string statusText = "";
 		if (dataModel.currentUpdateWave <= 1)
@@ -26,6 +27,11 @@ public class UpdateIndicatorUI : PanelBase
 			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second \nOtherwise You Lose Firepower";
 
 		_updateStatus.text = statusText;
+	}
+
+	public void ShowSavedTimeMesage(int savedTime)
+	{
+		GameUiVisibilityHandler.instance.ShowAnimatedMessage("You have saved " + savedTime + " s");
 	}
 
 }

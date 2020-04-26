@@ -15,6 +15,7 @@ public class GameUiVisibilityHandler : MonoBehaviour
 
 	[SerializeField] private SliderUtility _healthSlider;
 	[SerializeField] private SliderUtility _nextLevelIndicatorSlider;
+	[SerializeField] private GameObject _animatedMessagePrefab;
 
 	private void Awake()
 	{
@@ -86,6 +87,14 @@ public class GameUiVisibilityHandler : MonoBehaviour
 	{
 		_nextLevelIndicatorSlider.ResetData();
 		_healthSlider.ResetData();
+	}
+
+	public void ShowAnimatedMessage(string message)
+	{
+		GameObject obj = InstantiatorHelper.instance.InstantiateCanvasUIObject(_animatedMessagePrefab);
+		AnimatedMessage animatedMessage = obj.GetComponent<AnimatedMessage>();
+		if (animatedMessage != null)
+			animatedMessage.SetMessage(message);
 	}
 
 }
