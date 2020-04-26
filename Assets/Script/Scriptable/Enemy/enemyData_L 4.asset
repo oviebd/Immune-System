@@ -15,9 +15,9 @@ MonoBehaviour:
   levelNumber: 2
   numberOfWave: 4
   initialEnemyNumber: 4
-  initialEnemySpawnDelay: 2
-  enemySpawnDelayReduceFactorPerWave: 0.5
-  initialNumberOfEnemyInAWave: 20
-  multiplierOfEnemyNumberPerWave: 1.5
+  initialEnemySpawnDelay: 1
+  enemySpawnDelayReduceFactorPerWave: 0.4
+  initialNumberOfEnemyInAWave: 30
+  multiplierOfEnemyNumberPerWave: 2
   enemyTypes: 040000000100000002000000
   enemyPercentageList: 1e0000001e00000028000000

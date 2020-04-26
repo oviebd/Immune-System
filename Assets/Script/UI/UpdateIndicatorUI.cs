@@ -19,11 +19,11 @@ public class UpdateIndicatorUI : PanelBase
 		//Debug.Log("Current Update num : " + dataModel.currentUpdateWave);
 		string statusText = "";
 		if (dataModel.currentUpdateWave <= 1)
-			statusText = "Destroy " + remainingEnemyNum + " Enemy";
+			statusText = "Destroy " + remainingEnemyNum + " Enemy for get more firepower";
 		else if (dataModel.currentUpdateWave > 1 && dataModel.isItMaxUpdateWave == false)
-			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second for get more firepower Otherwise You Lose Firepower";
+			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second \nfor get more firepower Otherwise You Lose Firepower";
 		else
-			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second Otherwise You Lose Firepower";
+			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second \nOtherwise You Lose Firepower";
 
 		_updateStatus.text = statusText;
 	}
