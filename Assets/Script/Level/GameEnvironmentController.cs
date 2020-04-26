@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameEnvironmentController : MonoBehaviour
 {
     public static GameEnvironmentController instance;
-
 	[SerializeField] private GameObject _parentObjForInstantiatObjs;
     private int currentLevel = 1;
+
 
     private void Awake()
     {

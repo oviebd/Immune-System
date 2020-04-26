@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: collectableData_l_1
   m_EditorClassIdentifier: 
   levelNumber: 1
-  noOfCollectableForCurrentLevel: 4
+  noOfCollectableForCurrentLevel: 5
   minumumTimeDelayPerCollectable: 12
   collectableType: 02000000030000000100000000000000
-  collectablePercentageList: 28000000140000001400000014000000
+  collectablePercentageList: 28000000280000000a0000000a000000
