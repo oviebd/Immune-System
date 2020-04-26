@@ -301,7 +301,7 @@ MonoBehaviour:
   _minActiveGunNum: 1
   _maxBullet: 0
   _infiniteFirePower: 1
-  _coolDownTime: 3
+  _coolDownTime: 2
 --- !u!114 &306920362790221747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,8 +460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a410017ebd5f64299ad6f51de28e109f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 1
-  _repealMagnitudeForce: 3
+  _radious: 2
+  _repealMagnitudeForce: 1.5
   _isInteractableWithPlayer: 1
 --- !u!114 &3221337699271510512
 MonoBehaviour:
