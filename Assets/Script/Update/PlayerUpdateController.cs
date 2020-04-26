@@ -49,7 +49,9 @@ public class PlayerUpdateController : MonoBehaviour
     private void Update()
     {
 		ResetUpdateDataModel();
-		UpdateIndicatorUI.instance.SetUpdateUI(_updateDataModel);
+        if(onPlayerSystemUpdate != null)
+            UpdateIndicatorUI.instance.SetUpdateUI(_updateDataModel);
+
         Check();
 	}
 
@@ -122,8 +124,6 @@ public class PlayerUpdateController : MonoBehaviour
             _updateDataModel.isItMaxUpdateWave = true;
         else
             _updateDataModel.isItMaxUpdateWave = false;
-
-        Debug.Log(_updateDataModel.isItMaxUpdateWave);
     }
 
     #endregion DataReset

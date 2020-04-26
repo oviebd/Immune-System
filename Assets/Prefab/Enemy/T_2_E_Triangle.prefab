@@ -222,9 +222,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.026128054, y: 0.0065550804}
+  m_Offset: {x: -0.038509846, y: 0.0065550804}
   serializedVersion: 2
-  m_Radius: 0.17546535
+  m_Radius: 0.18784714
 --- !u!114 &1459151737758039301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   _minActiveGunNum: 1
   _maxBullet: 0
   _infiniteFirePower: 1
-  _coolDownTime: 1
+  _coolDownTime: 3
 --- !u!114 &306920362790221747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,4 +502,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce2c5a47257a149a19f5212718efa694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _point: 5
+  _point: 2

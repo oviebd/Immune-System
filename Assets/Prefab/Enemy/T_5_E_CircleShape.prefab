@@ -219,7 +219,7 @@ MonoBehaviour:
   OnGoingCompleted:
     m_PersistentCalls:
       m_Calls: []
-  _movingSpeed: 3
+  _movingSpeed: 5
   _stoppingDistance: 0
 --- !u!114 &7922354520863022930
 MonoBehaviour:
@@ -325,6 +325,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0056111813, y: -0.0023509264}
+  m_Offset: {x: 0.009778917, y: -0.0023509264}
   serializedVersion: 2
-  m_Radius: 0.23600408
+  m_Radius: 0.25139415

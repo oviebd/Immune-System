@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4340508171230531516}
   - component: {fileID: -6256530005414173687}
   m_Layer: 12
-  m_Name: Collectable_UpdateBulletFrequency 1
+  m_Name: Collectable_UpdateBulletFrequency
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,9 +50,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0015471876, y: 0.008623108}
+  m_Offset: {x: -0.0064977705, y: 0.008623108}
   serializedVersion: 2
-  m_Radius: 0.2107996
+  m_Radius: 0.20584902
 --- !u!50 &7151040556852108258
 Rigidbody2D:
   serializedVersion: 4
