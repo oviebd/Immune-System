@@ -20,6 +20,7 @@ public class PlaySound : MonoBehaviour,IAudio
     {
         if (GetAudioSource() != null && clip != null)
         {
+            _audioSource.clip = clip;
             _audioSource.Play();
         }
     }
@@ -28,6 +29,7 @@ public class PlaySound : MonoBehaviour,IAudio
     {
         if (source != null && clip != null)
         {
+            source.clip = clip;
             source.Play();
         }
     }
