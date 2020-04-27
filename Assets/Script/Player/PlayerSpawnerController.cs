@@ -6,6 +6,9 @@ public class PlayerSpawnerController : MonoBehaviour
 {
     public static PlayerSpawnerController instance;
     PlayerLevelData data;
+
+    PlayerController currentPlayerController;
+
     private void Awake()
     {
         if (instance == null)
@@ -17,15 +20,31 @@ public class PlayerSpawnerController : MonoBehaviour
         data = LevelDataHandler.instance.GetPlayerLevelData(levelNumber);
         if (data != null)
         {
-            GameObject playerObj = InstantiatorHelper.instance.InstantiateObject(data.playerPrefab, this.transform.gameObject);
-            PlayerController playerController = playerObj.GetComponent<PlayerController>();
+            GameObject playerObj = InstantiatorHelper.instance.InstantiateObject(data.playerPrefab);
+            currentPlayerController = playerObj.GetComponent<PlayerController>();
 
-            if (playerController != null){
-                playerController.SetPlayerLevelData(data);
-                playerController.InstantiateGun(data.playerGunPrefab);
+            if (currentPlayerController != null){
+                currentPlayerController.SetPlayerLevelData(data);
+                currentPlayerController.InstantiateGun(data.playerGunPrefab);
             }
             
         }
-    } 
-    
+    }
+
+    public PlayerController GetCurrentPlayerController()
+    {
+        return currentPlayerController;
+    }
+
+    public void HidePlayer()
+    {
+        if (currentPlayerController != null)
+            currentPlayerController.gameObject.SetActive(false);
+    }
+    public void ShowPlayer()
+    {
+        if (currentPlayerController != null)
+            currentPlayerController.gameObject.SetActive(true);
+    }
+
 }

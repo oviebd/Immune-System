@@ -31,4 +31,12 @@ public static class Utils
             }
         }
     }
+
+    public static bool CanSpawnThings()
+    {
+        if (GameManager.instance.GetCurrentGameState() == GameEnum.GameState.Running)
+            return true;
+        else
+            return false;
+    }
 }

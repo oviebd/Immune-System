@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
         GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
         ScoreManager.instance.SetWInningPoint(LevelDataHandler.instance.GetWinningPointOfALevel(levelNumber));
         GameUiVisibilityHandler.instance.ResetSliderData();
+
+        GameActionHandler.instance.ActionShowTutorial();
         /*if(IsPlayerCapableForGoNextLevel(levelNumber) == true)
         {
             SetCurrentLevelNumber(levelNumber);

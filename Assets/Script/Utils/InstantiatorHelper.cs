@@ -12,17 +12,32 @@ public class InstantiatorHelper : MonoBehaviour {
 	}
 	[SerializeField] private GameObject primaryParentObj;
 	[SerializeField] private GameObject canvasParentObj;
-	public GameObject InstantiateObject(GameObject obj, GameObject parentObj)
+
+    public GameObject InstantiateObject(GameObject obj, GameObject parentObj)
 	{
 		GameObject newObj = Instantiate(obj, parentObj.transform.position, parentObj.transform.rotation);
 		newObj.transform.parent = primaryParentObj.transform;
 		return newObj;
 	}
+	public GameObject InstantiateObject(GameObject obj)
+	{
+		GameObject newObj = Instantiate(obj);
+		return newObj;
+	}
+
+
 
 	public GameObject InstantiateCanvasUIObject(GameObject obj)
 	{
 		GameObject newObj = Instantiate(obj, canvasParentObj.transform.position, canvasParentObj.transform.rotation);
 		newObj.transform.parent = canvasParentObj.transform;
+		return newObj;
+	}
+
+	public GameObject InstantiateCanvasUIObject(GameObject obj,GameObject parent)
+	{
+		GameObject newObj = Instantiate(obj, canvasParentObj.transform.position, parent.transform.rotation);
+		newObj.transform.parent = parent.transform;
 		return newObj;
 	}
 }

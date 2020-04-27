@@ -30,6 +30,9 @@ public class EnemySpawnController : MonoBehaviour
 
     private void Update()
     {
+		if (Utils.CanSpawnThings() == false)
+			return;
+
         if (canSpawnEnemy)
         {
             if( (Time.time - lastSpawnEnemyTime) >= enemySpawnDelayForCurrentWave)
@@ -40,6 +43,7 @@ public class EnemySpawnController : MonoBehaviour
 			debugText.text = res;
 		}
 	}
+
 	public void LoadLevelEnemyData(int level)
     {
 		data = null;

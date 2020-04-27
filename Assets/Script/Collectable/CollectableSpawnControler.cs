@@ -39,8 +39,12 @@ public class CollectableSpawnControler : MonoBehaviour
 
     private void Update()
     {
-		if (data == null)
+		if (data == null || Utils.CanSpawnThings () == false)
+        {
+			_lastSpawnTime = Time.time;
 			return;
+		}
+			
 
 		if (canSpawn)
 		{

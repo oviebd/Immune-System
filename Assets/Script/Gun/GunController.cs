@@ -147,14 +147,16 @@ public class GunController : MonoBehaviour
 
 
 	#region Shooting
-	public void Shoot()
+
+    public void Shoot()
 	{
 		if (_isAutomaticFire == true)
 			onGunButtonPressed();
 	}
 	private void Update()
 	{
-		Shoot();
+        if (Utils.CanSpawnThings())
+			Shoot();
 	}
 	private void onGunButtonPressed()
 	{

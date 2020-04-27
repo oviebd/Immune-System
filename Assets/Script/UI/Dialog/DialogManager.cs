@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogManager : MonoBehaviour,DialogBase.Delegate
+public class DialogManager : MonoBehaviour
 {
     public static DialogManager instance;
 
@@ -64,8 +64,5 @@ public class DialogManager : MonoBehaviour,DialogBase.Delegate
         return null;
     }
 
-    public void OnDialogPositiveButtonPressed()
-    {
-        Debug.Log("Interface Ok ");
-    }
+    
 }

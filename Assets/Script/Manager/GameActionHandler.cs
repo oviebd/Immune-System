@@ -54,7 +54,11 @@ public class GameActionHandler : MonoBehaviour
 	{
 		ActionPlayGame(LevelManager.instance.GetCurrentLevelNumber());
 	}
-
+	public void ActionShowTutorial()
+	{
+		GameStateTracker.instance.PushGameState(GameEnum.GameState.TutorialState);
+		GameEnvironmentController.instance.SetEnvironmentForTutorial();
+	}
 	public void ActionGameOver(bool isWin)
 	{
 		GameEnvironmentController.instance.HideAllInstantiatedObjs();

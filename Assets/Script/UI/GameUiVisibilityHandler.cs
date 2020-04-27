@@ -97,4 +97,9 @@ public class GameUiVisibilityHandler : MonoBehaviour
 			animatedMessage.SetMessage(message);
 	}
 
+    public void ShowTutorial()
+    {
+		TutorialManager.instance.ShowTutorial();
+    }
+
 }
