@@ -9,4 +9,5 @@ public interface IGun
 	bool IsItPrimaryGun();
     void SetIsItPrimaryGun(bool isItPrimaryGun);
     void UpdateBulletTemporarily(GameObject bulletGameObj, float duration);
+    BulletBase GetBulletBase();
 }

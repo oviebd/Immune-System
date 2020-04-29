@@ -9370,7 +9370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fd2198c0d1e4566ac534238c1a2bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentPlayerType: 1
+  _currentPlayerType: 0
   _playerList:
   - {fileID: 8235833068661842949, guid: 3c9c6abc37a5445a8be3307c47edfa3f, type: 3}
   - {fileID: 8235833068661842949, guid: 04dba4b6909e647b4821f1f8c55bd9ae, type: 3}

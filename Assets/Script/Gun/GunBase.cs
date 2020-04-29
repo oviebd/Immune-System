@@ -18,7 +18,6 @@ public class GunBase : MonoBehaviour
 	private void Start()
     {
 		_primarylBullet = _bulletObj;
-	
 	}
 
 
@@ -61,6 +60,11 @@ public class GunBase : MonoBehaviour
     private void SetNormalBullet()
     {
 		_bulletObj = _primarylBullet;
+	}
+
+    public BulletBase GetBulletBase()
+    {
+		return _bulletObj.GetComponent<BulletBase>();
 	}
 
 }

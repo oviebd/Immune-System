@@ -7,13 +7,10 @@ public class BulletBase : MonoBehaviour, IColliderEnter
     [SerializeField] private float _lifeTime = 2.0f;
     [SerializeField] private Collider2D _collider2D;
     [SerializeField] private GameObject _graphicsObj;
-    [SerializeField] private PlaySound _playSound;
+    [SerializeField] private AudioClip _audioClip;
 
     private void Start()
     {
-        if (_playSound != null)
-            _playSound.PlayAudio();
-
         Destroy(this.gameObject, _lifeTime);
     }
 
@@ -29,6 +26,11 @@ public class BulletBase : MonoBehaviour, IColliderEnter
             _collider2D.enabled = false;
         if (_graphicsObj != null)
             _graphicsObj.SetActive(false);
+    }
+
+    public AudioClip GetAudioClip()
+    {
+        return _audioClip;
     }
 
     

@@ -7,20 +7,23 @@ public class GunController : MonoBehaviour
 	[SerializeField] private List<GameObject> _guns;
 	[SerializeField] private bool _isAutomaticFire = false;
 	[SerializeField] private bool _isEnemyGun = false;
+	private PlaySound _playSound;
 
-    [SerializeField] private int _minActiveGunNum = 1;
+	[SerializeField] private int _minActiveGunNum = 1;
     private List<IGun> _iGunList = new List<IGun>();
 	private int currentActiveGunNumber = 0;
 
 	[SerializeField] private int _maxBullet;
 	[SerializeField] private bool _infiniteFirePower = true;
 	[SerializeField] private float _coolDownTime = .3f;
+	
 
     private float _lastShootTime;
 	private float _primaryCoolDownTime;
 
 	void Start()
     {
+		_playSound = GetComponent<PlaySound>();
 		_lastShootTime = Time.time;
 		_primaryCoolDownTime = _coolDownTime;
 
@@ -151,22 +154,32 @@ public class GunController : MonoBehaviour
     public void Shoot()
 	{
 		if (_isAutomaticFire == true)
-			onGunButtonPressed();
+			ActionShoot();
 	}
 	private void Update()
 	{
         if (Utils.CanSpawnThings())
 			Shoot();
 	}
-	private void onGunButtonPressed()
+
+    private void ActionShoot()
 	{
 		if (CanShoot() == true)
 		{
-			for (int i = 0; i < _iGunList.Count; i++)
+			AudioClip audio = null; 
+
+            for (int i = 0; i < _iGunList.Count; i++)
 			{
 				IGun gun = _iGunList[i];
 				gun.Shoot();
+
+                if (audio == null && _playSound != null)
+				{
+					audio = gun.GetBulletBase().GetAudioClip();
+					_playSound.PlayAudioWithClip(audio);
+				}
 			}
+
 			_lastShootTime = Time.time;
 		}
 
