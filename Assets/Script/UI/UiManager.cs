@@ -57,6 +57,7 @@ public class UiManager : MonoBehaviour
 				GameUiVisibilityHandler.instance.SetChooseLevelUI();
 				break;
 			case GameEnum.GameState.TutorialState:
+				UiManager.instance.SetUIState(GameEnum.UiState.TutorialUiState);
 				GameUiVisibilityHandler.instance.ShowTutorial();
 				break;
 		}

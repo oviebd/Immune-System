@@ -11,6 +11,6 @@ public class GameEnum
 	public enum UpgradeType { AddGun, RemoveGun }
     public enum GameTags { PlayerBullet, EnemyBullet, Player,Enemy}
 	public enum GameState { Idle, Running, PauseGame, PlayerLose,PlayerWin, LevelChoose, StoreUiState,TutorialState }
-	public enum UiState { StartGameState, PauseGameState, GameRunningState,GameOverState }
+	public enum UiState { StartGameState, PauseGameState, GameRunningState,GameOverState,TutorialUiState }
 	public enum DialogType { AlertDialog,ActionDialog,InfoDialog,ImageDialog,Tutorial }
 }

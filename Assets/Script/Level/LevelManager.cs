@@ -3,8 +3,8 @@
 public class LevelManager : MonoBehaviour, DialogBase.Delegate
 {
     public static LevelManager instance;
-    [SerializeField] private LevelDataScriptable _levelDataScriptable;
-    private LevelRequiredDataModel _levelRequiredData;
+    
+   // private LevelRequiredDataModel _levelRequiredData;
 
     private void Awake()
     {
@@ -15,12 +15,16 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
 
     public void LoadALevel(int levelNumber)
     {
-        SetCurrentLevelNumber(levelNumber);
+        GameDataHandler.instance.SetCurrentLevelNumber(levelNumber);
         GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
-        ScoreManager.instance.SetWInningPoint(LevelDataHandler.instance.GetWinningPointOfALevel(levelNumber));
+        ScoreManager.instance.SetWInningPoint(GameDataHandler.instance.GetWinningPointOfALevel(levelNumber));
         GameUiVisibilityHandler.instance.ResetSliderData();
 
-        GameActionHandler.instance.ActionShowTutorial();
+        if(GameDataHandler.instance.IsTutorialShown() == false)
+        {
+            GameActionHandler.instance.ActionShowTutorial();
+        }
+        
         /*if(IsPlayerCapableForGoNextLevel(levelNumber) == true)
         {
             SetCurrentLevelNumber(levelNumber);
@@ -54,18 +58,9 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
 
     public int GetCurrentLevelNumber()
     {
-        if (_levelDataScriptable == null)
-            return 1;
-        else
-            return _levelDataScriptable.currentLevel;
+        return GameDataHandler.instance.GetCurrentLevelNumber();
     }
 
-    private void SetCurrentLevelNumber(int levelNumber)
-    {
-        if (_levelDataScriptable == null)
-            return;
-        _levelDataScriptable.currentLevel = levelNumber;
-    }
 
    /* public bool IsPlayerCapableForGoNextLevel(int nextLevelNumber)
     {

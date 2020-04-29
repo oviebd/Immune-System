@@ -33,6 +33,7 @@ public class GameMainMenu : PanelBase
 				break;
 		}
 	}
+
 	void SetStartNewGameUI()
 	{
 		HideAll();
