@@ -31,24 +31,24 @@ public class StorePanel : PanelBase
 
 
 
-    private string GetStoreItemDetailsBasedOnType(GameEnum.PlayerShipType type)
+    private string GetStoreItemDetailsBasedOnType(GameEnum.PlayerrTType type)
     {
         string details = "";
         switch (type)
         {
-            case  GameEnum.PlayerShipType.PlayerType_1:
+            case  GameEnum.PlayerrTType.PlayerType_1:
                 details = "Initial Player .. Initially it has one gun and each 0.5 s it will shoot";
                 break;
-            case GameEnum.PlayerShipType.PlayerType_2:
+            case GameEnum.PlayerrTType.PlayerType_2:
                 details = "Second Player .. Initially it has one gun and each 0.4 s it will shoot";
                 break;
-            case GameEnum.PlayerShipType.PlayerType_3:
+            case GameEnum.PlayerrTType.PlayerType_3:
                 details = "Third Player .. Initially it has one gun and each 0.3 s it will shoot";
                 break;
-            case GameEnum.PlayerShipType.PlayerType_4:
+            case GameEnum.PlayerrTType.PlayerType_4:
                 details = "Fourth Player .. Initially it has one gun and each 0.2 s it will shoot";
                 break;
-            case GameEnum.PlayerShipType.PlayerType_5:
+            case GameEnum.PlayerrTType.PlayerType_5:
                 details = "Fifth Player .. Initially it has one gun and each 0.1 s it will shoot";
                 break;
 

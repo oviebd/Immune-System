@@ -37,12 +37,12 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
 
     void SetStoreUiDialog(int levelNumber)
     {
-        if (GetlevelRequiredData(levelNumber) == null)
-            return;
+        /*if (GetlevelRequiredData(levelNumber) == null)
+            return;*/
 
         IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ActionDialog);
         dialog.SetMessage("");
-        dialog.SetTitle("You Need " + GetlevelRequiredData(levelNumber).shipType + " Please Open Store For Puchasing Items ");
+        //dialog.SetTitle("You Need " + GetlevelRequiredData(levelNumber).shipType + " Please Open Store For Puchasing Items ");
         dialog.SetDialogDelegate(this);
     }
 
@@ -67,27 +67,20 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
         _levelDataScriptable.currentLevel = levelNumber;
     }
 
-    public bool IsPlayerCapableForGoNextLevel(int nextLevelNumber)
+   /* public bool IsPlayerCapableForGoNextLevel(int nextLevelNumber)
     {
         if (GetlevelRequiredData(nextLevelNumber) == null) 
             return true;
         return PlayerAchivedDataHandler.instance.IsShipTypeExistInAchievedShipList(GetlevelRequiredData(nextLevelNumber).shipType);
-     
-        /* LevelRequiredDataModel levelRequiredData = LevelDataCreator.
-                             GetLevelRequiredDataModel(nextLevelNumber);
-       if (PlayerAchivedDataHandler.instance.IsGunTypeExistInAchievedGunList(levelRequiredData.gunType) == true)
-             && PlayerAchivedDataHandler.instance.IsShipTypeExistInAchievedShipList(levelRequiredData.shipType) == true)
-         {
-             canPass = true;
-         }*/
-    }
+    
+    }*/
 
-    private LevelRequiredDataModel GetlevelRequiredData(int levelNumber)
+   /* private LevelRequiredDataModel GetlevelRequiredData(int levelNumber)
     {
         if(_levelRequiredData == null)
             _levelRequiredData = LevelDataCreator.GetLevelRequiredDataModel(levelNumber);
         return _levelRequiredData;
-    }
+    }*/
 
     public void OnDialogPositiveButtonPressed()
     {

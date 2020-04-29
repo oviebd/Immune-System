@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelDataCreator 
 {
-    public static LevelRequiredDataModel GetLevelRequiredDataModel(int levelNumber)
+   /* public static LevelRequiredDataModel GetLevelRequiredDataModel(int levelNumber)
     {
         LevelRequiredDataModel data = new LevelRequiredDataModel();
         PlayerLevelData playerLevelData = LevelDataHandler.instance.GetPlayerLevelData(levelNumber);
@@ -20,5 +20,5 @@ public class LevelDataCreator
         if (playerLevelData.playerGunPrefab.GetComponent<GunBase>() != null)
             data.gunType = playerLevelData.playerGunPrefab.GetComponent<GunBase>().GetGun();
         return data;
-    }
+    }*/
 }

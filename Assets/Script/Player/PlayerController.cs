@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour ,IColliderEnter
 {
-    [SerializeField] private GameEnum.PlayerShipType _playerType = GameEnum.PlayerShipType.PlayerType_1;
+    [SerializeField] private GameEnum.PlayerrTType _playerType = GameEnum.PlayerrTType.PlayerType_1;
     [SerializeField] private GameObject _playerGraphics;
-    private PlayerLevelData _playerLevelData;
+   // private PlayerLevelData _playerLevelData;
     private GunController _gunControllere;
     private IHealth _playerHealth;
     private Collider2D _collider;
@@ -48,10 +48,10 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
         getGunController().Shoot();
     }
 
-    public void SetPlayerLevelData(PlayerLevelData data)
+   /* public void SetPlayerLevelData(PlayerLevelData data)
     {
 		this._playerLevelData = data;
-    }
+    }*/
     public void InstantiateGun(GameObject gunPrefab)
     {
         if (getGunController() != null && gunPrefab != null)
@@ -104,11 +104,11 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     {
         GameActionHandler.instance.ActionGameOver(false);
     }
-    public GameEnum.PlayerShipType GetPlayerType()
+    public GameEnum.PlayerrTType GetPlayerType()
     {
         return _playerType;
     }
-    public void SetPlayerType(GameEnum.PlayerShipType playerType)
+    public void SetPlayerType(GameEnum.PlayerrTType playerType)
     {
         _playerType = playerType;
     }

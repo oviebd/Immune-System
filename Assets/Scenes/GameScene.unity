@@ -9161,6 +9161,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fd2198c0d1e4566ac534238c1a2bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentPlayerType: 1
+  _playerList:
+  - {fileID: 8235833068661842949, guid: 3c9c6abc37a5445a8be3307c47edfa3f, type: 3}
+  - {fileID: 8235833068661842949, guid: 04dba4b6909e647b4821f1f8c55bd9ae, type: 3}
+  - {fileID: 8235833068661842949, guid: 2d06458646be04550a7ad804d9db97da, type: 3}
+  _gunPrefab: {fileID: 2221921908776760814, guid: cb9e7036c8fa34c83aafecb923b13d44,
+    type: 3}
 --- !u!114 &1979234639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9496,18 +9503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2502a6137e74f35a2a8da6dde7ae5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelDataListEnemy:
-  - {fileID: 11400000, guid: 276232ad5c5c241a3b99fa9d0dceb457, type: 2}
-  - {fileID: 11400000, guid: fa4a800a4a0ee457c897094ee64aaabd, type: 2}
-  - {fileID: 11400000, guid: 27c91a82c92b54a92b507309239556ad, type: 2}
-  - {fileID: 11400000, guid: ed49e409a1bf14949b3d1c45232a252a, type: 2}
-  - {fileID: 11400000, guid: eb57d93f4f9cd40d8a5f2b73b2d8577a, type: 2}
-  _levelDataListPlayer:
-  - {fileID: 11400000, guid: 02374f65f8adc45b1ab72f6c48b52e30, type: 2}
-  - {fileID: 11400000, guid: 84d29e47473fa4c8cb2b7b5f4a2e85db, type: 2}
-  - {fileID: 11400000, guid: 15713df5243ce4291b0b337ba057aa3e, type: 2}
-  - {fileID: 11400000, guid: 0d313945c45db42c282c42372373b886, type: 2}
-  - {fileID: 11400000, guid: 27d8e7b1604bc44ce9a9c9d4d79b2829, type: 2}
   _winningPointPerLevel: fa000000fa000000fa000000fa000000fa000000
   _maxLevelnumber: 5
 --- !u!114 &2004269569

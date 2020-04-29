@@ -32,6 +32,7 @@ public class TutorialManager : MonoBehaviour,DialogBase.Delegate
 
     private void InsertInstructionInList()
     {
+        _instructionList.Clear();
         _currentInstructionIndex = 0;
         for (int i= 0; i<_positionList.Count && i<_messageList.Count; i++)
         {
@@ -49,10 +50,7 @@ public class TutorialManager : MonoBehaviour,DialogBase.Delegate
         if (_instructionList != null && _currentInstructionIndex <_instructionList.Count)
         {
             InstructionDataModel data = _instructionList[_currentInstructionIndex];
-           // GameObject obj = InstantiatorHelper.instance.InstantiateCanvasUIObject(_instructionItemPrefab);
-
             IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.Tutorial);
-           // IDialog dialog = obj.GetComponent<IDialog>();
             _currentHighlighter = data.instantiateParentObj.GetComponent<IHighLighter>();
 
             if (_currentHighlighter != null)

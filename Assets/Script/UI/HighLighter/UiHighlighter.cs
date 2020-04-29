@@ -16,7 +16,7 @@ public class UiHighlighter : MonoBehaviour,IHighLighter
 
     private Outline _outline;
 
-    void Start()
+    void Awake()
     {
         _outline = this.gameObject.GetComponent<Outline>();
         if(_imageForHighlight == null)
@@ -24,6 +24,7 @@ public class UiHighlighter : MonoBehaviour,IHighLighter
 
         SetUpInitValues();
     }
+
 
     void SetUpInitValues()
     {

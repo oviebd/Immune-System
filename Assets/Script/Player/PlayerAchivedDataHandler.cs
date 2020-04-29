@@ -14,7 +14,7 @@ public class PlayerAchivedDataHandler : MonoBehaviour
             instance = this;
     }
 
-    public void SetPlayerAchivedData(GameEnum.PlayerShipType shipType, GameEnum.GunType gunType)
+    public void SetPlayerAchivedData(GameEnum.PlayerrTType shipType, GameEnum.GunType gunType)
     {
         AddPlayerShipTypeInAchievedList(shipType);
         AddPlayerGunTypeInAchivedList(gunType);
@@ -61,23 +61,23 @@ public class PlayerAchivedDataHandler : MonoBehaviour
     }
 
     #region Ship
-    private void AddPlayerShipTypeInAchievedList(GameEnum.PlayerShipType playerShipType)
+    private void AddPlayerShipTypeInAchievedList(GameEnum.PlayerrTType playerShipType)
     {
         if (_playerAChivedData == null)
             return;
         if(_playerAChivedData.achievedPlayerShipList == null)
         {
-            _playerAChivedData.achievedPlayerShipList = new List<GameEnum.PlayerShipType>();
+            _playerAChivedData.achievedPlayerShipList = new List<GameEnum.PlayerrTType>();
         }
         _playerAChivedData.achievedPlayerShipList.Add(playerShipType);
     }
-    private List<GameEnum.PlayerShipType> GetAchievedPlayerShipList()
+    private List<GameEnum.PlayerrTType> GetAchievedPlayerShipList()
     {
         if (_playerAChivedData == null)
             return null;
         return _playerAChivedData.achievedPlayerShipList;
     }
-    public bool IsShipTypeExistInAchievedShipList(GameEnum.PlayerShipType playerShipType)
+    public bool IsShipTypeExistInAchievedShipList(GameEnum.PlayerrTType playerShipType)
     {
         if (GetAchievedPlayerShipList() == null)
             return false;

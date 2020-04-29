@@ -19,7 +19,7 @@ public class GameEnvironmentController : MonoBehaviour
 		DestroyAllIntantiatedObjs();
 		ShowAllInstantiatedObjs();
 		EnemySpawnController.instance.LoadLevelEnemyData(levelNumber);
-        PlayerSpawnerController.instance.LoadLevelPlayerData(levelNumber);
+        PlayerSpawnerController.instance.LoadPlayer();
 		CollectableSpawnControler.instance.LoadCollectableForALevel(levelNumber);
 		BackGroundController.instance.SetBackground(levelNumber);
     }

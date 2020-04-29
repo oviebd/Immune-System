@@ -5,7 +5,14 @@ using UnityEngine;
 public class PlayerSpawnerController : MonoBehaviour
 {
     public static PlayerSpawnerController instance;
-    PlayerLevelData data;
+
+    [SerializeField] private GameEnum.PlayerrTType _currentPlayerType;
+
+    [SerializeField] private List<PlayerController> _playerList;
+    [SerializeField] private GameObject _gunPrefab; 
+
+
+  //  PlayerLevelData data;
 
     PlayerController currentPlayerController;
 
@@ -15,20 +22,32 @@ public class PlayerSpawnerController : MonoBehaviour
             instance = this;
     }
 
-   public void LoadLevelPlayerData(int levelNumber)
+
+    public void LoadPlayer()
     {
-        data = LevelDataHandler.instance.GetPlayerLevelData(levelNumber);
-        if (data != null)
+        GameObject playerPrefab = GetSpecificPlayerControllerBasedOnType(_currentPlayerType);
+        if (playerPrefab != null)
         {
-            GameObject playerObj = InstantiatorHelper.instance.InstantiateObject(data.playerPrefab);
+            GameObject playerObj = InstantiatorHelper.instance.InstantiateObject(playerPrefab);
             currentPlayerController = playerObj.GetComponent<PlayerController>();
 
             if (currentPlayerController != null){
-                currentPlayerController.SetPlayerLevelData(data);
-                currentPlayerController.InstantiateGun(data.playerGunPrefab);
+               // currentPlayerController.SetPlayerLevelData(data);
+                currentPlayerController.InstantiateGun(_gunPrefab);
             }
-            
         }
+    }
+
+    GameObject GetSpecificPlayerControllerBasedOnType(GameEnum.PlayerrTType type)
+    {
+        for (int i = 0; i < _playerList.Count; i++)
+        {
+            if (type == _playerList[i].GetPlayerType())
+            {
+                return _playerList[i].gameObject;
+            }
+        }
+        return null;
     }
 
     public PlayerController GetCurrentPlayerController()
