@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
         ScoreManager.instance.SetWInningPoint(GameDataHandler.instance.GetWinningPointOfALevel(levelNumber));
         GameUiVisibilityHandler.instance.ResetSliderData();
 
-        if(GameDataHandler.instance.IsTutorialShown() == false)
+        if(TutorialManager.instance.IsTutorialShownAlready() == false)
         {
             GameActionHandler.instance.ActionShowTutorial();
         }

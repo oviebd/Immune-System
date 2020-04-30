@@ -1,33 +1,28 @@
 ﻿
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(PlaySound))]
 public class Explosion : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    private PlaySound _playSound;
     [SerializeField] private GameObject _explosionEffect;
     [SerializeField] private AudioClip _explosionClip;
 	[SerializeField] private SpriteRenderer _sourceImgForExplosionEffectImage;
 
 	private void Start()
     {
-        _audioSource = this.GetComponent<AudioSource>();
-        if (_audioSource != null && _explosionClip != null)
-        {
-            _audioSource.clip = _explosionClip;
-        }
+        
     }
 
     public void Explode()
     {
         InstantiateEffect();
 
-        if (_audioSource != null && _explosionClip != null)
+        if (GetPlaySound() != null && _explosionClip != null)
         {
-            _audioSource.Play();
+            GetPlaySound().PlayAudioWithClip(_explosionClip);
         }
     }
-
     void InstantiateEffect()
     {
         if (_explosionEffect != null)
@@ -41,6 +36,13 @@ public class Explosion : MonoBehaviour
 			}
            // Destroy(effectParticle, 1.0f);
         }
+    }
+
+    private PlaySound GetPlaySound()
+    {
+        if(_playSound == null)
+            _playSound = GetComponent<PlaySound>();
+        return _playSound;
     }
 
 

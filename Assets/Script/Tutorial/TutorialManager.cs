@@ -81,8 +81,17 @@ public class TutorialManager : MonoBehaviour,DialogBase.Delegate
         {
             GameActionHandler.instance.BackButtonPressed();
             GameEnvironmentController.instance.SetEnvironmentForTutorialComplete();
-            GameDataHandler.instance.SetTutorialStatusShown();
-        }
 
+            //inform GameData that Tutorial has been shown 
+            GameDataModel data = GameDataHandler.instance.GetGameData();
+            data.isTutorialShown = true;
+            GameDataHandler.instance.SetGameData(data);
+           
+        }
+    }
+
+    public bool IsTutorialShownAlready()
+    {
+        return GameDataHandler.instance.GetGameData().isTutorialShown;
     }
 }
