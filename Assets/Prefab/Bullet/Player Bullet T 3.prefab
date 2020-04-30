@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef3f474a6e104748977fef155f3906a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lifeTime: 2
+  _lifeTime: 10
   _collider2D: {fileID: 5751173439482170278}
   _graphicsObj: {fileID: 5647779421266988972}
   _audioClip: {fileID: 8300000, guid: 883a1c63e69c63a47bca68174de5e304, type: 3}

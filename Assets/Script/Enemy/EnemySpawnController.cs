@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemySpawnController : MonoBehaviour
+public class EnemySpawnController : MonoBehaviour,ITimer
 {
 	public static EnemySpawnController instance;
 
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
+	private Timer _timer;
 
 	private bool canSpawnEnemy = false;
-	private float lastSpawnEnemyTime;
 
 	private int currentEnemyWave = 1;
 	private int enemyNumberInCurrentWave = 0;
@@ -27,20 +27,27 @@ public class EnemySpawnController : MonoBehaviour
 			instance = this;
 	}
 
-
-    private void Update()
+    private void Start()
     {
-		if (Utils.CanSpawnThings() == false)
-			return;
+		GameManager.onGameStateChange += OnGameStateChanged;
+		_timer = this.gameObject.GetComponent<Timer>();
+    }
+    private void OnDestroy()
+    {
+		GameManager.onGameStateChange -= OnGameStateChanged;
+	}
 
-        if (canSpawnEnemy)
-        {
-            if( (Time.time - lastSpawnEnemyTime) >= enemySpawnDelayForCurrentWave)
-            {
-				SpawnRandomEnemy();
-            }
-			string res = " L : " +LevelManager.instance.GetCurrentLevelNumber() + " wave : " + ( currentEnemyWave )+ " enemy Number : " + enemyNumberInCurrentWave + " / " + maxEnemyNumberInCurrentWave;
-			debugText.text = res;
+    private void OnGameStateChanged(GameEnum.GameState gameState)
+	{
+		if (gameState == GameEnum.GameState.Running)
+		{
+			if (canSpawnEnemy)
+				_timer.ResumeTimer();
+		}
+		else
+		{
+			if (canSpawnEnemy)
+				_timer.PauseTimer();
 		}
 	}
 
@@ -75,12 +82,18 @@ public class EnemySpawnController : MonoBehaviour
 			enemySpawnDelayForCurrentWave = .5f;
 
 		canSpawnEnemy = true;
+		_timer.StartTimer(enemySpawnDelayForCurrentWave);
 	}
 
-    void UpdateEnemyNumber()
+	public void OnTimeCompleted()
+	{
+		//throw new System.NotImplementedException();
+		SpawnRandomEnemy();
+	}
+
+	void UpdateEnemyNumber()
     {
 		enemyNumberInCurrentWave = enemyNumberInCurrentWave + 1;
-		lastSpawnEnemyTime = Time.time;
 
 		if (enemyNumberInCurrentWave > maxEnemyNumberInCurrentWave)
 		{
@@ -149,7 +162,9 @@ public class EnemySpawnController : MonoBehaviour
 		}
 		return GameEnum.EnemyType.Type_1;
 	}
-	#endregion EnemySpawn
+
+   
+    #endregion EnemySpawn
 
 
 

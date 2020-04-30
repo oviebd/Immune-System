@@ -26,7 +26,7 @@ public class GameActionHandler : MonoBehaviour
 	}
 	public void ActionPlayGame(int levelNumber)
 	{
-		Time.timeScale = 1;
+		//Time.timeScale = 1;
 		GameStateTracker.instance.PushGameState(GameEnum.GameState.Running);
 		LevelManager.instance.LoadALevel(levelNumber);
 	}
@@ -34,13 +34,13 @@ public class GameActionHandler : MonoBehaviour
 	{
 		GameStateTracker.instance.PushGameState(GameEnum.GameState.PauseGame);
 		GameEnvironmentController.instance.HideAllInstantiatedObjs();
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
 	}
 	public void ActionResumeGame()
 	{
 		GameStateTracker.instance.PushGameState(GameEnum.GameState.Running);
 		GameEnvironmentController.instance.ShowAllInstantiatedObjs();
-		Time.timeScale = 1;
+		//Time.timeScale = 1;
 	}
 	public void ActionNextLevelGame()
 	{

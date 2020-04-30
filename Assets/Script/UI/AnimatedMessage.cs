@@ -15,7 +15,6 @@ public class AnimatedMessage : MonoBehaviour
 
 	public void SetMessage(string message)
 	{
-		Debug.Log("Show Message .......... " + message);
 		if (_txtMessage != null)
 			_txtMessage.text = message;
 	}

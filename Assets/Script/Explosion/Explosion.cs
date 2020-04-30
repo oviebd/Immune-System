@@ -33,6 +33,7 @@ public class Explosion : MonoBehaviour
 			{
                 _explosionParticle.GetComponent<ParticleSystemRenderer>().material = _sourceImgForExplosionEffectImage.sharedMaterial;
                 _explosionParticle.textureSheetAnimation.SetSprite(0, _sourceImgForExplosionEffectImage.sprite);
+                _explosionParticle.Play();
 			}
            // Destroy(effectParticle, 1.0f);
         }

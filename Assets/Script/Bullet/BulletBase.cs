@@ -9,6 +9,7 @@ public class BulletBase : MonoBehaviour, IColliderEnter
     [SerializeField] private GameObject _graphicsObj;
     [SerializeField] private AudioClip _audioClip;
 
+
     private void Start()
     {
         Destroy(this.gameObject, _lifeTime);
