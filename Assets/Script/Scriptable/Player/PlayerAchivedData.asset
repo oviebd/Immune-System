@@ -16,4 +16,4 @@ MonoBehaviour:
   gunsList: 00000000
   collectableList: 
   maxLevelCompletedByPlayer: 1
-  totalScore: 100
+  totalScore: 75

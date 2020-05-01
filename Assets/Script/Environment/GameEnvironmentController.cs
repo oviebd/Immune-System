@@ -56,6 +56,8 @@ public class GameEnvironmentController : MonoBehaviour
 		{
 			Destroy(_parentObjForInstantiatObjs.transform.GetChild(i).gameObject);
 		}
+		if (PlayerSpawnerController.instance.GetCurrentPlayerController() != null)
+			Destroy(PlayerSpawnerController.instance.GetCurrentPlayerController().gameObject);
 	}
 
 }

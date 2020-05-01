@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLevel: 1
   isGameFirstTimeLaunched: 1
-  isTutorialShown: 1
+  isTutorialShown: 0
   isSoundOn: 1
+  currentPlayer: 0
