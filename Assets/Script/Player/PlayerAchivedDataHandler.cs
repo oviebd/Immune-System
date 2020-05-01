@@ -5,123 +5,104 @@ using UnityEngine;
 public class PlayerAchivedDataHandler : MonoBehaviour
 {
     public static PlayerAchivedDataHandler instance;
-    [SerializeField] private PlayerAchivedDataScriptable _playerAChivedData;
-    public List<GameEnum.CollectableType> collectableList;
+    [SerializeField] private PlayerAchivedDataScriptable _playerAchivedDatScriptable;
 
+	private PlayerAchivedDataModel _achievedDataModel;
     private void Awake()
     {
         if (instance == null)
             instance = this;
     }
 
-    public void SetPlayerAchivedData(GameEnum.PlayerrTType shipType, GameEnum.GunType gunType)
-    {
-        AddPlayerShipTypeInAchievedList(shipType);
-        AddPlayerGunTypeInAchivedList(gunType);
-    }
+	#region TotalScore
+	public int GetTotalScore()
+	{
+		return GetPlayerAchivedData().totalScore;
+	}
+	public void SetTotalScore(int totalScore)
+	{
+		PlayerAchivedDataModel data = GetPlayerAchivedData();
+		data.totalScore = totalScore;
+		SetPlayerAchivedData(data);
+	}
+	#endregion TotalScore
 
-    public int GetMaxCompletedLevelNumber()
+	#region MaxCompletedLevel
+	public int GetMaxCompletedLevelNumber()
     {
-        if (_playerAChivedData == null)
-            return 1;
-        else
-           return _playerAChivedData.maxLevelCompletedByPlayer;
+		return GetPlayerAchivedData().maxLevelCompletedByPlayer;
     }
     public void SetMaxCompletedLevelNumber(int levelNumber)
     {
-        if (_playerAChivedData == null)
-            return;
-        else
-        {
-            if(levelNumber >= GetMaxCompletedLevelNumber())
-                _playerAChivedData.maxLevelCompletedByPlayer = levelNumber;
-        }   
-    }
+		if (levelNumber >= GetMaxCompletedLevelNumber())
+		{
+			PlayerAchivedDataModel data =GetPlayerAchivedData() ;
+			data.maxLevelCompletedByPlayer = levelNumber;
+			SetPlayerAchivedData(data);
+		}	
+	}
+	#endregion MaxCompletedLevel
 
-    public void SetCollectableInAchievedData(GameEnum.CollectableType type)
+	#region Ship
+	public void InsertPlayerShipInAchivedList(GameEnum.PlayerrTType type)
+	{
+		if (IsThisPlayerShipAlreadyPurchasedByPlayer(type) == false)
+		{
+			PlayerAchivedDataModel data = GetPlayerAchivedData();
+			data.playerShipList.Add(type);
+			SetPlayerAchivedData(data);
+		}
+	}
+	public bool IsThisPlayerShipAlreadyPurchasedByPlayer(GameEnum.PlayerrTType type)
+	{
+		if (GetPlayerAchivedData().playerShipList.Contains(type) == true)
+			return true;
+		return false;
+	}
+	#endregion Ship
+
+	#region Collectable
+	public void AddCollectableInPlayerAchivedData(GameEnum.CollectableType type)
     {
-        if (_playerAChivedData == null && _playerAChivedData.collectableList == null)
-            return;
-
-        if (_playerAChivedData.collectableList.Contains(type) == false)
-            _playerAChivedData.collectableList.Add(type);
+		if (IsThisCollectableAlreadyConsumedByPlayer(type) == false)
+		{
+			PlayerAchivedDataModel data = GetPlayerAchivedData();
+			data.collectableList.Add(type);
+			SetPlayerAchivedData(data);
+		}
     }
-
     public bool IsThisCollectableAlreadyConsumedByPlayer(GameEnum.CollectableType type)
     {
-        bool isConsumed = false;
-
-        if (_playerAChivedData == null && _playerAChivedData.collectableList != null)
-            isConsumed = false;
-
-        if (_playerAChivedData.collectableList.Contains(type) == true)
-            isConsumed = true;
-
-        return isConsumed;
+		if (GetPlayerAchivedData().collectableList.Contains(type) == true)
+            return true;
+		return false;
     }
+	#endregion Collectable
 
-    #region Ship
-    private void AddPlayerShipTypeInAchievedList(GameEnum.PlayerrTType playerShipType)
-    {
-        if (_playerAChivedData == null)
-            return;
-        if(_playerAChivedData.achievedPlayerShipList == null)
-        {
-            _playerAChivedData.achievedPlayerShipList = new List<GameEnum.PlayerrTType>();
-        }
-        _playerAChivedData.achievedPlayerShipList.Add(playerShipType);
-    }
-    private List<GameEnum.PlayerrTType> GetAchievedPlayerShipList()
-    {
-        if (_playerAChivedData == null)
-            return null;
-        return _playerAChivedData.achievedPlayerShipList;
-    }
-    public bool IsShipTypeExistInAchievedShipList(GameEnum.PlayerrTType playerShipType)
-    {
-        if (GetAchievedPlayerShipList() == null)
-            return false;
-        for (int i = 0; i < GetAchievedPlayerShipList().Count; i++)
-        {
-            if (GetAchievedPlayerShipList()[i] == playerShipType)
-                return true;
-        }
-        return false;
-    }
-    #endregion Ship
-
-
-    #region Gun
-
-    private void AddPlayerGunTypeInAchivedList(GameEnum.GunType gunType)
-    {
-        if (_playerAChivedData == null)
-            return;
-        if (_playerAChivedData.gunsList == null)
-        {
-            _playerAChivedData.gunsList = new List<GameEnum.GunType>();
-        }
-        _playerAChivedData.gunsList.Add(gunType);
-    }
-    private List<GameEnum.GunType> GetAchivedGunList()
-    {
-        if (_playerAChivedData == null)
-            return null;
-        return _playerAChivedData.gunsList;
-    }
-
-    public bool IsGunTypeExistInAchievedGunList(GameEnum.GunType gunType)
-    {
-        if (GetAchivedGunList() == null)
-            return false;
-        for(int i=0;i< GetAchivedGunList().Count; i++)
-        {
-            if (GetAchivedGunList()[i] == gunType)
-                return true;
-        }
-        return false;
-    }
-
-    #endregion Gun
-
+	#region Common
+	private void SetPlayerAchivedData(PlayerAchivedDataModel data)
+	{
+		if(data != null)
+		{
+			_playerAchivedDatScriptable.playerShipList = data.playerShipList;
+			_playerAchivedDatScriptable.gunsList = data.gunsList;
+			_playerAchivedDatScriptable.maxLevelCompletedByPlayer = data.maxLevelCompletedByPlayer;
+			_playerAchivedDatScriptable.totalScore = data.totalScore;
+			_playerAchivedDatScriptable.collectableList = data.collectableList;
+		}
+	}
+	private PlayerAchivedDataModel GetPlayerAchivedData()
+	{
+		PlayerAchivedDataModel data = new PlayerAchivedDataModel();
+		if(_playerAchivedDatScriptable != null)
+		{
+			data.playerShipList = _playerAchivedDatScriptable.playerShipList;
+			data.gunsList = _playerAchivedDatScriptable.gunsList;
+			data.maxLevelCompletedByPlayer = _playerAchivedDatScriptable.maxLevelCompletedByPlayer;
+			data.totalScore = _playerAchivedDatScriptable.totalScore;
+			data.collectableList = _playerAchivedDatScriptable.collectableList;
+		}
+		return data;
+	}
+	#endregion Common
 }

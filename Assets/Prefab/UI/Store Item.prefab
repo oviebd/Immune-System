@@ -120,7 +120,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2167606698528639517}
-        m_MethodName: OnBuyButtonClicked
+        m_MethodName: OnUseButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -238,6 +238,7 @@ MonoBehaviour:
   _txtPrice: {fileID: 3555740016946129422}
   _imgItem: {fileID: 3555740017626546716}
   _btnBuy: {fileID: 3555740016824222571}
+  _useButton: {fileID: 3205814397517533458}
 --- !u!1 &2065921312467576826
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 219.2, y: 0}
+  m_AnchoredPosition: {x: 71, y: 0}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3555740016946129423

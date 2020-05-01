@@ -11,7 +11,9 @@ public class StoreListItemHandler : MonoBehaviour
 
     public void Setup()
     {
-        List<StoreItemModel> items = GetStoreItemListFromScriptableList(storeItemList);
+		DestroyAllItems();
+
+		List<StoreItemModel> items = GetStoreItemListFromScriptableList(storeItemList);
 
         if (items == null)
             return;
@@ -58,4 +60,13 @@ public class StoreListItemHandler : MonoBehaviour
         }
         return itemList;
     }
+
+	private void DestroyAllItems()
+	{
+		StoreItem[] items = FindObjectsOfType<StoreItem>();
+		for(int i = 0; i < items.Length; i++)
+		{
+			Destroy(items[i].gameObject);
+		}
+	}
 }

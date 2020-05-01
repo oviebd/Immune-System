@@ -35,9 +35,15 @@ public class ScoreManager : MonoBehaviour
     {
         _currentScore = _currentScore + incrementedScore;
 
-        scoreText.text = "S:" + _currentScore;
-        if (IsPlayerWin())
-            onPlayerWin();
+        scoreText.text =  _currentScore +"";
+
+		if (IsPlayerWin())
+		{
+			int totalScore = PlayerAchivedDataHandler.instance.GetTotalScore() + _currentScore;
+			PlayerAchivedDataHandler.instance.SetTotalScore(totalScore);
+			onPlayerWin();
+		}
+            
 		updateUI();
 	}
 

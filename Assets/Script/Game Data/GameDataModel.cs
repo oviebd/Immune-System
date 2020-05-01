@@ -8,4 +8,5 @@ public class GameDataModel
     public bool isGameFirstTimeLaunched = true;
     public bool isTutorialShown = false;
     public bool isSoundOn = true;
+	public GameEnum.PlayerrTType currentPlayer;
 }

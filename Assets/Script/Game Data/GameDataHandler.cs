@@ -32,8 +32,18 @@ public class GameDataHandler : MonoBehaviour
     {
         return GetGameData().currentLevel;
     }
+	public GameEnum.PlayerrTType GetCurrentPlayer()
+	{
+		return GetGameData().currentPlayer;
+	}
+	public void SetCurrentPlayer(GameEnum.PlayerrTType playerType)
+	{
+		GameDataModel data = GetGameData();
+		data.currentPlayer = playerType;
+		SetGameData(data);
+	}
 
-    public void SetCurrentLevelNumber(int levelNumber)
+	public void SetCurrentLevelNumber(int levelNumber)
     {
         GameDataModel data = GetGameData();
         data.currentLevel = levelNumber;
@@ -48,6 +58,7 @@ public class GameDataHandler : MonoBehaviour
             _gameDataScriptable.isGameFirstTimeLaunched = data.isGameFirstTimeLaunched;
             _gameDataScriptable.isTutorialShown = data.isTutorialShown;
             _gameDataScriptable.isSoundOn = data.isSoundOn;
+			_gameDataScriptable.currentPlayer = data.currentPlayer;
         }
     }
 
@@ -60,6 +71,7 @@ public class GameDataHandler : MonoBehaviour
             data.isGameFirstTimeLaunched = _gameDataScriptable.isGameFirstTimeLaunched;
             data.isTutorialShown = _gameDataScriptable.isTutorialShown;
             data.isSoundOn = _gameDataScriptable.isSoundOn;
+			data.currentPlayer = _gameDataScriptable.currentPlayer;
         }
         return data;
     }

@@ -9,17 +9,24 @@ public class GeneralUiPanel : PanelBase
     [SerializeField] private Sprite _spriteSoundOn;
     [SerializeField] private Sprite _spriteSoundOff;
 
-    private void Start()
+	[SerializeField] private Text _totalScoreText;
+	private void Start()
     {
+
         AudioManager.onAudioStateChange += AudioStateChanged;
         SetSoundButtonGraphics();
+		
     }
     private void OnDestroy()
     {
         AudioManager.onAudioStateChange -= AudioStateChanged;
     }
 
-    public void SoundButtonClicked()
+	private void Update()
+	{
+		_totalScoreText.text = PlayerAchivedDataHandler.instance.GetTotalScore() + "";
+	}
+	public void SoundButtonClicked()
     {
         AudioManager.instance.ChangeGameAudioStatus();
         SetSoundButtonGraphics();

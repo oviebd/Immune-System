@@ -25,6 +25,7 @@ public class PlayerSpawnerController : MonoBehaviour
 
     public void LoadPlayer()
     {
+		_currentPlayerType = GameDataHandler.instance.GetCurrentPlayer();
         GameObject playerPrefab = GetSpecificPlayerControllerBasedOnType(_currentPlayerType);
         if (playerPrefab != null)
         {

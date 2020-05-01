@@ -71,7 +71,7 @@ public class CollectableBase : MonoBehaviour,IColliderEnter
         if(GetCollectableCanvasDialog() != null)
         {
             Destroy(GetCollectableCanvasDialog().gameObject);
-            PlayerAchivedDataHandler.instance.SetCollectableInAchievedData(GetCollectableType());
+            PlayerAchivedDataHandler.instance.AddCollectableInPlayerAchivedData(GetCollectableType());
         }
     }
 
