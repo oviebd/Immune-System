@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectableSpawnControler : MonoBehaviour
+public class CollectableSpawnControler : MonoBehaviour,ITimer
 {
     public static CollectableSpawnControler instance;
     [SerializeField] private List<CollectableBase> _collectableList;
@@ -11,7 +11,7 @@ public class CollectableSpawnControler : MonoBehaviour
 
 	private CollectableDataModel data;
 	private bool canSpawn = false;
-	private float _lastSpawnTime;
+	private Timer _timer;
 	private int _spawnedCollectableNumberInCurrentLevel = 0;
 
     private void Awake()
@@ -22,10 +22,31 @@ public class CollectableSpawnControler : MonoBehaviour
 
     private void Start()
     {
+		GameManager.onGameStateChange += OnGameStateChanged;
+		_timer = this.gameObject.GetComponent<Timer>();
 		canSpawn = false;
 	}
+	private void OnDestroy()
+	{
+		GameManager.onGameStateChange -= OnGameStateChanged;
+	}
 
-    public void LoadCollectableForALevel(int levelNum)
+	private void OnGameStateChanged(GameEnum.GameState gameState)
+	{
+		if (gameState == GameEnum.GameState.Running)
+		{
+			if (canSpawn)
+				_timer.ResumeTimer();
+		}
+		else
+		{
+			if (canSpawn)
+				_timer.PauseTimer();
+		}
+	}
+
+
+	public void LoadCollectableForALevel(int levelNum)
     {
         data = null;
 		_spawnedCollectableNumberInCurrentLevel = 0;
@@ -34,33 +55,19 @@ public class CollectableSpawnControler : MonoBehaviour
             return;
 		
 		canSpawn = true;
-		_lastSpawnTime = Time.time;
+		_timer.StartTimer(data.minumumTimeDelayPerCollectable);
 	}
 
-    private void Update()
-    {
-		if (data == null || Utils.CanSpawnThings () == false)
-        {
-			_lastSpawnTime = Time.time;
-			return;
-		}
-			
 
-		if (canSpawn)
+	public void OnTimeCompleted()
+	{
+		_spawnedCollectableNumberInCurrentLevel = _spawnedCollectableNumberInCurrentLevel + 1;
+		if (_spawnedCollectableNumberInCurrentLevel <= data.noOfCollectableForCurrentLevel)
 		{
-			if ((Time.time - _lastSpawnTime) >= data.minumumTimeDelayPerCollectable)
-			{
-				_spawnedCollectableNumberInCurrentLevel = _spawnedCollectableNumberInCurrentLevel + 1;
-
-				if (_spawnedCollectableNumberInCurrentLevel <= data.noOfCollectableForCurrentLevel)
-				{
-					SpawnRandomCollectable();
-					_lastSpawnTime = Time.time;
-				}
-				else
-					canSpawn = false;
-			}	
+			SpawnRandomCollectable();
 		}
+		else
+			canSpawn = false;
 	}
 
 	#region CollectableSpawn
