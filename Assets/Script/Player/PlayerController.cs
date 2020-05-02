@@ -92,7 +92,8 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
             _playerGraphics.SetActive(false);
         if (_collider != null)
             _collider.enabled = false;
-     
+
+        getGunController().enabled = false;
         _explosion.Explode();
        if ( _explosion != null)
             _explosion.Explode();

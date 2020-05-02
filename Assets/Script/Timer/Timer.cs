@@ -10,15 +10,16 @@ public class Timer : MonoBehaviour
     private float _startTime;
     private bool _isTimerOn = false;
     private float _pauseStartTime;
+    private float _pauseTimeOfCurrentSession;
     private float _totalPauseTime;
 
-
     #region Public APi
+    
     public void StartTimer(float time)
     {
+        ResetTimer();
         this._time = time;
         _isTimerOn = true;
-        ResetTimer();
     }
 
     public void PauseTimer()
@@ -29,9 +30,9 @@ public class Timer : MonoBehaviour
 
     public void ResumeTimer()
     {
-        _totalPauseTime = Time.time - _pauseStartTime;
         _isTimerOn = true;
-
+        _totalPauseTime = _totalPauseTime + _pauseTimeOfCurrentSession;
+        _pauseTimeOfCurrentSession = 0.0f;
     }
 
     #endregion Public APi
@@ -40,27 +41,27 @@ public class Timer : MonoBehaviour
     private void ResetTimer()
     {
         _startTime = Time.time;
+        _pauseTimeOfCurrentSession = 0.0f;
         _totalPauseTime = 0.0f;
     }
 
     private void Update()
     {
-        //Debug.Log(GetElapsedTime());
-        if( GetElapsedTime() >= _time && _isTimerOn == true)
+        if(_isTimerOn == false)
+        {
+            _pauseTimeOfCurrentSession = Time.time - _pauseStartTime;
+        }
+        if ( GetElapsedTime() >= _time && _isTimerOn == true)
         {
             OnTimerComplete();
         }
     }
-    private float GetElapsedTime()
+    public float GetElapsedTime()
     {
-        return Mathf.Abs(Time.time - _startTime - _totalPauseTime) ;
-       
+        return Mathf.Abs(Time.time - _startTime - _pauseTimeOfCurrentSession - _totalPauseTime) ;  
     }
-
-   
     private void OnTimerComplete()
     {
-        //Debug.Log("Timer complete : Time : " + GetElapsedTime());
        
         if ( GetTimer() != null)
         {
