@@ -9,7 +9,6 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
 	private List<EnemyBehaviourBase> _instantiateEnemyBehaviourList = new List<EnemyBehaviourBase>();
-	//List<EnemyBehaviourBase> _instantiateEnemyBehaviourList;
 	private Timer _timer;
 
 	private bool canSpawnEnemy = false;
@@ -68,12 +67,6 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 		_totalEnemyCountPoint = 0;
 		InstantiateAllEnemyObjs(data);
 		ResetCurrentLevelEnemyData();
-		
-	   for(int i= 0; i < data.initialEnemyNumber; i++)
-		 {
-			GameObject obj = SpawnSpecificTypeEnemy(GameEnum.EnemyType.Type_2);
-			AddEnemyInList(obj);
-		}
 	}
 
 	List<EnemyBehaviourBase> InstantiateAllEnemyObjs(EnemyLevelData data)

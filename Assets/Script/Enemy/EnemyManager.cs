@@ -22,7 +22,6 @@ public class EnemyManager : MonoBehaviour
 		{
 			data.levelNumber = levelDataScriptable.levelNumber;
 			data.numberOfWave = levelDataScriptable.numberOfWave;
-			data.initialEnemyNumber = levelDataScriptable.initialEnemyNumber;
 			data.initialEnemySpawnDelay = levelDataScriptable.initialEnemySpawnDelay;
 			data.enemySpawnDelayReduceFactorPerWave = levelDataScriptable.enemySpawnDelayReduceFactorPerWave;
 			data.initialNumberOfEnemyInAWave = levelDataScriptable.initialNumberOfEnemyInAWave;
