@@ -156,8 +156,6 @@ GameObject:
   - component: {fileID: 3022287168575978612}
   - component: {fileID: 1847774073144383685}
   - component: {fileID: -4085848716448736657}
-  - component: {fileID: -8178394547398697300}
-  - component: {fileID: 4146907734785586882}
   - component: {fileID: 6689067606414967003}
   - component: {fileID: 1814198716522109597}
   - component: {fileID: 6937732678670898815}
@@ -166,6 +164,8 @@ GameObject:
   - component: {fileID: 8628442413996616063}
   - component: {fileID: -1772376080061931411}
   - component: {fileID: 1279434866}
+  - component: {fileID: 3358317915210848549}
+  - component: {fileID: -4119829964343254248}
   m_Layer: 10
   m_Name: T_3_E_Squid
   m_TagString: Enemy
@@ -266,43 +266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 0}
   isAllTimeUpdate: 1
---- !u!114 &-8178394547398697300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610750885945116250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d518b0396ac3543b7ecae03842bace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _guns:
-  - {fileID: 5610750885945116250}
-  _isAutomaticFire: 1
-  _isEnemyGun: 1
-  _minActiveGunNum: 1
-  _maxBullet: 0
-  _infiniteFirePower: 1
-  _coolDownTime: 2
---- !u!114 &4146907734785586882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610750885945116250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gunType: 0
-  _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
-    type: 3}
-  _parentObj: {fileID: 1632807721770688045}
-  _canShoot: 1
 --- !u!114 &6689067606414967003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,3 +476,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8018198, y: 0.41572022}
   m_EdgeRadius: 0
+--- !u!114 &3358317915210848549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c65068a8723ea04cbba9150b67bb9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gunGameobjectList:
+  - {fileID: 1632807721770688045}
+  _gunPrefab: {fileID: 2221921908776760814, guid: 44922811898fbc749a087e67671f18b5,
+    type: 3}
+  _isAutomaticFire: 1
+  _maxBullet: 0
+  _infiniteFirePower: 1
+  _coolDownTime: 1
+--- !u!114 &-4119829964343254248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab3f28085ac443a687dad038a7129e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 0

@@ -13,9 +13,9 @@ public class Collectable_UpdateBulletFrequency : CollectableBase,ICollectable
 
     public void ExecuteCollectableEffect()
     {
-        if (GetPlayerControler().getGunController() !=null )
+        if (GetPlayerControler().GetIgunController() !=null )
         {
-            GetPlayerControler().getGunController().UpdateWeaponBulletFrequencyTemporarily(_duration);
+            GetPlayerControler().GetIgunController().UpdateCooldownTimeTeporarily(_duration);
         }
     }
 }

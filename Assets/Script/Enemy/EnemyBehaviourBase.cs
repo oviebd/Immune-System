@@ -12,8 +12,9 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 	protected Vector3 targetPos;
     private IENemyBehaviour _enemyBehaviour;
     private IHealth _health;
+	[SerializeField]private IGunController _iGunController;
 
-    public delegate void OnEnemyDestroyedByPlayer(EnemyBehaviourBase behaviour);
+	public delegate void OnEnemyDestroyedByPlayer(EnemyBehaviourBase behaviour);
     public static event OnEnemyDestroyedByPlayer enemyDestroyedByPlayer;
 
     private void Start()
@@ -33,7 +34,6 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
         if (controller != null)
         {
-            graphicsObj.SetActive(true);
             _playerObj = controller.gameObject;
 
             IENemyBehaviour behaviour = this.gameObject.GetComponent<IENemyBehaviour>();
@@ -86,20 +86,50 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
         _collider.enabled = false;
         graphicsObj.SetActive(false);
         Utils.StopMovementOf_A_IMove_Gameobject(this.gameObject);
-    }
+		if (GetGunController() != null)
+		{
+			GetGunController().StopShooting();
+		}
+			
+	}
 
-    public int GetRewardPoint()
+	public void SetActiveMode()
+	{
+		_collider.enabled = true;
+		graphicsObj.SetActive(true);
+		Utils.StartMovementOf_A_IMove_Gameobject(this.gameObject);
+		if (GetGunController() != null)
+		{
+			GetGunController().StartShooting();
+		}
+			
+		
+
+	}
+	public int GetRewardPoint()
     {
         if (gameObject.GetComponent<IReward>() != null)
            return gameObject.GetComponent<IReward>().getRewardPoint();
         return 0;
     }
 
+	
+    IGunController GetGunController()
+	{
+		if (_iGunController == null)
+			_iGunController = this.gameObject.GetComponent<IGunController>();
+		return _iGunController;
+	}
     IHealth GetHealth()
     {
-        if (_health == null)
+        if (_health == null) 
             _health = this.GetComponent<Health>();
         return _health;
     }
+
+	public void StopMovement()
+	{
+
+	}
 
 }

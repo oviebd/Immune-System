@@ -1166,9 +1166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b36e1c129d3b4ecd9a97cfdde632fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _requiredTime: 30
-  _requiredEnemy: 10
-  _updateFactor: 5
+  _requiredTime: 10
+  _requiredEnemy: 12
+  _updateFactor: 6
 --- !u!114 &281293548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6827,9 +6827,9 @@ RectTransform:
   m_Father: {fileID: 2007746633}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 130, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 130, y: -95.58824}
   m_SizeDelta: {x: 260, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1342636988
@@ -7724,7 +7724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 103.09961, y: 0}
+  m_AnchoredPosition: {x: 103.09766, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464348950
@@ -10511,7 +10511,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameDataScriptable: {fileID: 11400000, guid: d4d6a23dab0fd4b1591128252bca62b0,
     type: 2}
-  _winningPointPerLevel: fa000000fa000000fa000000fa000000fa000000
   _maxLevelnumber: 5
 --- !u!114 &2004269569
 MonoBehaviour:

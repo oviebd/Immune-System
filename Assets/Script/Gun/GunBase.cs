@@ -7,9 +7,6 @@ public class GunBase : MonoBehaviour
 	[SerializeField] private GameEnum.GunType _gunType = GameEnum.GunType.GunType_1;
 	[SerializeField]private GameObject _bulletObj;
 	[SerializeField]private GameObject _parentObj;
-	
-	//[SerializeField] private int   _maxBullet;
-	//[SerializeField] private int   _damage;
 
 	private bool _isItPrimaryGun = false;
 
@@ -24,16 +21,7 @@ public class GunBase : MonoBehaviour
     public void InstantiateBullet()
 	{
 		GameObject bulletObj = InstantiatorHelper.instance.InstantiateObject(_bulletObj, _parentObj);
-		//ReduceBulletAmount();
 	}
-
-    
-   /* void ReduceBulletAmount()
-    {
-		_maxBullet = _maxBullet - 1;
-		if (_maxBullet < 0)
-			_maxBullet = 0;
-	}*/
 	public GameEnum.GunType GetGun()
 	{
 		return _gunType;

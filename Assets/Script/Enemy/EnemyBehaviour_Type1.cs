@@ -22,7 +22,7 @@ public class EnemyBehaviour_Type1 : EnemyBehaviourBase, IENemyBehaviour
         for (int i = 0; i < moves.Length; i++)
         {
             moves[i].Setup(targetObj,0);
-            moves[i].Run();
+           // moves[i].Run();
         }
     }
 

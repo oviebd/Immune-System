@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 {
-    GunController gunController = null;
+    IGunController gunController = null;
 	
-	bool isReachedDestination = false;
+//	bool isReachedDestination = false;
 	float _angle;
 	float stoppingDistance = 3.0f;
     [SerializeField] private float _minimumDistanceFromPlayerForShooting = 1.0f;
@@ -18,12 +18,12 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 
     private void Update()
     {
-        if (_playerObj == null)
+        if (_playerObj == null )
             return;
 
         if (MathHandler.IsExceedMinimumDistance(_playerObj.transform.position, transform.position, _minimumDistanceFromPlayerForShooting))
         {
-            Shoot();
+         //   Shoot();
         }
     }
 
@@ -42,20 +42,19 @@ public class EnemyBehaviour_Type2 : EnemyBehaviourBase, IENemyBehaviour
 			move.Setup(targetObj, 3.0f);
 			move.SetTargetObject(targetObj);
 			move.SetAngle(_angle);
-			move.Run();
         }
     }
 
-    void Shoot()
+  /*  void Shoot()
     {
        if(gunController == null)
-            gunController = this.gameObject.GetComponent<GunController>();
+            gunController = this.gameObject.GetComponent<IGunController>();
 
         if (gunController != null)
         {
 			gunController.Shoot();
         }
-    }
+    }*/
 
 	void SetInitialTarget(Transform target)
 	{

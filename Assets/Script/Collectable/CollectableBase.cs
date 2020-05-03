@@ -56,9 +56,9 @@ public class CollectableBase : MonoBehaviour,IColliderEnter
         PlayerController playerController = GetPlayerControler();
         if (playerController != null)
         {
-            if (playerController.getGunController() != null)
+            if (playerController.GetIgunController() != null)
             {
-                gunList = playerController.getGunController().GetIGunList();
+                gunList = playerController.GetIgunController().GetGuns();
                 
             }
         }

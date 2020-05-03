@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 3022287168575978612}
   - component: {fileID: 1847774073144383685}
   - component: {fileID: -4085848716448736657}
-  - component: {fileID: -8178394547398697300}
   - component: {fileID: 6689067606414967003}
   - component: {fileID: 1814198716522109597}
   - component: {fileID: 6937732678670898815}
@@ -232,6 +231,8 @@ GameObject:
   - component: {fileID: 1259562576839182465}
   - component: {fileID: 8628442413996616063}
   - component: {fileID: -1772376080061931411}
+  - component: {fileID: 6625653852732834270}
+  - component: {fileID: -5051198571396947920}
   m_Layer: 10
   m_Name: T_4_E_UShape
   m_TagString: Enemy
@@ -348,27 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 0}
   isAllTimeUpdate: 1
---- !u!114 &-8178394547398697300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5610750885945116250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d518b0396ac3543b7ecae03842bace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _guns:
-  - {fileID: 1632807721770688045}
-  - {fileID: 181426091}
-  _isAutomaticFire: 1
-  _isEnemyGun: 1
-  _minActiveGunNum: 1
-  _maxBullet: 0
-  _infiniteFirePower: 1
-  _coolDownTime: 3
 --- !u!114 &6689067606414967003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,3 +533,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _point: 5
+--- !u!114 &6625653852732834270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c65068a8723ea04cbba9150b67bb9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gunGameobjectList:
+  - {fileID: 1632807721770688045}
+  - {fileID: 181426091}
+  _gunPrefab: {fileID: 2221921908776760814, guid: 44922811898fbc749a087e67671f18b5,
+    type: 3}
+  _isAutomaticFire: 1
+  _maxBullet: 0
+  _infiniteFirePower: 1
+  _coolDownTime: 1
+--- !u!114 &-5051198571396947920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab3f28085ac443a687dad038a7129e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 0

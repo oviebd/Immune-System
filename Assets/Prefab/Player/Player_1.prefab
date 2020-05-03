@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5101693746875476392}
   - component: {fileID: 8235833068661842949}
-  - component: {fileID: 5101693746049995251}
   - component: {fileID: 5101693746049995252}
   - component: {fileID: 5101693746049995253}
   - component: {fileID: 5101693746049995255}
@@ -20,6 +19,8 @@ GameObject:
   - component: {fileID: 309099746}
   - component: {fileID: 142995550046657100}
   - component: {fileID: 6053021518408524258}
+  - component: {fileID: 5245256751046334707}
+  - component: {fileID: 848190545654845838}
   m_Layer: 8
   m_Name: Player_1
   m_TagString: Player
@@ -56,28 +57,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerType: 0
   _playerGraphics: {fileID: 5101693746101885528}
---- !u!114 &5101693746049995251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5101693746049995254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78d518b0396ac3543b7ecae03842bace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _guns:
-  - {fileID: 7026074799917222218}
-  - {fileID: 5135136413751205283}
-  - {fileID: 6508261659398238648}
-  _isAutomaticFire: 1
-  _isEnemyGun: 0
-  _minActiveGunNum: 1
-  _maxBullet: 0
-  _infiniteFirePower: 1
-  _coolDownTime: 0.2
 --- !u!50 &5101693746049995252
 Rigidbody2D:
   serializedVersion: 4
@@ -306,6 +285,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 0}
+--- !u!114 &5245256751046334707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101693746049995254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780dbccad6e1e0f489f7a0476cf08e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gunGameobjectList:
+  - {fileID: 7026074799917222218}
+  - {fileID: 5135136413751205283}
+  - {fileID: 6508261659398238648}
+  _gunPrefab: {fileID: 2221921908776760814, guid: cb9e7036c8fa34c83aafecb923b13d44,
+    type: 3}
+  _isAutomaticFire: 1
+  _maxBullet: 0
+  _infiniteFirePower: 1
+  _coolDownTime: 0.3
+  _minActiveGunNum: 1
+--- !u!114 &848190545654845838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101693746049995254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab3f28085ac443a687dad038a7129e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 0
 --- !u!1 &5101693746101885528
 GameObject:
   m_ObjectHideFlags: 0

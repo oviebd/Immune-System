@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     [SerializeField] private GameEnum.PlayerrTType _playerType = GameEnum.PlayerrTType.PlayerType_1;
     [SerializeField] private GameObject _playerGraphics;
    // private PlayerLevelData _playerLevelData;
-    private GunController _gunControllere;
+    private IGunController _iGunController;
     private IHealth _playerHealth;
     private Collider2D _collider;
     private Explosion _explosion;
@@ -25,45 +25,45 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     {
         _collider = this.gameObject.GetComponent<Collider2D>();
         _explosion = this.gameObject.GetComponent<Explosion>();
-    }
+		GetIgunController().StartShooting();
+	}
 
     void OnPlayerUpdateSystemSTatus(GameEnum.UpgradeType upgradeType)
     {
-        if (getGunController() == null)
+       /* if (GetIgunController() == null)
             return;
 
         switch (upgradeType)
         {
             case GameEnum.UpgradeType.AddGun:
-                getGunController().AddGun();
+                GetIgunController().AddGun();
                 break;
             case GameEnum.UpgradeType.RemoveGun:
-                getGunController().RemoveGun();
+                GetIgunController().RemoveGun();
                 break;
-        }
+        }*/
     }
 
     public void Shoot()
     {
-        getGunController().Shoot();
+       // GetIgunController().StartShooting();
     }
 
    /* public void SetPlayerLevelData(PlayerLevelData data)
     {
 		this._playerLevelData = data;
     }*/
-    public void InstantiateGun(GameObject gunPrefab)
+   /* public void InstantiateGun(GameObject gunPrefab)
     {
-        if (getGunController() != null && gunPrefab != null)
-            _gunControllere.InstantiateGun(gunPrefab);
-    }
+		if (GetIgunController() != null && gunPrefab != null)
+			_iGunController.SetGuns(gunPrefab);
+    }*/
 
-    public GunController getGunController()
+    public IGunController GetIgunController()
     {
-        if (_gunControllere == null)
-            _gunControllere = this.gameObject.GetComponent<GunController>();
-
-        return _gunControllere;
+        if (_iGunController == null)
+            _iGunController = this.gameObject.GetComponent<IGunController>();
+        return _iGunController;
     }
 
     public IHealth GetPlayerHealth()
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
         if (_collider != null)
             _collider.enabled = false;
 
-        getGunController().enabled = false;
+		GetIgunController().StopShooting();
         _explosion.Explode();
        if ( _explosion != null)
             _explosion.Explode();

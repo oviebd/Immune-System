@@ -8,6 +8,8 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 	public static EnemySpawnController instance;
 
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
+	private List<EnemyBehaviourBase> _instantiateEnemyBehaviourList = new List<EnemyBehaviourBase>();
+	//List<EnemyBehaviourBase> _instantiateEnemyBehaviourList;
 	private Timer _timer;
 
 	private bool canSpawnEnemy = false;
@@ -16,6 +18,8 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 	private int enemyNumberInCurrentWave = 0;
 	private int maxEnemyNumberInCurrentWave = 0;
 	private float enemySpawnDelayForCurrentWave = 1.0f;
+	private int _totalEnemyNumber = 0;
+	private int _totalEnemyCountPoint = 0;
 
 	private EnemyLevelData data;
 
@@ -55,12 +59,48 @@ public class EnemySpawnController : MonoBehaviour,ITimer
     {
 		data = null;
 	    data = EnemyManager.instance.GetEnemyLevelData(level);
-        if (data == null)
+
+		if (data == null)
 			return;
+
+		_instantiateEnemyBehaviourList = new List<EnemyBehaviourBase>();
+		_totalEnemyNumber = 0;
+		_totalEnemyCountPoint = 0;
+		InstantiateAllEnemyObjs(data);
 		ResetCurrentLevelEnemyData();
-	    for(int i= 0; i < data.initialEnemyNumber; i++)
+		
+	   for(int i= 0; i < data.initialEnemyNumber; i++)
 		 {
-			SpawnSpecificTypeEnemy(GameEnum.EnemyType.Type_2);
+			GameObject obj = SpawnSpecificTypeEnemy(GameEnum.EnemyType.Type_2);
+			AddEnemyInList(obj);
+		}
+	}
+
+	List<EnemyBehaviourBase> InstantiateAllEnemyObjs(EnemyLevelData data)
+	{
+		for ( int i=0; i<data.numberOfWave; i++)
+		{
+			int enemyNum = data.initialNumberOfEnemyInAWave + (int)(data.multiplierOfEnemyNumberPerWave * i);
+
+			for (int j=0; j < enemyNum; j++)
+			{
+				 GameObject obj = SpawnRandomEnemy();
+				AddEnemyInList(obj);
+			}
+		}
+
+		ScoreManager.instance.SetWInningPoint(_totalEnemyCountPoint - 50);
+		return _instantiateEnemyBehaviourList;
+	}
+
+	private void AddEnemyInList(GameObject enemyObj)
+	{
+		if (enemyObj != null && enemyObj.GetComponent<EnemyBehaviourBase>() != null)
+		{
+			EnemyBehaviourBase _behavioir = enemyObj.GetComponent<EnemyBehaviourBase>();
+			_behavioir.SetInactiveMode();
+			_instantiateEnemyBehaviourList.Add(_behavioir);
+			_totalEnemyCountPoint = _totalEnemyCountPoint + _behavioir.GetRewardPoint();
 		}
 	}
 
@@ -87,14 +127,22 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 
 	public void OnTimeCompleted()
 	{
+		
 		//throw new System.NotImplementedException();
-		SpawnRandomEnemy();
+		//SpawnRandomEnemy();
+		if(  _totalEnemyNumber < _instantiateEnemyBehaviourList.Count)
+		{
+			//Debug.Log("Total enemy Number ; " + _totalEnemyNumber);
+			_instantiateEnemyBehaviourList[_totalEnemyNumber].SetActiveMode();
+			UpdateEnemyNumber();
+		}
+			
 	}
 
 	void UpdateEnemyNumber()
     {
 		enemyNumberInCurrentWave = enemyNumberInCurrentWave + 1;
-
+		_totalEnemyNumber = _totalEnemyNumber + 1;
 		if (enemyNumberInCurrentWave > maxEnemyNumberInCurrentWave)
 		{
 			UpdateEnemyWaveData();
@@ -103,6 +151,7 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 
 	void UpdateEnemyWaveData()
 	{
+		
 		currentEnemyWave = currentEnemyWave + 1;
 		if (currentEnemyWave <= data.numberOfWave) 
         {
@@ -117,27 +166,31 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 		
 	}
 
-
 	#region EnemySpawn
-	void SpawnRandomEnemy()
+	GameObject SpawnRandomEnemy()
 	{
 		GameObject enemyPrefab = GetSpecificEnemyPrefabBasedOnType(GetRandomEnemyType());
-		SpawnEnemy(enemyPrefab);
+		GameObject enemyObj = SpawnEnemy(enemyPrefab);
+		return enemyObj;
 	}
-	void SpawnSpecificTypeEnemy(GameEnum.EnemyType type)
+	GameObject SpawnSpecificTypeEnemy(GameEnum.EnemyType type)
 	{
 		GameObject enemyPrefab = GetSpecificEnemyPrefabBasedOnType(type);
-		SpawnEnemy(enemyPrefab);
+		GameObject enemyObj = SpawnEnemy(enemyPrefab);
+		return enemyObj;
 	}
-	void SpawnEnemy(GameObject enemyPrefab)
+	GameObject SpawnEnemy(GameObject enemyPrefab)
 	{
 		if (enemyPrefab != null)
 		{
 			GameObject obj = InstantiatorHelper.instance.InstantiateObject(enemyPrefab, this.gameObject);
 			obj.transform.position = PositionHandler.instance.InstantiateEnemyInRandomPosition();
-			UpdateEnemyNumber();
+			return obj;
+			//UpdateEnemyNumber();
 		}
+		return null;
 	}
+
 	GameObject GetSpecificEnemyPrefabBasedOnType(GameEnum.EnemyType type)
 	{
 		for (int i = 0; i < enemyBehaviours.Count; i++)

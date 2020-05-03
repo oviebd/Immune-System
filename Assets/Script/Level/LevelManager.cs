@@ -17,7 +17,6 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
     {
         GameDataHandler.instance.SetCurrentLevelNumber(levelNumber);
         GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
-        ScoreManager.instance.SetWInningPoint(GameDataHandler.instance.GetWinningPointOfALevel(levelNumber));
         GameUiVisibilityHandler.instance.ResetSliderData();
 
         if(TutorialManager.instance.IsTutorialShownAlready() == false)

@@ -32,7 +32,19 @@ public static class Utils
         }
     }
 
-    public static bool CanSpawnThings()
+	public static void StartMovementOf_A_IMove_Gameobject(GameObject gameObj)
+	{
+		IMove[] moves = GetAllIMoveComponentsFromAGameObject(gameObj);
+		if (moves != null)
+		{
+			for (int i = 0; i < moves.Length; i++)
+			{
+				moves[i].Run();
+			}
+		}
+	}
+
+	public static bool CanSpawnThings()
     {
         if (GameManager.instance.GetCurrentGameState() == GameEnum.GameState.Running)
             return true;

@@ -32,10 +32,10 @@ public class PlayerSpawnerController : MonoBehaviour
             GameObject playerObj = InstantiatorHelper.instance.InstantiateObject(playerPrefab);
             currentPlayerController = playerObj.GetComponent<PlayerController>();
 
-            if (currentPlayerController != null){
+        /*    if (currentPlayerController != null){
                // currentPlayerController.SetPlayerLevelData(data);
                 currentPlayerController.InstantiateGun(_gunPrefab);
-            }
+            }*/
         }
     }
 

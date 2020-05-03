@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class WinningConditionHandler : MonoBehaviour
 {
-	/*public static WinningConditionHandler instance;
+	public static WinningConditionHandler instance;
 
-	private GameEnum.WinningStatus _currentWiningStatus;
 
 	private void Awake()
 	{
@@ -14,7 +13,23 @@ public class WinningConditionHandler : MonoBehaviour
 			instance = this;
 	}
 
-	public GameEnum.WinningStatus GetCurrentGameWinningStatus()
+
+	public int  GetWinningPoint()
+	{
+		int winningPoint = 0;
+		EnemyLevelData data = EnemyManager.instance.GetEnemyLevelData(1);
+		if (data == null)
+			return winningPoint;
+
+		for(int i=0; i<data.numberOfWave; i++)
+		{
+
+		}
+
+		return winningPoint;
+	}
+
+	/*public GameEnum.WinningStatus GetCurrentGameWinningStatus()
 	{
 		return _currentWiningStatus;
 	}
