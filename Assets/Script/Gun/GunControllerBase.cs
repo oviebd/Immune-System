@@ -22,12 +22,20 @@ public class GunControllerBase : MonoBehaviour,ITimer
 
 	private void Start()
 	{
-		GameManager.onGameStateChange += OnGameStateChange;
 		_playSound = GetComponent<PlaySound>();
 		SetGuns();
 	}
-	private void OnDestroy()
-	{
+
+    private void OnEnable()
+    {
+		GameManager.onGameStateChange += OnGameStateChange;
+        if( GetTimer() != null && GetTimer().IsTimeSet() == true)
+        {
+			GetTimer().ResumeTimer();
+        }
+	}
+    private void OnDisable()
+    {
 		GameManager.onGameStateChange -= OnGameStateChange;
 	}
 	public void SetGunController(IGunController gunController)

@@ -13,10 +13,13 @@ public class Timer : MonoBehaviour
     private float _pauseTimeOfCurrentSession;
     private float _totalPauseTime;
 
+    private bool _isTimeSet = false;
+
     #region Public APi
     
     public void StartTimer(float time)
     {
+        _isTimeSet = true;
         ResetTimer();
         this._time = time;
         _isTimerOn = true;
@@ -33,6 +36,11 @@ public class Timer : MonoBehaviour
         _isTimerOn = true;
         _totalPauseTime = _totalPauseTime + _pauseTimeOfCurrentSession;
         _pauseTimeOfCurrentSession = 0.0f;
+    }
+
+    public bool IsTimeSet()
+    {
+        return _isTimeSet;
     }
 
     #endregion Public APi
