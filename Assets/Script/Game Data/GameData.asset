@@ -16,4 +16,4 @@ MonoBehaviour:
   isGameFirstTimeLaunched: 1
   isTutorialShown: 1
   isSoundOn: 1
-  currentPlayer: 0
+  currentPlayer: 1

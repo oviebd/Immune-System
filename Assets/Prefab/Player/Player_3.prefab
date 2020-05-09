@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: -298775007050859447}
   - component: {fileID: 1309176010077240930}
   - component: {fileID: 1397297711736774126}
+  - component: {fileID: -3658506515703354101}
   m_Layer: 8
   m_Name: Player_3
   m_TagString: Player
@@ -231,6 +232,7 @@ MonoBehaviour:
   _maxBullet: 0
   _infiniteFirePower: 1
   _coolDownTime: 0.3
+  canDebug: 0
   _minActiveGunNum: 1
 --- !u!114 &1397297711736774126
 MonoBehaviour:
@@ -245,6 +247,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0
+--- !u!114 &-3658506515703354101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101693746049995254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc60bea9ec694045b78ef962d265188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _requiredTime: 10
+  _requiredEnemy: 12
+  _updateFactor: 6
 --- !u!1 &5101693746101885528
 GameObject:
   m_ObjectHideFlags: 0

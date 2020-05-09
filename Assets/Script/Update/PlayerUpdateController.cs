@@ -9,11 +9,13 @@ using System.Collections;
  */
 public class PlayerUpdateController : MonoBehaviour,ITimer
 {
+    public static PlayerUpdateController instance;
+
     private enum UpgrateStatus { upgrade,degrade}
 
-    [SerializeField] private float _requiredTime = 5.0f; 
-    [SerializeField] private int _requiredEnemy = 5; //Base number of enemy need to destroy in a given time.
-    [SerializeField] private float _updateFactor = 5;  // Used for set Difficulty .Responsible for calculated enemy number based on waveNumber
+    private float _requiredTime = 5.0f; 
+    private int _requiredEnemy = 5; //Base number of enemy need to destroy in a given time.
+    private float _updateFactor = 5;  // Used for set Difficulty .Responsible for calculated enemy number based on waveNumber
 
     private float _requiredTimeForCurrentWave = 5.0f;
     private int   _requiredEnemyForCurrentWave = 0;
@@ -26,10 +28,12 @@ public class PlayerUpdateController : MonoBehaviour,ITimer
     public delegate void PlayerSystemUpdate(GameEnum.UpgradeType upgradeType);
     public static event PlayerSystemUpdate onPlayerSystemUpdate;
 
-	
-    #region CallBacks Initializations
+
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
+
         EnemyBehaviourBase.enemyDestroyedByPlayer += onEnemyDestroyed;
         GameManager.onGameStateChange += OnGameStateChange;
     }
@@ -38,14 +42,23 @@ public class PlayerUpdateController : MonoBehaviour,ITimer
         EnemyBehaviourBase.enemyDestroyedByPlayer -= onEnemyDestroyed;
         GameManager.onGameStateChange -= OnGameStateChange;
     }
-    #endregion CallBacks Initializations
-
 
     private void Start()
     {
         _timer = GetComponent<Timer>();
 		_updateDataModel = new PlayerUpdateModel();
         _timer.StartTimer(_requiredTimeForCurrentWave);
+        ResetUpdate();
+    }
+
+    public void SetUpdateData(float time,int enemy, float factor)
+    {
+        this._requiredTime = time;
+        this._requiredEnemy = enemy;
+        this._updateFactor = factor;
+
+        _currentWaveNumber = 1;
+        _requiredTimeForCurrentWave = _requiredTime;
         ResetUpdate();
     }
 
@@ -84,12 +97,6 @@ public class PlayerUpdateController : MonoBehaviour,ITimer
         }
         if(gameState == GameEnum.GameState.PauseGame)
             _timer.PauseTimer();
-        if (gameState == GameEnum.GameState.Idle || gameState == GameEnum.GameState.PlayerWin || gameState == GameEnum.GameState.PlayerLose)
-        {
-            _currentWaveNumber = 1;
-            _requiredTimeForCurrentWave = _requiredTime;
-            ResetUpdate();
-        }
     }
 
     private void ResetUpdate()

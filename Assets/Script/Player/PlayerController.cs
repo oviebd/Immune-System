@@ -6,58 +6,22 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
 {
     [SerializeField] private GameEnum.PlayerrTType _playerType = GameEnum.PlayerrTType.PlayerType_1;
     [SerializeField] private GameObject _playerGraphics;
-   // private PlayerLevelData _playerLevelData;
     private IGunController _iGunController;
     private IHealth _playerHealth;
     private Collider2D _collider;
     private Explosion _explosion;
-   
 
-    private void Awake()
-    {
-        PlayerUpdateController.onPlayerSystemUpdate += OnPlayerUpdateSystemSTatus;
-    }
-    private void OnDestroy()
-    {
-        PlayerUpdateController.onPlayerSystemUpdate -= OnPlayerUpdateSystemSTatus;
-    }
+    private UpdateData _updateData;
+   
     private void Start()
     {
         _collider = this.gameObject.GetComponent<Collider2D>();
         _explosion = this.gameObject.GetComponent<Explosion>();
+        _updateData = this.gameObject.GetComponent<UpdateData>();
 		GetIgunController().StartShooting();
+       
 	}
 
-    void OnPlayerUpdateSystemSTatus(GameEnum.UpgradeType upgradeType)
-    {
-       /* if (GetIgunController() == null)
-            return;
-
-        switch (upgradeType)
-        {
-            case GameEnum.UpgradeType.AddGun:
-                GetIgunController().AddGun();
-                break;
-            case GameEnum.UpgradeType.RemoveGun:
-                GetIgunController().RemoveGun();
-                break;
-        }*/
-    }
-
-    public void Shoot()
-    {
-       // GetIgunController().StartShooting();
-    }
-
-   /* public void SetPlayerLevelData(PlayerLevelData data)
-    {
-		this._playerLevelData = data;
-    }*/
-   /* public void InstantiateGun(GameObject gunPrefab)
-    {
-		if (GetIgunController() != null && gunPrefab != null)
-			_iGunController.SetGuns(gunPrefab);
-    }*/
 
     public IGunController GetIgunController()
     {
