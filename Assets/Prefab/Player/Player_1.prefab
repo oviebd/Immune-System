@@ -307,6 +307,7 @@ MonoBehaviour:
   _maxBullet: 0
   _infiniteFirePower: 1
   _coolDownTime: 0.3
+  canDebug: 1
   _minActiveGunNum: 1
 --- !u!114 &848190545654845838
 MonoBehaviour:

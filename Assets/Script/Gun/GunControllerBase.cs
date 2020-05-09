@@ -20,6 +20,8 @@ public class GunControllerBase : MonoBehaviour,ITimer
 	
 	private IGunController _iGunController;
 
+	public bool canDebug = false;
+
 	private void Start()
 	{
 		_playSound = GetComponent<PlaySound>();
@@ -29,10 +31,7 @@ public class GunControllerBase : MonoBehaviour,ITimer
     private void OnEnable()
     {
 		GameManager.onGameStateChange += OnGameStateChange;
-        if( GetTimer() != null && GetTimer().IsTimeSet() == true)
-        {
-			GetTimer().ResumeTimer();
-        }
+		GetTimer().ResumeTimer();
 	}
     private void OnDisable()
     {
@@ -47,8 +46,8 @@ public class GunControllerBase : MonoBehaviour,ITimer
 	{
 		_currentBulletNumber = 0;
 		EquipControllerWithGuns(_gunPrefab);
-		GetTimer().StartTimer(_coolDownTime);
 	}
+
 	private void EquipControllerWithGuns(GameObject gunPrefab)
 	{
 		for (int i = 0; i < _gunGameobjectList.Count; i++)
@@ -96,6 +95,10 @@ public class GunControllerBase : MonoBehaviour,ITimer
 	{
 		_capableForShooting = true;
 		GetTimer().StartTimer(_coolDownTime);
+
+        if(GameManager.instance.GetCurrentGameState() != GameEnum.GameState.Running)
+			GetTimer().PauseTimer();
+		
 	}
 
 	public void StopShooting()
@@ -118,11 +121,10 @@ public class GunControllerBase : MonoBehaviour,ITimer
 	}
 
 	private void OnGameStateChange(GameEnum.GameState state)
-	{
+	{	
 		if(state == GameEnum.GameState.Running)
-		{
 			GetTimer().ResumeTimer();
-		}else
-			GetTimer().PauseTimer();
+        else
+			GetTimer().PauseTimer();	
 	}
 }

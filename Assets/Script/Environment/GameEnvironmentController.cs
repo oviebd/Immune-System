@@ -26,9 +26,14 @@ public class GameEnvironmentController : MonoBehaviour
 
 	public void HideAllInstantiatedObjs()
 	{
-		_parentObjForInstantiatObjs.SetActive(false);
+		HideAllObjsExceptPlayer();
 		PlayerSpawnerController.instance.HidePlayer();
 	}
+    private void HideAllObjsExceptPlayer()
+    {
+		_parentObjForInstantiatObjs.SetActive(false);
+	}
+
 	public void ShowAllInstantiatedObjs()
 	{
 		_parentObjForInstantiatObjs.SetActive(true);
@@ -38,16 +43,18 @@ public class GameEnvironmentController : MonoBehaviour
 	{
 		//EnemyManager.instance.MadeAllEnemyInActive();
 	}
+
     public void SetEnvironmentForTutorial()
     {
-		HideAllInstantiatedObjs();
-		PlayerSpawnerController.instance.ShowPlayer();
+		HideAllObjsExceptPlayer();
 	}
-	public void SetEnvironmentForTutorialComplete()
+
+    public void SetEnvironmentForTutorialComplete()
 	{
 		ShowAllInstantiatedObjs();
 	}
-	private void DestroyAllIntantiatedObjs()
+
+    private void DestroyAllIntantiatedObjs()
 	{
 		if (_parentObjForInstantiatObjs == null)
 			return;
