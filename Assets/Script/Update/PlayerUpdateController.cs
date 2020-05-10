@@ -116,9 +116,12 @@ public class PlayerUpdateController : MonoBehaviour,ITimer
 	private void ResetUpdateDataModel()
 	{
 		float remainingTime = _requiredTimeForCurrentWave - _timer.GetElapsedTime() ;
-		_updateDataModel.remainingEnemyEnemyNumber = _requiredEnemyForCurrentWave;
-		_updateDataModel.remainingTimeInSec = remainingTime;
+
+        _updateDataModel.remainingEnemyEnemyNumber = _requiredEnemyForCurrentWave;
+        _updateDataModel.remainingTimeInSec = remainingTime;
 		_updateDataModel.currentUpdateWave = _currentWaveNumber;
+        _updateDataModel.totalEnemyRequired = _requiredEnemy;
+        _updateDataModel.totalTimeRequired = _requiredTime;
 
         if (_currentWaveNumber >= _maxWaveNum)
             _updateDataModel.isItMaxUpdateWave = true;

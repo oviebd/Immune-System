@@ -7,6 +7,9 @@ public class UpdateIndicatorUI : PanelBase
 {
 	public static UpdateIndicatorUI instance;
 	[SerializeField] private Text _updateStatus;
+	[SerializeField] private Image _filledIndicatorImage;
+	[SerializeField] private Text _remainingEnemyText;
+	[SerializeField] private Text _remainingTimeText;
 	private void Awake()
 	{
 		if (instance == null)
@@ -15,19 +18,24 @@ public class UpdateIndicatorUI : PanelBase
 
 	public void SetUpdateUI( PlayerUpdateModel dataModel )
 	{
-		int remainingEnemyNum = dataModel.remainingEnemyEnemyNumber; //- dataModel.currentEnemyNumber;
-	
-		//Debug.Log("Current Update num : " + dataModel.currentUpdateWave);
-		string statusText = "";
-		if (dataModel.currentUpdateWave <= 1)
-			statusText = "Destroy " + remainingEnemyNum + " Enemy for get more firepower";
-		else if (dataModel.currentUpdateWave > 1 && dataModel.isItMaxUpdateWave == false)
-			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second \nfor get more firepower Otherwise You Lose Firepower";
-		else
-			statusText = "Destroy " + remainingEnemyNum + " Enemy within " + (int)dataModel.remainingTimeInSec + " second \nOtherwise You Lose Firepower";
+		if (dataModel == null)
+			return;
 
-		_updateStatus.text = statusText;
+		if (dataModel.currentUpdateWave > 1)
+        {
+			float timeFactor = (dataModel.remainingTimeInSec / dataModel.totalTimeRequired);
+			_filledIndicatorImage.fillAmount = timeFactor;
+			_remainingTimeText.text = (int) dataModel.remainingTimeInSec + " s";
+        }
+        else
+        {
+			_filledIndicatorImage.fillAmount = 1.0f;
+			_remainingTimeText.text = "";
+		}
+
+		_remainingEnemyText.text = dataModel.remainingEnemyEnemyNumber + "";
 	}
+
 
 	public void ShowSavedTimeMesage(int savedTime)
 	{

@@ -21,21 +21,13 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
 
         if(TutorialManager.instance.IsTutorialShownAlready() == false)
         {
-            GameActionHandler.instance.ActionShowTutorial();
+            Invoke("ShoTutorial", 2.0f);
         }
-        
-        /*if(IsPlayerCapableForGoNextLevel(levelNumber) == true)
-        {
-            SetCurrentLevelNumber(levelNumber);
-            GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
-            ScoreManager.instance.SetWInningPoint(LevelDataHandler.instance.GetWinningPointOfALevel(levelNumber));
-            GameUiVisibilityHandler.instance.ResetSliderData();
-        }
-        else
-        {
-            SetStoreUiDialog(levelNumber);
-            GameStateTracker.instance.PopGameState();
-        }*/
+    }
+
+    void ShoTutorial()
+    {
+        GameActionHandler.instance.ActionShowTutorial();
     }
 
     void SetStoreUiDialog(int levelNumber)

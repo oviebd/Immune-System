@@ -7,14 +7,11 @@ public class PlayerSpawnerController : MonoBehaviour
     public static PlayerSpawnerController instance;
 
     [SerializeField] private GameEnum.PlayerrTType _currentPlayerType;
-
     [SerializeField] private List<PlayerController> _playerList;
     [SerializeField] private GameObject _gunPrefab; 
 
-
-  //  PlayerLevelData data;
-
-    PlayerController currentPlayerController;
+    private PlayerController _currentGamePlayerController;
+    private PlayerController _currentTutorialPlayerController;
 
     private void Awake()
     {
@@ -23,21 +20,32 @@ public class PlayerSpawnerController : MonoBehaviour
     }
 
 
-    public void LoadPlayer()
+    private PlayerController InstantiatePlayer()
     {
 		_currentPlayerType = GameDataHandler.instance.GetCurrentPlayer();
         GameObject playerPrefab = GetSpecificPlayerControllerBasedOnType(_currentPlayerType);
         if (playerPrefab != null)
         {
             GameObject playerObj = InstantiatorHelper.instance.InstantiateObject(playerPrefab);
-            currentPlayerController = playerObj.GetComponent<PlayerController>();
-
-        /*    if (currentPlayerController != null){
-               // currentPlayerController.SetPlayerLevelData(data);
-                currentPlayerController.InstantiateGun(_gunPrefab);
-            }*/
+            return playerObj.GetComponent<PlayerController>();
         }
+        return null;
     }
+
+    public void LoadPlayerForGame()
+    {
+       PlayerController controller = InstantiatePlayer();
+        if (controller != null)
+            _currentGamePlayerController = controller;
+    }
+
+    public void LoadPlayerForTutorial()
+    {
+        PlayerController controller = InstantiatePlayer();
+        if (controller != null)
+            _currentTutorialPlayerController = controller;
+    }
+
 
     GameObject GetSpecificPlayerControllerBasedOnType(GameEnum.PlayerrTType type)
     {
@@ -51,20 +59,25 @@ public class PlayerSpawnerController : MonoBehaviour
         return null;
     }
 
-    public PlayerController GetCurrentPlayerController()
+
+    public PlayerController GetCurrentGamePlayerController()
     {
-        return currentPlayerController;
+        return _currentGamePlayerController;
+    }
+    public PlayerController GetCurrentTutorialPlayerController()
+    {
+        return _currentTutorialPlayerController;
     }
 
     public void HidePlayer()
     {
-        if (currentPlayerController != null)
-            currentPlayerController.gameObject.SetActive(false);
+        if (_currentGamePlayerController != null)
+            _currentGamePlayerController.gameObject.SetActive(false);
     }
     public void ShowPlayer()
     {
-        if (currentPlayerController != null)
-            currentPlayerController.gameObject.SetActive(true);
+        if (_currentGamePlayerController != null)
+            _currentGamePlayerController.gameObject.SetActive(true);
     }
 
 }

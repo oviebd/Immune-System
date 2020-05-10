@@ -19,7 +19,7 @@ public class GameEnvironmentController : MonoBehaviour
 		DestroyAllIntantiatedObjs();
 		ShowAllInstantiatedObjs();
 		EnemySpawnController.instance.LoadLevelEnemyData(levelNumber);
-        PlayerSpawnerController.instance.LoadPlayer();
+        PlayerSpawnerController.instance.LoadPlayerForGame();
 		CollectableSpawnControler.instance.LoadCollectableForALevel(levelNumber);
 		BackGroundController.instance.SetBackground(levelNumber);
     }
@@ -46,12 +46,21 @@ public class GameEnvironmentController : MonoBehaviour
 
     public void SetEnvironmentForTutorial()
     {
-		HideAllObjsExceptPlayer();
+		HideAllInstantiatedObjs();
+		PlayerSpawnerController.instance.LoadPlayerForTutorial();
 	}
 
     public void SetEnvironmentForTutorialComplete()
 	{
-		ShowAllInstantiatedObjs();
+       if( PlayerSpawnerController.instance.GetCurrentTutorialPlayerController() != null)
+        {
+			Destroy(PlayerSpawnerController.instance.GetCurrentTutorialPlayerController().gameObject);
+        }
+       if(GameManager.instance.GetCurrentGameState() == GameEnum.GameState.Running)
+        {
+			ShowAllInstantiatedObjs();
+		}
+		//
 	}
 
     private void DestroyAllIntantiatedObjs()
@@ -63,8 +72,8 @@ public class GameEnvironmentController : MonoBehaviour
 		{
 			Destroy(_parentObjForInstantiatObjs.transform.GetChild(i).gameObject);
 		}
-		if (PlayerSpawnerController.instance.GetCurrentPlayerController() != null)
-			Destroy(PlayerSpawnerController.instance.GetCurrentPlayerController().gameObject);
+		if (PlayerSpawnerController.instance.GetCurrentGamePlayerController() != null)
+			Destroy(PlayerSpawnerController.instance.GetCurrentGamePlayerController().gameObject);
 	}
 
 }

@@ -13,8 +13,9 @@ public class GameMainMenu : PanelBase
 	[SerializeField] private Button _chooseLevelGameButton;
 	[SerializeField] private Button _goMainMenuButton;
 	[SerializeField] private Button _goStoreButton;
+	[SerializeField] private Button _tutorialButton;
 
-	private void Awake()
+    private void Awake()
 	{
 		if (instance == null)
 			instance = this;
@@ -47,6 +48,7 @@ public class GameMainMenu : PanelBase
 		ShowAButton(_resumeGameButton);
 		ShowAButton(_retryGameButton);
 		ShowAButton(_goMainMenuButton);
+		ShowAButton(_tutorialButton);
 	}
 	
 	void HideAll()
@@ -57,6 +59,7 @@ public class GameMainMenu : PanelBase
 		HideAButton(_chooseLevelGameButton);
 		HideAButton(_goMainMenuButton);
 		HideAButton(_goStoreButton);
+		HideAButton(_tutorialButton);
 	}
 
 
@@ -94,6 +97,10 @@ public class GameMainMenu : PanelBase
 	public void GoStoreButtonOnClicked()
 	{
 		GameActionHandler.instance.ActionShowStore();
+	}
+	public void ShowTutorial()
+	{
+		GameActionHandler.instance.ActionShowTutorial();
 	}
 	#endregion Button Events
 }

@@ -11,15 +11,12 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     private Collider2D _collider;
     private Explosion _explosion;
 
-    private UpdateData _updateData;
    
     private void Start()
     {
         _collider = this.gameObject.GetComponent<Collider2D>();
         _explosion = this.gameObject.GetComponent<Explosion>();
-        _updateData = this.gameObject.GetComponent<UpdateData>();
 		GetIgunController().StartShooting();
-       
 	}
 
 

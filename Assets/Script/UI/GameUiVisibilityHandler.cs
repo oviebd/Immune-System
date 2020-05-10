@@ -100,6 +100,7 @@ public class GameUiVisibilityHandler : MonoBehaviour
     public void ShowTutorial()
     {
 		TutorialManager.instance.ShowTutorial();
+		SetOnGameUI();
     }
 
 }

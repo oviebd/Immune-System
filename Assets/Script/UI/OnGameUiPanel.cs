@@ -6,30 +6,23 @@ using UnityEngine.UI;
 public class OnGameUiPanel : PanelBase
 {
     
-
-    [SerializeField] private GameObject _tutorialButton;
 	[SerializeField] private GameObject _PauseButton;
 
-    private void Awake()
+    /*private void Awake()
     {
         UiManager.onUiStateChanged += onUiStateChanged;
     }
     private void OnDestroy()
     {
         UiManager.onUiStateChanged -= onUiStateChanged;
-    }
+    }*/
 
     public void PauseButtonOnClicked()
 	{
 		GameActionHandler.instance.ActionPauseGame();
 	}
 
-	public void ShowTutorial()
-	{
-		GameActionHandler.instance.ActionShowTutorial();
-	}
-
-    void onUiStateChanged(GameEnum.UiState uiState)
+   /* void onUiStateChanged(GameEnum.UiState uiState)
     {
         if (this.isActiveAndEnabled == false)
             return;
@@ -44,5 +37,5 @@ public class OnGameUiPanel : PanelBase
             _PauseButton.SetActive(true);
         }
 
-    }
+    }*/
 }
