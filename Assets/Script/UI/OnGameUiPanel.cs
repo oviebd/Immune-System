@@ -5,37 +5,44 @@ using UnityEngine.UI;
 
 public class OnGameUiPanel : PanelBase
 {
-    
 	[SerializeField] private GameObject _PauseButton;
 
-    /*private void Awake()
-    {
-        UiManager.onUiStateChanged += onUiStateChanged;
-    }
-    private void OnDestroy()
-    {
-        UiManager.onUiStateChanged -= onUiStateChanged;
-    }*/
+	[SerializeField] private SliderUtility _healthSlider;
+	[SerializeField] private Animator _healthPanelAnimator;
 
-    public void PauseButtonOnClicked()
+	private string _anim_param_healthSlider_isShowingScale = "isShowingScale";
+	private void Awake()
+	{
+		GameManager.onGameStateChange += OnGameStateChanged;
+	}
+	private void OnDestroy()
+	{
+		GameManager.onGameStateChange -= OnGameStateChanged;
+	}
+
+	public void SetHealth(float maxValue, float currentValue)
+	{
+		_healthSlider.SetMaxLimit(maxValue);
+	    _healthSlider.SetSliderValue(currentValue);
+
+		if(  currentValue <= (maxValue/2))
+		{
+			_healthPanelAnimator.SetBool(_anim_param_healthSlider_isShowingScale, true);
+		}else
+			_healthPanelAnimator.SetBool(_anim_param_healthSlider_isShowingScale, false);
+	}
+
+	public void PauseButtonOnClicked()
 	{
 		GameActionHandler.instance.ActionPauseGame();
 	}
 
-   /* void onUiStateChanged(GameEnum.UiState uiState)
-    {
-        if (this.isActiveAndEnabled == false)
-            return;
-       
-        if(uiState == GameEnum.UiState.TutorialUiState)
-        {
-            _tutorialButton.SetActive(false);
-            _PauseButton.SetActive(false);
-        }else
-        {
-            _tutorialButton.SetActive(true);
-            _PauseButton.SetActive(true);
-        }
 
-    }*/
+	private void OnGameStateChanged(GameEnum.GameState state)
+	{
+		if(state == GameEnum.GameState.Idle)
+		{
+			_healthSlider.ResetData();
+		}
+	}
 }

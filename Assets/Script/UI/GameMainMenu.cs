@@ -46,7 +46,7 @@ public class GameMainMenu : PanelBase
 	{
 		HideAll();
 		ShowAButton(_resumeGameButton);
-		ShowAButton(_retryGameButton);
+		//ShowAButton(_retryGameButton);
 		ShowAButton(_goMainMenuButton);
 		ShowAButton(_tutorialButton);
 	}

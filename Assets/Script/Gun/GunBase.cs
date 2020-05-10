@@ -52,7 +52,9 @@ public class GunBase : MonoBehaviour
 
     public BulletBase GetBulletBase()
     {
-		return _currentBulletObj.GetComponent<BulletBase>();
+		if(_currentBulletObj  != null )
+			return _currentBulletObj.GetComponent<BulletBase>();
+		return null;
 	}
 
 }

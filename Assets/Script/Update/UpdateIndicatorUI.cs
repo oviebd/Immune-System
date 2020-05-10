@@ -10,6 +10,10 @@ public class UpdateIndicatorUI : PanelBase
 	[SerializeField] private Image _filledIndicatorImage;
 	[SerializeField] private Text _remainingEnemyText;
 	[SerializeField] private Text _remainingTimeText;
+
+
+	[SerializeField] private Animator _remainingTimeAnimator;
+	private string anim_param_remainingTime_isShowingScale = "isShowingScale";
 	private void Awake()
 	{
 		if (instance == null)
@@ -26,7 +30,14 @@ public class UpdateIndicatorUI : PanelBase
 			float timeFactor = (dataModel.remainingTimeInSec / dataModel.totalTimeRequired);
 			_filledIndicatorImage.fillAmount = timeFactor;
 			_remainingTimeText.text = (int) dataModel.remainingTimeInSec + " s";
-        }
+
+			if (dataModel.remainingTimeInSec <= dataModel.totalTimeRequired / 2)
+			{
+				_remainingTimeAnimator.SetBool(anim_param_remainingTime_isShowingScale, true);
+			}
+			else
+				_remainingTimeAnimator.SetBool(anim_param_remainingTime_isShowingScale, false);
+		}
         else
         {
 			_filledIndicatorImage.fillAmount = 1.0f;
@@ -35,7 +46,6 @@ public class UpdateIndicatorUI : PanelBase
 
 		_remainingEnemyText.text = dataModel.remainingEnemyEnemyNumber + "";
 	}
-
 
 	public void ShowSavedTimeMesage(int savedTime)
 	{

@@ -13,7 +13,6 @@ public class GameUiVisibilityHandler : MonoBehaviour
 	[SerializeField] private StorePanel _storeUi;
 	[SerializeField] private SelectLevelPanel _chooseLevelPanel;
 
-	[SerializeField] private SliderUtility _healthSlider;
 	[SerializeField] private SliderUtility _nextLevelIndicatorSlider;
 	[SerializeField] private GameObject _animatedMessagePrefab;
 
@@ -74,8 +73,7 @@ public class GameUiVisibilityHandler : MonoBehaviour
 
 	public void UpdateHealthSlider(float maxValue, float currentValue)
 	{
-		_healthSlider.SetMaxLimit(maxValue);
-		_healthSlider.SetSliderValue(currentValue);
+		_onGameUi.SetHealth(maxValue, currentValue);
 	}
 
 	public void UpdateNextLevelIndicatorSlider(float maxValue, float currentValue)
@@ -86,7 +84,6 @@ public class GameUiVisibilityHandler : MonoBehaviour
 	public void ResetSliderData()
 	{
 		_nextLevelIndicatorSlider.ResetData();
-		_healthSlider.ResetData();
 	}
 
 	public void ShowAnimatedMessage(string message)
