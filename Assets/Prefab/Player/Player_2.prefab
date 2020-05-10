@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredTime: 10
-  _requiredEnemy: 12
+  _requiredEnemy: 4
   _updateFactor: 6
 --- !u!1 &5101693746101885528
 GameObject:

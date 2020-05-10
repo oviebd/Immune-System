@@ -5,22 +5,22 @@ using UnityEngine;
 public class GunBase : MonoBehaviour
 {
 	[SerializeField] private GameEnum.GunType _gunType = GameEnum.GunType.GunType_1;
-	[SerializeField]private GameObject _bulletObj;
+	[SerializeField]private GameObject _bulletPrefab;
 	[SerializeField]private GameObject _parentObj;
 
 	private bool _isItPrimaryGun = false;
 
 	private GameObject _primarylBullet;
+	private GameObject _currentBulletObj;
 
 	private void Start()
     {
-		_primarylBullet = _bulletObj;
+		_primarylBullet = _bulletPrefab;
 	}
-
 
     public void InstantiateBullet()
 	{
-		GameObject bulletObj = InstantiatorHelper.instance.InstantiateObject(_bulletObj, _parentObj);
+		_currentBulletObj = InstantiatorHelper.instance.InstantiateObject(_bulletPrefab, _parentObj);
 	}
 	public GameEnum.GunType GetGun()
 	{
@@ -42,17 +42,17 @@ public class GunBase : MonoBehaviour
 
     public void UpdateBulletTemporarily(GameObject bulletGameObj,float duration)
     {
-		_bulletObj = bulletGameObj;
+		_bulletPrefab = bulletGameObj;
 		Invoke("SetNormalBullet", duration);
     }
     private void SetNormalBullet()
     {
-		_bulletObj = _primarylBullet;
+		_bulletPrefab = _primarylBullet;
 	}
 
     public BulletBase GetBulletBase()
     {
-		return _bulletObj.GetComponent<BulletBase>();
+		return _currentBulletObj.GetComponent<BulletBase>();
 	}
 
 }

@@ -96,13 +96,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunType: 0
-  _bulletObj: {fileID: 7939316424949948455, guid: 3d5a5059dfe2ee1469861eb7d6dd2cc5,
+  _bulletPrefab: {fileID: 7939316424949948455, guid: 3d5a5059dfe2ee1469861eb7d6dd2cc5,
     type: 3}
   _parentObj: {fileID: 2221921908882748691}
-  _maxBullet: 10
-  _coolDownTime: 0.25
-  _damage: 1
-  _infiniteFirePower: 1
   _canShoot: 1
 --- !u!1 &2221921908882748691
 GameObject:

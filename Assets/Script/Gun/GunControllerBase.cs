@@ -16,15 +16,10 @@ public class GunControllerBase : MonoBehaviour,ITimer
 	private int _currentBulletNumber = 0;
 
 	private Timer _timer;
-	private PlaySound _playSound;
-	
 	private IGunController _iGunController;
-
-	public bool canDebug = false;
 
 	private void Start()
 	{
-		_playSound = GetComponent<PlaySound>();
 		SetGuns();
 	}
 
@@ -66,15 +61,13 @@ public class GunControllerBase : MonoBehaviour,ITimer
 	{
 		if (this._iGunController != null)
 		{
-			AudioClip audio = null;
 			List<IGun> guns = this._iGunController.GetGuns();
 			for(int i=0; i<guns.Count; i++)
 			{
 				guns[i].Shoot();
-				if (audio == null && _playSound != null)
+				if (i == 0 && guns[i].GetBulletBase() != null)
 				{
-					audio = guns[i].GetBulletBase().GetAudioClip();
-					_playSound.PlayAudioWithClip(audio);
+					guns[i].GetBulletBase().PlayBulletSound();
 				}
 			}
 		}

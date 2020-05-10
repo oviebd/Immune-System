@@ -8,7 +8,7 @@ public class BulletBase : MonoBehaviour, IColliderEnter
     [SerializeField] private Collider2D _collider2D;
     [SerializeField] private GameObject _graphicsObj;
     [SerializeField] private AudioClip _audioClip;
-
+    [SerializeField] private PlaySound _playSound;
 
     private void Start()
     {
@@ -34,5 +34,11 @@ public class BulletBase : MonoBehaviour, IColliderEnter
         return _audioClip;
     }
 
-    
+    public void PlayBulletSound()
+    {
+        if(_playSound != null && GetAudioClip() != null)
+        {
+            _playSound.PlayAudioWithClip(GetAudioClip());
+        }
+    }
 }

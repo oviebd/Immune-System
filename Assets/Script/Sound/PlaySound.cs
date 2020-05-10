@@ -25,20 +25,17 @@ public class PlaySound : MonoBehaviour,IAudio
             return;
        if(GetAudioSource() != null && _clip != null)
         {
-            _audioSource.clip = _clip;
-            _audioSource.Play();
+            PlayAudioWithClipAndSource(_clip, GetAudioSource());
         }
     }
+
     public void PlayAudioWithClip(AudioClip clip)
     {
         if (AudioManager.instance.IsGameAudioOn() == false)
             return;
         if (GetAudioSource() != null && clip != null)
         {
-            this._clip = clip;
-
-            _audioSource.clip = clip;
-            _audioSource.Play();
+            PlayAudioWithClipAndSource(clip, GetAudioSource());
         }
     }
 
