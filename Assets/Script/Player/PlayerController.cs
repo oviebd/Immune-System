@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
             _collider.enabled = false;
 
 		GetIgunController().StopShooting();
-        _explosion.Explode();
        if ( _explosion != null)
             _explosion.Explode();
 

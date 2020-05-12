@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 530561986327424933}
   - component: {fileID: 606430823841497521}
   - component: {fileID: 3013928086995792617}
+  - component: {fileID: 130927185611989980}
   m_Layer: 12
   m_Name: Collectable Health
   m_TagString: Collectable
@@ -134,8 +135,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: d4a02670e2e555e46b0ef15685d81f42, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -236,6 +237,19 @@ MonoBehaviour:
     type: 3}
   _explosionClip: {fileID: 0}
   _sourceImgForExplosionEffectImage: {fileID: 6154317114399738943}
+--- !u!114 &130927185611989980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154317113518249915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7000bca8753f82642aa96038cbf887a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 8300000, guid: d4a02670e2e555e46b0ef15685d81f42, type: 3}
 --- !u!1 &6154317113847369336
 GameObject:
   m_ObjectHideFlags: 0
