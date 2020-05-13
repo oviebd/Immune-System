@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 5245256751046334707}
   - component: {fileID: 848190545654845838}
   - component: {fileID: 6168235252859546080}
+  - component: {fileID: -894580130410940662}
   m_Layer: 8
   m_Name: Player_4
   m_TagString: Player
@@ -146,7 +147,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.44
   m_Pitch: 1
   Loop: 0
@@ -243,9 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f663578771ac54e2ea82affd46da2d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionEffect: {fileID: 8872148088385112755, guid: 40ed8c6093a4e31408627020202aea16,
+  _explosionEffect: {fileID: 8872148088385112755, guid: 8fd356362bfd94330bb8360815e81d68,
     type: 3}
-  _explosionClip: {fileID: 8300000, guid: 6900de491ff277941a4afa0013418a89, type: 3}
+  _explosionClip: {fileID: 8300000, guid: 698881b460c7cc2468cfd8ee78e6ec4d, type: 3}
   _sourceImgForExplosionEffectImage: {fileID: 5101693746101885529}
 --- !u!61 &142995550046657100
 BoxCollider2D:
@@ -308,7 +309,6 @@ MonoBehaviour:
   _maxBullet: 0
   _infiniteFirePower: 1
   _coolDownTime: 0.3
-  canDebug: 0
   _minActiveGunNum: 1
 --- !u!114 &848190545654845838
 MonoBehaviour:
@@ -338,6 +338,21 @@ MonoBehaviour:
   _requiredTime: 10
   _requiredEnemy: 12
   _updateFactor: 6
+--- !u!114 &-894580130410940662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101693746049995254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f663578771ac54e2ea82affd46da2d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionEffect: {fileID: 0}
+  _explosionClip: {fileID: 0}
+  _sourceImgForExplosionEffectImage: {fileID: 0}
 --- !u!1 &5101693746101885528
 GameObject:
   m_ObjectHideFlags: 0

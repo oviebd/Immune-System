@@ -243,9 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f663578771ac54e2ea82affd46da2d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionEffect: {fileID: 8872148088385112755, guid: 40ed8c6093a4e31408627020202aea16,
+  _explosionEffect: {fileID: 8872148088385112755, guid: 8fd356362bfd94330bb8360815e81d68,
     type: 3}
-  _explosionClip: {fileID: 8300000, guid: 6900de491ff277941a4afa0013418a89, type: 3}
+  _explosionClip: {fileID: 8300000, guid: 698881b460c7cc2468cfd8ee78e6ec4d, type: 3}
   _sourceImgForExplosionEffectImage: {fileID: 5101693746101885529}
 --- !u!61 &142995550046657100
 BoxCollider2D:

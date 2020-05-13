@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 1279434866}
   - component: {fileID: 3358317915210848549}
   - component: {fileID: -4119829964343254248}
+  - component: {fileID: 5149053931021660534}
   m_Layer: 10
   m_Name: T_3_E_Squid
   m_TagString: Enemy
@@ -294,14 +295,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 220
+  Priority: 180
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -509,3 +510,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0
+--- !u!114 &5149053931021660534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7000bca8753f82642aa96038cbf887a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 0}

@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f743ae65363a58b4bb63d471b4978b1a, type: 3}
+        m_Texture: {fileID: 2800000, guid: c6706155351f6f64cb72882fdc1ca251, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -43,4 +43,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - outlineColor: {r: 0.69054604, g: 6.3650317, b: 6.2108335, a: 0}
+    - outlineColor: {r: 5.5908804, g: 3.8638546, b: 1.9026557, a: 1}

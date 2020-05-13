@@ -132,6 +132,27 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 			
 	}
 
+    private EnemyBehaviourBase[] GetAllEnemyBehaviour()
+    {
+		EnemyBehaviourBase[] enemyList = FindObjectsOfType<EnemyBehaviourBase>();
+		return enemyList;
+    }
+
+    public void SetEnemyModeActiveInactive(bool isModeActive)
+    {
+		EnemyBehaviourBase[] enemyList = GetAllEnemyBehaviour();
+
+		if (enemyList == null)
+			return;
+		for (int i = 0; i < enemyList.Length; i++)
+		{
+            if(isModeActive)
+				enemyList[i].SetInactiveMode();
+            else
+				enemyList[i].SetInactiveMode();
+		}
+	}
+
 	void UpdateEnemyNumber()
     {
 		enemyNumberInCurrentWave = enemyNumberInCurrentWave + 1;

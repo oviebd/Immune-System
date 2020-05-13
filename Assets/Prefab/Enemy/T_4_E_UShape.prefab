@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunType: 0
-  _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
-    type: 3}
+  _bulletPrefab: {fileID: 0}
   _parentObj: {fileID: 181426091}
   _canShoot: 1
 --- !u!1 &1632807721770688045
@@ -92,8 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunType: 0
-  _bulletObj: {fileID: 7939316424949948455, guid: c36ff0e964ffc40b3a0ecba7ac0e50ec,
-    type: 3}
+  _bulletPrefab: {fileID: 0}
   _parentObj: {fileID: 1632807721770688045}
   _canShoot: 1
 --- !u!1 &2479212942419892027
@@ -233,6 +231,7 @@ GameObject:
   - component: {fileID: -1772376080061931411}
   - component: {fileID: 6625653852732834270}
   - component: {fileID: -5051198571396947920}
+  - component: {fileID: -3862180690957862791}
   m_Layer: 10
   m_Name: T_4_E_UShape
   m_TagString: Enemy
@@ -377,14 +376,14 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 220
+  Priority: 180
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -567,3 +566,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0
+--- !u!114 &-3862180690957862791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5610750885945116250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7000bca8753f82642aa96038cbf887a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clip: {fileID: 0}

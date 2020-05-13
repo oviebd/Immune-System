@@ -12056,7 +12056,7 @@ PrefabInstance:
     - target: {fileID: 3914904418517561870, guid: c8ff1c36974593649942815aeaed3aad,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3914904418517561870, guid: c8ff1c36974593649942815aeaed3aad,
         type: 3}
@@ -12189,7 +12189,7 @@ PrefabInstance:
     - target: {fileID: 7495791816471324571, guid: 36b8bdb44d5ff764ea0b711e2ab1f57f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7495791816471324571, guid: 36b8bdb44d5ff764ea0b711e2ab1f57f,
         type: 3}
@@ -12210,6 +12210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BackGround Img 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495791816471324572, guid: 36b8bdb44d5ff764ea0b711e2ab1f57f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b8bdb44d5ff764ea0b711e2ab1f57f, type: 3}
