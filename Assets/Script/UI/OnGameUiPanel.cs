@@ -40,7 +40,7 @@ public class OnGameUiPanel : PanelBase
 
 	private void OnGameStateChanged(GameEnum.GameState state)
 	{
-		if(state == GameEnum.GameState.Idle)
+		if(state == GameEnum.GameState.Idle || state == GameEnum.GameState.PlayerWin || state == GameEnum.GameState.PlayerLose)
 		{
 			_healthSlider.ResetData();
 		}
