@@ -87,25 +87,22 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 		}
 		return false;
 	}
-	private string GetStoreItemDetailsBasedOnType(GameEnum.PlayerrTType type)
+	private string GetStoreItemDetailsBasedOnType(GameEnum.PlayerType type)
     {
         string details = "";
         switch (type)
         {
-            case  GameEnum.PlayerrTType.PlayerType_1:
+            case  GameEnum.PlayerType.Type_1_Base:
                 details = "Initial Player .. Initially it has one gun and each 0.5 s it will shoot";
                 break;
-            case GameEnum.PlayerrTType.PlayerType_2:
+            case GameEnum.PlayerType.Type_2_Dozzer:
                 details = "Second Player .. Initially it has one gun and each 0.4 s it will shoot";
                 break;
-            case GameEnum.PlayerrTType.PlayerType_3:
+            case GameEnum.PlayerType.Type_3_Healthy:
                 details = "Third Player .. Initially it has one gun and each 0.3 s it will shoot";
                 break;
-            case GameEnum.PlayerrTType.PlayerType_4:
+            case GameEnum.PlayerType.Type_4_Shooter:
                 details = "Fourth Player .. Initially it has one gun and each 0.2 s it will shoot";
-                break;
-            case GameEnum.PlayerrTType.PlayerType_5:
-                details = "Fifth Player .. Initially it has one gun and each 0.1 s it will shoot";
                 break;
 
         }

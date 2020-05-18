@@ -23,11 +23,11 @@ public class GameDataHandler : MonoBehaviour
     {
         return GetGameData().currentLevel;
     }
-	public GameEnum.PlayerrTType GetCurrentPlayer()
+	public GameEnum.PlayerType GetCurrentPlayer()
 	{
 		return GetGameData().currentPlayer;
 	}
-	public void SetCurrentPlayer(GameEnum.PlayerrTType playerType)
+	public void SetCurrentPlayer(GameEnum.PlayerType playerType)
 	{
 		GameDataModel data = GetGameData();
 		data.currentPlayer = playerType;

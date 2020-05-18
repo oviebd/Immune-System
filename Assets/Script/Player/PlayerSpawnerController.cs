@@ -6,7 +6,7 @@ public class PlayerSpawnerController : MonoBehaviour
 {
     public static PlayerSpawnerController instance;
 
-    [SerializeField] private GameEnum.PlayerrTType _currentPlayerType;
+    [SerializeField] private GameEnum.PlayerType _currentPlayerType;
     [SerializeField] private List<PlayerController> _playerList;
     [SerializeField] private GameObject _gunPrefab; 
 
@@ -47,7 +47,7 @@ public class PlayerSpawnerController : MonoBehaviour
     }
 
 
-    GameObject GetSpecificPlayerControllerBasedOnType(GameEnum.PlayerrTType type)
+    GameObject GetSpecificPlayerControllerBasedOnType(GameEnum.PlayerType type)
     {
         for (int i = 0; i < _playerList.Count; i++)
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour ,IColliderEnter
 {
-    [SerializeField] private GameEnum.PlayerrTType _playerType = GameEnum.PlayerrTType.PlayerType_1;
+    [SerializeField] private GameEnum.PlayerType _playerType = GameEnum.PlayerType.Type_1_Base;
     [SerializeField] private GameObject _playerGraphics;
     private IGunController _iGunController;
     private IHealth _playerHealth;
@@ -65,11 +65,11 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     {
         GameActionHandler.instance.ActionGameOver(false);
     }
-    public GameEnum.PlayerrTType GetPlayerType()
+    public GameEnum.PlayerType GetPlayerType()
     {
         return _playerType;
     }
-    public void SetPlayerType(GameEnum.PlayerrTType playerType)
+    public void SetPlayerType(GameEnum.PlayerType playerType)
     {
         _playerType = playerType;
     }

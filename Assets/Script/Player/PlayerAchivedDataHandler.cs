@@ -44,7 +44,7 @@ public class PlayerAchivedDataHandler : MonoBehaviour
 	#endregion MaxCompletedLevel
 
 	#region Ship
-	public void InsertPlayerShipInAchivedList(GameEnum.PlayerrTType type)
+	public void InsertPlayerShipInAchivedList(GameEnum.PlayerType type)
 	{
 		if (IsThisPlayerShipAlreadyPurchasedByPlayer(type) == false)
 		{
@@ -53,7 +53,7 @@ public class PlayerAchivedDataHandler : MonoBehaviour
 			SetPlayerAchivedData(data);
 		}
 	}
-	public bool IsThisPlayerShipAlreadyPurchasedByPlayer(GameEnum.PlayerrTType type)
+	public bool IsThisPlayerShipAlreadyPurchasedByPlayer(GameEnum.PlayerType type)
 	{
 		if (GetPlayerAchivedData().playerShipList.Contains(type) == true)
 			return true;

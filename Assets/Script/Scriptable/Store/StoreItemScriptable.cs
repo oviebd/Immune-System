@@ -6,7 +6,7 @@ using UnityEngine;
 public class StoreItemScriptable : ScriptableObject
 {
     public string itemName;
-    public GameEnum.PlayerrTType itemType;
+    public GameEnum.PlayerType itemType;
     public Sprite itemImage;
     public bool isPurchased = false;
     public int price = 0;
