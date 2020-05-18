@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 6053021518408524258}
   - component: {fileID: 5245256751046334707}
   - component: {fileID: 848190545654845838}
-  - component: {fileID: 2980542039738288324}
+  - component: {fileID: 6168235252859546080}
+  - component: {fileID: -894580130410940662}
   m_Layer: 8
-  m_Name: Player_1
+  m_Name: Player_4
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142d0fd90d8796440989341df1cf2c99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerType: 0
+  _playerType: 3
   _playerGraphics: {fileID: 5101693746101885528}
 --- !u!50 &5101693746049995252
 Rigidbody2D:
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 5101693746049995252}
-  _moveSpeed: 4
+  _moveSpeed: 3
 --- !u!114 &2237697749735478489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcf25e0d7aef48d188af9f0ca7b5066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHealth: 100
+  _totalHealth: 65
   _isItPlayerHealth: 1
 --- !u!114 &-298775007050859447
 MonoBehaviour:
@@ -307,7 +308,7 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _maxBullet: 0
   _infiniteFirePower: 1
-  _coolDownTime: 0.3
+  _coolDownTime: 0.2
   _minActiveGunNum: 1
 --- !u!114 &848190545654845838
 MonoBehaviour:
@@ -322,7 +323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0
---- !u!114 &2980542039738288324
+--- !u!114 &6168235252859546080
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -337,6 +338,21 @@ MonoBehaviour:
   _requiredTime: 10
   _requiredEnemy: 12
   _updateFactor: 6
+--- !u!114 &-894580130410940662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101693746049995254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f663578771ac54e2ea82affd46da2d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionEffect: {fileID: 0}
+  _explosionClip: {fileID: 0}
+  _sourceImgForExplosionEffectImage: {fileID: 0}
 --- !u!1 &5101693746101885528
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +377,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5101693746101885528}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
@@ -410,10 +426,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 905f5cfcd76884a7d83f2afb12c7cce2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c4c2e29b814dc84aa05ea2760712bab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
