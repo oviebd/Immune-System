@@ -77,5 +77,9 @@ public class PlayerMovement : MonoBehaviour
 	{
 		_canRotate = false;
 	}
+    public float GetPlayerMoveSpeed()
+    {
+		return _moveSpeed;
+    }
 
 }

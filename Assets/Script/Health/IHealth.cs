@@ -6,4 +6,5 @@ public interface IHealth
     int  GetCurrentHealthAmount();
     void SetHealthAmount(int amount);
     bool IsDie();
+    int GetTotalHealth();
 }

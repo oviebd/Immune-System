@@ -120,4 +120,9 @@ public class GunControllerBase : MonoBehaviour,ITimer
         else
 			GetTimer().PauseTimer();	
 	}
+
+    public float GetCoolDownTime()
+    {
+		return _coolDownTime;
+    }
 }

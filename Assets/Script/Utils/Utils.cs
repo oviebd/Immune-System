@@ -51,4 +51,27 @@ public static class Utils
         else
             return false;
     }
+
+    public  static string GetPlayerShortDescription(GameEnum.PlayerType type)
+    {
+        string description = "";
+
+        switch (type)
+        {
+            case GameEnum.PlayerType.Type_1_Base:
+                description = "Base Player";
+                break;
+            case GameEnum.PlayerType.Type_2_Dozzer:
+                description = "Speedy But has low health";
+                break;
+            case GameEnum.PlayerType.Type_3_Healthy:
+                description = "More Health But slow movement";
+                break;
+            case GameEnum.PlayerType.Type_4_Shooter:
+                description = "High Fire power with low health";
+                break;
+        }
+        return description;
+    }
+   
 }

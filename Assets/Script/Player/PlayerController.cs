@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour ,IColliderEnter
 {
     [SerializeField] private GameEnum.PlayerType _playerType = GameEnum.PlayerType.Type_1_Base;
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     private IHealth _playerHealth;
     private Collider2D _collider;
     private Explosion _explosion;
-
+    
    
     private void Start()
     {
@@ -72,6 +73,29 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     public void SetPlayerType(GameEnum.PlayerType playerType)
     {
         _playerType = playerType;
+    }
+
+    public string getPlayerDetails()
+    {
+        string details = "";
+
+        float coolDowntime = 0.0f;
+        if (this.gameObject.GetComponent<PlayerGunController>() != null)
+            coolDowntime = this.gameObject.GetComponent<PlayerGunController>().GetCoolDownTime();
+
+        int playerHealth = 0;
+        if (GetPlayerHealth() != null)
+            playerHealth = GetPlayerHealth().GetTotalHealth();
+
+        float moveSpeed = 0.0f;
+        if (this.gameObject.GetComponent<PlayerMovement>() != null)
+            moveSpeed = this.gameObject.GetComponent<PlayerMovement>().GetPlayerMoveSpeed();
+
+        string  shortDescription = Utils.GetPlayerShortDescription(_playerType);
+        
+        details = shortDescription + "\n\n Per Shoot Interval : " + coolDowntime + "\n Health : " + playerHealth + "\n Move Speed : " + moveSpeed;  
+
+        return details;
     }
   
 }

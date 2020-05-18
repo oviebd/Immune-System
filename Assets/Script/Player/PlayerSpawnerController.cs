@@ -23,7 +23,7 @@ public class PlayerSpawnerController : MonoBehaviour
     private PlayerController InstantiatePlayer()
     {
 		_currentPlayerType = GameDataHandler.instance.GetCurrentPlayer();
-        GameObject playerPrefab = GetSpecificPlayerControllerBasedOnType(_currentPlayerType);
+        GameObject playerPrefab = GetSpecificPlayerBasedOnType(_currentPlayerType);
         if (playerPrefab != null)
         {
             GameObject playerObj = InstantiatorHelper.instance.InstantiateObject(playerPrefab);
@@ -47,7 +47,7 @@ public class PlayerSpawnerController : MonoBehaviour
     }
 
 
-    GameObject GetSpecificPlayerControllerBasedOnType(GameEnum.PlayerType type)
+    public GameObject GetSpecificPlayerBasedOnType(GameEnum.PlayerType type)
     {
         for (int i = 0; i < _playerList.Count; i++)
         {

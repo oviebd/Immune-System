@@ -54,6 +54,9 @@ public class Health : MonoBehaviour, IHealth
 
 	}
 
-   
+    public int GetTotalHealth()
+    {
+        return _totalHealth;
+    }
 }
 
