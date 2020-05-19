@@ -50,9 +50,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008659482, y: 0.021811247}
+  m_Offset: {x: 0.0015698869, y: -0.007950862}
   serializedVersion: 2
-  m_Radius: 0.4980688
+  m_Radius: 0.56432086
 --- !u!50 &3560366945466919788
 Rigidbody2D:
   serializedVersion: 4
@@ -158,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 3560366946412301431}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 3560366946793161902}
   m_RootOrder: 0
@@ -181,7 +181,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5d812b95d62104148a17859af0e07ec2, type: 2}
+  - {fileID: 2100000, guid: ac04f526b6d1f70458167962c47aa7b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -202,7 +202,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a35b151eea1c2de43a63764c264c1d01, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d67b7dc8104d47bf8c1a3198d8bcfbe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

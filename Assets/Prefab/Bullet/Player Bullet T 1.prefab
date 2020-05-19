@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f534688249facc04d9df7d43be777395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
+  _speed: 13
 --- !u!50 &-2529909617840408764
 Rigidbody2D:
   serializedVersion: 4
@@ -252,3 +252,5 @@ MonoBehaviour:
   _lifeTime: 2
   _collider2D: {fileID: 5751173439482170278}
   _graphicsObj: {fileID: 5647779421266988972}
+  _audioClip: {fileID: 0}
+  _playSound: {fileID: 0}

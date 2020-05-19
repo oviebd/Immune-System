@@ -252,3 +252,5 @@ MonoBehaviour:
   _lifeTime: 2
   _collider2D: {fileID: 623040427}
   _graphicsObj: {fileID: 4157572914984398335}
+  _audioClip: {fileID: 0}
+  _playSound: {fileID: 0}
