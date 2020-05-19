@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class StoreItem : MonoBehaviour
 {
-    [SerializeField] private Text _txtPrice;
+	[SerializeField] private Text _txtPlayerName;
+	[SerializeField] private Text _txtPrice;
 	[SerializeField] private Text _txtDescription;
 	[SerializeField] private Image _imgItem;
     [SerializeField] private Button _btnBuy;
@@ -25,7 +26,9 @@ public class StoreItem : MonoBehaviour
 
         _txtPrice.text  = item.price + "";
         _imgItem.sprite = item.itemImage;
+		_txtPlayerName.text = item.itemType.ToString();
 		_txtDescription.text = item.itemDescription;
+
 
 		if (PlayerAchivedDataHandler.instance.IsThisPlayerShipAlreadyPurchasedByPlayer(item.itemType) == true){
 			_useButton.gameObject.SetActive(true);
@@ -47,21 +50,4 @@ public class StoreItem : MonoBehaviour
 	{
 		StorePanel.instance.UseButtonClicked(itemData);
 	}
-	public void OnInfoButtonClicked()
-    {
-        StorePanel.instance.ShowItemInfo(itemData);
-    }
-	
-
-	/* void SetImageGraphicsFromResourceFolder(Image imageContainer, string imageName)
-	 {
-		 if(imageContainer != null && imageName != null)
-		 {
-			 if (Resources.Load<Sprite>(imageName) != null)
-			 {
-				// _imgItem.sprite = Resources.Load<Sprite>(itemClass.itemImage);
-			 }
-		 }
-	 } */
-
 }

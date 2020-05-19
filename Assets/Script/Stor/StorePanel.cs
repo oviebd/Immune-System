@@ -19,14 +19,6 @@ public class StorePanel : PanelBase,DialogBase.Delegate
         storeListItemHandler.Setup();
     }
 
-    public void ShowItemInfo(StoreItemModel data)
-    {
-		_currentStoreItem = data;
-		IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.InfoDialog);
-        dialog.SetTitle(data.itemType.ToString());
-        dialog.SetMessage(GetStoreItemDetailsBasedOnType(data.itemType));
-    }
-
     public void BuyButtonClicked(StoreItemModel data)
     {
 		_currentStoreItem = data;
@@ -87,19 +79,6 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 		}
 		return false;
 	}
-
-
-	private string GetStoreItemDetailsBasedOnType(GameEnum.PlayerType type)
-    {
-		string details = "";
-		GameObject playerObj = PlayerSpawnerController.instance.GetSpecificPlayerBasedOnType(type);
-		PlayerController controller = playerObj.GetComponent<PlayerController>();
-		if (controller == null)
-			return details;
-		details = controller.getPlayerDetails();
-
-		return details;
-    }
 
 	
 }

@@ -51,6 +51,7 @@ public class StoreListItemHandler : MonoBehaviour
             StoreItemModel item = new StoreItemModel();
             item.itemName = scriptableList[i].name;
             item.itemType = scriptableList[i].itemType;
+            item.itemDescription = GetStoreItemDetailsBasedOnType(scriptableList[i].itemType);
             item.itemImage = scriptableList[i].itemImage;
             item.isPurchased = scriptableList[i].isPurchased;
             item.price = scriptableList[i].price;
@@ -61,7 +62,19 @@ public class StoreListItemHandler : MonoBehaviour
         return itemList;
     }
 
-	private void DestroyAllItems()
+    private string GetStoreItemDetailsBasedOnType(GameEnum.PlayerType type)
+    {
+        string details = "";
+        GameObject playerObj = PlayerSpawnerController.instance.GetSpecificPlayerBasedOnType(type);
+        PlayerController controller = playerObj.GetComponent<PlayerController>();
+        if (controller == null)
+            return details;
+        details = controller.getPlayerDetails();
+
+        return details;
+    }
+
+    private void DestroyAllItems()
 	{
 		StoreItem[] items = FindObjectsOfType<StoreItem>();
 		for(int i = 0; i < items.Length; i++)
