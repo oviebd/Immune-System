@@ -71,11 +71,6 @@ public class GameUiVisibilityHandler : MonoBehaviour
 		button.gameObject.SetActive(false);
 	}
 
-	public void UpdateHealthSlider(float maxValue, float currentValue)
-	{
-		_onGameUi.SetHealth(maxValue, currentValue);
-	}
-
 	public void UpdateNextLevelIndicatorSlider(float maxValue, float currentValue)
 	{
 		_nextLevelIndicatorSlider.SetMaxLimit(maxValue);

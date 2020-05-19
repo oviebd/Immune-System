@@ -13,7 +13,9 @@ public class ScoreManager : MonoBehaviour
     public delegate void OnPlayerWinDelegate();
     public static event OnPlayerWinDelegate onPlayerWin;
 
-    public Text scoreText;
+	public delegate void OnScoreUpdate(int score);
+	public static event OnScoreUpdate onScoreUpdate;
+
 
     private void Awake()
     {
@@ -29,13 +31,11 @@ public class ScoreManager : MonoBehaviour
     {
         _winningScore = winningPoint;
         _currentScore = 0;
-		updateUI();
-    }
+		onScoreUpdate(_currentScore);
+	}
     public void AddScore(int incrementedScore)
     {
         _currentScore = _currentScore + incrementedScore;
-
-        scoreText.text =  _currentScore +"";
 
 		if (IsPlayerWin())
 		{
@@ -43,8 +43,8 @@ public class ScoreManager : MonoBehaviour
 			PlayerAchivedDataHandler.instance.SetTotalScore(totalScore);
 			onPlayerWin();
 		}
-            
-		updateUI();
+
+		onScoreUpdate(_currentScore);
 	}
 
     bool IsPlayerWin()
@@ -54,9 +54,4 @@ public class ScoreManager : MonoBehaviour
         else
             return false;
     }
-	private void updateUI()
-	{
-		GameUiVisibilityHandler.instance.UpdateNextLevelIndicatorSlider(_winningScore*1.0f, _currentScore*1.0f);
-	}
-    
 }

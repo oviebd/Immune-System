@@ -7,8 +7,10 @@ public class Health : MonoBehaviour, IHealth
     [SerializeField] private int _totalHealth = 100;
 	[SerializeField] private bool _isItPlayerHealth = false; // Only Player Health Will Update UI
     private int _currentHealth;
+	public delegate void HealthValueChanged(int currentHealth, int totalHealth);
+	public static event HealthValueChanged onHealthValueChanged;
 
-    private void Awake()
+	private void Awake()
     {
         _currentHealth = _totalHealth;
     }
@@ -49,9 +51,8 @@ public class Health : MonoBehaviour, IHealth
         if (_currentHealth > _totalHealth)
             _currentHealth = _totalHealth;
 
-		if(_isItPlayerHealth)
-			GameUiVisibilityHandler.instance.UpdateHealthSlider(_totalHealth * 1.0f, _currentHealth * 1.0f);
-
+		if (_isItPlayerHealth)
+			onHealthValueChanged(_currentHealth,_totalHealth);
 	}
 
     public int GetTotalHealth()
