@@ -19,7 +19,6 @@ public class PlayerSpawnerController : MonoBehaviour
             instance = this;
     }
 
-
     private PlayerController InstantiatePlayer()
     {
 		_currentPlayerType = GameDataHandler.instance.GetCurrentPlayer();
@@ -50,8 +49,6 @@ public class PlayerSpawnerController : MonoBehaviour
 		}
           
     }
-
-
     public GameObject GetSpecificPlayerBasedOnType(GameEnum.PlayerType type)
     {
         for (int i = 0; i < _playerList.Count; i++)

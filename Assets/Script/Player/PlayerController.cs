@@ -97,5 +97,9 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
 
         return details;
     }
-  
+
+	public Sprite GetPlayerSprite()
+	{
+		return _playerGraphics.GetComponent<SpriteRenderer>().sprite;
+	}
 }

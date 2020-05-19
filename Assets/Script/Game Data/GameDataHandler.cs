@@ -9,7 +9,9 @@ public class GameDataHandler : MonoBehaviour
     [SerializeField] private GameDataScriptable _gameDataScriptable;
     [SerializeField] private int _maxLevelnumber = 2;
 
-   private void Awake()
+	public delegate void OnCurrentPlayerChange(GameEnum.PlayerType playerType);
+	public static event OnCurrentPlayerChange onCurrentPlayerChange;
+	private void Awake()
     {
         if (instance == null)
             instance = this;
@@ -32,6 +34,7 @@ public class GameDataHandler : MonoBehaviour
 		GameDataModel data = GetGameData();
 		data.currentPlayer = playerType;
 		SetGameData(data);
+		onCurrentPlayerChange(playerType);
 	}
 
 	public void SetCurrentLevelNumber(int levelNumber)
