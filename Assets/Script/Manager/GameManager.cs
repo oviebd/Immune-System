@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance;
 
 	private GameEnum.GameState _currentGameState;
+
 	public delegate void GameStateChange(GameEnum.GameState gameState);
 	public static event GameStateChange onGameStateChange;
 

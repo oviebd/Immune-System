@@ -8,7 +8,11 @@ public class PlayerAchivedDataHandler : MonoBehaviour
     [SerializeField] private PlayerAchivedDataScriptable _playerAchivedDatScriptable;
 
 	private PlayerAchivedDataModel _achievedDataModel;
-    private void Awake()
+
+	public delegate void OnTotalScoreChanged();
+	public static event OnTotalScoreChanged onTotalScoreChange;
+
+	private void Awake()
     {
         if (instance == null)
             instance = this;
@@ -24,6 +28,9 @@ public class PlayerAchivedDataHandler : MonoBehaviour
 		PlayerAchivedDataModel data = GetPlayerAchivedData();
 		data.totalScore = totalScore;
 		SetPlayerAchivedData(data);
+		if(onTotalScoreChange != null)
+			onTotalScoreChange();
+
 	}
 	#endregion TotalScore
 

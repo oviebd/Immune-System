@@ -14,25 +14,22 @@ public class GeneralUiPanel : PanelBase
 	[SerializeField] private GameObject _currentPlayerImagePanelObj;
 	private void Start()
     {
-
         AudioManager.onAudioStateChange += AudioStateChanged;
 		GameManager.onGameStateChange += OnGameStateChanged;
 		GameDataHandler.onCurrentPlayerChange += OnPlayerChange;
+		PlayerAchivedDataHandler.onTotalScoreChange += SetTotalScoreText;
 
 		SetSoundButtonGraphics();
 		SetCurrentPlayerGraphics();
-		
-    }
+		SetTotalScoreText();
+
+	}
     private void OnDestroy()
     {
         AudioManager.onAudioStateChange -= AudioStateChanged;
 		GameManager.onGameStateChange -= OnGameStateChanged;
 		GameDataHandler.onCurrentPlayerChange -= OnPlayerChange;
-	}
-
-	private void Update()
-	{
-		_totalScoreText.text = PlayerAchivedDataHandler.instance.GetTotalScore() + "";
+		PlayerAchivedDataHandler.onTotalScoreChange -= SetTotalScoreText;
 	}
 	public void SoundButtonClicked()
     {
@@ -73,16 +70,20 @@ public class GeneralUiPanel : PanelBase
 		}
 	}
 
-	void OnPlayerChange(GameEnum.PlayerType playerType)
+	private void OnPlayerChange(GameEnum.PlayerType playerType)
 	{
 		SetCurrentPlayerGraphics();
 	}
-	void OnGameStateChanged(GameEnum.GameState state)
+	private void OnGameStateChanged(GameEnum.GameState state)
 	{
 		if( state == GameEnum.GameState.Idle || state == GameEnum.GameState.StoreUiState)
 			ShowHideObjs(true);
 		else
 			ShowHideObjs(false);
+	}
+	private void SetTotalScoreText()
+	{
+		_totalScoreText.text = PlayerAchivedDataHandler.instance.GetTotalScore() + "";
 	}
 
 }

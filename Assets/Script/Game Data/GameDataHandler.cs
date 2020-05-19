@@ -34,7 +34,9 @@ public class GameDataHandler : MonoBehaviour
 		GameDataModel data = GetGameData();
 		data.currentPlayer = playerType;
 		SetGameData(data);
-		onCurrentPlayerChange(playerType);
+
+		if(onCurrentPlayerChange !=null)
+			onCurrentPlayerChange(playerType);
 	}
 
 	public void SetCurrentLevelNumber(int levelNumber)
