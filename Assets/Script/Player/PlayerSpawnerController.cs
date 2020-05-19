@@ -43,7 +43,12 @@ public class PlayerSpawnerController : MonoBehaviour
     {
         PlayerController controller = InstantiatePlayer();
         if (controller != null)
-            _currentTutorialPlayerController = controller;
+		{
+			_currentTutorialPlayerController = controller;
+			Vector2 pos = controller.gameObject.transform.position;
+			controller.gameObject.transform.position = new Vector3(pos.x + 4.0f, pos.y + 2.0f);
+		}
+          
     }
 
 

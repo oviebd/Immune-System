@@ -44,5 +44,10 @@ public class OnGameUiPanel : PanelBase
 		{
 			_healthSlider.ResetData();
 		}
+
+		if (state == GameEnum.GameState.TutorialState)
+			_PauseButton.SetActive(false);
+		else
+			_PauseButton.SetActive(true);
 	}
 }
