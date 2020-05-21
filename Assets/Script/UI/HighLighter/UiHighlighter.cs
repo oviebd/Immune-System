@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Outline))]
 public class UiHighlighter : MonoBehaviour,IHighLighter
 {
-    [SerializeField] private Image _imageForHighlight;
+    [SerializeField] private Image _mainImage;
     [SerializeField] private Color _highlightedColor;
     [SerializeField] private Sprite _highlightedSprite;
 
@@ -18,59 +18,70 @@ public class UiHighlighter : MonoBehaviour,IHighLighter
 
     void Awake()
     {
-        _outline = this.gameObject.GetComponent<Outline>();
-        if(_imageForHighlight == null)
-            _imageForHighlight = this.gameObject.GetComponent<Image>();
-
         SetUpInitValues();
     }
 
+	Outline GetOutline()
+	{
+		if(_outline == null)
+			_outline = this.gameObject.GetComponent<Outline>();
+		return _outline;
+	}
 
+	Image GetMainImage()
+	{
+		if(_mainImage == null)
+			_mainImage = this.gameObject.GetComponent<Image>();
+		return _mainImage;
+	}
     void SetUpInitValues()
     {
-        if(_outline != null)
+        if(GetOutline() != null)
         {
-            _outline.enabled = false;
+			GetOutline().enabled = false;
         }
         
-        if(_imageForHighlight != null)
+        if(GetMainImage() != null)
         {
-            _initialVal_IsComponentActive = _imageForHighlight.isActiveAndEnabled;
-            _initVal_ComponentColor = _imageForHighlight.color;
-            _initVal_HighlightSprite = _imageForHighlight.sprite;
+            _initialVal_IsComponentActive = GetMainImage().isActiveAndEnabled;
+            _initVal_ComponentColor = GetMainImage().color;
+            _initVal_HighlightSprite = GetMainImage().sprite;
         }
 
     }
 
-    public void SetHighlightProperties(Sprite sprite, Color outLineColor)
-    {
-        _highlightedSprite = sprite;
-        if(_outline!=null)
-            _outline.effectColor = outLineColor;
-
-    }
+	public void SetHighlightColor(Color outLineColor)
+	{
+		_highlightedColor = outLineColor;
+	}
+	public void SetHighlightSprite(Sprite sprite)
+	{
+		_highlightedSprite = sprite;
+	}
 
     public void ShowHighlight()
     {
-        if (_outline != null && _highlightedColor != null)
+        if (GetOutline() != null && _highlightedColor != null)
         {
-            _imageForHighlight.sprite = _highlightedSprite;
-            _imageForHighlight.color = Color.white;
-            _outline.enabled = true;
-            _imageForHighlight.enabled = true;
+			GetOutline().effectColor = _highlightedColor;
+			GetMainImage().sprite = _highlightedSprite;
+			GetMainImage().color = Color.white;
+
+			GetOutline().enabled = true;
+            GetMainImage().enabled = true;
         }
         
     }
 
     public void HideHighlight()
     {
-        if (_outline != null && _highlightedColor != null)
+        if (GetOutline() != null && _highlightedColor != null)
         {
-            _imageForHighlight.enabled = _initialVal_IsComponentActive;
-            _outline.enabled = false;
+            GetMainImage().enabled = _initialVal_IsComponentActive;
+            GetOutline().enabled = false;
 
-            _imageForHighlight.sprite = _initVal_HighlightSprite;
-            _imageForHighlight.color = _initVal_ComponentColor;
+            GetMainImage().sprite = _initVal_HighlightSprite;
+            GetMainImage().color = _initVal_ComponentColor;
         }
     }
 }

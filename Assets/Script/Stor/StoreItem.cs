@@ -11,6 +11,7 @@ public class StoreItem : MonoBehaviour
 	[SerializeField] private Image _imgItem;
     [SerializeField] private Button _btnBuy;
 	[SerializeField] private Button _useButton;
+	[SerializeField] private UiHighlighter _highlighter;
 
      private StoreItemModel itemData;
     public void Setup(StoreItemModel item)
@@ -39,7 +40,23 @@ public class StoreItem : MonoBehaviour
 			_btnBuy.gameObject.SetActive(true);
 			_useButton.gameObject.SetActive(false);
 		}
+		SetSelectedItemAppearance();
+	}
 
+	void SetSelectedItemAppearance()
+	{
+		if (_highlighter == null)
+			return;
+		//_highlighter.SetHighlightSprite(this.itemData.itemImage);
+
+		if (GameDataHandler.instance.GetCurrentPlayer() == this.itemData.itemType)
+		{
+			_highlighter.ShowHighlight();
+			_useButton.GetComponentInChildren<Text>().text = "Selected Item";
+			_useButton.interactable = false;
+		}
+		else
+			_highlighter.HideHighlight();
 	}
 
     public void OnBuyButtonClicked()

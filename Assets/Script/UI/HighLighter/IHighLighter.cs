@@ -4,7 +4,8 @@ using UnityEngine;
 
 public interface IHighLighter 
 {
-    void SetHighlightProperties(Sprite sprite, Color outLineColor);
-    void ShowHighlight();
+	void SetHighlightSprite(Sprite sprite);
+	void SetHighlightColor(Color color);
+	void ShowHighlight();
     void HideHighlight();
 }

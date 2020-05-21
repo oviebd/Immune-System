@@ -28,14 +28,14 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 			// User Can Buy
 			IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ActionDialog);
 			dialog.SetDialogDelegate(this);
-			dialog.SetTitle("Buy Item");
-			dialog.SetMessage(data.itemName + "will cost  " + data.price + " " + " Point .\n Are You Sure to Purchase This ?" );
+			dialog.SetTitle("Purchase Item !");
+			dialog.SetMessage(data.itemName + " will cost  " + data.price  + " Point .\n Want to purchase?" );
 		}
 		else
 		{
 			//Can not buy
 			IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ErrorDialog);
-			dialog.SetTitle("Low Point ! ");
+			dialog.SetTitle("Not enough Point ! ");
 			dialog.SetMessage("Not enough Point for Purchased this item");
 		}
     }
@@ -43,10 +43,7 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 	{
 		_currentStoreItem = data;
 		GameDataHandler.instance.SetCurrentPlayer(data.itemType);
-
-		IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.InfoDialog);
-		dialog.SetTitle("Congratulations!");
-		dialog.SetMessage( "Player Set Cuccessfully");
+		storeListItemHandler.Setup();
 	}
 	public void OnDialogPositiveButtonPressed()
 	{
@@ -57,7 +54,7 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 		{
 			IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.InfoDialog);
 			dialog.SetTitle("Purchase Confirmation");
-			dialog.SetMessage(" Congratulations !  .\n Are You Successfully Purchased the item.");
+			dialog.SetMessage(" Congratulations !  .\n  You Successfully Purchased the item.");
 			storeListItemHandler.Setup();
 		}
 	}

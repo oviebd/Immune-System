@@ -162,7 +162,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 200
+  m_PreferredWidth: 250
   m_PreferredHeight: 60
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
@@ -196,6 +196,8 @@ GameObject:
   - component: {fileID: 5512525332583609723}
   - component: {fileID: 5512525332583609716}
   - component: {fileID: 5512525332583609722}
+  - component: {fileID: 2348223257581778464}
+  - component: {fileID: 2574704426096502958}
   m_Layer: 5
   m_Name: Store Item
   m_TagString: Untagged
@@ -282,6 +284,7 @@ MonoBehaviour:
   _imgItem: {fileID: 3555740017626546716}
   _btnBuy: {fileID: 3555740016824222571}
   _useButton: {fileID: 3205814397517533458}
+  _highlighter: {fileID: 2574704426096502958}
 --- !u!114 &5512525332583609723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,6 +344,36 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2348223257581778464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706377374369932729}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: -1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &2574704426096502958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706377374369932729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 664d0634dffb148508913e1c9b6231ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainImage: {fileID: 0}
+  _highlightedColor: {r: 0, g: 0.9198805, b: 0.990566, a: 1}
+  _highlightedSprite: {fileID: 21300000, guid: 966be606197166640a108ef53355eddf, type: 3}
 --- !u!1 &3555740016155672249
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +613,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 200
+  m_PreferredWidth: 250
   m_PreferredHeight: 60
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1

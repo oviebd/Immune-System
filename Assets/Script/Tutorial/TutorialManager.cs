@@ -55,7 +55,8 @@ public class TutorialManager : MonoBehaviour,DialogBase.Delegate
 
             if (_currentHighlighter != null)
             {
-                _currentHighlighter.SetHighlightProperties(_highlightedImage, Color.red);
+				_currentHighlighter.SetHighlightColor(Color.red);
+				_currentHighlighter.SetHighlightSprite(_highlightedImage);
                 _currentHighlighter.ShowHighlight();
             }
                
