@@ -19,6 +19,7 @@ public class InstantiatorHelper : MonoBehaviour {
 		newObj.transform.parent = primaryParentObj.transform;
 		return newObj;
 	}
+	
 	public GameObject InstantiateObject(GameObject obj)
 	{
 		GameObject newObj = Instantiate(obj);

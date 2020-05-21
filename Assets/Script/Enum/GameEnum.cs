@@ -9,7 +9,7 @@ public class GameEnum
 	public enum CollectableType { Schild, Life,Update_Bullet_Frequency,Update_Bullet }
 	public enum GunType { GunType_1, GunType_2 }
 	public enum UpgradeType { AddGun, RemoveGun }
-    public enum GameTags { PlayerBullet, EnemyBullet, Player,Enemy}
+    public enum GameTags { PlayerBullet, EnemyBullet, Player,Enemy,Background}
 	public enum GameState { Idle, Running, PauseGame, PlayerLose,PlayerWin, LevelChoose, StoreUiState,TutorialState }
 	public enum UiState { StartGameState, PauseGameState, GameRunningState,GameOverState,TutorialUiState }
 	public enum DialogType { ErrorDialog,ActionDialog,InfoDialog,ImageDialog,Tutorial }
