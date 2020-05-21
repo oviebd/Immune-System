@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad66485cc21946148572aaff233e088, type: 3}
   m_Name: enemyData_L 3
   m_EditorClassIdentifier: 
-  levelNumber: 2
-  numberOfWave: 4
-  initialEnemyNumber: 4
-  initialEnemySpawnDelay: 1
-  enemySpawnDelayReduceFactorPerWave: 0.5
-  initialNumberOfEnemyInAWave: 30
-  multiplierOfEnemyNumberPerWave: 1.8
+  levelNumber: 3
+  numberOfWave: 3
+  initialEnemySpawnDelay: 1.5
+  enemySpawnDelayReduceFactorPerWave: 0.2
+  initialNumberOfEnemyInAWave: 17
+  multiplierOfEnemyNumberPerWave: 1
   enemyTypes: 040000000200000003000000
   enemyPercentageList: 280000001400000014000000
