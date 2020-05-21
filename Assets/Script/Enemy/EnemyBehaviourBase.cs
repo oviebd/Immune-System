@@ -61,8 +61,7 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
     void Die(GameObject collidedObject)
     {
-		if (collidedObject.tag != GameEnum.GameTags.Player.ToString()) //If enemy collided with player then player score will not Increased
-			ScoreManager.instance.AddScore(GetRewardPoint());
+		ScoreManager.instance.AddScore(GetRewardPoint());
 		DestroyObj();
 		enemyDestroyedByPlayer(this);
     }

@@ -5139,6 +5139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _PauseButton: {fileID: 176707379}
   _healthSlider: {fileID: 185504305}
+  _levelProgressSlider: {fileID: 331691854}
   _healthPanelAnimator: {fileID: 1244001230}
   _scoreText: {fileID: 1371379467}
 --- !u!114 &1073380500

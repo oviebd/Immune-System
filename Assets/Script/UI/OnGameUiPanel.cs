@@ -7,6 +7,7 @@ public class OnGameUiPanel : PanelBase
 {
 	[SerializeField] private GameObject _PauseButton;
 	[SerializeField] private SliderUtility _healthSlider;
+	[SerializeField] private SliderUtility _levelProgressSlider;
 	[SerializeField] private Animator _healthPanelAnimator;
 
 	[SerializeField] private Text _scoreText;
@@ -44,20 +45,27 @@ public class OnGameUiPanel : PanelBase
 	private void OnScoreValueChanged(int score)
 	{
 		_scoreText.text = score.ToString();
+		SetlevelProgress(score);
+	}
+
+	private void SetlevelProgress( float currentValue)
+	{
+		_levelProgressSlider.SetMaxLimit(ScoreManager.instance.GetWinningScore());
+		_levelProgressSlider.SetSliderValue(currentValue);
 	}
 
 	public void PauseButtonOnClicked()
 	{
 		GameActionHandler.instance.ActionPauseGame();
 	}
-
-	
-
 	private void OnGameStateChanged(GameEnum.GameState state)
 	{
 		if(state == GameEnum.GameState.Idle || state == GameEnum.GameState.PlayerWin || state == GameEnum.GameState.PlayerLose)
+		{
 			_healthSlider.ResetData();
+			_levelProgressSlider.ResetData();
 
+		}
 		if (state == GameEnum.GameState.TutorialState)
 			_PauseButton.SetActive(false);
 		else

@@ -33,6 +33,10 @@ public class ScoreManager : MonoBehaviour
         _currentScore = 0;
 		onScoreUpdate(_currentScore);
 	}
+	public int GetWinningScore()
+	{
+		return _winningScore;
+	}
     public void AddScore(int incrementedScore)
     {
         _currentScore = _currentScore + incrementedScore;

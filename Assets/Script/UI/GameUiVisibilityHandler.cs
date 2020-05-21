@@ -71,16 +71,6 @@ public class GameUiVisibilityHandler : MonoBehaviour
 		button.gameObject.SetActive(false);
 	}
 
-	public void UpdateNextLevelIndicatorSlider(float maxValue, float currentValue)
-	{
-		_nextLevelIndicatorSlider.SetMaxLimit(maxValue);
-		_nextLevelIndicatorSlider.SetSliderValue(currentValue);
-	}
-	public void ResetSliderData()
-	{
-		_nextLevelIndicatorSlider.ResetData();
-	}
-
 	public void ShowAnimatedMessage(string message)
 	{
 		GameObject obj = InstantiatorHelper.instance.InstantiateCanvasUIObject(_animatedMessagePrefab);

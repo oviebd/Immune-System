@@ -17,7 +17,6 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
     {
         GameDataHandler.instance.SetCurrentLevelNumber(levelNumber);
         GameEnvironmentController.instance.LoadLevelEnvironment(levelNumber);
-        GameUiVisibilityHandler.instance.ResetSliderData();
 
         if(TutorialManager.instance.IsTutorialShownAlready() == false)
         {
