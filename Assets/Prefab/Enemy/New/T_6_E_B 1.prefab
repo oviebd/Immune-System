@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 7350347529875769715}
   - component: {fileID: 3015982610723921658}
   m_Layer: 10
-  m_Name: Enemy 6 _ B 1
+  m_Name: T_6_E_B 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1427,7 +1427,7 @@ MonoBehaviour:
   OnGoingCompleted:
     m_PersistentCalls:
       m_Calls: []
-  _movingSpeed: 3
+  _movingSpeed: 2.2
   _stoppingDistance: 0
 --- !u!114 &1458558806891469738
 MonoBehaviour:

@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 5101693746049995252}
-  _moveSpeed: 2.5
+  _moveSpeed: 3.2
 --- !u!114 &2237697749735478489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _maxBullet: 0
   _infiniteFirePower: 1
-  _coolDownTime: 0.4
+  _coolDownTime: 0.3
   _minActiveGunNum: 1
 --- !u!114 &1397297711736774126
 MonoBehaviour:

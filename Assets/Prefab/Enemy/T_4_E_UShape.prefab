@@ -332,7 +332,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _movingSpeed: 2
+  _movingSpeed: 3.5
   _stoppingDistance: 0
 --- !u!114 &-4085848716448736657
 MonoBehaviour:

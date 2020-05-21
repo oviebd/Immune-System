@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 8098721057282363892}
   - component: {fileID: 6170400766240868827}
   m_Layer: 10
-  m_Name: Enemy 9 B _ 4
+  m_Name: T_9_E_B 4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
   OnGoingCompleted:
     m_PersistentCalls:
       m_Calls: []
-  _movingSpeed: 3
+  _movingSpeed: 2.2
   _stoppingDistance: 0
 --- !u!114 &959373450320640950
 MonoBehaviour:

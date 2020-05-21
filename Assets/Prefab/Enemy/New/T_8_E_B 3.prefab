@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 5815097251685326973}
   - component: {fileID: 2384047084511119528}
   m_Layer: 10
-  m_Name: Enemy 8 B _ 3
+  m_Name: T_8_E_B 3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
   OnGoingCompleted:
     m_PersistentCalls:
       m_Calls: []
-  _movingSpeed: 3
+  _movingSpeed: 2.2
   _stoppingDistance: 0
 --- !u!114 &3033839574804073663
 MonoBehaviour:

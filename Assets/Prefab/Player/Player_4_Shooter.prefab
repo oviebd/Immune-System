@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 5101693746049995252}
-  _moveSpeed: 3
+  _moveSpeed: 5
 --- !u!114 &2237697749735478489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcf25e0d7aef48d188af9f0ca7b5066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHealth: 65
+  _totalHealth: 90
   _isItPlayerHealth: 1
 --- !u!114 &-298775007050859447
 MonoBehaviour:
