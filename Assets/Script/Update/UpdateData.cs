@@ -8,10 +8,4 @@ public class UpdateData : MonoBehaviour
     public int requiredEnemy = 12; //Base number of enemy need to destroy in a given time.
     public float updateFactor = 6;  // Used for set Difficulty .Responsible for calculated enemy number based on waveNumber
 
-
-    private void Start()
-    {
-        PlayerUpdateController.instance.SetUpdateData(requiredTime, requiredEnemy, updateFactor);
-    }
-
 }

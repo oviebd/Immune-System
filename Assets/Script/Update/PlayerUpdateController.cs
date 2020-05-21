@@ -51,11 +51,11 @@ public class PlayerUpdateController : MonoBehaviour,ITimer
         ResetUpdate();
     }
 
-    public void SetUpdateData(float time,int enemy, float factor)
+    public void SetUpdateData( UpdateData data)
     {
-        this._requiredTime = time;
-        this._requiredEnemy = enemy;
-        this._updateFactor = factor;
+        this._requiredTime = data.requiredTime;
+        this._requiredEnemy = data.requiredEnemy;
+        this._updateFactor = data.updateFactor;
 
         _currentWaveNumber = 1;
         _requiredTimeForCurrentWave = _requiredTime;

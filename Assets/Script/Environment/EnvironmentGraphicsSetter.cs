@@ -25,7 +25,9 @@ public class EnvironmentGraphicsSetter : MonoBehaviour
 			_playSound.PlayAudioWithClip(environmentData.audioClip);
 
 		SetBackgroundImage(environmentData);
-    }
+		PlayerUpdateController.instance.SetUpdateData(environmentData.updateData);
+			
+	}
 
 	private void SetBackgroundImage(GameEnvironmentDataModel environmentData)
 	{
