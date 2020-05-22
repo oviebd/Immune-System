@@ -82,7 +82,7 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 			}
 		}
 
-		ScoreManager.instance.SetWInningPoint(_totalEnemyCountPoint - (_totalEnemyCountPoint/25));
+		ScoreManager.instance.SetWInningPoint(_totalEnemyCountPoint);
 		return _instantiateEnemyBehaviourList;
 	}
 

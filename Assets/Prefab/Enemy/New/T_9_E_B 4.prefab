@@ -167,8 +167,8 @@ MonoBehaviour:
   - {fileID: 8931013583651127655}
   - {fileID: 1745868559861994925}
   m_Bounds:
-    m_Center: {x: 0.0091998875, y: 0.0075217485, z: 0}
-    m_Extent: {x: 0.48869315, y: 1.2476854, z: 0}
+    m_Center: {x: 0.0012851357, y: -0.0011743307, z: 0}
+    m_Extent: {x: 0.48871535, y: 1.2476058, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3083627034943875627
@@ -403,7 +403,6 @@ GameObject:
   - component: {fileID: 5930879713007387597}
   - component: {fileID: 7463690576386478695}
   - component: {fileID: 5271010140774543113}
-  - component: {fileID: 959373450320640950}
   - component: {fileID: 832997083193483632}
   - component: {fileID: 358478026393242175}
   - component: {fileID: 7944204128759604102}
@@ -411,6 +410,7 @@ GameObject:
   - component: {fileID: 4612801943778711864}
   - component: {fileID: 8098721057282363892}
   - component: {fileID: 6170400766240868827}
+  - component: {fileID: 6930293771721543577}
   m_Layer: 10
   m_Name: T_9_E_B 4
   m_TagString: Enemy
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetTransform: {fileID: 0}
-  isAllTimeUpdate: 0
+  isAllTimeUpdate: 1
 --- !u!114 &5271010140774543113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,24 +524,8 @@ MonoBehaviour:
   OnGoingCompleted:
     m_PersistentCalls:
       m_Calls: []
-  _movingSpeed: 2.2
+  _movingSpeed: 1
   _stoppingDistance: 0
---- !u!114 &959373450320640950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8744037436684713606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d82a39bbb82cd43068d737487d119e7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  graphicsObj: {fileID: 5971101590118360028}
-  _collider: {fileID: 4194104038258819496}
-  _explosion: {fileID: 832997083193483632}
-  _enemyType: 8
 --- !u!114 &832997083193483632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -726,6 +710,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clip: {fileID: 0}
+--- !u!114 &6930293771721543577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744037436684713606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a731a55f6874531868f9cdfeeb9334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  graphicsObj: {fileID: 5971101590118360028}
+  _collider: {fileID: 4194104038258819496}
+  _explosion: {fileID: 832997083193483632}
+  _enemyType: 8
+  _minimumDistanceFromPlayerForShooting: 1
 --- !u!1 &9133133392543615520
 GameObject:
   m_ObjectHideFlags: 0
