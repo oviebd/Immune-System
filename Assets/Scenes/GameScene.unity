@@ -2064,7 +2064,7 @@ MonoBehaviour:
   - {fileID: 6689067606414967003, guid: c85a27232e99a5f42a8a5b8d25fd4056, type: 3}
   - {fileID: 7922354520863022930, guid: 36fd385e5cb83a44ba732a898410ed40, type: 3}
   - {fileID: 7201587662016427184, guid: 420533d4ece7bf84f8ec2c5cec4f793b, type: 3}
-  - {fileID: 7834297723842644879, guid: a4c9ecc3721042a48abf1fbd1fa68e3f, type: 3}
+  - {fileID: 6406376479494549218, guid: a4c9ecc3721042a48abf1fbd1fa68e3f, type: 3}
   - {fileID: 114154039, guid: 8e5f0ae90c14c8848b0adca08a225908, type: 3}
   - {fileID: 6930293771721543577, guid: ddf47157e6a29104da06c1b0932ca90f, type: 3}
   debugText: {fileID: 4833425329599326785}
@@ -10779,7 +10779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fd2198c0d1e4566ac534238c1a2bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentPlayerType: 3
+  _currentPlayerType: 0
   _playerList:
   - {fileID: 8235833068661842949, guid: 3c9c6abc37a5445a8be3307c47edfa3f, type: 3}
   - {fileID: 8235833068661842949, guid: 04dba4b6909e647b4821f1f8c55bd9ae, type: 3}

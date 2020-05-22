@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IReward 
 {
-    int getRewardPoint();
+    int GetReward();
+    void SetReward(int rewordPoint);
 }

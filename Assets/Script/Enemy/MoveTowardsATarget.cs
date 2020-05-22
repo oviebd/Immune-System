@@ -17,12 +17,10 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
 	public void Setup(GameObject targetObj,float distance)
     {
         _target = targetObj;
-		//this._stoppingDistance = distance;
     }
 	public void Run()
 	{
-		if(_target != null)
-			_canMove = true;
+        _canMove = true;
 	}
 
 	public void SetTargetObject(GameObject targetObject)
@@ -31,9 +29,11 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
 	public void SetAngle(float angle)
 	{
 	}
+
 	void Update()
     {
-        MoveTowards();
+       if (_target != null)
+            MoveTowards();
     }
 
     private void MoveTowards()
@@ -52,7 +52,6 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
                     isReachedDestination = true;
 					if (OnGoingCompleted != null)
 						SetMovement();
-					//this.enabled = false;
                 }
             }
         }
@@ -61,7 +60,6 @@ public class MoveTowardsATarget : MonoBehaviour,IMove
     void SetMovement()
     {
         OnGoingCompleted.Invoke();
-       // FindObjectOfType<OrbitingTowardsATarget>().SetMoveAble(_angle);
     }
 
     public void StopMovement()

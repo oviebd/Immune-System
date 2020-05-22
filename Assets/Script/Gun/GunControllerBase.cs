@@ -45,11 +45,22 @@ public class GunControllerBase : MonoBehaviour,ITimer
 
 	private void EquipControllerWithGuns(GameObject gunPrefab)
 	{
+
 		for (int i = 0; i < _gunGameobjectList.Count; i++)
 		{
-			GameObject newObj = Instantiate(gunPrefab, _gunGameobjectList[i].transform);
-			newObj.transform.parent = _gunGameobjectList[i].transform;
-			IGun iGun = newObj.GetComponent<IGun>();
+			IGun iGun;
+
+			if (_gunGameobjectList[i].GetComponent<IGun>() == null)
+            {
+				GameObject newObj = Instantiate(gunPrefab, _gunGameobjectList[i].transform);
+				newObj.transform.parent = _gunGameobjectList[i].transform;
+				iGun = newObj.GetComponent<IGun>();
+			}
+            else
+            {
+				iGun = _gunGameobjectList[i].GetComponent<IGun>();
+			}
+
 			if ( iGun != null && this._iGunController != null)
 			{
 				this._iGunController.AppendGunsInGunController(iGun, i);

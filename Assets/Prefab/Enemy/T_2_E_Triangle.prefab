@@ -299,7 +299,6 @@ MonoBehaviour:
   _collider: {fileID: 6759629076922445302}
   _explosion: {fileID: 6740032604747814670}
   _enemyType: 1
-  _minimumDistanceFromPlayerForShooting: 7
 --- !u!82 &2658237527110065132
 AudioSource:
   m_ObjectHideFlags: 0
@@ -419,7 +418,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8076014991644329771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a410017ebd5f64299ad6f51de28e109f, type: 3}
   m_Name: 

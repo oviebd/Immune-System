@@ -120,16 +120,11 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 
 	public void OnTimeCompleted()
 	{
-		
-		//throw new System.NotImplementedException();
-		//SpawnRandomEnemy();
 		if(  _totalEnemyNumber < _instantiateEnemyBehaviourList.Count)
 		{
-			//Debug.Log("Total enemy Number ; " + _totalEnemyNumber);
 			_instantiateEnemyBehaviourList[_totalEnemyNumber].SetActiveMode();
 			UpdateEnemyNumber();
-		}
-			
+		}	
 	}
 
     private EnemyBehaviourBase[] GetAllEnemyBehaviour()

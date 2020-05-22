@@ -108,7 +108,7 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 	public int GetRewardPoint()
     {
         if (gameObject.GetComponent<IReward>() != null)
-           return gameObject.GetComponent<IReward>().getRewardPoint();
+           return gameObject.GetComponent<IReward>().GetReward();
         return 0;
     }
 

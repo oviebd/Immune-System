@@ -729,7 +729,7 @@ Transform:
   m_GameObject: {fileID: 6819418218863995355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 3905174183829665344}
   m_RootOrder: 1
@@ -794,6 +794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3798259516685448336}
+  - component: {fileID: 2087606865}
   m_Layer: 10
   m_Name: gun Point
   m_TagString: Untagged
@@ -809,12 +810,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6877568971613587316}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -0.29, y: 1.79, z: 0}
+  m_LocalPosition: {x: -0.15, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3905174183829665344}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &2087606865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877568971613587316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b61f05dfcdf04ed7a40a77a77247f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gunType: 1
+  _bulletPrefab: {fileID: 8076014991644329771, guid: 3e886f6e83487954ea93f088ab241fa8,
+    type: 3}
+  _parentObj: {fileID: 6877568971613587316}
+  _canShoot: 1
 --- !u!1 &7401664118885589453
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +845,6 @@ GameObject:
   - component: {fileID: 1286717771905953088}
   - component: {fileID: 1407303943160456963}
   - component: {fileID: 3184671317599521179}
-  - component: {fileID: 2141194384946941368}
   - component: {fileID: 7498652857934214211}
   - component: {fileID: 8781840332640435925}
   - component: {fileID: 8553926435446905867}
@@ -839,7 +856,7 @@ GameObject:
   - component: {fileID: 2608692401284001666}
   - component: {fileID: 6815733206781153344}
   - component: {fileID: 7522816456686432366}
-  - component: {fileID: 7834297723842644879}
+  - component: {fileID: 6406376479494549218}
   m_Layer: 10
   m_Name: T_7_E_B 2
   m_TagString: Enemy
@@ -924,20 +941,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 768
---- !u!114 &2141194384946941368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7401664118885589453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31bda611baefc4c6e960fcce8334cccc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetTransform: {fileID: 0}
-  isAllTimeUpdate: 1
 --- !u!114 &7498652857934214211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,7 +956,7 @@ MonoBehaviour:
   OnGoingCompleted:
     m_PersistentCalls:
       m_Calls: []
-  _movingSpeed: 2
+  _movingSpeed: 1
   _stoppingDistance: 0
 --- !u!114 &8781840332640435925
 MonoBehaviour:
@@ -1146,7 +1149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7401664118885589453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a410017ebd5f64299ad6f51de28e109f, type: 3}
   m_Name: 
@@ -1186,8 +1189,8 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _maxBullet: 0
   _infiniteFirePower: 1
-  _coolDownTime: 1
---- !u!114 &7834297723842644879
+  _coolDownTime: 3
+--- !u!114 &6406376479494549218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1196,14 +1199,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7401664118885589453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4a731a55f6874531868f9cdfeeb9334, type: 3}
+  m_Script: {fileID: 11500000, guid: d82a39bbb82cd43068d737487d119e7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   graphicsObj: {fileID: 2062376198751510085}
   _collider: {fileID: 1286717771905953088}
   _explosion: {fileID: 8781840332640435925}
   _enemyType: 6
-  _minimumDistanceFromPlayerForShooting: 0
 --- !u!1 &7551635828321739565
 GameObject:
   m_ObjectHideFlags: 0

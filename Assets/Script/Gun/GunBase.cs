@@ -18,9 +18,10 @@ public class GunBase : MonoBehaviour
 		_primarylBullet = _bulletPrefab;
 	}
 
-    public void InstantiateBullet()
+    public GameObject InstantiateBullet()
 	{
 		_currentBulletObj = InstantiatorHelper.instance.InstantiateObject(_bulletPrefab, _parentObj);
+		return _currentBulletObj;
 	}
 	public GameEnum.GunType GetGun()
 	{
