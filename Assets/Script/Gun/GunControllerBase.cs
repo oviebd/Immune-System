@@ -84,20 +84,26 @@ public class GunControllerBase : MonoBehaviour,ITimer
 		}
 	}
 
+    public void StartShooting(float waitingTime)
+    {
+		Invoke("StartShooting", waitingTime);
+    }
+
 	public void StartShooting()
 	{
-		_capableForShooting = true;
+        _capableForShooting = true;
 		GetTimer().StartTimer(_coolDownTime);
 
-        if(GameManager.instance.GetCurrentGameState() != GameEnum.GameState.Running)
+		if (GameManager.instance.GetCurrentGameState() != GameEnum.GameState.Running)
 			GetTimer().PauseTimer();
-		
 	}
 
 	public void StopShooting()
 	{
 		_capableForShooting = false;
 		GetTimer().PauseTimer();
+	
+		
 	}
 
 	public void UpdateCooldownTime(float newCooldownTime)

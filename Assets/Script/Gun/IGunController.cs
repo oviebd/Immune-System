@@ -8,6 +8,7 @@ public interface IGunController
 	void AppendGunsInGunController(IGun gun, int i);
 	void StopShooting();
 	void StartShooting();
+	void StartShooting(float waitingTime);
 	void UpdateCooldownTimeTeporarily(float cooldownTime);
 }
     

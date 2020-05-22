@@ -13,12 +13,14 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
     private IENemyBehaviour _enemyBehaviour;
     private IHealth _health;
 	[SerializeField]private IGunController _iGunController;
+    private bool _isEnemyEnteredGameScene;
 
 	public delegate void OnEnemyDestroyedByPlayer(EnemyBehaviourBase behaviour);
     public static event OnEnemyDestroyedByPlayer enemyDestroyedByPlayer;
 
     private void Start()
     {
+        _isEnemyEnteredGameScene = false;
         SearchForPlayer();
         GetHealth();
     }
@@ -97,13 +99,11 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 		_collider.enabled = true;
 		graphicsObj.SetActive(true);
 		Utils.StartMovementOf_A_IMove_Gameobject(this.gameObject);
-		if (GetGunController() != null)
+
+        if (GetGunController() != null && _isEnemyEnteredGameScene == true)
 		{
 			GetGunController().StartShooting();
 		}
-			
-		
-
 	}
 	public int GetRewardPoint()
     {
@@ -113,7 +113,7 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
     }
 
 	
-    IGunController GetGunController()
+    public IGunController GetGunController()
 	{
 		if (_iGunController == null)
 			_iGunController = this.gameObject.GetComponent<IGunController>();
@@ -130,5 +130,9 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 	{
 
 	}
+    public void SetIsEnemyEnteredGameSceneValue(bool isEntered)
+    {
+        _isEnemyEnteredGameScene = isEntered;
+    }
 
 }
