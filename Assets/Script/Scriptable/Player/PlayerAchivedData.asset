@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShipList: 00000000
   gunsList: 00000000
-  collectableList: 
-  maxLevelCompletedByPlayer: 1
-  totalScore: 75
+  collectableList: 02000000030000000100000000000000
+  maxLevelCompletedByPlayer: 5
+  totalScore: 875

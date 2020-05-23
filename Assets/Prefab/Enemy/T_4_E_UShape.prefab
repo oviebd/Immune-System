@@ -299,7 +299,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _movingSpeed: 3.5
-  _stoppingDistance: 0
+  _stoppingDistance: 2.5
 --- !u!114 &-4085848716448736657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a410017ebd5f64299ad6f51de28e109f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radious: 2
+  _radious: 2.5
   _repealMagnitudeForce: 1.5
   _isInteractableWithPlayer: 1
 --- !u!114 &1259562576839182465

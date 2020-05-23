@@ -52,8 +52,10 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
 	public void onCollide(GameObject collidedObject)
     {
-        if ( _isEnemyEnteredGameScene == true && GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
-        {
+		//Debug.Log("Is enemy ENtered ; " + this._isEnemyEnteredGameScene + gameObject.name);
+		//  if ( this._isEnemyEnteredGameScene == true && GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
+		if ( GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
+		{
 			DamageAble damageAble = collidedObject.GetComponent<DamageAble>();
             GetHealth().ReduceHealth(damageAble.GetDamage());
             if (GetHealth().IsDie())
