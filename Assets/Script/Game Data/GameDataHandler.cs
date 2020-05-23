@@ -11,6 +11,9 @@ public class GameDataHandler : MonoBehaviour
 
 	public delegate void OnCurrentPlayerChange(GameEnum.PlayerType playerType);
 	public static event OnCurrentPlayerChange onCurrentPlayerChange;
+
+	public delegate void OnGameLevelChange(int currentLevel);
+	public static event OnGameLevelChange onGameLevelChange;
 	private void Awake()
     {
         if (instance == null)
@@ -44,7 +47,9 @@ public class GameDataHandler : MonoBehaviour
         GameDataModel data = GetGameData();
         data.currentLevel = levelNumber;
         SetGameData(data);
-    }
+		if(onGameLevelChange !=null)
+			onGameLevelChange(levelNumber);
+	}
 
     public void SetGameData(GameDataModel data)
     {

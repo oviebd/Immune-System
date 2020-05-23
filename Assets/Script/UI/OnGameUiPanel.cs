@@ -10,6 +10,7 @@ public class OnGameUiPanel : PanelBase
 	[SerializeField] private SliderUtility _levelProgressSlider;
 	[SerializeField] private Animator _healthPanelAnimator;
 
+	[SerializeField] private Text _levelNumberText;
 	[SerializeField] private Text _scoreText;
 
 	private string _anim_param_healthSlider_isShowingScale = "isShowingScale";
@@ -19,12 +20,20 @@ public class OnGameUiPanel : PanelBase
 		GameManager.onGameStateChange += OnGameStateChanged;
 		Health.onHealthValueChanged += OnHealthValueChanged;
 		ScoreManager.onScoreUpdate += OnScoreValueChanged;
+		GameDataHandler.onGameLevelChange += ShowLevelNumber;
 	}
 	private void OnDestroy()
 	{
 		GameManager.onGameStateChange -= OnGameStateChanged;
 		Health.onHealthValueChanged -= OnHealthValueChanged;
 		ScoreManager.onScoreUpdate -= OnScoreValueChanged;
+		GameDataHandler.onGameLevelChange -= ShowLevelNumber;
+	}
+
+	
+	void ShowLevelNumber(int levelNumber)
+	{
+		_levelNumberText.text = "L - " + levelNumber;
 	}
 
 	private void OnHealthValueChanged(int currentHealth, int maxHealth)
