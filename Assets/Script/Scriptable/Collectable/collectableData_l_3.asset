@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f30da6f4c36d4cc680040ff59b3166e, type: 3}
   m_Name: collectableData_l_3
   m_EditorClassIdentifier: 
-  levelNumber: 1
-  noOfCollectableForCurrentLevel: 3
-  minumumTimeDelayPerCollectable: 5
-  collectableType: 01000000
-  collectablePercentageList: 64000000
+  levelNumber: 3
+  noOfCollectableForCurrentLevel: 4
+  minumumTimeDelayPerCollectable: 10
+  collectableType: 01000000000000000200000003000000
+  collectablePercentageList: 19000000190000001900000019000000

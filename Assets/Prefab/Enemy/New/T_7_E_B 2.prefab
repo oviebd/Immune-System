@@ -173,7 +173,7 @@ MonoBehaviour:
   - {fileID: 6704569074067541358}
   - {fileID: 4730790781970970241}
   m_Bounds:
-    m_Center: {x: 0.00006997585, y: -0.0015100241, z: 0}
+    m_Center: {x: 0.00006997585, y: -0.0015101433, z: 0}
     m_Extent: {x: 0.54248, y: 0.88848996, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062376198751510085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.193, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 2699940238337691723}
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 8930707488304531889}
   m_Bounds:
-    m_Center: {x: -0.119684935, y: 0.0114148855, z: 0}
+    m_Center: {x: -0.119684935, y: 0.011414945, z: 0}
     m_Extent: {x: 0.35531503, y: 0.623585, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -564,7 +564,7 @@ MonoBehaviour:
   - {fileID: 8004224789741010196}
   - {fileID: 2368963162944765351}
   m_Bounds:
-    m_Center: {x: 0.00074997544, y: -0.00000008940697, z: 0}
+    m_Center: {x: 0.00074997544, y: -0.00000014901161, z: 0}
     m_Extent: {x: 0.2892499, y: 0.29499996, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -892,7 +892,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007284999, y: 0.9353204}
+  m_Offset: {x: -0.007284999, y: 0.85215306}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -903,7 +903,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6787684, y: 1.5299664}
+  m_Size: {x: 0.6787684, y: 1.3636317}
   m_EdgeRadius: 0
 --- !u!50 &1407303943160456963
 Rigidbody2D:
@@ -956,7 +956,7 @@ MonoBehaviour:
   OnGoingCompleted:
     m_PersistentCalls:
       m_Calls: []
-  _movingSpeed: 1
+  _movingSpeed: 1.5
   _stoppingDistance: 0
 --- !u!114 &8781840332640435925
 MonoBehaviour:
@@ -986,7 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcf25e0d7aef48d188af9f0ca7b5066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalHealth: 10
+  _totalHealth: 8
   _isItPlayerHealth: 0
 --- !u!114 &4041043245937850154
 MonoBehaviour:

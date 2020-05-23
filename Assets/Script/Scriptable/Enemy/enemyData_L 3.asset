@@ -19,4 +19,4 @@ MonoBehaviour:
   initialNumberOfEnemyInAWave: 17
   multiplierOfEnemyNumberPerWave: 1
   enemyTypes: 01000000020000000300000004000000
-  enemyPercentageList: 19000000190000001900000019000000
+  enemyPercentageList: 28000000280000000a0000000a000000
