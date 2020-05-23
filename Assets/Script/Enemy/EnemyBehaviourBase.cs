@@ -52,7 +52,7 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
 	public void onCollide(GameObject collidedObject)
     {
-        if (GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
+        if ( _isEnemyEnteredGameScene == true && GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
         {
 			DamageAble damageAble = collidedObject.GetComponent<DamageAble>();
             GetHealth().ReduceHealth(damageAble.GetDamage());
@@ -70,9 +70,6 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
     void DestroyObj()
     {
-        SetInactiveMode();
-        Destroy(this.gameObject, 2.0f);
-
         if( _enemyBehaviour!= null)
         {
             if (_explosion != null)
@@ -80,7 +77,9 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
             _enemyBehaviour.OnDestroyObject();
         }
-    }
+		SetInactiveMode();
+		Destroy(this.gameObject, 2.0f);
+	}
 
     public void SetInactiveMode()
     {

@@ -16,12 +16,11 @@ public class Explosion : MonoBehaviour
 
     public void Explode()
     {
-        InstantiateEffect();
-
-        if (GetPlaySound() != null && _explosionClip != null)
-        {
-            GetPlaySound().PlayAudioWithClip(_explosionClip);
-        }
+		if (GetPlaySound() != null && _explosionClip != null)
+		{
+			GetPlaySound().PlayAudioWithClip(_explosionClip);
+		}
+		InstantiateEffect();
     }
     void InstantiateEffect()
     {

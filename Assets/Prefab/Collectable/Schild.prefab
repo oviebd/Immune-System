@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6124345378459895306}
   - component: {fileID: -7767759249194240664}
   - component: {fileID: 4134271358005559293}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Schild
   m_TagString: CollectableItem
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3560366946412301430}
   - component: {fileID: 3560366946412301433}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: outer image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3560366946793161902}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

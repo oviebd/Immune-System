@@ -122,7 +122,7 @@ MonoBehaviour:
   _type: 3
   _graphicsObj: {fileID: 7007155162312137117}
   _collider: {fileID: 7007155161971235251}
-  _bulletPrefab: {fileID: 7939316424949948455, guid: 62347e66c3ab047e2beb0b1eefdf80ae,
+  _bulletPrefab: {fileID: 7939316424949948455, guid: 007b9b955eb71b64f95c8ced2f53ca9c,
     type: 3}
   _duration: 10
 --- !u!1 &7007155162266534005
