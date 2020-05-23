@@ -19,6 +19,7 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 	private float enemySpawnDelayForCurrentWave = 1.0f;
 	private int _totalEnemyNumber = 0;
 	private int _totalEnemyCountPoint = 0;
+	private List<int> enemyNumberPerWaveList;
 
 	private EnemyLevelData data;
 
@@ -58,6 +59,8 @@ public class EnemySpawnController : MonoBehaviour,ITimer
     {
 		data = null;
 	    data = EnemyManager.instance.GetEnemyLevelData(level);
+		enemyNumberPerWaveList = new List<int>();
+		enemyNumberPerWaveList.Clear();
 
 		if (data == null)
 			return;
@@ -65,23 +68,31 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 		_instantiateEnemyBehaviourList = new List<EnemyBehaviourBase>();
 		_totalEnemyNumber = 0;
 		_totalEnemyCountPoint = 0;
+		currentEnemyWave = 1;
 		InstantiateAllEnemyObjs(data);
 		ResetCurrentLevelEnemyData();
 	}
 
 	List<EnemyBehaviourBase> InstantiateAllEnemyObjs(EnemyLevelData data)
 	{
+		int totalEnemyNum = 0;
 		for ( int i=0; i<data.numberOfWave; i++)
 		{
-			int enemyNum = data.initialNumberOfEnemyInAWave + (int)(data.multiplierOfEnemyNumberPerWave * i);
+			int thisWaveEnemy = 0;
+			if (i == 0)
+				thisWaveEnemy = data.initialNumberOfEnemyInAWave;
+			else
+				thisWaveEnemy = (int) (totalEnemyNum * data.multiplierOfEnemyNumberPerWave);
 
-			for (int j=0; j < enemyNum; j++)
-			{
-				 GameObject obj = SpawnRandomEnemy();
-				AddEnemyInList(obj);
-			}
+			enemyNumberPerWaveList.Add(thisWaveEnemy);
+			totalEnemyNum = totalEnemyNum + thisWaveEnemy;
 		}
 
+		for (int i = 0; i < totalEnemyNum; i++)
+		{
+			GameObject obj = SpawnRandomEnemy();
+			AddEnemyInList(obj);
+		}
 		ScoreManager.instance.SetWInningPoint(_totalEnemyCountPoint);
 		return _instantiateEnemyBehaviourList;
 	}
@@ -100,6 +111,9 @@ public class EnemySpawnController : MonoBehaviour,ITimer
     void ResetCurrentLevelEnemyData()
     {
 		enemyNumberInCurrentWave = 0;
+		if(enemyNumberPerWaveList.Count < currentEnemyWave - 1)
+			maxEnemyNumberInCurrentWave = enemyNumberPerWaveList[currentEnemyWave - 1];
+
 		if (currentEnemyWave == 1)
         {
 			maxEnemyNumberInCurrentWave = data.initialNumberOfEnemyInAWave;
@@ -107,7 +121,11 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 		}
         else
         {
-			maxEnemyNumberInCurrentWave += (int)(data.initialNumberOfEnemyInAWave * data.multiplierOfEnemyNumberPerWave);
+			if (currentEnemyWave < data.numberOfWave)
+				GameUiVisibilityHandler.instance.ShowAnimatedMessage(" Starting Enemy Wave  " + currentEnemyWave);
+			else
+				GameUiVisibilityHandler.instance.ShowAnimatedMessage(" Last Enemy Wave ");
+			
 			enemySpawnDelayForCurrentWave = data.initialEnemySpawnDelay - (data.enemySpawnDelayReduceFactorPerWave * (currentEnemyWave - 1));
 		}
 
@@ -160,7 +178,6 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 
 	void UpdateEnemyWaveData()
 	{
-		
 		currentEnemyWave = currentEnemyWave + 1;
 		if (currentEnemyWave <= data.numberOfWave) 
         {

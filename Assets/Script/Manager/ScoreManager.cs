@@ -46,7 +46,7 @@ public class ScoreManager : MonoBehaviour
 			int totalScore = PlayerAchivedDataHandler.instance.GetTotalScore() + _currentScore;
 			PlayerAchivedDataHandler.instance.SetTotalScore(totalScore);
 
-			Invoke("TriggerPlayerWinCallback", 0.7f);
+			Invoke("TriggerPlayerWinCallback",1.0f);
 		}
 		onScoreUpdate(_currentScore);
 	}
