@@ -70,13 +70,18 @@ public class GameUiVisibilityHandler : MonoBehaviour
 	{
 		button.gameObject.SetActive(false);
 	}
-
-	public void ShowAnimatedMessage(string message)
+	public GameObject ShowAnimatedMessage(string message,GameObject parent = null)
 	{
-		GameObject obj = InstantiatorHelper.instance.InstantiateCanvasUIObject(_animatedMessagePrefab);
-		AnimatedMessage animatedMessage = obj.GetComponent<AnimatedMessage>();
-		if (animatedMessage != null)
-			animatedMessage.SetMessage(message);
+		GameObject obj;
+		if(parent == null)
+			obj = InstantiatorHelper.instance.InstantiateCanvasUIObject(_animatedMessagePrefab);
+		else
+			obj = InstantiatorHelper.instance.InstantiateCanvasUIObject(_animatedMessagePrefab, parent);
+
+		if (obj.GetComponent<AnimatedMessage>() !=null)
+			obj.GetComponent<AnimatedMessage>().SetMessage(message);
+
+		return obj;
 	}
 
     public void ShowTutorial()

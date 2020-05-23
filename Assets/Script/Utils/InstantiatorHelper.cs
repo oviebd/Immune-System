@@ -39,6 +39,7 @@ public class InstantiatorHelper : MonoBehaviour {
 	{
 		GameObject newObj = Instantiate(obj, canvasParentObj.transform.position, parent.transform.rotation);
 		newObj.transform.parent = parent.transform;
+		newObj.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 		return newObj;
 	}
 }

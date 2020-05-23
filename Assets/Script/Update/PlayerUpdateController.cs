@@ -104,7 +104,9 @@ public class PlayerUpdateController : MonoBehaviour,ITimer
         int savedTime = (int)(_requiredTimeForCurrentWave - _timer.GetElapsedTime());
         if (savedTime > 0 && _currentWaveNumber > 2 && _currentWaveNumber <= _maxWaveNum)
         {
-            _requiredTimeForCurrentWave = _requiredTimeForCurrentWave + savedTime;
+			if (savedTime > ((int) this._requiredTime / 3))
+				savedTime =(int) this._requiredTime / 3;
+			_requiredTimeForCurrentWave = _requiredTimeForCurrentWave + savedTime;
             UpdateIndicatorUI.instance.ShowSavedTimeMesage(savedTime);
         }
           

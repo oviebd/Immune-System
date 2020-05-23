@@ -49,7 +49,10 @@ public class UpdateIndicatorUI : PanelBase
 
 	public void ShowSavedTimeMesage(int savedTime)
 	{
-		GameUiVisibilityHandler.instance.ShowAnimatedMessage("You have saved " + savedTime + " s");
+		_remainingTimeAnimator.SetBool(anim_param_remainingTime_isShowingScale, false);
+		GameObject animatedObj =  GameUiVisibilityHandler.instance.ShowAnimatedMessage("+ " + savedTime + " s" , _remainingTimeText.gameObject);
+		if(animatedObj != null && animatedObj.GetComponent<RectTransform>() !=null )
+			animatedObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(80, 0);
 	}
 
 }
