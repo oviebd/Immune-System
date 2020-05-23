@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f30da6f4c36d4cc680040ff59b3166e, type: 3}
-  m_Name: collectableData_l_5
+  m_Name: collectableData_l_6
   m_EditorClassIdentifier: 
   levelNumber: 5
   noOfCollectableForCurrentLevel: 4

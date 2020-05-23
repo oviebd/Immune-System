@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 181426092}
-  - component: {fileID: 181426093}
   m_Layer: 10
   m_Name: Gun Point 2
   m_TagString: Untagged
@@ -31,22 +30,6 @@ Transform:
   m_Father: {fileID: 8644538562654402949}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &181426093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 181426091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gunType: 0
-  _bulletPrefab: {fileID: 0}
-  _parentObj: {fileID: 181426091}
-  _canShoot: 1
 --- !u!1 &1632807721770688045
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +39,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3810937780243229553}
-  - component: {fileID: 1375311750}
   m_Layer: 10
   m_Name: Gun Point 1
   m_TagString: Untagged
@@ -78,22 +60,6 @@ Transform:
   m_Father: {fileID: 8644538562654402949}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1375311750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632807721770688045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66af8168a70fae40901b64a900765b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gunType: 0
-  _bulletPrefab: {fileID: 0}
-  _parentObj: {fileID: 1632807721770688045}
-  _canShoot: 1
 --- !u!1 &2479212942419892027
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,9 +254,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09127343, y: 0.046493113}
+  m_Offset: {x: -0.06669092, y: 0.046493113}
   serializedVersion: 2
-  m_Radius: 0.34093344
+  m_Radius: 0.31635094
 --- !u!114 &3022287168575978612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +330,6 @@ MonoBehaviour:
   _collider: {fileID: 6917993263561059463}
   _explosion: {fileID: 6937732678670898815}
   _enemyType: 3
-  _minimumDistanceFromPlayerForShooting: 7
 --- !u!82 &1814198716522109597
 AudioSource:
   m_ObjectHideFlags: 0

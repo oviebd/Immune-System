@@ -3666,9 +3666,9 @@ MonoBehaviour:
   _collectableLevelDataList:
   - {fileID: 11400000, guid: ea7cf8d317b0943858885730a9562830, type: 2}
   - {fileID: 11400000, guid: f552e4926b78b4498a22c1ec25718c0d, type: 2}
-  - {fileID: 11400000, guid: f552e4926b78b4498a22c1ec25718c0d, type: 2}
-  - {fileID: 11400000, guid: f552e4926b78b4498a22c1ec25718c0d, type: 2}
-  - {fileID: 11400000, guid: f552e4926b78b4498a22c1ec25718c0d, type: 2}
+  - {fileID: 11400000, guid: 3e7d6a1e7b73a491a91eb8de31972c18, type: 2}
+  - {fileID: 11400000, guid: d5ff36c8970a24a68a9b1cce50080ef3, type: 2}
+  - {fileID: 11400000, guid: 838388e2b4b6b4796bfc35360149a0f0, type: 2}
 --- !u!114 &752215388
 MonoBehaviour:
   m_ObjectHideFlags: 0
