@@ -45,10 +45,15 @@ public class ScoreManager : MonoBehaviour
 		{
 			int totalScore = PlayerAchivedDataHandler.instance.GetTotalScore() + _currentScore;
 			PlayerAchivedDataHandler.instance.SetTotalScore(totalScore);
-			onPlayerWin();
-		}
 
+			Invoke("TriggerPlayerWinCallback", 0.7f);
+		}
 		onScoreUpdate(_currentScore);
+	}
+
+	void TriggerPlayerWinCallback()
+	{
+		onPlayerWin();
 	}
 
     bool IsPlayerWin()
