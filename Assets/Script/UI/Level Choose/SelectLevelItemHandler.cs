@@ -58,19 +58,22 @@ public class SelectLevelItemHandler : MonoBehaviour
         switch (levelNumber)
         {
             case 1:
-                details = "Entry Point";
+                details = "Pharynx";
                 break;
             case 2:
-                details = "Reday for challange ";
+                details = "Lymph nodes";
                 break;
             case 3:
-                details = "details 3";
+                details = "Lungs";
                 break;
             case 4:
-                details = "Details 4";
+                details = "Heart";
                 break;
             case 5:
-                details = "Details 5";
+                details = "Spleen";
+                break;
+            case 6:
+                details = "Liver";
                 break;
         }
 

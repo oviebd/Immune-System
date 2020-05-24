@@ -30,6 +30,7 @@ public class ScoreManager : MonoBehaviour
     public void SetWInningPoint(int winningPoint)
     {
         _winningScore = winningPoint;
+        Debug.Log(winningPoint);
         _currentScore = 0;
 		onScoreUpdate(_currentScore);
 	}

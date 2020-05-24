@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
 
         string  shortDescription = Utils.GetPlayerShortDescription(_playerType);
         
-        details = shortDescription + "\n\n Per Shoot Interval : " + coolDowntime + "\n Health : " + playerHealth + "\n Move Speed : " + moveSpeed;  
+        details = shortDescription + "\n\n Firerate : " + coolDowntime + "\n Strength : " + playerHealth + "\n Agility : " + moveSpeed;  
 
         return details;
     }
