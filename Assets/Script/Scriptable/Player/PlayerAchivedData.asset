@@ -15,5 +15,5 @@ MonoBehaviour:
   playerShipList: 00000000
   gunsList: 00000000
   collectableList: 02000000030000000100000000000000
-  maxLevelCompletedByPlayer: 5
+  maxLevelCompletedByPlayer: 3
   totalScore: 875
