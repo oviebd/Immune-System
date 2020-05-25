@@ -49,12 +49,11 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 	{
 		return _enemyType;
 	}
+    
 
 	public void onCollide(GameObject collidedObject)
     {
-		//Debug.Log("Is enemy ENtered ; " + this._isEnemyEnteredGameScene + gameObject.name);
-		//  if ( this._isEnemyEnteredGameScene == true && GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
-		if ( GetHealth() != null && collidedObject.GetComponent<DamageAble>() != null)
+		if ( GetHealth() != null && GetHealth().IsDie() == false && collidedObject.GetComponent<DamageAble>() != null)
 		{
 			DamageAble damageAble = collidedObject.GetComponent<DamageAble>();
             GetHealth().ReduceHealth(damageAble.GetDamage());
@@ -65,22 +64,22 @@ public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 
     void Die(GameObject collidedObject)
     {
-		ScoreManager.instance.AddScore(GetRewardPoint());
-		DestroyObj();
-		enemyDestroyedByPlayer(this);
+        DestroyObj();
+        enemyDestroyedByPlayer(this);
+        ScoreManager.instance.AddScore(GetRewardPoint());
     }
 
-    void DestroyObj()
+    public void DestroyObj()
     {
-        if( _enemyBehaviour!= null)
+        SetInactiveMode();
+        Destroy(this.gameObject, 2.0f);
+        if ( _enemyBehaviour!= null )
         {
             if (_explosion != null)
                 _explosion.Explode();
 
             _enemyBehaviour.OnDestroyObject();
         }
-		SetInactiveMode();
-		Destroy(this.gameObject, 2.0f);
 	}
 
     public void SetInactiveMode()

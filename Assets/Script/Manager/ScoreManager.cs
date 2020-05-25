@@ -7,11 +7,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
-    private int _winningScore = 50;
+   // private int _winningScore = 50;
     private int _currentScore = 0;
-
-    public delegate void OnPlayerWinDelegate();
-    public static event OnPlayerWinDelegate onPlayerWin;
 
 	public delegate void OnScoreUpdate(int score);
 	public static event OnScoreUpdate onScoreUpdate;
@@ -21,47 +18,46 @@ public class ScoreManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+
+        GameManager.onGameStateChange += OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChange -= OnGameStateChanged;
     }
 
     public int GetCurrentScore()
     {
         return _currentScore;
     }
-    public void SetWInningPoint(int winningPoint)
-    {
-        _winningScore = winningPoint;
-        Debug.Log(winningPoint);
-        _currentScore = 0;
-		onScoreUpdate(_currentScore);
-	}
-	public int GetWinningScore()
-	{
-		return _winningScore;
-	}
+    /* public void SetWInningPoint(int winningPoint)
+     {
+         _winningScore = winningPoint;
+         _currentScore = 0;
+         onScoreUpdate(_currentScore);
+     }
+
+     public int GetWinningScore()
+     {
+         return _winningScore;
+     }*/
+
     public void AddScore(int incrementedScore)
     {
         _currentScore = _currentScore + incrementedScore;
 
-		if (IsPlayerWin())
-		{
-			int totalScore = PlayerAchivedDataHandler.instance.GetTotalScore() + _currentScore;
-			PlayerAchivedDataHandler.instance.SetTotalScore(totalScore);
-
-			Invoke("TriggerPlayerWinCallback",1.0f);
-		}
-		onScoreUpdate(_currentScore);
-	}
-
-	void TriggerPlayerWinCallback()
-	{
-		onPlayerWin();
-	}
-
-    bool IsPlayerWin()
-    {
-        if (_currentScore >= _winningScore)
-            return true;
-        else
-            return false;
+        if(onScoreUpdate != null)
+            onScoreUpdate(_currentScore);
     }
+
+    private void OnGameStateChanged(GameEnum.GameState state)
+    {
+        if (state == GameEnum.GameState.Idle || state == GameEnum.GameState.PlayerWin || state == GameEnum.GameState.PlayerLose)
+        {
+            _currentScore = 0;
+            AddScore(0);
+        }
+    }
+
 }

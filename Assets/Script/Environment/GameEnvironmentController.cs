@@ -22,6 +22,28 @@ public class GameEnvironmentController : MonoBehaviour
 		EnvironmentGraphicsSetter.instance.SetBackground(levelNumber);
     }
 
+
+    public void PrepareGameOverEnvironment(bool isWin)
+    {
+		//HideAllObjsExceptPlayer();
+
+		if (isWin == false)
+			EnemySpawnController.instance.SetEnemyModeActiveInactive(false);
+        else
+        {
+			PlayerSpawnerController.instance.HidePlayer();
+			EnemyBehaviourBase[] enemy = FindObjectsOfType<EnemyBehaviourBase>();
+			if (enemy != null && enemy.Length > 0)
+			{
+				for (int i = 0; i < enemy.Length; i++)
+				{
+					enemy[i].gameObject.GetComponent<IReward>().SetReward(0);
+					enemy[i].DestroyObj();
+				}
+			}
+		}
+	}
+
 	public void HideAllInstantiatedObjs()
 	{
 		HideAllObjsExceptPlayer();
@@ -37,10 +59,7 @@ public class GameEnvironmentController : MonoBehaviour
 		_parentObjForInstantiatObjs.SetActive(true);
 		PlayerSpawnerController.instance.ShowPlayer();
 	}
-	public void SetEnvironmentForPlayerDieMode()
-	{
-		EnemySpawnController.instance.SetEnemyModeActiveInactive(false);
-	}
+	
 
     public void SetEnvironmentForTutorial()
     {

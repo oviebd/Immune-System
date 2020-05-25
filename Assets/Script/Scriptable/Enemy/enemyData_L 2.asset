@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad66485cc21946148572aaff233e088, type: 3}
   m_Name: enemyData_L 2
   m_EditorClassIdentifier: 
-  levelNumber: 2
-  numberOfWave: 3
+  levelNumber: 3
+  numberOfWave: 1
   initialEnemySpawnDelay: 1.5
   enemySpawnDelayReduceFactorPerWave: 0
   initialNumberOfEnemyInAWave: 15

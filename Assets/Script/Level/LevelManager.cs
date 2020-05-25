@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
     {
         if (instance == null)
             instance = this;
-        ScoreManager.onPlayerWin += OnlevelCompleted;
+        WinningConditionHandler.onPlayerWin += OnlevelCompleted;
     }
 
     public void LoadALevel(int levelNumber)
@@ -50,22 +50,6 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
     {
         return GameDataHandler.instance.GetCurrentLevelNumber();
     }
-
-
-   /* public bool IsPlayerCapableForGoNextLevel(int nextLevelNumber)
-    {
-        if (GetlevelRequiredData(nextLevelNumber) == null) 
-            return true;
-        return PlayerAchivedDataHandler.instance.IsShipTypeExistInAchievedShipList(GetlevelRequiredData(nextLevelNumber).shipType);
-    
-    }*/
-
-   /* private LevelRequiredDataModel GetlevelRequiredData(int levelNumber)
-    {
-        if(_levelRequiredData == null)
-            _levelRequiredData = LevelDataCreator.GetLevelRequiredDataModel(levelNumber);
-        return _levelRequiredData;
-    }*/
 
     public void OnDialogPositiveButtonPressed()
     {

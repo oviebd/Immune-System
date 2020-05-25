@@ -93,7 +93,7 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 			GameObject obj = SpawnRandomEnemy();
 			AddEnemyInList(obj);
 		}
-		ScoreManager.instance.SetWInningPoint(_totalEnemyCountPoint);
+		WinningConditionHandler.instance.SetWinningAmount(totalEnemyNum);
 		return _instantiateEnemyBehaviourList;
 	}
 
@@ -122,9 +122,9 @@ public class EnemySpawnController : MonoBehaviour,ITimer
         else
         {
 			if (currentEnemyWave < data.numberOfWave)
-				GameUiVisibilityHandler.instance.ShowAnimatedMessage(" Starting Enemy Wave  " + currentEnemyWave);
+				GameUiVisibilityHandler.instance.ShowAnimatedMessage(" Start Wave :  " + currentEnemyWave);
 			else
-				GameUiVisibilityHandler.instance.ShowAnimatedMessage(" Last Enemy Wave ");
+				GameUiVisibilityHandler.instance.ShowAnimatedMessage(" Last Wave ");
 			
 			enemySpawnDelayForCurrentWave = data.initialEnemySpawnDelay - (data.enemySpawnDelayReduceFactorPerWave * (currentEnemyWave - 1));
 		}
@@ -138,6 +138,7 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 
 	public void OnTimeCompleted()
 	{
+		
 		if(  _totalEnemyNumber < _instantiateEnemyBehaviourList.Count)
 		{
 			_instantiateEnemyBehaviourList[_totalEnemyNumber].SetActiveMode();

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c7c7a5529374a9994384a03e1def31, type: 3}
   m_Name: StoreData L2
   m_EditorClassIdentifier: 
-  itemName: Player 2
+  itemName: Dozzer
   itemType: 1
   itemImage: {fileID: 21300000, guid: 7ad2571581d9e4007bcbec271b696d70, type: 3}
   isPurchased: 0

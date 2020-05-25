@@ -21,6 +21,7 @@ public class OnGameUiPanel : PanelBase
 		Health.onHealthValueChanged += OnHealthValueChanged;
 		ScoreManager.onScoreUpdate += OnScoreValueChanged;
 		GameDataHandler.onGameLevelChange += ShowLevelNumber;
+		WinningConditionHandler.onWinningVariableUpdated += SetlevelProgress;
 	}
 	private void OnDestroy()
 	{
@@ -28,6 +29,7 @@ public class OnGameUiPanel : PanelBase
 		Health.onHealthValueChanged -= OnHealthValueChanged;
 		ScoreManager.onScoreUpdate -= OnScoreValueChanged;
 		GameDataHandler.onGameLevelChange -= ShowLevelNumber;
+		WinningConditionHandler.onWinningVariableUpdated -= SetlevelProgress;
 	}
 
 	
@@ -54,19 +56,19 @@ public class OnGameUiPanel : PanelBase
 	private void OnScoreValueChanged(int score)
 	{
 		_scoreText.text = score.ToString();
-		SetlevelProgress(score);
 	}
 
-	private void SetlevelProgress( float currentValue)
+	private void SetlevelProgress(int currentValue)
 	{
-		_levelProgressSlider.SetMaxLimit(ScoreManager.instance.GetWinningScore());
-		_levelProgressSlider.SetSliderValue(currentValue);
+		_levelProgressSlider.SetMaxLimit( (WinningConditionHandler.instance.GetWinningVariableValue() * 1.0f));
+		_levelProgressSlider.SetSliderValue( (currentValue * 1.0f));
 	}
 
 	public void PauseButtonOnClicked()
 	{
 		GameActionHandler.instance.ActionPauseGame();
 	}
+
 	private void OnGameStateChanged(GameEnum.GameState state)
 	{
 		if(state == GameEnum.GameState.Idle || state == GameEnum.GameState.PlayerWin || state == GameEnum.GameState.PlayerLose)

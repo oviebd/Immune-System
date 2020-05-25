@@ -59,16 +59,23 @@ public class GameActionHandler : MonoBehaviour
 		GameStateTracker.instance.PushGameState(GameEnum.GameState.TutorialState);
 		GameEnvironmentController.instance.SetEnvironmentForTutorial();
 	}
+
 	public void ActionGameOver(bool isWin)
 	{
-		GameEnvironmentController.instance.HideAllInstantiatedObjs();
-		GameStateTracker.instance.PushGameState(GameEnum.GameState.PlayerLose);
+		GameEnvironmentController.instance.PrepareGameOverEnvironment(isWin);
+		//Debug.Log("is win : " + isWin);
 		if (isWin)
-			GameStateTracker.instance.PushGameState(GameEnum.GameState.PlayerWin);
+			StartCoroutine(OnGameOver(GameEnum.GameState.PlayerWin,1.0f));
 		else
-			GameStateTracker.instance.PushGameState(GameEnum.GameState.PlayerLose);
+			StartCoroutine(OnGameOver(GameEnum.GameState.PlayerLose,2.0f));
 	}
 
+    IEnumerator OnGameOver(GameEnum.GameState state,float delay)
+    {
+		yield return new WaitForSeconds(delay);
+		GameStateTracker.instance.PushGameState(state);
+		GameEnvironmentController.instance.HideAllInstantiatedObjs();
+	}
 
     public void BackButtonPressed()
     {

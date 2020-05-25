@@ -8,20 +8,27 @@ public class Explosion : MonoBehaviour
     [SerializeField] private GameObject _explosionEffect;
     [SerializeField] private AudioClip _explosionClip;
 	[SerializeField] private SpriteRenderer _sourceImgForExplosionEffectImage;
+    private bool _isAlreadyExplode = false;
 
 	private void Start()
     {
-        
+        _isAlreadyExplode = false;
     }
 
     public void Explode()
     {
+        if (_isAlreadyExplode == true)
+            return;
+
 		if (GetPlaySound() != null && _explosionClip != null)
 		{
 			GetPlaySound().PlayAudioWithClip(_explosionClip);
 		}
 		InstantiateEffect();
+
+        _isAlreadyExplode = true;
     }
+
     void InstantiateEffect()
     {
         if (_explosionEffect != null)
@@ -34,7 +41,6 @@ public class Explosion : MonoBehaviour
                 _explosionParticle.textureSheetAnimation.SetSprite(0, _sourceImgForExplosionEffectImage.sprite);
                 _explosionParticle.Play();
 			}
-           // Destroy(effectParticle, 1.0f);
         }
     }
 

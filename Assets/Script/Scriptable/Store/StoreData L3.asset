@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c7c7a5529374a9994384a03e1def31, type: 3}
   m_Name: StoreData L3
   m_EditorClassIdentifier: 
-  itemName: Gun 3
+  itemName: Fat Boy
   itemType: 2
   itemImage: {fileID: 21300000, guid: d7570c8444b0f4d91ba7ca3facbf7284, type: 3}
   isPurchased: 0

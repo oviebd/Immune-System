@@ -49,7 +49,7 @@ public class StoreListItemHandler : MonoBehaviour
         for (int i = 0; i < scriptableList.Count; i++)
         {
             StoreItemModel item = new StoreItemModel();
-            item.itemName = scriptableList[i].name;
+            item.itemName = scriptableList[i].itemName;
             item.itemType = scriptableList[i].itemType;
             item.itemDescription = GetStoreItemDetailsBasedOnType(scriptableList[i].itemType);
             item.itemImage = scriptableList[i].itemImage;

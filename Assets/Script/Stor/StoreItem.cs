@@ -27,7 +27,7 @@ public class StoreItem : MonoBehaviour
 
         _txtPrice.text  = item.price + "";
         _imgItem.sprite = item.itemImage;
-		_txtPlayerName.text = item.itemType.ToString();
+		_txtPlayerName.text = item.itemName.ToString();
 		_txtDescription.text = item.itemDescription;
 
 

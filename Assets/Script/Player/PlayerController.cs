@@ -47,9 +47,6 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
     }
     void PlayerDie()
     {
-        //Todo 
-       //  Inactive all Enemy and other objs 
-        GameEnvironmentController.instance.SetEnvironmentForPlayerDieMode();
         if (_playerGraphics != null)
             _playerGraphics.SetActive(false);
         if (_collider != null)
@@ -58,14 +55,9 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
 		GetIgunController().StopShooting();
        if ( _explosion != null)
             _explosion.Explode();
-
-        Invoke("ActionAfterDie", 2.0f);
-    }
-
-    void ActionAfterDie()
-    {
         GameActionHandler.instance.ActionGameOver(false);
     }
+
     public GameEnum.PlayerType GetPlayerType()
     {
         return _playerType;
@@ -90,10 +82,8 @@ public class PlayerController : MonoBehaviour ,IColliderEnter
         float moveSpeed = 0.0f;
         if (this.gameObject.GetComponent<PlayerMovement>() != null)
             moveSpeed = this.gameObject.GetComponent<PlayerMovement>().GetPlayerMoveSpeed();
-
-        string  shortDescription = Utils.GetPlayerShortDescription(_playerType);
         
-        details = shortDescription + "\n\n Firerate : " + coolDowntime + "\n Strength : " + playerHealth + "\n Agility : " + moveSpeed;  
+        details = "\n Fire Rate : " + coolDowntime + "\n Strength : " + playerHealth + "\n Agility : " + moveSpeed;  
 
         return details;
     }
