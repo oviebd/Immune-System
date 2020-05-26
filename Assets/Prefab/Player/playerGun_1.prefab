@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunType: 0
-  _bulletPrefab: {fileID: 7939316424949948455, guid: 3d5a5059dfe2ee1469861eb7d6dd2cc5,
+  _bulletPrefab: {fileID: 7939316424949948455, guid: 16760dff66d5c664db2d688d0cbc26c0,
     type: 3}
   _parentObj: {fileID: 2221921908882748691}
   _canShoot: 1
