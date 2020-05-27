@@ -70,7 +70,7 @@ public class GunControllerBase : MonoBehaviour,ITimer
 
 	void Shoot()
 	{
-		if (this._iGunController != null)
+		if (this._iGunController != null )
 		{
 			List<IGun> guns = this._iGunController.GetGuns();
 			for(int i=0; i<guns.Count; i++)

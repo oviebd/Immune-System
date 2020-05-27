@@ -55,7 +55,7 @@ public class CollectableSpawnControler : MonoBehaviour,ITimer
             return;
 		
 		canSpawn = true;
-		_timer.StartTimer(data.minumumTimeDelayPerCollectable);
+		_timer.StartTimer(GetNextSpawnTime());
 	}
 
 
@@ -68,7 +68,16 @@ public class CollectableSpawnControler : MonoBehaviour,ITimer
 		}
 		else
 			canSpawn = false;
+		_timer.StartTimer(GetNextSpawnTime());
 	}
+
+    private float GetNextSpawnTime()
+    {
+		float nextTime = 2000.0f;
+		if (data != null)
+			nextTime = Random.RandomRange(data.minumumTimeDelayPerCollectable, (data.minumumTimeDelayPerCollectable * 2));
+		return nextTime;
+    }
 
 	#region CollectableSpawn
 

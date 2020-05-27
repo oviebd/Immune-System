@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bullet T 3
+  m_Name: Player Bullet T-1-Default
   m_Shader: {fileID: -6465566751694194690, guid: 5d4aae8682bf55c48bb8c45f25c9eff1,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -44,5 +44,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - glowColor: {r: 16.94838, g: 16.770908, b: 16.770908, a: 1}
+    - glowColor: {r: 16.650362, g: 16.650362, b: 16.650362, a: 1}
     - outlineColor: {r: 10.550621, g: 10.550621, b: 10.550621, a: 1}

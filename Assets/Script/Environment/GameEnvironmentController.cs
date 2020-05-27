@@ -25,13 +25,13 @@ public class GameEnvironmentController : MonoBehaviour
 
     public void PrepareGameOverEnvironment(bool isWin)
     {
-		//HideAllObjsExceptPlayer();
-
 		if (isWin == false)
 			EnemySpawnController.instance.SetEnemyModeActiveInactive(false);
         else
         {
-			PlayerSpawnerController.instance.HidePlayer();
+			PlayerSpawnerController.instance.GetCurrentGamePlayerController().GetIgunController().StopShooting();
+			EnvironmentGraphicsSetter.instance.RunPlayerWinExplosion();
+			GameUiVisibilityHandler.instance.ShowAnimatedMessage("Congratulations!");
 			EnemyBehaviourBase[] enemy = FindObjectsOfType<EnemyBehaviourBase>();
 			if (enemy != null && enemy.Length > 0)
 			{

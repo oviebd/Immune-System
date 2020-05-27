@@ -65,7 +65,7 @@ public class GameActionHandler : MonoBehaviour
 		GameEnvironmentController.instance.PrepareGameOverEnvironment(isWin);
 		//Debug.Log("is win : " + isWin);
 		if (isWin)
-			StartCoroutine(OnGameOver(GameEnum.GameState.PlayerWin,1.0f));
+			StartCoroutine(OnGameOver(GameEnum.GameState.PlayerWin,2.0f));
 		else
 			StartCoroutine(OnGameOver(GameEnum.GameState.PlayerLose,2.0f));
 	}

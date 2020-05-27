@@ -8,8 +8,7 @@ public class EnvironmentGraphicsSetter : MonoBehaviour
 
 	[SerializeField] private PlaySound _playSound;
 	[SerializeField] private GameObject _backgroundParent;
-
-	private GameObject _currentBackground;
+	[SerializeField] private Explosion _playerWinExplosion;
 
     private void Awake()
     {
@@ -41,4 +40,11 @@ public class EnvironmentGraphicsSetter : MonoBehaviour
 			InstantiatorHelper.instance.InstantiateObject(environmentData.backgroundImage);
 		}
 	}
+
+    public void RunPlayerWinExplosion()
+    {
+		if (_playerWinExplosion != null)
+			_playerWinExplosion.Explode();
+    }
+
 }

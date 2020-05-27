@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour, DialogBase.Delegate
 
         if(TutorialManager.instance.IsTutorialShownAlready() == false)
         {
-            Invoke("ShoTutorial", 2.0f);
+            Invoke("ShoTutorial", 0.9f);
         }
     }
 
