@@ -8,7 +8,6 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 	public static EnemySpawnController instance;
 
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
-	private List<EnemyBehaviourBase> _instantiateEnemyBehaviourList = new List<EnemyBehaviourBase>();
 	private Timer _timer;
 
 	private bool canSpawnEnemy = false;
@@ -65,15 +64,14 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 		if (data == null)
 			return;
 
-		_instantiateEnemyBehaviourList = new List<EnemyBehaviourBase>();
 		_totalEnemyNumber = 0;
 		_totalEnemyCountPoint = 0;
 		currentEnemyWave = 1;
-		InstantiateAllEnemyObjs(data);
+		CalculateTotalEnemy(data);
 		ResetCurrentLevelEnemyData();
 	}
 
-	List<EnemyBehaviourBase> InstantiateAllEnemyObjs(EnemyLevelData data)
+	 void CalculateTotalEnemy(EnemyLevelData data)
 	{
 		int totalEnemyNum = 0;
 		for ( int i=0; i<data.numberOfWave; i++)
@@ -88,25 +86,10 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 			totalEnemyNum = totalEnemyNum + thisWaveEnemy;
 		}
 
-		for (int i = 0; i < totalEnemyNum; i++)
-		{
-			GameObject obj = SpawnRandomEnemy();
-			AddEnemyInList(obj);
-		}
 		WinningConditionHandler.instance.SetWinningAmount(totalEnemyNum);
-		return _instantiateEnemyBehaviourList;
 	}
 
-	private void AddEnemyInList(GameObject enemyObj)
-	{
-		if (enemyObj != null && enemyObj.GetComponent<EnemyBehaviourBase>() != null)
-		{
-			EnemyBehaviourBase _behavioir = enemyObj.GetComponent<EnemyBehaviourBase>();
-			_behavioir.SetInactiveMode();
-			_instantiateEnemyBehaviourList.Add(_behavioir);
-			_totalEnemyCountPoint = _totalEnemyCountPoint + _behavioir.GetRewardPoint();
-		}
-	}
+	
 
     void ResetCurrentLevelEnemyData()
     {
@@ -138,12 +121,10 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 
 	public void OnTimeCompleted()
 	{
-		
-		if(  _totalEnemyNumber < _instantiateEnemyBehaviourList.Count)
-		{
-			_instantiateEnemyBehaviourList[_totalEnemyNumber].SetActiveMode();
-			UpdateEnemyNumber();
-		}	
+		GameObject obj = SpawnRandomEnemy();
+		EnemyBehaviourBase _behavioir = obj.GetComponent<EnemyBehaviourBase>();
+		_behavioir.SetActiveMode();
+		UpdateEnemyNumber();
 	}
 
     private EnemyBehaviourBase[] GetAllEnemyBehaviour()
