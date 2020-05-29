@@ -16,5 +16,5 @@ MonoBehaviour:
   itemType: 3
   itemImage: {fileID: 21300000, guid: 9c4c2e29b814dc84aa05ea2760712bab, type: 3}
   isPurchased: 0
-  price: 20
+  price: 450
   playerId: 0
