@@ -173,8 +173,8 @@ MonoBehaviour:
   - {fileID: 6704569074067541358}
   - {fileID: 4730790781970970241}
   m_Bounds:
-    m_Center: {x: 0.00006997585, y: -0.0015101433, z: 0}
-    m_Extent: {x: 0.54248, y: 0.88848996, z: 0}
+    m_Center: {x: 0.00006997585, y: -0.0015100241, z: 0}
+    m_Extent: {x: 0.54248, y: 0.8884901, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &2062376198751510085
@@ -893,7 +893,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007284999, y: 0.85215306}
+  m_Offset: {x: -0.0072850436, y: 0.85215306}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -904,7 +904,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6787684, y: 1.3636317}
+  m_Size: {x: 0.81251895, y: 1.3636317}
   m_EdgeRadius: 0
 --- !u!50 &1407303943160456963
 Rigidbody2D:
@@ -971,6 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f663578771ac54e2ea82affd46da2d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleTimeUse: 1
   _explosionEffect: {fileID: 8872148088385112755, guid: 8fd356362bfd94330bb8360815e81d68,
     type: 3}
   _explosionClip: {fileID: 8300000, guid: c3f87972b0a9d044696be345aba423ed, type: 3}
@@ -1190,7 +1191,7 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _maxBullet: 0
   _infiniteFirePower: 1
-  _coolDownTime: 3
+  _coolDownTime: 7
 --- !u!114 &6406376479494549218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,7 +1352,7 @@ MonoBehaviour:
   - {fileID: 8487577294445516367}
   - {fileID: 3818296848789275390}
   m_Bounds:
-    m_Center: {x: -0.000000029802322, y: -0.00222525, z: 0}
+    m_Center: {x: -0.000000029802322, y: -0.0022253096, z: 0}
     m_Extent: {x: 0.29999995, y: 0.45777512, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

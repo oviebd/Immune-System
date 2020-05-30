@@ -1484,7 +1484,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.6470405, y: 0.035250574}
+  m_Offset: {x: -0.6470405, y: 0.0014182031}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1495,7 +1495,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1366792, y: 0.7395348}
+  m_Size: {x: 1.1366792, y: 0.9038642}
   m_EdgeRadius: 0
 --- !u!50 &5639089752180204987
 Rigidbody2D:
@@ -1576,6 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f663578771ac54e2ea82affd46da2d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSingleTimeUse: 1
   _explosionEffect: {fileID: 8872148088385112755, guid: 40ed8c6093a4e31408627020202aea16,
     type: 3}
   _explosionClip: {fileID: 8300000, guid: c3f87972b0a9d044696be345aba423ed, type: 3}
@@ -1796,7 +1797,7 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _maxBullet: 0
   _infiniteFirePower: 1
-  _coolDownTime: 2
+  _coolDownTime: 4
 --- !u!114 &559525378999652122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1810,5 +1811,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radious: 3
-  _repealMagnitudeForce: 1.5
+  _repealMagnitudeForce: 7
   _isInteractableWithPlayer: 1

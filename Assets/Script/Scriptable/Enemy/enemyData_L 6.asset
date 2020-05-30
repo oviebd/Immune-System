@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 6
   numberOfWave: 5
-  initialEnemySpawnDelay: 1
-  enemySpawnDelayReduceFactorPerWave: 0
-  initialNumberOfEnemyInAWave: 30
+  initialEnemySpawnDelay: 1.2
+  enemySpawnDelayReduceFactorPerWave: 0.05
+  initialNumberOfEnemyInAWave: 50
   multiplierOfEnemyNumberPerWave: 1.5
-  enemyTypes: 000000000100000002000000030000000400000005000000060000000700000008000000
-  enemyPercentageList: 0500000005000000050000000a000000050000000a0000000a0000001900000019000000
+  enemyTypes: 00000000030000000400000005000000060000000700000008000000
+  enemyPercentageList: 1400000014000000140000000a0000000a0000000a0000000a000000

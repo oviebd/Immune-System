@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNumber: 1
   audioClip: {fileID: 8300000, guid: dd250b55ce464864eb6a0fa8d5018322, type: 3}
-  backgroundImage: {fileID: 8870765573211891367, guid: 91efa0b1b4992194e956ce26bbd0418a,
+  backgroundImage: {fileID: 3914904418517561871, guid: c8ff1c36974593649942815aeaed3aad,
     type: 3}
   requiredTime: 10
   requiredEnemy: 5

@@ -155,7 +155,7 @@ MonoBehaviour:
   _isAutomaticFire: 1
   _maxBullet: 0
   _infiniteFirePower: 1
-  _coolDownTime: 0.3
+  _coolDownTime: 0.25
   _minActiveGunNum: 1
 --- !u!114 &-6207993245441266873
 MonoBehaviour:
