@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0d86ed3434234b14899fbadcfd41f51, type: 3}
   m_Name: PlayerAchivedData
   m_EditorClassIdentifier: 
-  playerShipList: 00000000010000000200000003000000
+  playerShipList: 0000000001000000
   gunsList: 00000000
   collectableList: 02000000030000000100000000000000
   maxLevelCompletedByPlayer: 6
-  totalScore: 746
+  totalScore: 300

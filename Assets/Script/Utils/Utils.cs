@@ -51,4 +51,21 @@ public static class Utils
         else
             return false;
     }
+
+    public static bool isNetworkAvilable()
+    {
+        bool isNetworkAvilable = false;
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            isNetworkAvilable = false;
+          // Debug.Log("Error. Check internet connection!");
+        }
+        else
+        {
+            isNetworkAvilable = true;
+           // Debug.Log("Internet ase!");
+        }
+
+        return isNetworkAvilable;
+    }
 }

@@ -23,6 +23,7 @@ public class PlayerAchivedDataHandler : MonoBehaviour
 	{
 		return GetPlayerAchivedData().totalScore;
 	}
+
 	public void SetTotalScore(int totalScore)
 	{
 		PlayerAchivedDataModel data = GetPlayerAchivedData();

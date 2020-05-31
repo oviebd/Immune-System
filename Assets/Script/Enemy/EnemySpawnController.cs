@@ -81,11 +81,9 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 				thisWaveEnemy = data.initialNumberOfEnemyInAWave;
 			else
 				thisWaveEnemy = (int) (enemyNumberPerWaveList[(i-1)] * data.multiplierOfEnemyNumberPerWave);
-			Debug.Log("Wave : " + i + "this wave enemy : " + thisWaveEnemy + " total enemy : " + totalEnemyNum );
 			enemyNumberPerWaveList.Add(thisWaveEnemy);
 			totalEnemyNum = totalEnemyNum + thisWaveEnemy;
 		}
-		Debug.Log( " total enemy : " + totalEnemyNum);
 		WinningConditionHandler.instance.SetWinningAmount(totalEnemyNum);
 	}
 
