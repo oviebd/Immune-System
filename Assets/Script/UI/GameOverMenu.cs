@@ -22,9 +22,13 @@ public class GameOverMenu : PanelBase
 
 	private void setPlayerWinPanel()
 	{
-		_messageText.text = _winningMessage;
 		HideAllButton();
-		GameUiVisibilityHandler.instance.ShowAButton(_nextLevelButton);
+
+        if(LevelManager.instance.GetCurrentLevelNumber() < GameDataHandler.instance.getMaxLevelNumber())
+			GameUiVisibilityHandler.instance.ShowAButton(_nextLevelButton);
+
+        _messageText.text = _winningMessage;
+
 	}
 	private void setPlayerLosePanel()
 	{

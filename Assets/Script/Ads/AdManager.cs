@@ -9,8 +9,6 @@ public class AdManager : MonoBehaviour
     private int _currentGameOverStateNumber = 0;
 
     private BannerView bannerView;
-    private RewardedAd rewardBasedVideo;
-    private InterstitialAd interstitial;
 
     public static AdManager instance;
 
@@ -35,7 +33,7 @@ public class AdManager : MonoBehaviour
         MobileAds.Initialize(appId);
 
         RequestBanner();
-        RequestInterstitial();
+        InterstitialAdController.instance.SetupAd();
         RewardAdController.instance.SetupAd();
 
     }
@@ -73,31 +71,16 @@ public class AdManager : MonoBehaviour
 
     #endregion Banner Ad
 
-    #region Interstitial Ad
-
-    private void RequestInterstitial()
-    {
-        string adUnitId = AdUtility.GetInterstitialAdId(_isPublish);
-      
-        this.interstitial = new InterstitialAd(adUnitId);
-        AdRequest request = new AdRequest.Builder().Build();
-        this.interstitial.LoadAd(request);
-    }
-
-    public void ShowInerstitialAd()
-    {
-        if (this.interstitial.IsLoaded())
-        {
-            this.interstitial.Show();
-        }
-    }
-
-    #endregion Interstitial Ad
-
+   
 
     public void ShowRewardAd()
     {
         RewardAdController.instance.ShowRewardAd();
+    }
+
+    public void ShowInterstitialAd()
+    {
+        InterstitialAdController.instance.ShowInterstitialAd();
     }
 
 
@@ -105,17 +88,18 @@ public class AdManager : MonoBehaviour
     {
         if(state == GameEnum.GameState.PlayerLose || state == GameEnum.GameState.PlayerWin)
         {
-            Debug.Log(_currentGameOverStateNumber % _gameOverStateNumberForInterstitialAd);
+           // Debug.Log(_currentGameOverStateNumber % _gameOverStateNumberForInterstitialAd);
+
             if( (_currentGameOverStateNumber % _gameOverStateNumberForInterstitialAd) == 0)
             {
-                ShowInerstitialAd();
+                ShowInterstitialAd();
             }
             _currentGameOverStateNumber = _currentGameOverStateNumber + 1;
         }
+
         if (state == GameEnum.GameState.Running)
             HideBannerAD();
         else
             ShowBannerAD();
-
     }
 }

@@ -44,7 +44,6 @@ public class RewardAdController : MonoBehaviour
             if (rewardedAd.IsLoaded())
             {
                 rewardedAd.Show();
-                RequestRewardAd();
             }
         }
     }
@@ -86,6 +85,7 @@ public class RewardAdController : MonoBehaviour
         MonoBehaviour.print(
             "HandleRewardedAdFailedToLoad event received with message: "
                              + args.Message);
+        SetupAd();
     }
 
     public void HandleRewardedAdOpening(object sender, EventArgs args)
@@ -98,11 +98,13 @@ public class RewardAdController : MonoBehaviour
         MonoBehaviour.print(
             "HandleRewardedAdFailedToShow event received with message: "
                              + args.Message);
+        SetupAd();
     }
 
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {
         MonoBehaviour.print("HandleRewardedAdClosed event received");
+        SetupAd();
     }
 
     public void HandleUserEarnedReward(object sender, Reward args)
