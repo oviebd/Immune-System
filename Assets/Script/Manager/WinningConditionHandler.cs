@@ -34,6 +34,7 @@ public class WinningConditionHandler : MonoBehaviour
     public void SetWinningAmount(int amount)
     {
         _winningValue = amount;
+      //  _winningValue = 3;
         _currentValue = 0;
        
     }

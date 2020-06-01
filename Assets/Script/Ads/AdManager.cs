@@ -88,8 +88,6 @@ public class AdManager : MonoBehaviour
     {
         if(state == GameEnum.GameState.PlayerLose || state == GameEnum.GameState.PlayerWin)
         {
-           // Debug.Log(_currentGameOverStateNumber % _gameOverStateNumberForInterstitialAd);
-
             if( (_currentGameOverStateNumber % _gameOverStateNumberForInterstitialAd) == 0)
             {
                 ShowInterstitialAd();

@@ -10,6 +10,9 @@ public class RewardAdController : MonoBehaviour
     private RewardedAd rewardedAd;
     [SerializeField]private int rewardPoint = 30;
 
+    public delegate void RewardAdLoaded(bool isLoaded);
+    public static event RewardAdLoaded onRewardAdLoaded;
+
     private void Awake()
     {
         if (instance == null)
@@ -28,6 +31,9 @@ public class RewardAdController : MonoBehaviour
 
         SetCallBacks();
         RequestRewardAd();
+
+        if (onRewardAdLoaded != null)
+            onRewardAdLoaded(false);
     }
 
 
@@ -41,13 +47,26 @@ public class RewardAdController : MonoBehaviour
         }
         else
         {
-            if (rewardedAd.IsLoaded())
+            if (IsRewardAdLoaded())
             {
                 rewardedAd.Show();
+            }
+            else
+            {
+                IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ErrorDialog);
+                dialog.SetTitle("Sorry!");
+                dialog.SetMessage("Can not show ad right now \n Please try again later" );
             }
         }
     }
 
+    public bool IsRewardAdLoaded()
+    {
+        bool isLoaded = false;
+        if (rewardedAd != null)
+            isLoaded = rewardedAd.IsLoaded();
+        return isLoaded;
+    }
 
     private void RequestRewardAd()
     {  
@@ -77,27 +96,29 @@ public class RewardAdController : MonoBehaviour
 
     public void HandleRewardedAdLoaded(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdLoaded event received");
+        //MonoBehaviour.print("HandleRewardedAdLoaded event received");
+        if (onRewardAdLoaded != null)
+            onRewardAdLoaded(true);
     }
 
     public void HandleRewardedAdFailedToLoad(object sender, AdErrorEventArgs args)
     {
-        MonoBehaviour.print(
+       /* MonoBehaviour.print(
             "HandleRewardedAdFailedToLoad event received with message: "
-                             + args.Message);
+                             + args.Message);*/
         SetupAd();
     }
 
     public void HandleRewardedAdOpening(object sender, EventArgs args)
     {
-        MonoBehaviour.print("HandleRewardedAdOpening event received");
+       // MonoBehaviour.print("HandleRewardedAdOpening event received");
     }
 
     public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
     {
-        MonoBehaviour.print(
+       /* MonoBehaviour.print(
             "HandleRewardedAdFailedToShow event received with message: "
-                             + args.Message);
+                             + args.Message);*/
         SetupAd();
     }
 
@@ -109,11 +130,11 @@ public class RewardAdController : MonoBehaviour
 
     public void HandleUserEarnedReward(object sender, Reward args)
     {
-        string type = args.Type;
+       /* string type = args.Type;
         double amount = args.Amount;
         MonoBehaviour.print(
             "HandleRewardedAdRewarded event received for "
-                        + amount.ToString() + " " + type);
+                        + amount.ToString() + " " + type);*/
 
         PlayerAchivedDataHandler.instance.SetTotalScore(PlayerAchivedDataHandler.instance.GetTotalScore() + GetRewardPoint());
 

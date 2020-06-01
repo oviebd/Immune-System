@@ -1998,6 +1998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storeListItemHandler: {fileID: 388217469}
+  _adButton: {fileID: 1103178546}
 --- !u!1 &389726654
 GameObject:
   m_ObjectHideFlags: 0
