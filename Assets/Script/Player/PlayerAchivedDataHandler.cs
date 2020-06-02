@@ -5,18 +5,22 @@ using UnityEngine;
 public class PlayerAchivedDataHandler : MonoBehaviour
 {
     public static PlayerAchivedDataHandler instance;
-    [SerializeField] private PlayerAchivedDataScriptable _playerAchivedDatScriptable;
-
-	private PlayerAchivedDataModel _achievedDataModel;
 
 	public delegate void OnTotalScoreChanged();
 	public static event OnTotalScoreChanged onTotalScoreChange;
+
+	private string _fileName = "PlayerAchicedData.json";
 
 	private void Awake()
     {
         if (instance == null)
             instance = this;
     }
+
+	private string GetFilePath()
+	{
+		return FileHandler.CreatePersistantFilePath(_fileName);
+	}
 
 	#region TotalScore
 	public int GetTotalScore()
@@ -88,29 +92,34 @@ public class PlayerAchivedDataHandler : MonoBehaviour
 	#endregion Collectable
 
 	#region Common
-	private void SetPlayerAchivedData(PlayerAchivedDataModel data)
+
+    private void SetPlayerAchivedData(PlayerAchivedDataModel data)
 	{
-		if(data != null)
-		{
-			_playerAchivedDatScriptable.playerShipList = data.playerShipList;
-			_playerAchivedDatScriptable.gunsList = data.gunsList;
-			_playerAchivedDatScriptable.maxLevelCompletedByPlayer = data.maxLevelCompletedByPlayer;
-			_playerAchivedDatScriptable.totalScore = data.totalScore;
-			_playerAchivedDatScriptable.collectableList = data.collectableList;
-		}
+		string jsonString = JsonHandler.CreateJson(data);
+		FileHandler.WriteInFile(GetFilePath(), jsonString);
 	}
-	private PlayerAchivedDataModel GetPlayerAchivedData()
+
+    private PlayerAchivedDataModel GetPlayerAchivedData()
 	{
-		PlayerAchivedDataModel data = new PlayerAchivedDataModel();
-		if(_playerAchivedDatScriptable != null)
+		PlayerAchivedDataModel data = GetInitialPlayerAchivedDataModel();
+        if (FileHandler.IsFileExist(GetFilePath()) == true)
 		{
-			data.playerShipList = _playerAchivedDatScriptable.playerShipList;
-			data.gunsList = _playerAchivedDatScriptable.gunsList;
-			data.maxLevelCompletedByPlayer = _playerAchivedDatScriptable.maxLevelCompletedByPlayer;
-			data.totalScore = _playerAchivedDatScriptable.totalScore;
-			data.collectableList = _playerAchivedDatScriptable.collectableList;
+			string content = FileHandler.ReadText(GetFilePath());
+			data = JsonHandler.DeserializeJson<PlayerAchivedDataModel>(content);
+			if (data == null)
+				return GetInitialPlayerAchivedDataModel();
 		}
 		return data;
 	}
+
 	#endregion Common
+
+    private PlayerAchivedDataModel GetInitialPlayerAchivedDataModel()
+    {
+		PlayerAchivedDataModel data = new PlayerAchivedDataModel();
+		data.playerShipList.Add(GameEnum.PlayerType.Type_1_Base);
+		data.gunsList.Add(GameEnum.GunType.GunType_1);
+		data.totalScore = 500;
+		return data;
+	}
 }

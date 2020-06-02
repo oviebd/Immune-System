@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     public void ChangeGameAudioStatus()
     {
         GameDataModel data = GameDataHandler.instance.GetGameData();
+        Debug.Log(data.isSoundOn);
         data.isSoundOn = !data.isSoundOn;
         GameDataHandler.instance.SetGameData(data);
 

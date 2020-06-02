@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDataModel
+[System.Serializable]
+public class GameDataModel 
 {
     public int currentLevel = 1;
     public bool isGameFirstTimeLaunched = true;

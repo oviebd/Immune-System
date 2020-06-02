@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class GameDataHandler : MonoBehaviour
 {
     public static GameDataHandler instance;
 
-    [SerializeField] private GameDataScriptable _gameDataScriptable;
+   // [SerializeField] private GameDataScriptable _gameDataScriptable;
     [SerializeField] private int _maxLevelnumber = 2;
 
 	public delegate void OnCurrentPlayerChange(GameEnum.PlayerType playerType);
@@ -14,10 +15,19 @@ public class GameDataHandler : MonoBehaviour
 
 	public delegate void OnGameLevelChange(int currentLevel);
 	public static event OnGameLevelChange onGameLevelChange;
+
+    private string _gameDataFileName = "GameData.json";
+    private string _filePath;
+
 	private void Awake()
     {
         if (instance == null)
             instance = this;
+    }
+
+    private string GetFilePath()
+    {
+        return FileHandler.CreatePersistantFilePath(_gameDataFileName);
     }
 
     public int getMaxLevelNumber()
@@ -53,26 +63,20 @@ public class GameDataHandler : MonoBehaviour
 
     public void SetGameData(GameDataModel data)
     {
-        if (_gameDataScriptable != null && data != null)
-        {
-            _gameDataScriptable.currentLevel = data.currentLevel;
-            _gameDataScriptable.isGameFirstTimeLaunched = data.isGameFirstTimeLaunched;
-            _gameDataScriptable.isTutorialShown = data.isTutorialShown;
-            _gameDataScriptable.isSoundOn = data.isSoundOn;
-			_gameDataScriptable.currentPlayer = data.currentPlayer;
-        }
+        string jsonString = JsonHandler.CreateJson(data);
+        FileHandler.WriteInFile(GetFilePath(), jsonString);
     }
 
     public GameDataModel GetGameData()
     {
         GameDataModel data = new GameDataModel();
-        if (_gameDataScriptable != null)
+
+        if( FileHandler.IsFileExist(GetFilePath()) == true)
         {
-            data.currentLevel = _gameDataScriptable.currentLevel;
-            data.isGameFirstTimeLaunched = _gameDataScriptable.isGameFirstTimeLaunched;
-            data.isTutorialShown = _gameDataScriptable.isTutorialShown;
-            data.isSoundOn = _gameDataScriptable.isSoundOn;
-			data.currentPlayer = _gameDataScriptable.currentPlayer;
+            string content = FileHandler.ReadText(GetFilePath());
+            data = JsonHandler.DeserializeJson<GameDataModel>(content);
+            if(data == null)
+                return new GameDataModel();
         }
         return data;
     }
