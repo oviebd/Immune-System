@@ -119,7 +119,7 @@ public class PlayerAchivedDataHandler : MonoBehaviour
 		PlayerAchivedDataModel data = new PlayerAchivedDataModel();
 		data.playerShipList.Add(GameEnum.PlayerType.Type_1_Base);
 		data.gunsList.Add(GameEnum.GunType.GunType_1);
-		data.totalScore = 500;
+		data.totalScore = 0;
 		return data;
 	}
 }

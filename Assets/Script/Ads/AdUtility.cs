@@ -14,7 +14,7 @@ public static class AdUtility
         appId = "ca-app-pub-7034086702288798~4371294271";
 
 #elif UNITY_IPHONE
-         appId = "Not Set";
+         appId = "ca-app-pub-7034086702288798~4330291049";
 #endif
         return appId;
 
@@ -32,17 +32,17 @@ public static class AdUtility
 #if UNITY_ANDROID
             adUnitId = "ca-app-pub-7034086702288798/3619597188";
 #elif UNITY_IPHONE
-            adUnitId = "Not Set";    
+            adUnitId = "ca-app-pub-7034086702288798/3479124249";    
 #endif
         }
 
         else
         {
-            //All Test Ad
+            // Test Ad
 #if UNITY_ANDROID
             adUnitId = "ca-app-pub-3940256099942544/6300978111";
 #elif UNITY_IPHONE
-            adUnitId = "Not Set";        
+            adUnitId = "ca-app-pub-3940256099942544/2934735716";        
 #endif
 
         }
@@ -61,7 +61,7 @@ public static class AdUtility
 #if UNITY_ANDROID
             adUnitId = "ca-app-pub-7034086702288798/7748266652";
 #elif UNITY_IPHONE
-            adUnitId = "Not Set";    
+            adUnitId = "ca-app-pub-7034086702288798/8539879235";    
 #endif
         }
 
@@ -71,12 +71,13 @@ public static class AdUtility
 #if UNITY_ANDROID
             adUnitId = "ca-app-pub-3940256099942544/1033173712";
 #elif UNITY_IPHONE
-            adUnitId = "Not Set";        
+            adUnitId = "ca-app-pub-3940256099942544/4411468910";        
 #endif
 
         }
         return adUnitId;
     }
+
 
     public static string GetRewardAdId(bool isPublished)
     {
@@ -87,7 +88,7 @@ public static class AdUtility
 #if UNITY_ANDROID
             adUnitId = "ca-app-pub-7034086702288798/2085161840";
 #elif UNITY_IPHONE
-            adUnitId = "Not Set";    
+            adUnitId = "ca-app-pub-7034086702288798/3287552554";    
 #endif
         }
 
@@ -97,7 +98,7 @@ public static class AdUtility
 #if UNITY_ANDROID
             adUnitId = "ca-app-pub-3940256099942544/5224354917";
 #elif UNITY_IPHONE
-            adUnitId = "Not Set";        
+            adUnitId = "ca-app-pub-3940256099942544/1712485313";        
 #endif
 
         }
