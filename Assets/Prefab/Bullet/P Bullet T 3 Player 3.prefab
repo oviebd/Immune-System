@@ -254,7 +254,7 @@ MonoBehaviour:
   _lifeTime: 10
   _collider2D: {fileID: 5751173439482170278}
   _graphicsObj: {fileID: 5647779421266988972}
-  _audioClip: {fileID: 8300000, guid: 86f7a8816cf07a4489e28877ba94d710, type: 3}
+  _audioClip: {fileID: 8300000, guid: 883a1c63e69c63a47bca68174de5e304, type: 3}
   _playSound: {fileID: 3755733650649741563}
 --- !u!82 &-5656929539568324671
 AudioSource:
@@ -268,13 +268,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.44
+  m_Volume: 0.222
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 180
+  Priority: 224
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

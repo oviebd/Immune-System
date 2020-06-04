@@ -53,9 +53,15 @@ public class OnGameUiPanel : PanelBase
 			_healthPanelAnimator.SetBool(_anim_param_healthSlider_isShowingScale, false);
 	}
 
-	private void OnScoreValueChanged(int score)
+	private void OnScoreValueChanged(int score,int incrementedScore)
 	{
-		_scoreText.text = score.ToString();
+        if(incrementedScore > 1)
+        {
+			GameObject animatedObj = GameUiVisibilityHandler.instance.ShowAnimatedMessage("+" + incrementedScore, _scoreText.gameObject);
+			if (animatedObj != null && animatedObj.GetComponent<RectTransform>() != null)
+				animatedObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(100, 0);
+		}
+        _scoreText.text = score.ToString();
 	}
 
 	private void SetlevelProgress(int currentValue)

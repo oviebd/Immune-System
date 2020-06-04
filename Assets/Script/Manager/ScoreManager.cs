@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
    // private int _winningScore = 50;
     private int _currentScore = 0;
 
-	public delegate void OnScoreUpdate(int score);
+	public delegate void OnScoreUpdate(int totalScore,int incrementedScore);
 	public static event OnScoreUpdate onScoreUpdate;
 
 
@@ -48,7 +48,7 @@ public class ScoreManager : MonoBehaviour
         _currentScore = _currentScore + incrementedScore;
 
         if(onScoreUpdate != null)
-            onScoreUpdate(_currentScore);
+            onScoreUpdate(_currentScore,incrementedScore);
     }
 
     private void OnGameStateChanged(GameEnum.GameState state)
