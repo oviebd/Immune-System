@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyBehaviourBase : MonoBehaviour, IColliderEnter
 {
-     protected GameObject _playerObj;
+    protected GameObject _playerObj;
+    [Header("Graphics parent object which hold all enemy graphics")]
     [SerializeField] private GameObject graphicsObj;
     [SerializeField] Collider2D _collider;
     [SerializeField] private Explosion _explosion;

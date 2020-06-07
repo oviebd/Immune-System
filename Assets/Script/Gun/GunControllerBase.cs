@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Timer))]
-public class GunControllerBase : MonoBehaviour,ITimer
+public class GunControllerBase : MonoBehaviour, ITimer
 {
+	[Header("Put all Gun Here")]
 	[SerializeField] private List<GameObject> _gunGameobjectList;
 	[SerializeField] private GameObject _gunPrefab;
+	[Header("If gun can shoot automatically then made it true")]
 	[SerializeField] private bool _isAutomaticFire = false;
+	[Header("How much bullet this GunController has")]
 	[SerializeField] private int _maxBullet;
+	[Header("If this gun has no bullet limit then made it true. if  _infiniteFirePower= true then _maxBullet variable do not matter.")]
 	[SerializeField] private bool _infiniteFirePower = true;
+	[Header("Bullet Shooting Rate. Time delay (second) for spawning each bullet")]
 	[SerializeField]  protected float _coolDownTime = .3f;
 
 	private bool _capableForShooting = false;

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// It Controls all Time Calculations
 public class Timer : MonoBehaviour
 {
+    [Header("Times in Second.")]
     [SerializeField] private float _time;
 
     private ITimer _iTimer;

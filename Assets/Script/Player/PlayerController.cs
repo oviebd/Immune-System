@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour ,IColliderEnter
 {
     [SerializeField] private GameEnum.PlayerType _playerType = GameEnum.PlayerType.Type_1_Base;
+    [Header("Graphics parent object which hold all Player graphics")]
     [SerializeField] private GameObject _playerGraphics;
     private IGunController _iGunController;
     private IHealth _playerHealth;

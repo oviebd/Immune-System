@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+// It Control Audio Play 
 [RequireComponent(typeof(AudioSource))]
 public class PlaySound : MonoBehaviour,IAudio
 {
     private AudioSource _audioSource;
+    [Header("Set Audio Clip Here (Optional), Or You can set audio clip through publc Api of this Script.")]
     [SerializeField] AudioClip _clip;
 
 

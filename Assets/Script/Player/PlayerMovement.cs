@@ -5,8 +5,6 @@
  * when rotation joystick start drag then player can rotate and when it end its draging then player lost its rotation capabilities
  * If we do not consider those drag , then after drag end player will rotate 0 degree instead its previous value
  */
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour

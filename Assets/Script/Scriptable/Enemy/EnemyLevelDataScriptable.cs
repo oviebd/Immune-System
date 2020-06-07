@@ -4,13 +4,22 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EnemyLevelDataScriptable : ScriptableObject
 {
+	[Header("Level number for this setting")]
 	public int levelNumber = 1;
+	[Header("Enemy Wave Number")]
 	public int numberOfWave = 4;
+	[Header("first wave enemy delay in second. Delay for spawning each enemy")]
 	public float initialEnemySpawnDelay = 2;
+	[Header("how much delay  (second) reduced per wave (starts from second wave)")]
 	public float enemySpawnDelayReduceFactorPerWave = .5f;
+	[Header("First Wave Ememy Number")]
 	public int initialNumberOfEnemyInAWave = 30;
+	[Header("How many enemy number increased per wave")]
 	public float multiplierOfEnemyNumberPerWave = 1.5f; // number of enemy increase per wave
+
+	[Header("Enemy List for this Level. Do not dublicate enemy")]
 	public List<GameEnum.EnemyType> enemyTypes;
+	[Header("Percentahe of each enemy. maintain enemyType list order. made perentage sum exactly 100")]
 	public List<int> enemyPercentageList;
 }
 

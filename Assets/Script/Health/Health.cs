@@ -5,7 +5,9 @@ using UnityEngine;
 public class Health : MonoBehaviour, IHealth 
 {
     [SerializeField] private int _totalHealth = 100;
-	[SerializeField] private bool _isItPlayerHealth = false; // Only Player Health Will Update UI
+    [Header("If this component is Player then made it true.")]
+    [SerializeField] private bool _isItPlayerHealth = false; // Only Player Health Will Update UI
+ 
     private int _currentHealth;
 	public delegate void HealthValueChanged(int currentHealth, int totalHealth);
 	public static event HealthValueChanged onHealthValueChanged;

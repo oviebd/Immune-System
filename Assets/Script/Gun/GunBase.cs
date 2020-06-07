@@ -6,7 +6,7 @@ public class GunBase : MonoBehaviour
 {
 	[SerializeField] private GameEnum.GunType _gunType = GameEnum.GunType.GunType_1;
 	[SerializeField]private GameObject _bulletPrefab;
-	[SerializeField]private GameObject _parentObj;
+	 GameObject _parentObj;
 
 	private bool _isItPrimaryGun = false;
 
