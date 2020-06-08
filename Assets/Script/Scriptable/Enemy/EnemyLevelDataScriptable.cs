@@ -19,7 +19,7 @@ public class EnemyLevelDataScriptable : ScriptableObject
 
 	[Header("Enemy List for this Level. Do not dublicate enemy")]
 	public List<GameEnum.EnemyType> enemyTypes;
-	[Header("Percentahe of each enemy. maintain enemyType list order. made perentage sum exactly 100")]
+	[Header("Percentage  of each enemy. maintain enemyType list order. made percentage  sum exactly 100")]
 	public List<int> enemyPercentageList;
 }
 
@@ -32,5 +32,5 @@ public class EnemyLevelDataScriptable : ScriptableObject
 // initialNumberOfEnemyInAWave - means how many enemy in first wave.
 // multiplierOfEnemyNumberPerWave - means how many enemy number increased per wave
 // example - initialNumberOfEnemyInAWave is 30 and multiplierOfEnemyNumberPerWave is 1.5 and wave Number is 4
-// so i 1 wave enemy number = 30 , 2nd wave enemy number will be 30 + (30 * 1.5) = 45 and
-// 3rd vwave enemy number will be , 45 + (45 * 1.5 ) = 112
+// so i 1 wave enemy number = 30 , 2nd wave enemy number will be (30 * 1.5) = 45 and
+// 3rd vwave enemy number will be , (45 * 1.5 ) = 67

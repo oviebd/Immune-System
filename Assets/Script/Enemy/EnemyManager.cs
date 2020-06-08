@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
 	public static EnemyManager instance;
+	[Header("Enemy Level Data Scriptable List")]
 	[SerializeField] private List<EnemyLevelDataScriptable> _levelDataListEnemy;
 
 	private void Awake()

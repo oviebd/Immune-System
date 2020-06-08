@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CollectableManager : MonoBehaviour
 {
-    public static CollectableManager instance; 
-    [SerializeField] private List<CollectableLevelDataScriptable> _collectableLevelDataList;
+    public static CollectableManager instance;
+	[Header("Collectable Data Scriptable List")]
+	[SerializeField] private List<CollectableLevelDataScriptable> _collectableLevelDataList;
 
 	private void Awake()
     {

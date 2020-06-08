@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemySpawnController : MonoBehaviour,ITimer
 {
 	public static EnemySpawnController instance;
-
+	[Header("Enemy Prefab (EnemyBehaviourBase) List")]
 	[SerializeField] List<EnemyBehaviourBase> enemyBehaviours;
 	private Timer _timer;
 
@@ -21,8 +21,6 @@ public class EnemySpawnController : MonoBehaviour,ITimer
 	private List<int> enemyNumberPerWaveList;
 
 	private EnemyLevelData data;
-
-	public Text debugText;
 
     private void Awake()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameEnvironmentDataHandler : MonoBehaviour
 {
 	public static GameEnvironmentDataHandler instance;
-
+	[Header("Environment Level Data Scriptable List")]
 	[SerializeField] private List<EnvironmentLevelDataScriptable> _environmentScriptableDataList;
 
 	private void Awake()

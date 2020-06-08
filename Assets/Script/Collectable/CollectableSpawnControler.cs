@@ -5,7 +5,8 @@ using UnityEngine;
 public class CollectableSpawnControler : MonoBehaviour,ITimer
 {
     public static CollectableSpawnControler instance;
-    [SerializeField] private List<CollectableBase> _collectableList;
+	[Header("Collectable Prefab (CollectableBase) List")]
+	[SerializeField] private List<CollectableBase> _collectableList;
 	[SerializeField] private CollectableWorldCanvasDialog _worldCanvasDialog;
 	private GameObject _collectableTopicDialogObject;
 
