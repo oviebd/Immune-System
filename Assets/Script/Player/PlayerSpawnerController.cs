@@ -5,9 +5,10 @@ using UnityEngine;
 public class PlayerSpawnerController : MonoBehaviour
 {
     public static PlayerSpawnerController instance;
-
-    [SerializeField] private GameEnum.PlayerType _currentPlayerType;
+    private GameEnum.PlayerType _currentPlayerType = GameEnum.PlayerType.Type_1_Base;
+    [Header("All Player Prefab List (PlayerController)")]
     [SerializeField] private List<PlayerController> _playerList;
+    [Header("Player gun Object)")]
     [SerializeField] private GameObject _gunPrefab; 
 
     private PlayerController _currentGamePlayerController;
