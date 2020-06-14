@@ -8,6 +8,7 @@ public class RewardAdController : MonoBehaviour
 {
     public static RewardAdController instance;
     private RewardedAd rewardedAd;
+    [Header("how much point you get after watch a reward ad")]
     [SerializeField]private int rewardPoint = 30;
 
     public delegate void RewardAdLoaded(bool isLoaded);

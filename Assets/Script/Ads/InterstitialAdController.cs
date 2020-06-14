@@ -9,6 +9,7 @@ public class InterstitialAdController : MonoBehaviour
     public static InterstitialAdController instance;
     private InterstitialAd interstitial;
 
+
     private void Awake()
     {
         if (instance == null)

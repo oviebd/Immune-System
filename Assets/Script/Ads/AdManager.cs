@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class AdManager : MonoBehaviour
 {
+    [Header("Made it true for release build. If this is true then it will show real ads not test ads")]
     [SerializeField] private bool _isPublish = false;
+    [Header("How many gameOver state needs for showing a single interstitial ad")]
     [SerializeField] private int _gameOverStateNumberForInterstitialAd = 2;
     private int _currentGameOverStateNumber = 0;
 
