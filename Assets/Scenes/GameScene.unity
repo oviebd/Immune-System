@@ -2131,7 +2131,6 @@ MonoBehaviour:
   - {fileID: 6406376479494549218, guid: a4c9ecc3721042a48abf1fbd1fa68e3f, type: 3}
   - {fileID: 114154039, guid: 8e5f0ae90c14c8848b0adca08a225908, type: 3}
   - {fileID: 6930293771721543577, guid: ddf47157e6a29104da06c1b0932ca90f, type: 3}
-  debugText: {fileID: 4833425329599326785}
 --- !u!114 &438529327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11008,6 +11007,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackGround 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7495791816471324572, guid: 36b8bdb44d5ff764ea0b711e2ab1f57f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36b8bdb44d5ff764ea0b711e2ab1f57f, type: 3}
 --- !u!4 &1810848504 stripped
@@ -11581,7 +11585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fd2198c0d1e4566ac534238c1a2bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentPlayerType: 0
   _playerList:
   - {fileID: 8235833068661842949, guid: 3c9c6abc37a5445a8be3307c47edfa3f, type: 3}
   - {fileID: 8235833068661842949, guid: 04dba4b6909e647b4821f1f8c55bd9ae, type: 3}
