@@ -11,10 +11,10 @@ public static class AdUtility
         string appId = "";
 
 #if UNITY_ANDROID
-        appId = "ca-app-pub-7034086702288798~4371294271";
+        appId = "";
 
 #elif UNITY_IPHONE
-         appId = "ca-app-pub-7034086702288798~4330291049";
+         appId = "";
 #endif
         return appId;
 
@@ -30,9 +30,9 @@ public static class AdUtility
         if (isPublished == true)
         {
 #if UNITY_ANDROID
-            adUnitId = "ca-app-pub-7034086702288798/3619597188";
+            adUnitId = "";
 #elif UNITY_IPHONE
-            adUnitId = "ca-app-pub-7034086702288798/3479124249";    
+            adUnitId = "";    
 #endif
         }
 
@@ -59,9 +59,9 @@ public static class AdUtility
         if (isPublished == true)
         {
 #if UNITY_ANDROID
-            adUnitId = "ca-app-pub-7034086702288798/7748266652";
+            adUnitId = "";
 #elif UNITY_IPHONE
-            adUnitId = "ca-app-pub-7034086702288798/8539879235";    
+            adUnitId = "";    
 #endif
         }
 
@@ -86,9 +86,9 @@ public static class AdUtility
         if (isPublished == true)
         {
 #if UNITY_ANDROID
-            adUnitId = "ca-app-pub-7034086702288798/2085161840";
+            adUnitId = "";
 #elif UNITY_IPHONE
-            adUnitId = "ca-app-pub-7034086702288798/3287552554";    
+            adUnitId = "";    
 #endif
         }
 
