@@ -5,8 +5,15 @@ using Yodo1.MAS;
 
 public class YodoRewardAd : MonoBehaviour
 {
-  
-    void Start()
+	public static YodoRewardAd instance;
+
+	private void Awake()
+	{
+		if (instance == null)
+			instance = this;
+	}
+
+	void Start()
     {
 		Yodo1U3dMas.SetRewardedAdDelegate((Yodo1U3dAdEvent adEvent, Yodo1U3dAdError error) => {
 			Debug.Log("[Yodo1 Mas] RewardVideoDelegate:" + adEvent.ToString() + "\n" + error.ToString());

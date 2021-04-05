@@ -5,8 +5,16 @@ using Yodo1.MAS;
 
 public class YodoInterstitialAd : MonoBehaviour
 {
-    
-    void Start()
+	public static YodoInterstitialAd instance;
+
+	private void Awake()
+	{
+		if(instance == null)
+		{
+			instance = this;
+		}
+	}
+	void Start()
     {
 		Yodo1U3dMas.SetInterstitialAdDelegate((Yodo1U3dAdEvent adEvent, Yodo1U3dAdError error) => {
 			Debug.Log("[Yodo1 Mas] InterstitialAdDelegate:" + adEvent.ToString() + "\n" + error.ToString());

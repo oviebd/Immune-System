@@ -5,7 +5,16 @@ using Yodo1.MAS;
 
 public class YodoBannerAd : MonoBehaviour
 {
-	// Start is called before the first frame update
+    public static	YodoBannerAd instance;
+
+	private void Awake()
+	{
+		if(instance == null)
+		{
+			instance = this;
+		}
+	}
+
 	void Start()
 	{
 		Yodo1U3dMas.SetBannerAdDelegate((Yodo1U3dAdEvent adEvent, Yodo1U3dAdError error) => {
@@ -24,7 +33,7 @@ public class YodoBannerAd : MonoBehaviour
 			}
 		});
 
-		ShowBannedAd();
+		//ShowBannedAd();
 	}
 
 	public void ShowBannedAd()

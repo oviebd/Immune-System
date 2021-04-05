@@ -30,14 +30,16 @@ public class AdManager : MonoBehaviour
    
     public void Start()
     {
-        string appId = AdUtility.GetAppId();
+		YodoManager.instance.InitializeYodoAd();
+		/*string appId = AdUtility.GetAppId();
 
         MobileAds.Initialize(appId);
 
         RequestBanner();
         InterstitialAdController.instance.SetupAd();
-        RewardAdController.instance.SetupAd();
+        RewardAdController.instance.SetupAd();*/
 
+		YodoBannerAd.instance.ShowBannedAd();
     }
 
     public bool GetAppPublishMode()
@@ -77,12 +79,14 @@ public class AdManager : MonoBehaviour
 
     public void ShowRewardAd()
     {
-        RewardAdController.instance.ShowRewardAd();
+		YodoRewardAd.instance.ShowAd();
+       // RewardAdController.instance.ShowRewardAd();
     }
 
     public void ShowInterstitialAd()
     {
-        InterstitialAdController.instance.ShowInterstitialAd();
+		YodoInterstitialAd.instance.ShowAd();
+        //InterstitialAdController.instance.ShowInterstitialAd();
     }
 
 
@@ -98,8 +102,16 @@ public class AdManager : MonoBehaviour
         }
 
         if (state == GameEnum.GameState.Running)
-            HideBannerAD();
-        else
-            ShowBannerAD();
+		{
+			//HideBannerAD();
+			YodoBannerAd.instance.CloseBannerAd();
+		}
+
+		else
+		{
+			YodoBannerAd.instance.ShowBannedAd();
+			//ShowBannerAD();
+		}
+           
     }
 }

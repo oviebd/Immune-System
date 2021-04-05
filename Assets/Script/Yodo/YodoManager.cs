@@ -18,6 +18,11 @@ public class YodoManager : MonoBehaviour
 
 	private void Start()
 	{
+		
+	}
+
+	public void InitializeYodoAd()
+	{
 		Yodo1U3dMas.InitializeSdk();
 	}
 
