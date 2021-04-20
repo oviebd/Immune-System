@@ -1,35 +1,35 @@
 ﻿using System;
-using GoogleMobileAds.Api;
+//using GoogleMobileAds.Api;
 using UnityEngine;
 
 public class AdManager : MonoBehaviour
 {
-    [Header("Made it true for release build. If this is true then it will show real ads not test ads")]
-    [SerializeField] private bool _isPublish = false;
-    [Header("How many gameOver state needs for showing a single interstitial ad")]
-    [SerializeField] private int _gameOverStateNumberForInterstitialAd = 2;
-    private int _currentGameOverStateNumber = 0;
+	[Header("Made it true for release build. If this is true then it will show real ads not test ads")]
+	[SerializeField] private bool _isPublish = false;
+	[Header("How many gameOver state needs for showing a single interstitial ad")]
+	[SerializeField] private int _gameOverStateNumberForInterstitialAd = 2;
+	private int _currentGameOverStateNumber = 0;
 
-    private BannerView bannerView;
+	//  private BannerView bannerView;
 
-    public static AdManager instance;
+	public static AdManager instance;
 
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
+	private void Awake()
+	{
+		if (instance == null)
+			instance = this;
 
-        GameManager.onGameStateChange += OnGameStateChange;
-        _currentGameOverStateNumber = 0;
-    }
+		GameManager.onGameStateChange += OnGameStateChange;
+		_currentGameOverStateNumber = 0;
+	}
 
-    private void OnDestroy()
-    {
-        GameManager.onGameStateChange -= OnGameStateChange;
-    }
-   
-    public void Start()
-    {
+	private void OnDestroy()
+	{
+		GameManager.onGameStateChange -= OnGameStateChange;
+	}
+
+	public void Start()
+	{
 		YodoManager.instance.InitializeYodoAd();
 		/*string appId = AdUtility.GetAppId();
 
@@ -39,15 +39,20 @@ public class AdManager : MonoBehaviour
         InterstitialAdController.instance.SetupAd();
         RewardAdController.instance.SetupAd();*/
 
+		Invoke("ShowBanner",5.0f);
+	}
+
+	public void ShowBanner()
+	{
 		YodoBannerAd.instance.ShowBannedAd();
-    }
+	}
 
     public bool GetAppPublishMode()
     {
         return _isPublish;
     }
 
-    #region Banner Ad
+  /*  #region Banner Ad
 
     public void RequestBanner()
     {
@@ -73,7 +78,7 @@ public class AdManager : MonoBehaviour
             bannerView.Show();
     }
 
-    #endregion Banner Ad
+    #endregion Banner Ad*/
 
    
 
@@ -101,7 +106,7 @@ public class AdManager : MonoBehaviour
             _currentGameOverStateNumber = _currentGameOverStateNumber + 1;
         }
 
-        if (state == GameEnum.GameState.Running)
+     /*   if (state == GameEnum.GameState.Running)
 		{
 			//HideBannerAD();
 			YodoBannerAd.instance.CloseBannerAd();
@@ -111,7 +116,7 @@ public class AdManager : MonoBehaviour
 		{
 			YodoBannerAd.instance.ShowBannedAd();
 			//ShowBannerAD();
-		}
+		}*/
            
     }
 }

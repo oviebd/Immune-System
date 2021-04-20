@@ -23,22 +23,22 @@ public class StorePanel : PanelBase,DialogBase.Delegate
             instance = this;
 
 		//OnChangeRewardAdLoadedStatus(false);
-		RewardAdController.onRewardAdLoaded += OnChangeRewardAdLoadedStatus;
+		//RewardAdController.onRewardAdLoaded += OnChangeRewardAdLoadedStatus;
 	}
 
     private void OnDestroy()
     {
-		RewardAdController.onRewardAdLoaded -= OnChangeRewardAdLoadedStatus;
+	//	RewardAdController.onRewardAdLoaded -= OnChangeRewardAdLoadedStatus;
 	}
 
     public void Setup()
     {
-		rewardAdMessage = "You can earn " + RewardAdController.instance.GetRewardPoint() + " points by watching ad. \n Want to watch Ad ?";
+		//rewardAdMessage = "You can earn " + RewardAdController.instance.GetRewardPoint() + " points by watching ad. \n Want to watch Ad ?";
 
 		storeListItemHandler.Setup();
 
-        if(RewardAdController.instance.IsRewardAdLoaded() == true)
-			ShowRewardAdDialog();
+      /*  if(RewardAdController.instance.IsRewardAdLoaded() == true)
+			ShowRewardAdDialog();*/
 	}
 
     public void BuyButtonClicked(StoreItemModel data)
@@ -57,7 +57,7 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 		else
 		{
 			//Can not buy
-            if(RewardAdController.instance.IsRewardAdLoaded() == true)
+        /*    if(RewardAdController.instance.IsRewardAdLoaded() == true)
             {
 				currentActiondialogType = actionDialogType.AdType;
 				IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ActionDialog);
@@ -68,7 +68,7 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 				IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ErrorDialog);
 				dialog.SetTitle("Not enough Point ! ");
 				dialog.SetMessage("You have not enough point for purchage this item !");
-			}
+			}*/
 			
 		}
     }

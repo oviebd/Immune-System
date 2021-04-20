@@ -7,10 +7,22 @@ public class YodoRewardAd : MonoBehaviour
 {
 	public static YodoRewardAd instance;
 
+	[Header("how much point you get after watch a reward ad")]
+	[SerializeField] private int rewardPoint = 30;
+
+	public delegate void RewardAdLoaded(bool isLoaded);
+	public static event RewardAdLoaded onRewardAdLoaded;
+	
+
 	private void Awake()
 	{
 		if (instance == null)
 			instance = this;
+	}
+
+	public int GetRewardPoint()
+	{
+		return rewardPoint;
 	}
 
 	void Start()
@@ -30,6 +42,7 @@ public class YodoRewardAd : MonoBehaviour
 					break;
 				case Yodo1U3dAdEvent.AdReward:
 					Debug.Log("[Yodo1 Mas] Reward video ad reward, give rewards to the player.");
+
 					break;
 			}
 
@@ -38,7 +51,38 @@ public class YodoRewardAd : MonoBehaviour
 
    public void ShowAd()
 	{
-		bool isLoaded = Yodo1U3dMas.IsRewardedAdLoaded();
-		Yodo1U3dMas.ShowRewardedAd();
+
+		if (Utils.isNetworkAvilable() == false && Yodo1U3dMas.IsRewardedAdLoaded() == false)
+		{
+			IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ErrorDialog);
+			dialog.SetTitle("No Internet!");
+			dialog.SetMessage("Please check your Network connection..");
+		}
+		else
+		{
+			Yodo1U3dMas.ShowRewardedAd();
+		/*	if ( Yodo1U3dMas.IsRewardedAdLoaded())
+			{
+				Yodo1U3dMas.ShowRewardedAd();
+			}
+			else
+			{
+				IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ErrorDialog);
+				dialog.SetTitle("Sorry!");
+				dialog.SetMessage("Can not show ad right now \n Please try again later");
+			}*/
+		}
+
+	//	bool isLoaded = Yodo1U3dMas.IsRewardedAdLoaded();
+		
+	}
+
+	private void GiveReward()
+	{
+		PlayerAchivedDataHandler.instance.SetTotalScore(PlayerAchivedDataHandler.instance.GetTotalScore() + GetRewardPoint());
+
+		IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.InfoDialog);
+		dialog.SetTitle("Success!");
+		dialog.SetMessage("You Get " + GetRewardPoint() + " point. \n your current point is " + PlayerAchivedDataHandler.instance.GetTotalScore());
 	}
 }
