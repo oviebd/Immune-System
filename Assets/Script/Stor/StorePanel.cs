@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SmileSoft_Ads_Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,24 +23,25 @@ public class StorePanel : PanelBase,DialogBase.Delegate
         if (instance == null)
             instance = this;
 
+		//rewardAdMessage = "You can earn " + 20 + " points by watching ad. \n Want to watch Ad ?";
 		//OnChangeRewardAdLoadedStatus(false);
-		RewardAdController.onRewardAdLoaded += OnChangeRewardAdLoadedStatus;
+		//RewardAdController.onRewardAdLoaded += OnChangeRewardAdLoadedStatus;
 	}
 
-    private void OnDestroy()
-    {
-		RewardAdController.onRewardAdLoaded -= OnChangeRewardAdLoadedStatus;
-	}
+    //   private void OnDestroy()
+    //   {
+    //	RewardAdController.onRewardAdLoaded -= OnChangeRewardAdLoadedStatus;
+    //}
 
     public void Setup()
     {
-		rewardAdMessage = "You can earn " + RewardAdController.instance.GetRewardPoint() + " points by watching ad. \n Want to watch Ad ?";
+        rewardAdMessage = "You can earn " + 20 + " points by watching ad. \n Want to watch Ad ?";
 
-		storeListItemHandler.Setup();
+        storeListItemHandler.Setup();
 
-        if(RewardAdController.instance.IsRewardAdLoaded() == true)
-			ShowRewardAdDialog();
-	}
+        //      if(RewardAdController.instance.IsRewardAdLoaded() == true)
+        //	ShowRewardAdDialog();
+    }
 
     public void BuyButtonClicked(StoreItemModel data)
     {
@@ -56,20 +58,30 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 		}
 		else
 		{
+
+
 			//Can not buy
-            if(RewardAdController.instance.IsRewardAdLoaded() == true)
-            {
-				currentActiondialogType = actionDialogType.AdType;
-				IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ActionDialog);
-				dialog.SetTitle("Not enough Point ! ");
-				dialog.SetMessage(rewardAdMessage);
-			}else
-            {
-				IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ErrorDialog);
-				dialog.SetTitle("Not enough Point ! ");
-				dialog.SetMessage("You have not enough point for purchage this item !");
-			}
-			
+
+			currentActiondialogType = actionDialogType.AdType;
+			IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ActionDialog);
+			dialog.SetDialogDelegate(this);
+			dialog.SetTitle("Not enough Point ! ");
+			dialog.SetMessage(rewardAdMessage);
+
+			Debug.Log("U>> Current action dialog in buy button - " + currentActiondialogType);
+			//if (RewardAdController.instance.IsRewardAdLoaded() == true)
+			//         {
+			//	currentActiondialogType = actionDialogType.AdType;
+			//	IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ActionDialog);
+			//	dialog.SetTitle("Not enough Point ! ");
+			//	dialog.SetMessage(rewardAdMessage);
+			//}else
+			//         {
+			//	IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ErrorDialog);
+			//	dialog.SetTitle("Not enough Point ! ");
+			//	dialog.SetMessage("You have not enough point for purchage this item !");
+			//}
+
 		}
     }
 	public void UseButtonClicked(StoreItemModel data)
@@ -77,6 +89,7 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 		_currentStoreItem = data;
 		GameDataHandler.instance.SetCurrentPlayer(data.itemType);
 		storeListItemHandler.Setup();
+		Debug.Log("U>> Current action dialog in Use button - " + currentActiondialogType);
 	}
 
 	public void CrossButtonClicked()
@@ -87,10 +100,11 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 
 	public void OnDialogPositiveButtonPressed()
 	{
+		Debug.Log("U>> Current action dialog on positive btn - - " + currentActiondialogType);
 		if (currentActiondialogType == actionDialogType.PurchaseType)
 		{
-			if (_currentStoreItem == null)
-				return;
+			//if (_currentStoreItem == null)
+			//	return;
 
 			if (PurchaseItem(_currentStoreItem) == true)
 			{
@@ -100,6 +114,7 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 				storeListItemHandler.Setup();
 			}
 		}
+		Debug.Log("U>> Current action dialog " + currentActiondialogType);
 		if (currentActiondialogType == actionDialogType.AdType)
 		{
 			ShowRewardAdButtonClicked();
@@ -109,7 +124,18 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 
 	public void ShowRewardAdButtonClicked()
 	{
-		AdManager.instance.ShowRewardAd();
+		SmileSoftAdManager.instance.ShowRewardAd((receivedRewardType, receivedRewardAmount, isSuccess) => {
+
+			if (isSuccess)
+            {
+				PlayerAchivedDataHandler.instance.SetTotalScore(PlayerAchivedDataHandler.instance.GetTotalScore() + (int)receivedRewardAmount);
+
+				IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.InfoDialog);
+				dialog.SetTitle("Success!");
+				dialog.SetMessage("You Get " + (int)receivedRewardAmount + " point. \n your current point is " + PlayerAchivedDataHandler.instance.GetTotalScore());
+			}
+		});
+		//AdManager.instance.ShowRewardAd();
 	}
 
 
@@ -126,19 +152,19 @@ public class StorePanel : PanelBase,DialogBase.Delegate
 	}
 
 	
-    private void ShowRewardAdDialog()
-    {
-		currentActiondialogType = actionDialogType.AdType;
+ //   private void ShowRewardAdDialog()
+ //   {
+	//	currentActiondialogType = actionDialogType.AdType;
 
-        IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ActionDialog);
-		dialog.SetDialogDelegate(this);
-		dialog.SetTitle("Get Point!");
-		dialog.SetMessage(rewardAdMessage);
-	}
+ //       IDialog dialog = DialogManager.instance.SpawnDialogBasedOnType(GameEnum.DialogType.ActionDialog);
+	//	dialog.SetDialogDelegate(this);
+	//	dialog.SetTitle("Get Point!");
+	//	dialog.SetMessage(rewardAdMessage);
+	//}
 
-    private void OnChangeRewardAdLoadedStatus(bool isLoaded)
-    {
-		_isRewardAdLoaded = isLoaded;
-	  //  _adButton.interactable = _isRewardAdLoaded;
-	}
+ //   private void OnChangeRewardAdLoadedStatus(bool isLoaded)
+ //   {
+	//	_isRewardAdLoaded = isLoaded;
+	//  //  _adButton.interactable = _isRewardAdLoaded;
+	//}
 }
