@@ -3681,7 +3681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0306d40b5bbfc43939c579a17d0887a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPublish: 0
   _gameOverStateNumberForInterstitialAd: 2
 --- !u!1 &709393364
 GameObject:
@@ -6963,7 +6962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0306d40b5bbfc43939c579a17d0887a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPublish: 1
   _gameOverStateNumberForInterstitialAd: 2
 --- !u!114 &1249686435
 MonoBehaviour:
@@ -6977,7 +6975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3aa4d92b0cc4e0fb037c2a75d7721d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardPoint: 30
 --- !u!114 &1249686436
 MonoBehaviour:
   m_ObjectHideFlags: 0

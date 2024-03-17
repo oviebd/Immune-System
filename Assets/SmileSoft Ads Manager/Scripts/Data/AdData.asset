@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   androidData_production:
     appId: 
-    bannerAdId: 
-    rewardAdId: 
-    interstitialAdId: 
+    bannerAdId: ca-app-pub-7034086702288798/3619597188
+    rewardAdId: ca-app-pub-7034086702288798/2085161840
+    interstitialAdId: ca-app-pub-7034086702288798/7748266652
   iosData_production:
     appId: 
     bannerAdId: 
