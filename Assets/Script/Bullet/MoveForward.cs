@@ -8,7 +8,7 @@ public class MoveForward : MonoBehaviour
     private void OnEnable()
     {
 		if (GetRigidbody() != null)
-			GetRigidbody().velocity = transform.right * _speed;
+			GetRigidbody().linearVelocity = transform.right * _speed;
 	}
 
     private Rigidbody2D GetRigidbody()
